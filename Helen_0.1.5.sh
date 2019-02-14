@@ -40,7 +40,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 =======================================================================
 
-Changes (07.02.2019):
+Changes (14.02.2019):
 
     ~ Added GUI support with 'whiptail'
     ~ Fixed some bugs
