@@ -1,65 +1,19 @@
 #!/bin/bash -e
-wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-sleep 0.5
-clear
-#Set title
-mytitle="Helen ~ 0.1.5"
-echo -e '\033]2;'$mytitle'\007'
-#Intro screen
-dialog --title "Welcome "$USER"!" --msgbox "       
-
-                        
- | |  | |                   
- | |__| | ___| | ___ _ __  
- |  __  |/ _ \ |/ _ \ '_ \ 
- | |  | |  __/ |  __/ | | |
- |_|  |_|\___|_|\___|_| |_|
-                           
-                           
-
-      Version 0.1.5
-
-      Dániel Kolozsi
-
-=======================================================================
-
-Copyright (C) [2018] [Dániel Kolozsi]
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-=======================================================================
-
-Changes (14.02.2019):
-
-    ~ Added GUI support with 'whiptail'
-    ~ Fixed some bugs
-    ~ Shortened the code by 179 lines! 
-    " 160 75
-clear
 #Going to Home and declaring variables
 cd
-list=""
 nam=""
-num=0
 what=apt
+sleep 0.01
+wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 clear
-echo 'Welcome '$USER'!'
+#Set title
+mytitle="Helen ~ 0.1.7"
+echo -e '\033]2;'$mytitle'\007'
 #Defining functions
     promptDialogSpec () {   #Feedback for user (for func.s)
-        echo 'Installing '$nam'...'
         $nam
         echo 'Done!'
+        sleep 1.5
         }
     promptDialog () {   #Same.. Just for single apps from repo or snap
 	    if [[ $what == "snap" ]]
@@ -72,6 +26,7 @@ echo 'Welcome '$USER'!'
 		    eval sudo $what install $nam -y $mut
 		    echo 'Done!'
 		fi
+		sleep 1.5
         }
     timsIns () {    #Timeshift
         sleep 0.5
@@ -94,7 +49,7 @@ echo 'Welcome '$USER'!'
         eval sudo apt update $mut
         eval sudo rm opera-stable_57.0.3098.110_amd64.deb $mut 
         }
-    gesturesSetup () {  #Libinput gestures + GUI
+    gesturesSetup () {  #Libinput gestures + GUI + xdotool
         echo 'Installing xdotool and wmctrl...'
         eval sudo apt install xdotool wmctrl -y $mut
         echo 'Done!'
@@ -163,161 +118,304 @@ echo 'Welcome '$USER'!'
         eval sudo apt full-upgrade -y $mut
         echo 'Done!'
         }
+#Selection menu No. 1
+no1 () {
+    CMD=(whiptail --title "Welcome "$USER"!" --menu "Choose one of the following options:" 15 40 4)
+    OPTIONS=(1 "Install everything (Simple)"
+             2 "Select what to install (Advanced)"
+             3 "Easter eggs selection"
+             4 "About")
+    CHOICES=$("${CMD[@]}" "${OPTIONS[@]}" 2>&1 >/dev/tty)
     clear
-    #Multichoose menu
-    cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 44 50 32)
-    options=(1 "Snapd" off    # Selection menu 3.5 using 'dialog'
-             2 "Libreoffice" off
-             3 "Git" off
-             4 "python3" off
-             5 "cmatrix" off
-             6 "sl" off
-             7 "mesa utils" off
-             8 "Wine" off
-             9 "software-properties-common" off
-             10 "Opera browser" off
-             11 "Steam" off
-             12 "Virtualbox" off
-             13 "GParted" off
-             14 "Dconf Editor" off
-             15 "Additional audio codecs" off
-             16 "Flash player support for browsers" off
-             17 "Archive management tools" off
-             18 "Audacity" off
-             19 "Déja dup" off
-             20 "Touchpad gestures" off
-             21 "Skype" off
-             22 "Visualstudio Code" off
-             23 "Screenfetch" off
-             24 "Timeshift" off
-             25 "Apt-fast" off
-             26 "Upgrade system" on
-             27 "Reboot after operation" on
-             28 "0 A.D." off
-             29 "WPS Office" off)
-    choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-    clear
-    for choice in $choices
-    do
-        case $choice in
+    
+    case $CHOICES in
             1)
-                nam=snap
-                promptDialogSpec
-                ;;
-            2)
-                nam='libreoffice libreoffice-gtk*'
-                promptDialog
-                ;;
-            3)
-                nam=git
-                promptDialog
-                ;;
-            4)
-                nam='python3 python3-setuptools python3-gi python-gobject python3-pip'
-                promptDialog
-                ;;
-            5)
-                nam=cmatrix
-                promptDialog
-                ;;
-            6)
-                nam=sl
-                promptDialog
-                ;;
-            7)
-                nam=mesa-utils
-                promptDialog
-                ;;
-            8)
-                nam=wine-stable
-                promptDialog
-                ;;
-            9)
-                nam=software-properties-common
-                promptDialog
-                ;;
-            10)
-                nam=operaInstall
-                promptDialogSpec
-                ;;
-            11)
-                nam=steam-installer
-                promptDialog
-                ;;
-            12)
-                nam=virtualbox
-                promptDialog
-                ;;
-            13)
-                nam=gparted
-                promptDialog
-                ;;
-            14)
-                nam=dconf-editor
-                promptDialog
-                ;;
-            15)
-                nam='ubuntu-restricted-extras libavcodec-extra'
-                promptDialog
-                ;;
-            16)
-                nam='flashplugin-installer pepperflashplugin-nonfree'
-                promptDialog
-                ;;
-            17)
-                nam='unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip'
-                promptDialog
-                ;;
-            18)
-                nam=audacity
-                promptDialog
-                ;;
-            19)
-                nam=deja-dup
-                promptDialog
-                ;;
-            20)
-                nam=gesturesSetup
-                promptDialogSpec
-                ;;
-            21)
-                what=snap
-                nam=skype
-                promptDialog
-                ;;
-            22)
-                what=snap
-                nam=vscode
-                promptDialog
-                ;;
-            23)
-                what=apt
-                nam=screenfetch
-                promptDialog
-                ;;
-            24)
-                nam=timsIns
-                promptDialogSpec
-                ;;
-            25)
-                nam=aptFast
-                promptDialogSpec
-                ;;
-            26)
-                nam=updater
+                sudo apt install snapd libreoffice libreoffice-gtk* git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch -y $mut
+                sudo snap install skype vscode --classic $mut
+                aptFast
+                operaInstall
+                gesturesSetup
+                timsIns
+                adIns
+                wpsInstall
                 updater
-                ;;
-            27)
-                nam=rebooter
                 rebooter
                 ;;
-            28)
-                nam=adIns
-                promptDialogSpec
+            2)
+                #Multichoice menu (selection)
+                cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 40 50 32)
+                options=(1 "Snapd" off    # Selection menu 3.5 using 'whiptail'
+                         2 "Libreoffice" off
+                         3 "Git" off
+                         4 "python3" off
+                         5 "mesa utils" off
+                         6 "Wine" off
+                         7 "software-properties-common" off
+                         8 "Opera browser" off
+                         9 "Steam" off
+                         10 "Virtualbox" off
+                         11 "GParted" off
+                         12 "Dconf Editor" off
+                         13 "Additional audio codecs" off
+                         14 "Flash player support for browsers" off
+                         15 "Archive management tools" off
+                         16 "Audacity" off
+                         17 "Déja dup" off
+                         18 "Touchpad gestures" off
+                         19 "Skype" off
+                         20 "Visualstudio Code" off
+                         21 "Screenfetch" off
+                         22 "Timeshift" off
+                         23 "Apt-fast" off
+                         24 "Upgrade system" off
+                         25 "Reboot after operation" off
+                         26 "0 A.D." off
+                         27 "WPS Office" off)
+                choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+                clear
+                for choice in $choices
+                do
+                    case $choice in
+                        1)
+                            nam=aptFast
+                            promptDialogSpec
+                            ;;
+                        2)
+                            nam='libreoffice libreoffice-gtk*'
+                            promptDialog
+                            ;;
+                        3)
+                            nam=git
+                            promptDialog
+                            ;;
+                        4)
+                            nam='python3 python3-setuptools python3-gi python-gobject python3-pip'
+                            promptDialog
+                            ;;
+                        5)
+                            nam=mesa-utils
+                            promptDialog
+                            ;;
+                        6)
+                            nam=wine-stable
+                            promptDialog
+                            ;;
+                        7)
+                            nam=software-properties-common
+                            promptDialog
+                            ;;
+                        8)
+                            nam=operaInstall
+                            promptDialogSpec
+                            ;;
+                        9)
+                            nam=steam-installer
+                            promptDialog
+                            ;;
+                        10)
+                            nam=virtualbox
+                            promptDialog
+                            ;;
+                        11)
+                            nam=gparted
+                            promptDialog
+                            ;;
+                        12)
+                            nam=dconf-editor
+                            promptDialog
+                            ;;
+                        13)
+                            nam='ubuntu-restricted-extras libavcodec-extra'
+                            promptDialog
+                            ;;
+                        14)
+                            nam='flashplugin-installer pepperflashplugin-nonfree'
+                            promptDialog
+                            ;;
+                        15)
+                            nam='unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip'
+                            promptDialog
+                            ;;
+                        16)
+                            nam=audacity
+                            promptDialog
+                            ;;
+                        17)
+                            nam=deja-dup
+                            promptDialog
+                            ;;
+                        18)
+                            nam=gesturesSetup
+                            promptDialogSpec
+                            ;;
+                        19)
+                            what=snap
+                            nam=skype
+                            promptDialog
+                            ;;
+                        20)
+                            what=snap
+                            nam=vscode
+                            promptDialog
+                            ;;
+                        21)
+                            what=apt
+                            nam=screenfetch
+                            promptDialog
+                            ;;
+                        22)
+                            nam=timsIns
+                            promptDialogSpec
+                            ;;
+                        23)
+                            nam=aptFast
+                            promptDialogSpec
+                            ;;
+                        24)
+                            nam=updater
+                            updater
+                            ;;
+                        25)
+                            nam=rebooter
+                            rebooter
+                            ;;
+                        26)
+                            nam=adIns
+                            promptDialogSpec
+                            ;;
+                        27)
+                            nam=wpsInstall
+                            promptDialogSpec
+                            ;;
+                    esac
+                done
                 ;;
-            29)
-                nam=wpsInstall
-                promptDialogSpec
+            3)
+                #Multichoose menu (Eastereggs)
+                cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 40 85 32)
+                options=(1 "cmatrix" off    # Selection menu 3.5 using 'whiptail'
+                         2 "sl" off
+                         3 "boxes" off
+                         4 "Check the weather from terminal" off
+                         5 "Download (non-copyright only) videos from youtube with your terminal" off
+                         6 "Play Sudoku in terminal" off
+                         7 "Text to ASCII in terminal" off
+                         8 "Make your terminal fancy!" off
+                         9 "There are animals in the terminal!" off
+                         10 "Do ypu know your fortune?" off)
+                choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+                clear
+                what=apt
+                for choice in $choices
+                do
+                    case $choice in
+                        1)
+                            nam=cmatrix
+                            promptDialog
+                            cmatrix
+                            ;;
+                        2)
+                            nam=sl
+                            promptDialog
+                            sl
+                            ;;
+                        3)
+                            nam=boxes
+                            promptDialog
+                            clear
+                            echo "I am a dog :D" | boxes -d dog -a c
+                            sleep 3
+                            ;;
+                        4)
+                            clear
+                            curl wttr.in
+                            ;;
+                        5)
+                            nam=youtube-dl
+                            promptDialog
+                            ;;
+                        6)
+                            nam=nudoku
+                            promptDialog
+                            nudoku
+                            ;;
+                        7)
+                            nam=figlet
+                            promptDialog
+                            clear
+                            read -p "Write here something: " userText   
+                            echo $userText | figlet
+                            sleep 3
+                            ;;
+                        8)
+                            nam=lolcat
+                            promptDialog
+                            clear
+                            echo ">>>>>>>>>>>>>>>>>>>>>>> It's so colorful!! <<<<<<<<<<<<<<<<<<<<<<<<" | lolcat
+                            sleep 3
+                            ;;
+                        9)
+                            nam=cowsay
+                            promptDialog
+                            clear
+                            cowsay -f dragon "Run for cover, I feel a sneeze coming on!"
+                            sleep 3
+                            ;;
+                        10)
+                            nam=fortune-mod
+                            promptDialog
+                            fortune
+                            ;;
+                    esac
+                done
                 ;;
-        esac
-    done
+            4)
+                #Intro screen
+                dialog --title "About" --msgbox "       
+
+                                        
+                           | |  | |                   
+                           | |__| | ___| | ___ _ __  
+                           |  __  |/ _ \ |/ _ \ '_ \ 
+                           | |  | |  __/ |  __/ | | |
+                           |_|  |_|\___|_|\___|_| |_|
+                                           
+                                           
+
+                Version 0.1.7
+
+                Dániel Kolozsi
+
+ ================================================================================
+
+          Copyright (C) [2019] [Dániel Kolozsi]
+
+          This program is free software: you can redistribute it and/or modify
+          it under the terms of the GNU General Public License as published by
+          the Free Software Foundation, either version 3 of the License, or
+          (at your option) any later version.
+
+          This program is distributed in the hope that it will be useful,
+          but WITHOUT ANY WARRANTY; without even the implied warranty of
+          MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+          GNU General Public License for more details.
+
+          You should have received a copy of the GNU General Public License
+          along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+ ================================================================================
+
+          Changes (02.03.2019):
+
+              ~ Added GUI support with 'dialog'
+              ~ Fixed a lots of bugs
+              ~ The script is now fully interactive and menu-driven
+              ~ Added Easter eggs
+              ~ Added simple mode
+              " 160 85
+                clear
+                no1
+                ;;
+    esac
+    }
+no1
