@@ -29,14 +29,14 @@ After that just type:
 # 2. Run the program first time
 You can do this from the terminal or through the GUI.
 
-**The Terminal way: **
+**The Terminal way:**
 
 Open a Terminal window in the folder where *Helen.sh* is located. Then type: 
 
     chmod +x Helen.sh
     ./Helen.sh
 
-**The GUI way: **
+**The GUI way:**
 
 Open the folder where *Helen.sh* is located.
 Then right click on *Helen.sh*, select *Properties*, go to *Permissions* and tick the *Allow excuting file as a program*
