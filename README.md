@@ -24,7 +24,7 @@ If you don't have git installed on your system paste this command to the termina
 After that just type:
 
     cd Downloads/
-    git clone https://github.com/swanux/Helen.git
+    git clone https://github.com/swanux/helen.git
     
 # 2. Run the program first time
 You can do this from the terminal or through the GUI.
