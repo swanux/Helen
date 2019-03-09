@@ -3,27 +3,52 @@
 cd
 nam=""
 what=apt
-sleep 0.01
-wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 clear
 #Set title
-mytitle="Helen ~ 0.1.7"
+mytitle="Helen ~ 0.1.9"
 echo -e '\033]2;'$mytitle'\007'
+#Checking requirements
+chk () {
+    PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $nam|grep "install ok installed")
+    echo "Checking for "$nam": " $PKG_OK
+    if [ "" == "$PKG_OK" ]; then
+        echo "No "$nam". Setting up "$nam"..."
+        sudo apt install $nam -y
+        sleep 1
+        clear
+    else
+        echo $nam" is installed already."
+        sleep 1
+    fi
+    }
+nam=whiptail
+chk
+nam=dialog
+chk
+nam=software-properties-common
+chk
+nam=git
+chk
 #Defining functions
     promptDialogSpec () {   #Feedback for user (for func.s)
+        clear
         $nam
+        clear
         echo 'Done!'
         sleep 1.5
         }
     promptDialog () {   #Same.. Just for single apps from repo or snap
+        clear
 	    if [[ $what == "snap" ]]
 		then
 		    echo 'Installing '$nam'...'
 		    eval sudo $what install $nam --classic $mut
+		    clear
 		    echo 'Done!'
         else
             echo 'Installing '$nam'...'
 		    eval sudo $what install $nam -y $mut
+		    clear
 		    echo 'Done!'
 		fi
 		sleep 1.5
@@ -87,6 +112,14 @@ echo -e '\033]2;'$mytitle'\007'
         eval sudo rm -rf ttf-wps-fonts-master $mut
         eval sudo rm master.zip $mut
         }
+    woeIns () {
+        clear
+        echo "Installing WoeUsb..."
+        sleep 1
+        sudo add-apt-repository ppa:nilarimogard/webupd8 -y
+        sudo apt update -y
+        sudo apt install woeusb -y
+        }
     tweakIns () { #Elementary-tweaks
         sleep 0.5
         echo 'Installing elementary tweaks...'
@@ -102,15 +135,14 @@ echo -e '\033]2;'$mytitle'\007'
         eval sudo apt-get install 0ad -y $mut
         }
     rebooter () {   #Rebboot confirmation
-        read -p "Do you really want to reboot? [y/n]: " prompt
-        if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
-        then
-                systemctl reboot
-        elif [[ $prompt == "n" || $prompt == "N" || $prompt == "no" || $prompt == "No" ]]
-        then
-            echo "OK, system won't reboot now."
+        clear
+        if (whiptail --title "Reboot" --yesno "Do you really want to reboot?" 8 78); then
+            systemctl reboot
         else
-            echo 'Invalid command!'
+            echo "Ok, system won't reboot now."
+            sleep 1
+            clear
+            no1
         fi
         }
     updater () {    #Update system
@@ -118,30 +150,122 @@ echo -e '\033]2;'$mytitle'\007'
         eval sudo apt full-upgrade -y $mut
         echo 'Done!'
         }
-#Selection menu No. 1
-no1 () {
-    CMD=(whiptail --title "Welcome "$USER"!" --menu "Choose one of the following options:" 15 40 4)
-    OPTIONS=(1 "Install everything (Simple)"
-             2 "Select what to install (Advanced)"
-             3 "Easter eggs selection"
-             4 "About")
-    CHOICES=$("${CMD[@]}" "${OPTIONS[@]}" 2>&1 >/dev/tty)
-    clear
-    
-    case $CHOICES in
-            1)
-                sudo apt install snapd libreoffice libreoffice-gtk* git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch -y $mut
-                sudo snap install skype vscode --classic $mut
-                aptFast
-                operaInstall
-                gesturesSetup
-                timsIns
-                adIns
-                wpsInstall
-                updater
-                rebooter
-                ;;
-            2)
+    esEggs () {
+            #Multichoice menu (Eastereggs)
+            cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 40 85 32)
+            options=(1 "cmatrix" off    # Selection menu 3.5 using 'whiptail'
+                     2 "sl" off
+                     3 "boxes" off
+                     4 "Check the weather from terminal" off
+                     5 "Download (non-copyright only) videos from youtube with your terminal" off
+                     6 "Play Sudoku in terminal" off
+                     7 "Text to ASCII in terminal" off
+                     8 "Make your terminal fancy!" off
+                     9 "There are animals in the terminal!" off
+                    10 "Do ypu know your fortune?" off)
+            choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+            clear
+            what=apt
+            for choice in $choices
+            do
+                case $choice in
+                    1)
+                        nam=cmatrix
+                        promptDialog
+                        cmatrix
+                        esEggs
+                        ;;
+                    2)
+                        nam=sl
+                        promptDialog
+                        sl
+                        esEggs
+                        ;;
+                    3)
+                        nam=boxes
+                        promptDialog
+                        clear
+                        echo "I am a dog :D" | boxes -d dog -a c
+                        echo ""
+                        read -p "Press enter to continue..."
+                        esEggs
+                        ;;
+                    4)
+                        clear
+                        curl wttr.in
+                        echo ""
+                        read -p "Press enter to continue..."
+                        esEggs
+                        ;;
+                    5)
+                        nam=youtube-dl
+                        promptDialog
+                        esEggs
+                        ;;
+                    6)
+                        nam=nudoku
+                        promptDialog
+                        nudoku
+                        esEggs
+                        ;;
+                    7)
+                        nam=figlet
+                        promptDialog
+                        clear
+                        read -p "Write here something: " userText   
+                        echo $userText | figlet
+                        echo ""
+                        read -p "Press enter to continue..."
+                        esEggs
+                        ;;
+                    8)
+                        nam=lolcat
+                        promptDialog
+                        clear
+                        echo ">>>>>>>>>>>>>>>>>>>>>>> It's so colorful!! <<<<<<<<<<<<<<<<<<<<<<<<" | lolcat
+                        echo ""
+                        read -p "Press enter to continue..." | lolcat
+                        esEggs
+                        ;;
+                    9)
+                        nam=cowsay
+                        promptDialog
+                        clear
+                        cowsay -f dragon "Run for cover, I feel a sneeze coming on!"
+                        echo ""
+                        read -p "Press enter to continue..."
+                        esEggs
+                        ;;
+                   10)
+                        nam=fortune-mod
+                        promptDialog
+                        fortune
+                        ;;
+                esac
+            done
+           }
+    all () {
+        if (whiptail --title "Install all" --yesno "Do you really want to install all packages?" 8 78); then
+            whiptail --title "These operations would take effect (Press Esc to abort) : " --msgbox "snapd libreoffice libreoffice-gtk* git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch apt-fast opera-stable gestures timeshift 0ad wpsoffice woeusb || update & restart" 15 85
+            sudo apt install snapd libreoffice libreoffice-gtk* git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch -y $mut
+            sudo snap install skype vscode --classic $mut
+            aptFast
+            operaInstall
+            gesturesSetup
+            timsIns
+            adIns
+            wpsInstall
+            woeIns
+            updater
+            rebooter
+        else
+            echo "Ok, going back to home..."
+            sleep 1
+            clear
+            no1
+        fi
+        }
+    adv () {
                 #Multichoice menu (selection)
                 cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 40 50 32)
                 options=(1 "Snapd" off    # Selection menu 3.5 using 'whiptail'
@@ -167,10 +291,11 @@ no1 () {
                          21 "Screenfetch" off
                          22 "Timeshift" off
                          23 "Apt-fast" off
-                         24 "Upgrade system" off
-                         25 "Reboot after operation" off
+                         24 "WPS Office" off
+                         25 "WoeUSB" off
                          26 "0 A.D." off
-                         27 "WPS Office" off)
+                         98 "Upgrade system" off
+                         99 "Reboot after operation" off)
                 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
                 clear
                 for choice in $choices
@@ -272,102 +397,44 @@ no1 () {
                             promptDialogSpec
                             ;;
                         24)
-                            nam=updater
-                            updater
+                            nam=wpsInstall
+                            promptDialogSpec
                             ;;
                         25)
-                            nam=rebooter
-                            rebooter
+                            nam=woeIns
+                            promptDialogSpec
                             ;;
                         26)
                             nam=adIns
                             promptDialogSpec
                             ;;
-                        27)
-                            nam=wpsInstall
-                            promptDialogSpec
+                        98)
+                            updater
+                            ;;
+                        99)
+                            rebooter
                             ;;
                     esac
                 done
+                }
+#Selection menu No. 1
+no1 () {
+    CMD=(whiptail --title "Welcome "$USER"!" --menu "Choose one of the following options:" 15 40 4)
+    OPTIONS=(1 "Install everything (Simple)"
+             2 "Select what to install (Advanced)"
+             3 "Easter eggs selection"
+             4 "About")
+    CHOICES=$("${CMD[@]}" "${OPTIONS[@]}" 2>&1 >/dev/tty)
+    clear
+    case $CHOICES in
+            1)
+                all
+                ;;
+            2)
+                adv
                 ;;
             3)
-                #Multichoose menu (Eastereggs)
-                cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 40 85 32)
-                options=(1 "cmatrix" off    # Selection menu 3.5 using 'whiptail'
-                         2 "sl" off
-                         3 "boxes" off
-                         4 "Check the weather from terminal" off
-                         5 "Download (non-copyright only) videos from youtube with your terminal" off
-                         6 "Play Sudoku in terminal" off
-                         7 "Text to ASCII in terminal" off
-                         8 "Make your terminal fancy!" off
-                         9 "There are animals in the terminal!" off
-                         10 "Do ypu know your fortune?" off)
-                choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-                clear
-                what=apt
-                for choice in $choices
-                do
-                    case $choice in
-                        1)
-                            nam=cmatrix
-                            promptDialog
-                            cmatrix
-                            ;;
-                        2)
-                            nam=sl
-                            promptDialog
-                            sl
-                            ;;
-                        3)
-                            nam=boxes
-                            promptDialog
-                            clear
-                            echo "I am a dog :D" | boxes -d dog -a c
-                            sleep 3
-                            ;;
-                        4)
-                            clear
-                            curl wttr.in
-                            ;;
-                        5)
-                            nam=youtube-dl
-                            promptDialog
-                            ;;
-                        6)
-                            nam=nudoku
-                            promptDialog
-                            nudoku
-                            ;;
-                        7)
-                            nam=figlet
-                            promptDialog
-                            clear
-                            read -p "Write here something: " userText   
-                            echo $userText | figlet
-                            sleep 3
-                            ;;
-                        8)
-                            nam=lolcat
-                            promptDialog
-                            clear
-                            echo ">>>>>>>>>>>>>>>>>>>>>>> It's so colorful!! <<<<<<<<<<<<<<<<<<<<<<<<" | lolcat
-                            sleep 3
-                            ;;
-                        9)
-                            nam=cowsay
-                            promptDialog
-                            clear
-                            cowsay -f dragon "Run for cover, I feel a sneeze coming on!"
-                            sleep 3
-                            ;;
-                        10)
-                            nam=fortune-mod
-                            promptDialog
-                            fortune
-                            ;;
-                    esac
-                done
+                esEggs
                 ;;
             4)
                 #Intro screen
@@ -382,13 +449,13 @@ no1 () {
                                            
                                            
 
-                Version 0.1.7
+                Version 0.1.9
 
                 Dániel Kolozsi
 
  ================================================================================
 
-          Copyright (C) [2019] [Dániel Kolozsi]
+          Copyright (C) [2018] [Dániel Kolozsi]
 
           This program is free software: you can redistribute it and/or modify
           it under the terms of the GNU General Public License as published by
@@ -405,13 +472,13 @@ no1 () {
 
  ================================================================================
 
-          Changes (02.03.2019):
+          Changes (09.03.2019):
 
-              ~ Added GUI support with 'dialog'
-              ~ Fixed a lots of bugs
-              ~ The script is now fully interactive and menu-driven
-              ~ Added Easter eggs
-              ~ Added simple mode
+              ~ Fixed bugs
+              ~ Added required package checking
+              ~ Added confirmation dialog to simple mode
+              ~ Converted some 'in-terminal' operation to whiptail boxes
+              ~ Added some new packages
               " 160 85
                 clear
                 no1
