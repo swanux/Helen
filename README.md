@@ -1,7 +1,7 @@
 # What is Helen?
 
-Helen (Help enter) is a small program written in bash. Its main goal is to help the newcomers enter to the Linux world. It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTUON! This program is currently in alpha stage (version 0.1.9). NOTE: The main features are still missing and will be added later in the beta stage. 
-Currently works on Linux Mint, and should work on all Ubuntu based distros.
+Helen (Help enter) is a small program written in bash. Its main goal is to help the newcomers enter to the Linux world. It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTUON! This program is currently in alpha stage (version 0.2.0). NOTE: The main features are still missing and will be added later in the beta stage. 
+Currently works on Debian/Ubuntu and Arch based distros.
 
 # Get things working
 
