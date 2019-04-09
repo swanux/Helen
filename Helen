@@ -1,20 +1,4 @@
 #!/bin/bash -e
-
-#~~~~~~~~~~~~~~~Planned features~~~~~~~~~~~~~~~~#
-#                                               #
-#===============================================#
-#                                               #
-# Some cool stuff in wine ?                     #
-# Android integration ?                         #
-# Making program menu-centric                   #
-#~Adding OS selection			                #
-#~Redefining easter eggs                        #
-# Adding progress bar                           #
-# Adding complex config file with version check #
-#~Add issue report                              #
-#                                               #
-#===============================================#
-
 sch () {
 	if [[ $distro == Ubuntu ]]
 	then
@@ -55,9 +39,7 @@ chkStr
 nam=""
 name=""
 what=apt
-version="0.x.x"
-sleep 0.1
-#wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+version="0.2.1"
 sleep 0.1
 clear
 #Set title
@@ -147,6 +129,21 @@ depChk () {
         sleep 1
         clear
        }
+    powins () {
+    	echo "Installing powertop..."
+    	sleep 1
+    	sudo add-apt-repository ppa:eugenesan/ppa
+    	sudo apt update
+    	sudo apt install powertop
+    	clear
+    	read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
+    	sudo powertop -c
+    	sudo powertop --auto-tune
+    	clear
+    	echo "Ready!"
+    	sleep 1
+    	clear
+    }
     promptDialog () {   #Same.. Just for single apps from repo or snap
         clear
         sch
@@ -505,6 +502,7 @@ depChk () {
                          24 "WPS Office" off
                          25 "WoeUSB" off
                          26 "0 A.D." off
+                         27 "Powertop" off
                          98 "Upgrade system" off
                          99 "Reboot after operation" off)
                 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -687,6 +685,22 @@ depChk () {
                             	promptDialogSpec
                             fi
                             ;;
+                        27)
+                        	if [[ $distro == Arch ]];then
+                        		nam=powertop
+                        		promptDialog
+                        		read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
+								sudo powertop -c
+								sudo powertop --auto-tune
+								clear
+								echo "Ready!"
+								sleep 1
+								clear
+                        	else
+                            	nam=powins
+                            	promptDialogSpec
+                            fi
+                            ;;
                         98)
                             updater
                             ;;
@@ -705,7 +719,7 @@ depChk () {
 
                 Dániel Kolozsi
                 
-                Github: <LINKKKK>
+                Github: <https://github.com/swanux/helen>
 
  ================================================================================
 
@@ -726,15 +740,10 @@ depChk () {
 
  ================================================================================
 
-          Changes (??.0?.2019):
+          Changes (09.04.2019):
 
               ~ Fixed bugs
-              ~ Added required package checking only at first start
-              ~ Made the code simplier
-              ~ Added feature request and bug report menu entry
-              ~ Added support for Arch based systems
-              ~ Lots of under-the-hood improvements
-              ~ Added support for Debian based systems
+              ~ Added new packages
               " 160 85
                 clear
                 if [[ $started == false ]]
