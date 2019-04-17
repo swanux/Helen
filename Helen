@@ -792,8 +792,7 @@ no1 () {
 osSec () {
 	CONF=(whiptail --title "Welcome "$USER"!" --menu "Choose your Linux distribution:" 15 40 5)
     OPTS=(1 "Arch (or based on it)"
-          2 "Debian (or based on it)"
-          3 "About")
+          2 "Debian (or based on it)")
     CHS=$("${CONF[@]}" "${OPTS[@]}" 2>&1 >/dev/tty)
     clear
     case $CHS in
@@ -817,10 +816,6 @@ osSec () {
             	misc="Apt-fast"
                 depChk
                 no1
-                ;;
-            3)
-            	started=false
-                about
                 ;;
     esac
     }
