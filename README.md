@@ -33,8 +33,8 @@ You can do this from the terminal or through the GUI.
 
 Open a Terminal window in the folder where *Helen.sh* is located. Then type: 
 
-    chmod +x Helen.sh
-    ./Helen.sh
+    chmod +x Helen
+    ./Helen
 
 **The GUI way:**
 
