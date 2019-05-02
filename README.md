@@ -45,6 +45,6 @@ Then right click on *Helen.sh*, select *Properties*, go to *Permissions* and tic
 
 After that just double click on the file to run it or type 
 
-        ./Helen.sh
+        ./Helen
 
 in the directory where the file is located.
