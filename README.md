@@ -1,4 +1,11 @@
+# Also checkout
+
+Helena (Help enter arch) is a CLI installer ISO for Arch Linux. **Installation made easy.**
+You can download it from here: https://sourceforge.net/projects/helenarch/
+
 # What is Helen?
+
+*Be SSU (Simple, Small, Useful*
 
 Helen (Help enter) is a small program written in bash. Its main goal is to help the newcomers enter to the Linux world. It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTION! This program is currently in alpha stage (version 0.2.2). NOTE: The main features are still missing and will be added later in the beta stage. 
 Currently works on Debian/Ubuntu and Arch based distros.
