@@ -1,4 +1,16 @@
-#!/bin/bash -e
+#!/bin/bash +e
+cd
+date="06.21.2019"
+version="0.2.5"
+wexit () {
+    exec 3>&1
+    result=$(dialog --yesno "Do you really would like to exit the program?" 5 55 2>&1 1>&3);
+    response=$?
+    case $response in
+       0) clear && exit;;
+       1) eval $cmback;;
+    esac
+}
 sch () {
 	if [[ $distro == Ubuntu ]]
 	then
@@ -23,7 +35,7 @@ sch () {
 #Going to Home and declaring variables
 chkStr () {
 	if grep -q $Str ".config/helen_config.txt"; then
-		$doIt
+	    $doIt
 	else
 		eval $StrCm
 		clear
@@ -39,7 +51,6 @@ chkStr
 nam=""
 name=""
 what=apt
-version="0.2.1"
 sleep 0.1
 clear
 #Set title
@@ -49,36 +60,53 @@ echo -e '\033]2;'$mytitle'\007'
 chkarch () {
 	if pacman -Qi $name > /dev/null ; then
 	  echo "Ok. Package $name is installed."
-	  sleep 1
+	  #sleep 1
 	else
 	  echo "The package $name is not installed. Installing "$name"..."
-	  sudo pacman -Sq --noconfirm $name > /dev/null
+	  nam=$name
+	  sleep 0.1
+	  promptDialog
+	  #sudo pacman -Sq --noconfirm $name > /dev/null
 	  clear
 	fi
-	}
+}
 chkdeb () {
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $name|grep "install ok installed")
     echo "Checking for "$name": " $PKG_OK
     if [ "" == "$PKG_OK" ]; then
         echo "No "$name". Setting up "$name"..."
-        sudo aptitude install $name -y
-        sleep 1
+        nam=$name
+        sleep 0.1
+        #echo "HÍR!!"
+        #exit
+        promptDialog
+        #sudo apt install $name -y
+        #sleep 1
         clear
     else
         echo $name" is installed already."
-        sleep 1
+        sleep 0.1
+        #echo "ITTE"
+        #exit
     fi
-    }
+}
+#Check if package is installed or not for esEggs or sth like that...
+eCs () {
+	if [[ $distro == Ubuntu ]]; then
+		chkdeb
+	elif [[ $distro == Arch ]]; then
+		chkarch
+	else
+		echo "Error 1"
+		break
+	fi
+}
 depChk () {
 		if [[ $distro == Ubuntu ]]
 		then
-			name=apt
-			chkdeb
-			name=wmctrl
-			chkdeb
 			name=xdg-utils
 			chkdeb
-			name=whiptail
+			name=dialog
 			chkdeb
 			name=dialog
 			chkdeb
@@ -136,7 +164,8 @@ depChk () {
     	sudo apt update
     	sudo apt install powertop
     	clear
-    	read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
+    	dialog --msgbox "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..." 20 40
+    	clear
     	sudo powertop -c
     	sudo powertop --auto-tune
     	clear
@@ -149,7 +178,7 @@ depChk () {
         sch
 	    if [[ $what == "snap" && $snapt == "no" ]]
 		then
-			if (whiptail --title "Snapd is required!" --yesno "Snapd is required for "$nam". Would you like to install it? If you select no you'll be redirected to the program selection page." 10 80); then
+			if (dialog --title "Snapd is required!" --yesno "Snapd is required for "$nam". Would you like to install it? If you select no you'll be redirected to the program selection page." 10 80); then
 				namtmp=$nam
 				snapIns
 		        nam=$namtmp
@@ -183,7 +212,7 @@ depChk () {
 		    clear
 		elif [[ $what == pakku && $pakkut == no ]]
 		then
-			if (whiptail --title "Pakku is required!" --yesno "Pakku is required for "$nam". Would you like to install it? If you select no you'll be redirected to the homepage." 10 80); then
+			if (dialog --title "Pakku is required!" --yesno "Pakku is required for "$nam". Would you like to install it? If you select no you'll be redirected to the homepage." 10 80); then
 				pakkuIns
 		        echo 'Working on '$nam'...'
 				sleep 1
@@ -216,10 +245,10 @@ depChk () {
 		sleep 1.5
         }
     snapIns () {
-    	nam=snapd
-    	sch
+    	name=snapd
+    	eCs
+    	#promptDialog
         snapt=yes
-        promptDialog
         if [[ $distro == Arch ]];then
    		sudo systemctl enable --now snapd.socket
         sudo ln -s /var/lib/snapd/snap /snap
@@ -239,7 +268,7 @@ depChk () {
     	sudo echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
     	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
     	sudo apt-get update
-    	sudo apt-get install balena-etcher-electron
+    	sudo apt-get install balena-etcher-electron -y
     	}
     exRep () {
     	echo '[multilib]' | sudo tee -a /etc/pacman.conf
@@ -330,7 +359,7 @@ depChk () {
         }
     rebooter () {   #Rebboot confirmation
         clear
-        if (whiptail --title "Reboot" --yesno "Do you really want to reboot?" 8 78); then
+        if (dialog --title "Reboot" --yesno "Do you really want to reboot?" 8 78); then
             systemctl reboot
         else
             echo "Ok, system won't reboot now."
@@ -352,34 +381,40 @@ depChk () {
         }
     esEggs () {
 		        #Multichoice menu (Eastereggs)
-		        cmd=(whiptail --title "Welcome "$USER"!" --menu "Choose your Linux distribution:" 20 80 10)
-				options=(1 "cmatrix"    # Selection menu 3.5 using 'whiptail'
-								     2 "sl"
-								     3 "boxes"
-								     4 "Check the weather from terminal"
-								     5 "Download (non-copyright only) videos from youtube with your terminal"
-								     6 "Play Sudoku in terminal"
-								     7 "Text to ASCII in terminal"
-								     8 "Make your terminal fancy!"
-								     9 "There are animals in the terminal!")
-				choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-				clear
-				case $choices in
-					1)
-                        nam=cmatrix
-                        promptDialog
+		        exec 3>&1
+                result=$(dialog --menu "Choose an EasterEgg :" 20 80 10 \
+                        "1"     "cmatrix - Knock knock Neo..." \
+                       "2"       "sl - Locomotive in the console" \
+                       "3"       "boxes - Graffiti on your virtual wall" \
+                       "4"       "Check the weather from terminal" \
+                       "5"       "Download videos from youtube" \
+                       "6"       "Play Sudoku in terminal" \
+                       "7"       "Text to ASCII in terminal" \
+                       "8"       "Make your terminal fancy!" \
+                       "9"       "There are animals in the terminal!" 2>&1 1>&3);               # Selection menu 4.0 using 'dialog'
+                response=$?
+                case $response in
+                   1) no1;;
+                esac
+                case $result in
+                    1)
+                        name=cmatrix
+                        #promptDialog
+                        eCs
                         cmatrix
                         esEggs
                         ;;
                     2)
-                        nam=sl
-                        promptDialog
+                        name=sl
+                        #promptDialog
+                        eCs
                         sl
                         esEggs
                         ;;
                     3)
-                        nam=boxes
-                        promptDialog
+                        name=boxes
+                        #promptDialog
+                        eCs
                         clear
                         echo "I am a dog :D" | boxes -d dog -a c
                         echo ""
@@ -394,19 +429,22 @@ depChk () {
                         esEggs
                         ;;
                     5)
-                        nam=youtube-dl
-                        promptDialog
+                        name=youtube-dl
+                        #promptDialog
+                        eCs
                         esEggs
                         ;;
                     6)
-                        nam=nudoku
-                        promptDialog
+                        name=nudoku
+                        #promptDialog
+                        eCs
                         nudoku
                         esEggs
                         ;;
                     7)
-                        nam=figlet
-                        promptDialog
+                        name=figlet
+                        #promptDialog
+                        eCs
                         clear
                         read -p "Write here something: " userText   
                         echo $userText | figlet
@@ -415,8 +453,9 @@ depChk () {
                         esEggs
                         ;;
                     8)
-                        nam=lolcat
-                        promptDialog
+                        name=lolcat
+                        #promptDialog
+                        eCs
                         clear
                         echo ">>>>>>>>>>>>>>>>>>>>>>> It's so colorful!! <<<<<<<<<<<<<<<<<<<<<<<<" | lolcat
                         echo ""
@@ -424,8 +463,9 @@ depChk () {
                         esEggs
                         ;;
                     9)
-                        nam=cowsay
-                        promptDialog
+                        name=cowsay
+                        #promptDialog
+                        eCs
                         clear
                         cowsay -f dragon "Run for cover, I feel a sneeze coming on!"
                         echo ""
@@ -435,8 +475,8 @@ depChk () {
                 esac
            }
     allArch () {
-    	if (whiptail --title "Install all" --yesno "Do you really want to install all packages?" 8 78); then
-            whiptail --title "These operations would take effect (Press Esc to abort) : " --msgbox "snapd libreoffice git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch apt-fast opera-stable gestures timeshift 0ad wpsoffice woeusb || update & restart" 15 85
+    	if (dialog --title "Install all" --yesno "Do you really want to install all packages?" 8 78); then
+            dialog --title "These operations would take effect (Press Esc to abort) : " --msgbox "snapd libreoffice git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch apt-fast opera-stable gestures timeshift 0ad wpsoffice woeusb || update & restart" 15 85
             sudo pacman -Syuq --noconfirm
             sudo pacman -Sq --noconfirm libreoffice-fresh-en_gb wine steam steam-native-runtime git mesa-demos etcher opera opera-ffmpeg-codecs virtualbox gparted dconf-editor wavpack flashplugin unace unrar p7zip sharutils uudeview arj cabextract lzip audacity deja-dup screenfetch 0ad
             sudo pakku -Sq --noconfirm snapd python3 gestures libinput-gestures timeshift wps-office woeusb
@@ -453,8 +493,8 @@ depChk () {
         fi
         }
     all () {
-        if (whiptail --title "Install all" --yesno "Do you really want to install all packages?" 8 78); then
-            whiptail --title "These operations would take effect (Press Esc to abort) : " --msgbox "snapd libreoffice git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch apt-fast opera-stable gestures timeshift 0ad wpsoffice woeusb || update & restart" 15 85
+        if (dialog --title "Install all" --yesno "Do you really want to install all packages?" 8 78); then
+            dialog --title "These operations would take effect (Press Esc to abort) : " --msgbox "snapd libreoffice git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch apt-fast opera-stable gestures timeshift 0ad wpsoffice woeusb || update & restart" 15 85
             sudo apt install snapd libreoffice libreoffice-gtk* git python3 python3-setuptools python3-gi python-gobject python3-pip mesa-utils wine-stable software-properties-common steam-installer virtualbox gparted dconf-editor ubuntu-restricted-extras libavcodec-extra flashplugin-installer pepperflashplugin-nonfree unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip audacity deja-dup screenfetch -y
             sudo snap install skype vscode --classic
             aptFast
@@ -473,244 +513,244 @@ depChk () {
             no1
         fi
         }
-    adv () {
-                #Multichoice menu (selection)
-                cmd=(whiptail --title "Selection menu" --separate-output --checklist "Select options:" 30 60 20)
-                options=(1 "Snapd" off    # Selection menu 3.5 using 'whiptail'
-                         2 "Libreoffice" off
-                         3 "Git" off
-                         4 "python3" off
-                         5 "mesa utils" off
-                         6 "Wine" off
-                         7 "Etcher" off
-                         8 "Opera browser" off
-                         9 "Steam" off
-                         10 "Virtualbox" off
-                         11 "GParted" off
-                         12 "Dconf Editor" off
-                         13 "Additional audio codecs" off
-                         14 "Flash player support for browsers" off
-                         15 "Archive management tools" off
-                         16 "Audacity" off
-                         17 "Déja dup" off
-                         18 "Touchpad gestures" off
-                         19 "Skype" off
-                         20 "Visualstudio Code" off
-                         21 "Screenfetch" off
-                         22 "Timeshift" off
-                         23 "$misc" off
-                         24 "WPS Office" off
-                         25 "WoeUSB" off
-                         26 "0 A.D." off
-                         27 "Powertop" off
-                         98 "Upgrade system" off
-                         99 "Reboot after operation" off)
-                choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-                clear
-                for choice in $choices
-                do
-                    case $choice in
-                        1)
-                            snapIns
-                            ;;
-                        2)
-                        	if [[ $distro == Arch ]];then
-                        		nam=libreoffice-fresh-en_gb
-                        		sch
-                        	else
-                            	nam='libreoffice'
-                            fi
-                            promptDialog
-                            ;;
-                        3)
-                            nam=git
-                            promptDialog
-                            ;;
-                        4)
-                        	if [[ $distro == Arch ]];then
-                        		nam=python3
-                        	else
-                            	nam='python3 python3-setuptools python3-gi python-gobject python3-pip'
-                            fi
-                            promptDialog
-                            ;;
-                        5)
-                        	if [[ $distro == Arch ]];then
-                        		nam=mesa-demos
-                        	else
-                            	nam=mesa-utils
-                            fi
-                            promptDialog
-                            ;;
-                        6)
-                        	if [[ $distro == Arch ]];then
-                        		nam=wine
-                        	else
-                            	nam="wine-stable wine32 wine64"
-                            fi
-                            promptDialog
-                            ;;
-                        7)
-                        	if [[ $distro == Arch ]];then
-                        		nam=etcher
-                        		promptDialog
-                        	else
-                            	nam=etcher
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        8)
-                        	if [[ $distro == Arch ]];then
-                        		nam="opera opera-ffmpeg-codecs"
-                        		promptDialog
-                        	else
-                            	nam=operaInstall
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        9)
-                        	if [[ $distro == Arch ]];then
-                        		nam="steam steam-native-runtime"
-                        	else
-                            	nam=steam-installer
-                            fi
-                            promptDialog
-                            ;;
-                        10)
-                            nam=virtualbox
-                            promptDialog
-                            ;;
-                        11)
-                            nam=gparted
-                            promptDialog
-                            ;;
-                        12)
-                            nam=dconf-editor
-                            promptDialog
-                            ;;
-                        13)
-                        	if [[ $distro == Arch ]];then
-                        		nam=wavpack
-                        	else
-                            	nam='ubuntu-restricted-extras libavcodec-extra'
-                            fi
-                            promptDialog
-                            ;;
-                        14)
-                        	if [[ $distro == Arch ]];then
-                        		nam=flashplugin
-                        	else
-                            	nam='flashplugin-installer pepperflashplugin-nonfree'
-                            fi
-                            promptDialog
-                            ;;
-                        15)
-                        	if [[ $distro == Arch ]];then
-                        		nam="unace unrar p7zip sharutils uudeview arj cabextract lzip"
-                        	else
-                            	nam='unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip'
-                            fi
-                            promptDialog
-                            ;;
-                        16)
-                            nam=audacity
-                            promptDialog
-                            ;;
-                        17)
-                            nam=deja-dup
-                            promptDialog
-                            ;;
-                        18)
-                        	if [[ $distro == Arch ]];then
-                        		nam="gestures libinput-gestures"
-                        		promptDialog
-                        	else
-                            	nam=gesturesSetup
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        19)
-                            nam=skype
-                            promptDialog
-                            ;;
-                        20)
-                            nam=vscode
-                            promptDialog
-                            ;;
-                        21)
-                            nam=screenfetch
-                            promptDialog
-                            ;;
-                        22)
-                        	if [[ $distro == Arch ]];then
-                        		nam=timeshift
-                        		promptDialog
-                        	else
-                            	nam=timsIns
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        23)
-                        	if [[ $distro == Arch ]];then
-                        		pakkuIns
-                        	else
-                            	nam=aptFast
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        24)
-                        	if [[ $distro == Arch ]];then
-                        		nam=wps-office
-                        		promptDialog
-                        	else
-                            	nam=wpsInstall
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        25)
-                        	if [[ $distro == Arch ]];then
-                        		nam=woeusb
-                        		promptDialog
-                        	else
-                            	nam=woeIns
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        26)
-                        	if [[ $distro == Arch ]];then
-                        		nam=0ad
-                        		promptDialog
-                        	else
-                            	nam=adIns
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        27)
-                        	if [[ $distro == Arch ]];then
-                        		nam=powertop
-                        		promptDialog
-                        		read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
-								sudo powertop -c
-								sudo powertop --auto-tune
-								clear
-								echo "Ready!"
-								sleep 1
-								clear
-                        	else
-                            	nam=powins
-                            	promptDialogSpec
-                            fi
-                            ;;
-                        98)
-                            updater
-                            ;;
-                        99)
-                            rebooter
-                            ;;
-                    esac
-                done
-                no1
-                }
+adv () {
+#Multichoice menu (selection)
+cmd=(dialog --title "Selection menu" --separate-output --checklist "Select options:" 30 60 20)
+options=(1 "Snapd" off    # Selection menu 3.6 using 'dialog'
+         2 "Libreoffice" off
+         3 "Git" off
+         4 "python3" off
+         5 "mesa utils" off
+         6 "Wine" off
+         7 "Etcher" off
+         8 "Opera browser" off
+         9 "Steam" off
+         10 "Virtualbox" off
+         11 "GParted" off
+         12 "Dconf Editor" off
+         13 "Additional audio codecs" off
+         14 "Flash player support for browsers" off
+         15 "Archive management tools" off
+         16 "Audacity" off
+         17 "Déja dup" off
+         18 "Touchpad gestures" off
+         19 "Skype" off
+         20 "Visualstudio Code" off
+         21 "Screenfetch" off
+         22 "Timeshift" off
+         23 "$misc" off
+         24 "WPS Office" off
+         25 "WoeUSB" off
+         26 "0 A.D." off
+         27 "Powertop" off
+         98 "Upgrade system" off
+         99 "Reboot after operation" off)
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+clear
+for choice in $choices
+do
+    case $choice in
+        1)
+            snapIns
+            ;;
+        2)
+        	if [[ $distro == Arch ]];then
+        		nam=libreoffice-fresh-en_gb
+        		sch
+        	else
+            	nam='libreoffice'
+            fi
+            promptDialog
+            ;;
+        3)
+            nam=git
+            promptDialog
+            ;;
+        4)
+        	if [[ $distro == Arch ]];then
+        		nam=python3
+        	else
+            	nam='python3 python3-setuptools python3-gi python-gobject python3-pip'
+            fi
+            promptDialog
+            ;;
+        5)
+        	if [[ $distro == Arch ]];then
+        		nam=mesa-demos
+        	else
+            	nam=mesa-utils
+            fi
+            promptDialog
+            ;;
+        6)
+        	if [[ $distro == Arch ]];then
+        		nam=wine
+        	else
+            	nam="wine-stable wine32 wine64"
+            fi
+            promptDialog
+            ;;
+        7)
+        	if [[ $distro == Arch ]];then
+        		nam=etcher
+        		promptDialog
+        	else
+            	nam=etcher
+            	promptDialogSpec
+            fi
+            ;;
+        8)
+        	if [[ $distro == Arch ]];then
+        		nam="opera opera-ffmpeg-codecs"
+        		promptDialog
+        	else
+            	nam=operaInstall
+            	promptDialogSpec
+            fi
+            ;;
+        9)
+        	if [[ $distro == Arch ]];then
+        		nam="steam steam-native-runtime"
+        	else
+            	nam=steam-installer
+            fi
+            promptDialog
+            ;;
+        10)
+            nam=virtualbox
+            promptDialog
+            ;;
+        11)
+            nam=gparted
+            promptDialog
+            ;;
+        12)
+            nam=dconf-editor
+            promptDialog
+            ;;
+        13)
+        	if [[ $distro == Arch ]];then
+        		nam=wavpack
+        	else
+            	nam='ubuntu-restricted-extras libavcodec-extra'
+            fi
+            promptDialog
+            ;;
+        14)
+        	if [[ $distro == Arch ]];then
+        		nam=flashplugin
+        	else
+            	nam='flashplugin-installer pepperflashplugin-nonfree'
+            fi
+            promptDialog
+            ;;
+        15)
+        	if [[ $distro == Arch ]];then
+        		nam="unace unrar p7zip sharutils uudeview arj cabextract lzip"
+        	else
+            	nam='unace rar unrar p7zip-rar p7zip sharutils uudeview mpack arj cabextract lzip lunzip'
+            fi
+            promptDialog
+            ;;
+        16)
+            nam=audacity
+            promptDialog
+            ;;
+        17)
+            nam=deja-dup
+            promptDialog
+            ;;
+        18)
+        	if [[ $distro == Arch ]];then
+        		nam="gestures libinput-gestures"
+        		promptDialog
+        	else
+            	nam=gesturesSetup
+            	promptDialogSpec
+            fi
+            ;;
+        19)
+            nam=skype
+            promptDialog
+            ;;
+        20)
+            nam=vscode
+            promptDialog
+            ;;
+        21)
+            nam=screenfetch
+            promptDialog
+            ;;
+        22)
+        	if [[ $distro == Arch ]];then
+        		nam=timeshift
+        		promptDialog
+        	else
+            	nam=timsIns
+            	promptDialogSpec
+            fi
+            ;;
+        23)
+        	if [[ $distro == Arch ]];then
+        		pakkuIns
+        	else
+            	nam=aptFast
+            	promptDialogSpec
+            fi
+            ;;
+        24)
+        	if [[ $distro == Arch ]];then
+        		nam=wps-office
+        		promptDialog
+        	else
+            	nam=wpsInstall
+            	promptDialogSpec
+            fi
+            ;;
+        25)
+        	if [[ $distro == Arch ]];then
+        		nam=woeusb
+        		promptDialog
+        	else
+            	nam=woeIns
+            	promptDialogSpec
+            fi
+            ;;
+        26)
+        	if [[ $distro == Arch ]];then
+        		nam=0ad
+        		promptDialog
+        	else
+            	nam=adIns
+            	promptDialogSpec
+            fi
+            ;;
+        27)
+        	if [[ $distro == Arch ]];then
+        		nam=powertop
+        		promptDialog
+        		read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
+				sudo powertop -c
+				sudo powertop --auto-tune
+				clear
+				echo "Ready!"
+				sleep 1
+				clear
+        	else
+            	nam=powins
+            	promptDialogSpec
+            fi
+            ;;
+        98)
+            updater
+            ;;
+        99)
+            rebooter
+            ;;
+    esac
+done
+no1
+}
     about () {
                 #About screen
                 dialog --title "About" --msgbox "       
@@ -740,10 +780,14 @@ depChk () {
 
  ================================================================================
 
-          Changes (09.04.2019):
+          Changes ($date):
 
               ~ Fixed bugs
-              ~ Added new packages
+              ~ Optimized performance
+              ~ Refreshed code base
+              ~ Enchanced user experience
+              ~ Built in installer and uninstaller
+              ~ Resolved some minor compatibility issues
               " 160 85
                 clear
                 if [[ $started == false ]]
@@ -761,18 +805,39 @@ depChk () {
         no1
         }
 #Selection menu No. 1
+rmEr () {
+	exec 3>&1
+	result=$(dialog --yesno "Would you like to remove Helen?" 5 65 2>&1 1>&3);
+	response=$?
+	case $response in
+	   1) clear;;
+	   0) clear
+	sudo su << EOF
+	sed -i "/\b\helen\b/d" /etc/bash.bashrc
+	clear
+	exit
+EOF
+	rm -rf /home/$USER/.config/Helen
+	dialog --msgbox "Done! Changes will take effect after reboot." 15 50
+	clear
+	;;
+esac
+}
 no1 () {
-	started=true
-    CMD=(whiptail --title "Welcome "$USER"!" --menu "Choose one of the following options:" 15 40 5)
-    OPTIONS=(1 "Install everything (Simple)"
-             2 "Select what to install (Advanced)"
-             3 "Easter eggs selection"
-             4 "About"
-             5 "Request new feature or report bug")
-    CHOICES=$("${CMD[@]}" "${OPTIONS[@]}" 2>&1 >/dev/tty)
-    clear
-    case $CHOICES in
-            1)
+    exec 3>&1
+    result=$(dialog --menu "Choose one of the following options:" 15 45 6 \
+            1 "Install everything (Simple)" \
+             2 "Select what to install (Advanced)" \
+             3 "Easter eggs selection" \
+             4 "About" \
+             5 "Request new feature or report bug" \
+             6 "Remove Helen" 2>&1 1>&3);
+    response=$?
+    case $response in
+       1) cmback="no1" && wexit;;
+    esac
+    case $result in
+	        1)
                 all
                 ;;
             2)
@@ -787,44 +852,83 @@ no1 () {
             5)
                 fbacks
                 ;;
+            6)
+            	rmEr
+            	;;
     esac
     }
+ilLer () {
+	exec 3>&1
+	result=$(dialog --yesno "Would you like to install Helen instead of just running it?" 5 65 2>&1 1>&3);
+	response=$?
+	case $response in
+	   1) clear;;
+	   0) clear
+	sudo su << EOF
+	exit
+EOF
+	cd
+	git clone https://github.com/swanux/helen.git
+	cd helen
+	cp Helen /home/$USER/.config
+	cd
+	rm -rf helen
+	chmod +x /home/$USER/.config/Helen
+	cd /etc/
+	sudo su << EOF
+	echo "alias helen='/home/$USER/.config/./Helen'" >> /etc/bash.bashrc
+	clear
+	exit
+EOF
+	dialog --msgbox "Done! Just type helen to your terminal to start the program. Changes will take effect after reboot." 15 50
+	clear
+	;;
+esac
+}
 osSec () {
-	CONF=(whiptail --title "Welcome "$USER"!" --menu "Choose your Linux distribution:" 15 40 5)
-    OPTS=(1 "Arch (or based on it)"
-          2 "Debian (or based on it)")
-    CHS=$("${CONF[@]}" "${OPTS[@]}" 2>&1 >/dev/tty)
-    clear
-    case $CHS in
-            1)
-            	distro=Arch
-            	echo 'distrodoneA' >> .config/helen_config.txt
-            	misc="Pakku (AUR helper)"
-            	Str=exRep
-            	StrCm=exRep
-            	doIt=:
-            	chkStr
-            	Str=compatible
-            	StrCm=depChk
-            	doIt=:
-            	chkStr
-            	no1
-                ;;
-            2)
-            	distro=Ubuntu
-            	echo 'distrodoneU' >> .config/helen_config.txt
-            	misc="Apt-fast"
-                depChk
-                no1
-                ;;
+    exec 3>&1
+    result=$(dialog --menu "Select your Linux Distro:" 10 40 2 \
+           "1"       "Arch (or based on it)" \
+           "2"       "Debian (or based on it)" 2>&1 1>&3);
+    response=$?
+    case $response in
+       1) cmback="osSec" && wexit;;
     esac
-    }
+    case $result in
+		1)
+			distro=Arch
+			misc="Pakku (AUR helper)"
+			Str=exRep
+			StrCm=exRep
+			doIt=:
+			chkStr
+			#Str=compatible
+			#StrCm=depChk
+			#doIt=:
+			clear
+			depChk
+			#chkStr
+			echo 'distrodoneA' >> .config/helen_config.txt
+			ilLer
+			no1
+		    ;;
+		2)
+			distro=Ubuntu
+			misc="Apt-fast"
+			clear
+		    depChk
+		    echo 'distrodoneU' >> .config/helen_config.txt
+		    ilLer
+		    no1
+		    ;;
+    esac
+}
 if grep -q 'distrodoneA' ".config/helen_config.txt"; then
 	distro=Arch
 	misc="Pakku (AUR helper)"
 	no1
 elif grep -q 'distrodoneU' ".config/helen_config.txt"; then
-	distro=Arch
+	distro=Ubuntu
 	misc="Apt-fast"
 	no1
 else
