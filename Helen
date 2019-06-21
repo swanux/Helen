@@ -1,15 +1,5 @@
 #!/bin/bash +e
-
-#~~~~~~~~~~~~~~~Planned features~~~~~~~~~~~~~~~~#
-#                                               #
-#===============================================#
-#                                               #
-# Some cool stuff in wine ?                     #
-# Android integration ?                         #
-# Adding complex config file with version check #
-#                                               #
-#===============================================#
-
+sudo apt install dialog || sudo pacman -S dialog
 cd
 date="06.21.2019"
 version="0.2.5"
