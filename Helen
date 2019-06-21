@@ -1,4 +1,15 @@
 #!/bin/bash +e
+
+#~~~~~~~~~~~~~~~Planned features~~~~~~~~~~~~~~~~#
+#                                               #
+#===============================================#
+#                                               #
+# Some cool stuff in wine ?                     #
+# Android integration ?                         #
+# Adding complex config file with version check #
+#                                               #
+#===============================================#
+
 cd
 date="06.21.2019"
 version="0.2.5"
