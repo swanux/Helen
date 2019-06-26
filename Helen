@@ -1,8 +1,14 @@
 #!/bin/bash +e
-sudo apt install dialog || sudo pacman -S dialog
 cd
-date="06.21.2019"
-version="0.2.5"
+date="06.26.2019"
+version="v0.2.9"
+export $version
+if grep -q "updated" ~/.config/helen_config.txt; then
+	updated=true
+	sed -i "/\b\updated\b/d" ~/.config/helen_config.txt
+else
+	updated=false
+fi
 wexit () {
     exec 3>&1
     result=$(dialog --yesno "Do you really would like to exit the program?" 5 55 2>&1 1>&3);
@@ -11,6 +17,42 @@ wexit () {
        0) clear && exit;;
        1) eval $cmback;;
     esac
+}
+updaterR () {
+	cd
+	clear
+	git clone https://github.com/swanux/helen
+	if grep -q $version ~/helen/Helen; then
+		rm -rf helen
+		clear
+	    dialog --msgbox "You are up to date." 20 20
+	    clear
+	    no1
+	else
+		exec 3>&1
+		result=$(dialog --yesno "Update avilable! Would you like to update now?" 5 55 2>&1 1>&3);
+		response=$?
+		case $response in
+		   0) 	chmod +x helen/Helen
+		   		rm -rf Helen
+		   		cp ~/helen/Helen $PWD
+		   		if [[ $iVr == "Remove Helen" ]]; then
+		   			rm -rf ~/.config/Helen
+		   			cp ~/helen/Helen ~/.config/
+		   		fi
+		   		echo "updated" >> ~/.config/helen_config.txt
+		   		rm -rf ~/helen/
+		   		clear
+		   		dialog --msgbox "Helen updated succesfully! Now just rerun Helen to enjoy it." 15 25 #heigth - width
+		   		clear
+		   		exit
+		   		;;
+		   1) 	rm -rf helen
+		   		clear
+		   		no1
+		   		;;
+		esac
+	fi
 }
 sch () {
 	if [[ $distro == Ubuntu ]]
@@ -61,13 +103,17 @@ echo -e '\033]2;'$mytitle'\007'
 chkarch () {
 	if pacman -Qi $name > /dev/null ; then
 	  echo "Ok. Package $name is installed."
-	  #sleep 1
+	  telepite=n
 	else
 	  echo "The package $name is not installed. Installing "$name"..."
 	  nam=$name
 	  sleep 0.1
-	  promptDialog
-	  #sudo pacman -Sq --noconfirm $name > /dev/null
+	  if [[ $nam == 0ad && $distro == Ubuntu ]]; then
+	  	:
+	  else
+	  	promptDialog
+	  fi
+	  telepite=y
 	  clear
 	fi
 }
@@ -78,17 +124,17 @@ chkdeb () {
         echo "No "$name". Setting up "$name"..."
         nam=$name
         sleep 0.1
-        #echo "HÍR!!"
-        #exit
-        promptDialog
-        #sudo apt install $name -y
-        #sleep 1
+        if [[ $nam == 0ad && $distro == Ubuntu ]]; then
+	  		:
+	  	else
+	  		promptDialog
+	  	fi
+	  	telepite=y
         clear
     else
         echo $name" is installed already."
         sleep 0.1
-        #echo "ITTE"
-        #exit
+        telepite=n
     fi
 }
 #Check if package is installed or not for esEggs or sth like that...
@@ -161,17 +207,21 @@ depChk () {
     powins () {
     	echo "Installing powertop..."
     	sleep 1
-    	sudo add-apt-repository ppa:eugenesan/ppa
-    	sudo apt update
-    	sudo apt install powertop
-    	clear
-    	dialog --msgbox "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..." 20 40
-    	clear
-    	sudo powertop -c
-    	sudo powertop --auto-tune
-    	clear
-    	echo "Ready!"
-    	sleep 1
+    	name=powertop
+    	eCs
+    	if [[ $telepite == y ]]; then
+			sudo add-apt-repository ppa:eugenesan/ppa
+			sudo apt update
+			sudo apt install powertop
+			clear
+			dialog --msgbox "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..." 20 40
+			clear
+			sudo powertop -c
+			sudo powertop --auto-tune
+			clear
+			echo "Ready!"
+			sleep 1
+		fi
     	clear
     }
     promptDialog () {   #Same.. Just for single apps from repo or snap
@@ -248,7 +298,6 @@ depChk () {
     snapIns () {
     	name=snapd
     	eCs
-    	#promptDialog
         snapt=yes
         if [[ $distro == Arch ]];then
    		sudo systemctl enable --now snapd.socket
@@ -258,18 +307,22 @@ depChk () {
     timsIns () {    #Timeshift
         sleep 0.5
         echo 'Installing timeshift...'
-        nam=software-properties-common
-        promptDialog
+        name=software-properties-common
+        eCs
         eval sudo add-apt-repository -y ppa:teejee2008/ppa
         eval sudo apt update
-        eval sudo apt install timeshift -y
+        name=timeshift
+		eCs
         }
     etcher () {
     	cd
-    	sudo echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-    	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
-    	sudo apt-get update
-    	sudo apt-get install balena-etcher-electron -y
+		name=balena-etcher-electron
+		eCs
+		if [[ $telepite == y ]]; then
+			sudo echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+			sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+			sudo apt-get update
+		fi
     	}
     exRep () {
     	echo '[multilib]' | sudo tee -a /etc/pacman.conf
@@ -279,29 +332,37 @@ depChk () {
     aptFast () {    #Apt-fast
         sleep 0.5
         echo 'Installing apt-fast...'
-        nam=software-properties-common
-        promptDialog
-        eval sudo add-apt-repository -y ppa:apt-fast/stable
-        eval sudo apt update
-        eval sudo apt install apt-fast -y
+        name=software-properties-common
+        eCs
+        name=apt-fast
+        eCs
+        if [[ $telepite == y ]]; then
+		    eval sudo add-apt-repository -y ppa:apt-fast/stable
+		    eval sudo apt update
+        	promptDialog
+        fi
         }
     operaInstall () {   #Opera
-        echo 'Installing Opera from Opera website...'
-        eval wget https://download1.operacdn.com/pub/opera/desktop/57.0.3098.110/linux/opera-stable_57.0.3098.110_amd64.deb
-        eval sudo dpkg -i opera-stable_57.0.3098.110_amd64.deb
-        eval sudo apt update
-        eval sudo rm opera-stable_57.0.3098.110_amd64.deb 
+    	name=opera
+    	eCs
+    	if [[ $telepite == y ]]; then
+		    echo 'Installing Opera from Opera website...'
+		    eval wget https://download1.operacdn.com/pub/opera/desktop/60.0.3255.170/linux/opera-stable_60.0.3255.170_amd64.deb
+		    eval sudo dpkg -i opera-stable_60.0.3255.170_amd64.deb
+		    eval sudo apt update
+		    eval sudo rm opera-stable_60.0.3255.170_amd64.deb
+		fi
         }
     gesturesSetup () {  #Libinput gestures + GUI + xdotool
-        echo 'Installing xdotool and wmctrl...'
-        eval sudo apt install xdotool wmctrl -y
-        echo 'Done!'
-        echo 'Installing libinput-tools...'
-        eval sudo apt install libinput-tools -y
-        echo 'Done!'
+        name=xdotool
+        eCs
+        name=wmctrl
+        eCs
+        name=libinput-tools
+        eCs
         echo 'Setting input permisson for gestures...'
         eval sudo gpasswd -a $USER input
-        echo 'Done! ATTENTION!! You need to reboot to apply this operation!'
+        dialog --msgbox 'ATTENTION!! You need to reboot to apply this operation!' 15 10
         sleep 1
         echo 'Cloning libinput gestures and gestures GUI from github...'
         eval git clone https://github.com/bulletmark/libinput-gestures.git
@@ -318,33 +379,41 @@ depChk () {
         eval sudo rm -rf gestures
         }
     wpsInstall () { #WPS office
-        echo 'Downloading and installing WPS Office and WPS Office symbols (it takes around 7 min)...'
-        eval wget http://kdl.cc.ksosoft.com/wps-community/download/6757/wps-office_10.1.0.6757_amd64.deb
-        eval wget https://github.com/IamDH4/ttf-wps-fonts/archive/master.zip
-        eval sudo dpkg -i wps-office_10.1.0.6757_amd64.deb
-        eval sudo rm wps-office_10.1.0.6757_amd64.deb
-        eval unzip master.zip
-        eval cd ttf-wps-fonts-master
-        eval sudo ./install.sh
-        eval cd
-        eval sudo rm -rf ttf-wps-fonts-master
-        eval sudo rm master.zip
+    	name=wps
+    	eCs
+    	if [[ $telepite == y ]]; then
+		    echo 'Downloading and installing WPS Office and WPS Office symbols (it takes around 7 min)...'
+		    eval wget http://kdl.cc.ksosoft.com/wps-community/download/8392/wps-office_11.1.0.8392_amd64.deb
+		    eval wget https://github.com/IamDH4/ttf-wps-fonts/archive/master.zip
+		    eval sudo dpkg -i wps-office_11.1.0.8392_amd64.deb
+		    eval sudo rm wps-office_11.1.0.8392_amd64.deb
+		    eval unzip master.zip
+		    eval cd ttf-wps-fonts-master
+		    eval sudo ./install.sh
+		    eval cd
+		    eval sudo rm -rf ttf-wps-fonts-master
+		    eval sudo rm master.zip
+		fi
         }
     woeIns () {
         clear
         echo "Installing WoeUsb..."
         sleep 1
-        nam=software-properties-common
-        promptDialog
-        sudo add-apt-repository ppa:nilarimogard/webupd8 -y
-        sudo apt update -y
-        sudo apt install woeusb -y
+        name=software-properties-common
+        eCs
+        name=woeusb
+        eCs
+        if [[ $telepite == y ]]; then
+		    sudo add-apt-repository ppa:nilarimogard/webupd8 -y
+		    sudo apt update -y
+		    sudo apt install woeusb -y
+        fi
         }
     tweakIns () { #Elementary-tweaks
         sleep 0.5
         echo 'Installing elementary tweaks...'
-        nam=software-properties-common
-        promptDialog
+        name=software-properties-common
+        eCs
         eval sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks
         eval sudo apt update
         eval sudo apt install elementary-tweaks -y
@@ -352,11 +421,15 @@ depChk () {
     adIns () {  #0AD
         sleep 0.5
         echo 'Installing 0ad from 0ad repository... This will take a while, please be patient...'
-        nam=software-properties-common
-        promptDialog
-        eval sudo add-apt-repository -y ppa:wfg/0ad
-        eval sudo apt-get update
-        eval sudo apt-get install 0ad -y
+        name=software-properties-common
+        eCs
+        name=0ad
+        eCs
+        if [[ $telepite == y ]]; then
+		    eval sudo add-apt-repository -y ppa:wfg/0ad
+		    eval sudo apt-get update
+		    eval sudo apt-get install 0ad -y
+		fi
         }
     rebooter () {   #Rebboot confirmation
         clear
@@ -400,21 +473,18 @@ depChk () {
                 case $result in
                     1)
                         name=cmatrix
-                        #promptDialog
                         eCs
                         cmatrix
                         esEggs
                         ;;
                     2)
                         name=sl
-                        #promptDialog
                         eCs
                         sl
                         esEggs
                         ;;
                     3)
                         name=boxes
-                        #promptDialog
                         eCs
                         clear
                         echo "I am a dog :D" | boxes -d dog -a c
@@ -431,20 +501,17 @@ depChk () {
                         ;;
                     5)
                         name=youtube-dl
-                        #promptDialog
                         eCs
                         esEggs
                         ;;
                     6)
                         name=nudoku
-                        #promptDialog
                         eCs
                         nudoku
                         esEggs
                         ;;
                     7)
                         name=figlet
-                        #promptDialog
                         eCs
                         clear
                         read -p "Write here something: " userText   
@@ -455,7 +522,6 @@ depChk () {
                         ;;
                     8)
                         name=lolcat
-                        #promptDialog
                         eCs
                         clear
                         echo ">>>>>>>>>>>>>>>>>>>>>>> It's so colorful!! <<<<<<<<<<<<<<<<<<<<<<<<" | lolcat
@@ -465,7 +531,6 @@ depChk () {
                         ;;
                     9)
                         name=cowsay
-                        #promptDialog
                         eCs
                         clear
                         cowsay -f dragon "Run for cover, I feel a sneeze coming on!"
@@ -556,45 +621,58 @@ do
             ;;
         2)
         	if [[ $distro == Arch ]];then
-        		nam=libreoffice-fresh-en_gb
-        		sch
+        		name=libreoffice-fresh-en_gb
         	else
-            	nam='libreoffice'
+            	name='libreoffice'
             fi
-            promptDialog
+            eCs
             ;;
         3)
-            nam=git
-            promptDialog
+            name=git
+            eCs
             ;;
         4)
         	if [[ $distro == Arch ]];then
-        		nam=python3
+        		name=python3
+        		eCs
         	else
-            	nam='python3 python3-setuptools python3-gi python-gobject python3-pip'
+            	name=python3
+            	eCs
+            	name=python3-setuptools
+            	eCs
+            	name=python3-gi
+            	eCs
+            	name=python-gobject
+            	eCs
+            	name=python3-pip
+            	eCs
             fi
-            promptDialog
             ;;
         5)
         	if [[ $distro == Arch ]];then
-        		nam=mesa-demos
+        		name=mesa-demos
         	else
-            	nam=mesa-utils
+            	name=mesa-utils
             fi
-            promptDialog
+            eCs
             ;;
         6)
         	if [[ $distro == Arch ]];then
-        		nam=wine
+        		name=wine
+        		eCs
         	else
-            	nam="wine-stable wine32 wine64"
+            	name=wine-stable
+            	eCs
+            	name=wine32
+            	eCs
+            	name=wine64
+            	eCs
             fi
-            promptDialog
             ;;
         7)
         	if [[ $distro == Arch ]];then
-        		nam=etcher
-        		promptDialog
+        		name=etcher
+        		eCs
         	else
             	nam=etcher
             	promptDialogSpec
@@ -602,8 +680,10 @@ do
             ;;
         8)
         	if [[ $distro == Arch ]];then
-        		nam="opera opera-ffmpeg-codecs"
-        		promptDialog
+        		name=opera
+        		eCs
+        		name=opera-ffmpeg-codecs
+        		eCs
         	else
             	nam=operaInstall
             	promptDialogSpec
@@ -611,31 +691,37 @@ do
             ;;
         9)
         	if [[ $distro == Arch ]];then
-        		nam="steam steam-native-runtime"
+        		name=steam
+        		eCs
+        		name=steam-native-runtime
+        		eCs
         	else
-            	nam=steam-installer
+            	name=steam-installer
+            	eCs
             fi
-            promptDialog
             ;;
         10)
-            nam=virtualbox
-            promptDialog
+            name=virtualbox
+            eCs
             ;;
         11)
-            nam=gparted
-            promptDialog
+            name=gparted
+            eCs
             ;;
         12)
-            nam=dconf-editor
-            promptDialog
+            name=dconf-editor
+            eCs
             ;;
         13)
         	if [[ $distro == Arch ]];then
-        		nam=wavpack
+        		name=wavpack
+        		eCs
         	else
-            	nam='ubuntu-restricted-extras libavcodec-extra'
+            	name=ubuntu-restricted-extras
+            	eCs
+            	name=libavcodec-extra
+            	eCs
             fi
-            promptDialog
             ;;
         14)
         	if [[ $distro == Arch ]];then
@@ -654,38 +740,40 @@ do
             promptDialog
             ;;
         16)
-            nam=audacity
-            promptDialog
+            name=audacity
+            eCs
             ;;
         17)
-            nam=deja-dup
-            promptDialog
+            name=deja-dup
+            eCs
             ;;
         18)
         	if [[ $distro == Arch ]];then
-        		nam="gestures libinput-gestures"
-        		promptDialog
+        		name=gestures
+        		eCs
+        		name=libinput-gestures
+        		eCs
         	else
             	nam=gesturesSetup
             	promptDialogSpec
             fi
             ;;
         19)
-            nam=skype
-            promptDialog
+            name=skype
+            eCs
             ;;
         20)
-            nam=vscode
-            promptDialog
+            name=vscode
+            eCs
             ;;
         21)
-            nam=screenfetch
-            promptDialog
+            name=screenfetch
+            eCs
             ;;
         22)
         	if [[ $distro == Arch ]];then
-        		nam=timeshift
-        		promptDialog
+        		name=timeshift
+        		eCs
         	else
             	nam=timsIns
             	promptDialogSpec
@@ -701,8 +789,8 @@ do
             ;;
         24)
         	if [[ $distro == Arch ]];then
-        		nam=wps-office
-        		promptDialog
+        		name=wps-office
+        		eCs
         	else
             	nam=wpsInstall
             	promptDialogSpec
@@ -710,8 +798,8 @@ do
             ;;
         25)
         	if [[ $distro == Arch ]];then
-        		nam=woeusb
-        		promptDialog
+        		name=woeusb
+        		eCs
         	else
             	nam=woeIns
             	promptDialogSpec
@@ -719,8 +807,8 @@ do
             ;;
         26)
         	if [[ $distro == Arch ]];then
-        		nam=0ad
-        		promptDialog
+        		name=0ad
+        		eCs
         	else
             	nam=adIns
             	promptDialogSpec
@@ -728,14 +816,16 @@ do
             ;;
         27)
         	if [[ $distro == Arch ]];then
-        		nam=powertop
-        		promptDialog
-        		read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
-				sudo powertop -c
-				sudo powertop --auto-tune
-				clear
-				echo "Ready!"
-				sleep 1
+        		name=powertop
+        		eCs
+        		if [[ $telepite == y ]]; then
+		    		read -p "Configuring powertop. This will take a while... Don't let your PC to go to sleep! Press enter when ready..."
+					sudo powertop -c
+					sudo powertop --auto-tune
+					clear
+					echo "Ready!"
+					sleep 1
+				fi
 				clear
         	else
             	nam=powins
@@ -785,10 +875,9 @@ no1
 
               ~ Fixed bugs
               ~ Optimized performance
-              ~ Refreshed code base
-              ~ Enchanced user experience
-              ~ Built in installer and uninstaller
-              ~ Resolved some minor compatibility issues
+              ~ Updated installer
+              ~ Added built in updater
+              ~ Fixed stability issues
               " 160 85
                 clear
                 if [[ $started == false ]]
@@ -799,7 +888,7 @@ no1
                	fi
                 }
     fbacks () {
-        dialog --title "Attention!" --msgbox "This operation will open a Github© link in your default browser. Press Esc to abort." 8 40
+        dialog --title "Attention!" --msgbox "This operation will open a Github© link in your default browser." 8 40
         clear
         xdg-open 'https://github.com/swanux/helen/issues/new/choose'
         clear
@@ -819,20 +908,38 @@ rmEr () {
 	exit
 EOF
 	rm -rf /home/$USER/.config/Helen
-	dialog --msgbox "Done! Changes will take effect after reboot." 15 50
+	source /etc/bash.bashrc
+	clear
+	dialog --msgbox "Done! Changes will fully take effect after reboot." 10 25
 	clear
 	;;
 esac
 }
 no1 () {
+	if [[ $updated == true ]]; then
+		clear
+		exec 3>&1
+		result=$(dialog --yesno "Updated to $version! Would you like to see the changelog?" 10 55 2>&1 1>&3);
+		response=$?
+		case $response in
+		   0) clear && updated=false && about;;
+		   1) clear && updated=false;;
+		esac
+	fi
+	if grep -q 'helen' "/etc/bash.bashrc"; then
+		iVr="Remove Helen"
+	else
+		iVr="Install Helen"
+	fi
     exec 3>&1
-    result=$(dialog --menu "Choose one of the following options:" 15 45 6 \
+    result=$(dialog --menu "Choose one of the following options:" 15 45 7 \
             1 "Install everything (Simple)" \
              2 "Select what to install (Advanced)" \
              3 "Easter eggs selection" \
              4 "About" \
              5 "Request new feature or report bug" \
-             6 "Remove Helen" 2>&1 1>&3);
+             6 "$iVr" \
+             7 "Check for updates" 2>&1 1>&3);
     response=$?
     case $response in
        1) cmback="no1" && wexit;;
@@ -854,7 +961,18 @@ no1 () {
                 fbacks
                 ;;
             6)
-            	rmEr
+            	if [[ $iVr == "Install Helen" ]]; then
+            		ilLer
+            	elif [[ $iVr == "Remove Helen" ]]; then
+            		rmEr
+            	else
+            		echo "Error 2"
+            		exit
+            	fi
+            	no1
+            	;;
+            7)
+            	updaterR
             	;;
     esac
     }
@@ -881,7 +999,9 @@ EOF
 	clear
 	exit
 EOF
-	dialog --msgbox "Done! Just type helen to your terminal to start the program. Changes will take effect after reboot." 15 50
+	source /etc/bash.bashrc
+	clear
+	dialog --msgbox "Done! Just type **helen** (without *) to your terminal to start the program. Changes will take effect after reopening the terminal" 20 25
 	clear
 	;;
 esac
@@ -903,12 +1023,8 @@ osSec () {
 			StrCm=exRep
 			doIt=:
 			chkStr
-			#Str=compatible
-			#StrCm=depChk
-			#doIt=:
 			clear
 			depChk
-			#chkStr
 			echo 'distrodoneA' >> .config/helen_config.txt
 			ilLer
 			no1
@@ -933,5 +1049,6 @@ elif grep -q 'distrodoneU' ".config/helen_config.txt"; then
 	misc="Apt-fast"
 	no1
 else
+	sudo apt install dialog || sudo pacman -S dialog
 	osSec
 fi
