@@ -21,7 +21,7 @@ wexit () {
 updaterR () {
 	cd
 	clear
-	git clone https://github.com/swanux/helen
+	git clone https://github.com/swanux/hsuite
 	if grep -q $version ~/helen/Helen; then
 		rm -rf helen
 		clear
@@ -851,7 +851,7 @@ no1
 
                 Dániel Kolozsi
                 
-                Github: <https://github.com/swanux/helen>
+                Github: <https://github.com/swanux/hsuite>
 
  ================================================================================
 
@@ -988,7 +988,7 @@ ilLer () {
 	exit
 EOF
 	cd
-	git clone https://github.com/swanux/helen.git
+	git clone https://github.com/swanux/hsuite.git
 	cd helen
 	cp Helen /home/$USER/.config
 	cd
