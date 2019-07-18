@@ -1,57 +1,30 @@
-# Also checkout
+# Changelog
+Here'll be the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
 
-Helena (Help enter arch) is a CLI installer ISO for Arch Linux. **Installation made easy.**
-You can download it from here: https://sourceforge.net/projects/helenarch/
+# Why is the Beta better than the alpha, and why got the program a new name?
 
-# What is Helen?
+**1)** The application is now completely rewritten in Python3 and it has a standalone GUI using wxPython Phoenix. It's got a lots of new features and useful tools included.
+
+**2)** The name change is because it's now more than an extra big Bash script. Now, it's an independent program with more and more features coming. It's now something like a "tool center" or a "Swiss-army". **NOTE:** The name is HSuite, **not** HiSuite (which is the property of Huawei™).
+
+# Demo
+
+Here's a small demo of the beta. Lots of work in progress...
+
+https://streamable.com/9vryf
+
+# What is HSuite?
 
 *Be SSU (Simple, Small, Useful)*
 
-Helen (Help enter) is a small program written in bash. Its main goal is to help the newcomers enter to the Linux world. It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTION! This program is currently in alpha stage (version 0.2.9). NOTE: The main features are still missing and will be added later in the beta stage. 
+HSuite (previously Helen) is a small program written in Python. Its main goal is to be the Linux "Swiss-army". It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTION! This program is currently in Beta stage (v0.3). **NOTE:** The first beta will be avilable soon. 
 Currently works on Debian/Ubuntu and Arch based distros.
 
 # Get things working
 
-The install process is very simple, even for absolute beginners.
+The install process is very simple, even for absolute beginners. The program will come with an automatic installer, you just need to run it.
 
-# 1. Get the files
-Download or clone the repository.
+# Also checkout
 
-**Download:**
-
-![Download](https://i.imgur.com/PFxX8eo.png)
-![Download2](https://i.imgur.com/hEyWCbQ.png)
-
-**Clone:**
-
-If you don't have git installed on your system paste this command to the terminal:
-
-    sudo apt install git
-
-After that just type:
-
-    cd Downloads/
-    git clone https://github.com/swanux/helen.git
-    
-# 2. Run the program first time
-You can do this from the terminal or through the GUI.
-
-**The Terminal way:**
-
-Open a Terminal window in the folder where *Helen.sh* is located. Then type: 
-
-    chmod +x Helen
-    ./Helen
-
-**The GUI way:**
-
-Open the folder where *Helen.sh* is located.
-Then right click on *Helen.sh*, select *Properties*, go to *Permissions* and tick the *Allow excuting file as a program*
-
-![Imgur](https://i.imgur.com/RHhaCs3.png)
-
-After that just double click on the file to run it or type 
-
-        ./Helen
-
-in the directory where the file is located.
+Helena (Help enter arch) is a CLI installer ISO for Arch Linux. **Installation made easy.**
+You can download it from here: https://sourceforge.net/projects/helenarch/
