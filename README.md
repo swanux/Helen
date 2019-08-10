@@ -1,5 +1,44 @@
 # Changelog
-Here'll be the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
+Here is the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
+
+**v0.3 | Perseus**
+
+    ~ Complete rewrite of the program now in Python3 using wxPython4.0.6
+    ~ Published as .deb package for Debian based systems and .pkg for Arch based systems
+    ~ Uploaded to PPA on launchpad, easy update management
+    ~ Currently mainly for demo purposes and for learning, bigger improvements will come in beta v0.4
+
+# Get things working
+
+**For Ubuntu/Debian:**
+
+To install run:
+
+    sudo add-apt-repository ppa:swanux/hsuite && sudo apt update && sudo apt install hsuite
+    
+And to remove, execute:
+
+    sudo apt purge hsuite && sudo apt autoremove
+    
+**For Arch:**
+
+To install:
+
+    wget https://github.com/swanux/hsuite/raw/master/hsuite-0.3.4-1-any.pkg.tar.xz && sudo pacman -U hsuite-0.3.4-1-any.pkg.tar.xz && rm hsuite-0.3.4-1-any.pkg.tar.xz
+    
+And to remove:
+
+    sudo pacman -Runs hsuite
+    
+**Debugging and updating**
+
+The package will get updates automatically.
+
+To debug the program, open the terminal and type:
+
+    hsuite
+    
+You will see the logs in the terminal then.
 
 # Why is the Beta better than the alpha, and why got the program a new name?
 
@@ -19,10 +58,6 @@ https://streamable.com/9vryf
 
 HSuite (previously Helen) is a small program written in Python. Its main goal is to be the Linux "Swiss-army". It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTION! This program is currently in Beta stage (v0.3). **NOTE:** The first beta will be avilable soon. 
 Currently works on Debian/Ubuntu and Arch based distros.
-
-# Get things working
-
-The install process is very simple, even for absolute beginners. The program will come with an automatic installer, you just need to run it.
 
 # Also checkout
 
