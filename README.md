@@ -2,6 +2,7 @@
 Here is the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
 
 **v0.3 | Perseus**
+*Note: In this version the ETA feature always shows 0 minutes*
 
     ~ Complete rewrite of the program now in Python3 using wxPython4.0.6
     ~ Published as .deb package for Debian based systems and .pkg for Arch based systems
