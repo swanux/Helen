@@ -33,7 +33,9 @@ And to remove:
     
 **Debugging and updating**
 
-The package will get updates automatically.
+The package will get updates automatically on Ubuntu/Debian.
+
+On Arch run the installation commands when there's a new release to update.
 
 To debug the program, open the terminal and type:
 
