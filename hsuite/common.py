@@ -1,0 +1,27 @@
+import os
+p = 'output'
+status = 'Install'#'installORremove'
+CA = 'current action'
+version = 'v0.3 | Perseus'
+fbakker = 'xdg-open https://github.com/swanux/hsuite/issues/new/choose'
+x = 700
+y = 400
+txt1 = 'Coming in Beta v0.4 or v0.5!'
+newtitle = 'common'
+sx = 700
+sy = 400
+distro = 'common distro'
+label = 'description'
+img = '1stimage'
+num1 = 'path1'
+num2 = 'path2'
+num3 = 'path3'
+stat = 'just show'
+rmMsg = 'while removing'
+rmdMsg = 'when removed'
+inMsg = 'while installing'
+indMsg = 'when installed'
+kbTime = 1 # How long will it take?
+distroSpec = 'aptoraur'
+user = 'the currently logged in non-root user'
+doIt = False
