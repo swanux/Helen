@@ -53,7 +53,13 @@ You will see the logs in the terminal then.
 
 Here's a small demo of the beta. Lots of work in progress...
 
+**v0.3**
+
 https://streamable.com/9vryf
+
+**v0.4**
+
+https://streamable.com/bx8jp
 
 # What is HSuite?
 
