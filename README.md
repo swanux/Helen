@@ -1,13 +1,15 @@
 # Changelog
 Here is the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
 
-**v0.3 | Perseus**
-*Note: In this version the ETA feature always shows 0 minutes*
+**v0.4 | Aphrodite**
+*Note: This version is foucuses on new techniques rather than overall stability.*
 
-    ~ Complete rewrite of the program now in Python3 using wxPython4.0.6
-    ~ Published as .deb package for Debian based systems and .pkg for Arch based systems
-    ~ Uploaded to PPA on launchpad, easy update management
-    ~ Currently mainly for demo purposes and for learning, bigger improvements will come in beta v0.4
+    * Rewritten the complete program in GTK3
+    * Beautiful new logos by Seh
+    * Complete redesign of App Spotlight
+    * Better UX and GUI
+    * Fixed a lots of bugs
+    * Added more bugs to fix later...
 
 # Get things working
 
