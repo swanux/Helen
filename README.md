@@ -17,7 +17,7 @@ Here is the changelog of every update. For further details you can always check 
 
 To install run:
 
-    sudo add-apt-repository ppa:swanux/hsuite && sudo apt update && sudo apt install hsuite
+    sudo apt install software-properties-common && sudo add-apt-repository ppa:swanux/hsuite && sudo apt update && sudo apt install hsuite
     
 And to remove, execute:
 
