@@ -10,6 +10,7 @@ Here is the changelog of every update. For further details you can always check 
     * Better UX and GUI
     * Fixed a lots of bugs
     * Added more bugs to fix later...
+    * New feedback form for GitHub Issues
 
 # Get things working
 
