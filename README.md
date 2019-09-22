@@ -68,8 +68,7 @@ https://streamable.com/bx8jp
 
 *Be SSU (Simple, Small, Useful)*
 
-HSuite (previously Helen) is a small program written in Python. Its main goal is to be the Linux "Swiss-army". It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTION! This program is currently in Beta stage (v0.3). **NOTE:** The first beta will be avilable soon. 
-Currently works on Debian/Ubuntu and Arch based distros.
+HSuite (previously Helen) is a small program written in Python. Its main goal is to be the Linux "Swiss-army". It's simple and helpful for the new users who want to experience Linux as a daily OS, or for those who are switching distros often. ATTENTION! This program is currently in Beta stage (v0.4). **NOTE:** Currently works on Debian/Ubuntu and Arch based distros.
 
 # Also checkout
 
