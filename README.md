@@ -27,7 +27,7 @@ And to remove, execute:
 
 To install:
 
-    wget https://github.com/swanux/hsuite/raw/master/hsuite-0.3.4-1-any.pkg.tar.xz && sudo pacman -U hsuite-0.3.4-1-any.pkg.tar.xz && rm hsuite-0.3.4-1-any.pkg.tar.xz
+    wget https://github.com/swanux/hsuite/raw/master/hsuite-0.4.1-1-any.pkg.tar.xz && sudo pacman -U hsuite-0.4.1-1-any.pkg.tar.xz && rm hsuite-0.4.1-1-any.pkg.tar.xz && sudo pacman -Sy
     
 And to remove:
 
