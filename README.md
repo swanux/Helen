@@ -73,5 +73,5 @@ Currently works on Debian/Ubuntu and Arch based distros.
 
 # Also checkout
 
-Helena (Help enter arch) is a CLI installer ISO for Arch Linux. **Installation made easy.**
+HelenArch (Help enter arch) is a CLI installer ISO for Arch Linux. **Installation made easy.**
 You can download it from here: https://sourceforge.net/projects/helenarch/
