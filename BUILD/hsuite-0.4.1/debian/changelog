@@ -1,0 +1,11 @@
+hsuite (0.4.1) disco; urgency=medium
+
+  * Rewritten the complete program in GTK3
+  * Beautiful new logos by Seh
+  * Complete redesign of App Spotlight
+  * Better UX and GUI
+  * Fixed a lots of bugs
+  * Added more bugs to fix later...
+  * New feedback form for GitHub Issues
+
+ -- Dániel Kolozsi <dani@kolozsi.net>  Mon, 16 Sep 2019 17:20:14 +0200

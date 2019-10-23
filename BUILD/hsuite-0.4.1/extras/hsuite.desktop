@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=HSuite
+Exec=/usr/share/hsuite/hsuite.py
+Icon=/usr/share/hsuite/icons/hsuite.png
+Terminal=false
+Type=Application
