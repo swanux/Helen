@@ -2995,7 +2995,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_mint_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3036,7 +3035,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_ubuntu_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3077,7 +3075,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_solus_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3166,7 +3163,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_deepin_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3207,7 +3203,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_elementary_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3248,7 +3243,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_zorin_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3360,7 +3354,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_steamos_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3500,7 +3493,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_deb_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3541,7 +3533,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_fedora_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3582,7 +3573,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_suse_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3742,7 +3732,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_arch_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3783,7 +3772,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_gentoo_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3824,7 +3812,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_lfs_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

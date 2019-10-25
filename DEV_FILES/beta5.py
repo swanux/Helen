@@ -5,7 +5,7 @@ import gi
 import os
 import webbrowser
 import threading
-dire = '/home/sources/HSUITE/DEV_FILES'
+dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
 os.chdir(dire)
 import common as g
 xorw = os.popen('echo $XDG_SESSION_TYPE').read()
@@ -1084,15 +1084,21 @@ class GUI:
 
     def button_clicked (self, button):
 
-        if g.scanner == False:
-            print('VALUE_FOUND')
-            notebook_box = self.builder.get_object('notebook_box')
-            g.stack.set_visible_child(notebook_box)
-        elif g.scanner:
-            notebook_box = self.builder.get_object('notebook_box')
-            g.stack.set_visible_child(notebook_box)
-            print('NO_VALUE')
-            app.scanner()
+        if g.bp == "App Spotlight":
+            if g.scanner == False:
+                print('VALUE_FOUND')
+                notebook_box = self.builder.get_object('notebook_box')
+                g.stack.set_visible_child(notebook_box)
+            elif g.scanner:
+                notebook_box = self.builder.get_object('notebook_box')
+                g.stack.set_visible_child(notebook_box)
+                print('NO_VALUE')
+                app.scanner()
+            else:
+                print('ERROR')
+        elif g.bp == "Distro Boutique":
+            distro_box = self.builder.get_object('distro_box')
+            g.stack.set_visible_child(distro_box)
         else:
             print('ERROR')
 
@@ -1200,10 +1206,13 @@ class GUI:
     def on_page(self, button):
         g.text = self.builder.get_object('page_txt')
         page = self.builder.get_object('scroll_desc')
+        back_button = self.builder.get_object('back_button')
         g.text.set_text(g.label)
+        back_button.set_label(g.bp)
         g.stack.set_visible_child(page)
 ############################################################################
     def on_opera_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Opera
 
 Fast, secure, easy-to-use browser
@@ -1218,6 +1227,7 @@ Give the web browser of the future a try!
         self.on_page(button)
 
     def on_chrome_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Google Chrome
 
 Google Chrome is the most popular browser nowadays for Android and PC also. 
@@ -1229,6 +1239,7 @@ if you'd like to use a well-known, cross platform browser.
         self.on_page(button)
 
     def on_web_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Gnome Web
 
 Gnome Web is a simple and lightweight yet powerful browser. 
@@ -1242,6 +1253,7 @@ Note: It also the only browser that supports touchpad gestures for Linux out of 
         self.on_page(button)
 
     def on_firefox_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Mozilla Firefox
 
 Meet Firefox Quantum. Fast for good.
@@ -1260,6 +1272,7 @@ the internet healthier.
         self.on_page(button)
 
     def on_vivaldi_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Vivaldi
 
 A browser should adapt to you, not the other way around.
@@ -1279,6 +1292,7 @@ I recommend you to try this browser out. (Android version is also on the way)
         self.on_page(button)
 
     def on_edge_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Microsoft Edge
 
 Microsoft Edge was originally announced as a replacement for Internet Explorer,
@@ -1296,6 +1310,7 @@ and hopefully it is arriving to Linux between 2020 and 2021.
         self.on_page(button)
 
     def on_woffice_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """WPS Office
 
 WPS Office is the complete free office suite, integrates all office word processor functions: Word, Presentation, Spreadsheet, PDF, and fully compatible with Microsoft Word, Excel, PowerPoint, Google Doc and Adobe PDF format. If you need to use advanced features(e.g.: PDF2WORD, more cloud storage space), you can subscribe Preminum.
@@ -1307,6 +1322,7 @@ It's the best free MS Office alternative for Linux in my opinion.
         self.on_page(button)
 
     def on_loffice_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Libreoffice
 
 LibreOffice is developed by users who, just like you, believe in the principles of Free Software and in sharing their work with the world in non-restrictive ways. At the core of these principles are the four essential freedoms and the tenets of The Document Foundation's Next Decade Manifesto.
@@ -1316,6 +1332,7 @@ We believe that users should have the freedom to run, copy, distribute, study, c
         self.on_page(button)
 
     def on_ooffice_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Only Office
 
 ONLYOFFICE Desktop Editors is a free open source office suite that combines text, spreadsheet and presentation editors allowing to create, view and edit documents stored on your Windows/Linux PC or Mac without an Internet connection. It is fully compatible with Office Open XML formats: .docx, .xlsx, .pptx.
@@ -1327,6 +1344,7 @@ The suite also provides quick access to broad collaborative capabilities. Users 
         self.on_page(button)
 
     def on_msoffice_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Microsoft Office Online
 
 Microsoft Office Online can serve as a free Microsoft Office alternative, as it lets you edit and share files created in a word processor, spreadsheet, and presentation program, as well access MS Outlook and OneNote.
@@ -1336,6 +1354,7 @@ Everything done through Microsoft Office Online is performed through a web brows
         self.on_page(button)
 
     def on_goffice_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Google G Suite
 
 G Suite—formerly known as Google Apps for Work—is a Software as a Service (SaaS) product that groups all the cloud-based productivity and collaboration tools developed by Google for businesses, institutes, and nonprofits. Included with every subscription you get access to custom Gmail addresses, Docs, Sheets, Slides, Calendar, Drive, Sites, and so much more.
@@ -1343,6 +1362,7 @@ G Suite—formerly known as Google Apps for Work—is a Software as a Service (S
         self.on_page(button)
 
     def on_foffice_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Softmaker Free Office
 
 SoftMaker Office is an office suite developed since 1987 by the German company SoftMaker Software GmbH, Nuremberg. SoftMaker is available as a one-time purchase option, in Standard and Professional editions, as well as a subscription-based version known as SoftMaker Office NX (available as Home and Universal editions).
@@ -1352,6 +1372,7 @@ A freeware version is released as well, under the name of SoftMaker FreeOffice. 
         self.on_page(button)
 
     def on_gedit_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Gedit
 
 It is is the default text editor of the GNOME desktop environment and part of the GNOME Core Applications. Designed as a general-purpose text editor, gedit emphasizes simplicity and ease of use, with a clean and simple GUI, according to the philosophy of the GNOME project. It includes tools for editing source code and structured text such as markup languages.
@@ -1365,6 +1386,7 @@ Personally, I use gedit with extensions for programming, HSuite is also written 
         self.on_page(button)
 
     def on_gnu_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """GNU Emacs
 
 EMACS (Editor MACroS) is a family of text editors that are characterized by their extensibility. The manual for the most widely used variant, GNU Emacs, describes it as "the extensible, customizable, self-documenting, real-time display editor". Development of the first Emacs began in the mid-1970s, and work on its direct descendant, GNU Emacs, continues actively as of 2019.
@@ -1374,6 +1396,7 @@ Emacs has over 10,000 built-in commands and its user interface allows the user t
         self.on_page(button)
 
     def on_vscode_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Visual Studio Code
 
 Visual Studio Code is a source-code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring. It is highly customizable, allowing users to change the theme, keyboard shortcuts, preferences, and install extensions that add additional functionality. The source code is free and open source and released under the permissive MIT License. The compiled binaries are freeware and free for private or commercial use.
@@ -1381,6 +1404,7 @@ Visual Studio Code is a source-code editor developed by Microsoft for Windows, L
         self.on_page(button)
 
     def on_atom_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Atom Editor
 
 Atom is a free and open-source text and source code editor for macOS, Linux, and Microsoft Windows with support for plug-ins written in Node.js, and embedded Git Control, developed by GitHub. Atom is a desktop application built using web technologies. Most of the extending packages have free software licenses and are community-built and maintained. Atom is based on Electron (formerly known as Atom Shell), a framework that enables cross-platform desktop applications using Chromium and Node.js. It is written in CoffeeScript and Less.
@@ -1388,6 +1412,7 @@ Atom is a free and open-source text and source code editor for macOS, Linux, and
         self.on_page(button)
 
     def on_stedit_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Sublime Text Editor
 
 Sublime Text is a proprietary cross-platform source code editor with a Python application programming interface (API). It natively supports many programming languages and markup languages, and functions can be added by users with plugins, typically community-built and maintained under free-software licenses.
@@ -1395,6 +1420,7 @@ Sublime Text is a proprietary cross-platform source code editor with a Python ap
         self.on_page(button)
 
     def on_geany_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Geany
 
 Geany is a lightweight GUI text editor using Scintilla and GTK+, including basic IDE features. It is designed to have short load times, with limited dependency on separate packages or external libraries on Linux. It has been ported to a wide range of operating systems, such as BSD, Linux, macOS, Solaris and Windows. The Windows port lacks an embedded terminal window; also missing from the Windows version are the external development tools present under Unix, unless installed separately by the user. Among the supported programming languages and markup languages are C, C++, C#, Java, JavaScript, PHP, HTML, LaTeX, CSS, Python, Perl, Ruby, Pascal, Haskell, Erlang, Vala and many others.
@@ -1402,6 +1428,7 @@ Geany is a lightweight GUI text editor using Scintilla and GTK+, including basic
         self.on_page(button)
 
     def on_skype_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Skype
 
 Skype is for connecting with the people that matter most in your life and work. It's built for both one-on-one and group conversations and works wherever you are – via mobile, PC, Xbox and Alexa. Skype messaging and HD voice and video calling will help you share experiences and get things done with others.
@@ -1415,6 +1442,7 @@ Try Skype out today and start adding your friends, family and colleagues. They w
         self.on_page(button)
 
     def on_discord_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Discord
 
 Discord is a proprietary freeware VoIP application and digital distribution platform—designed initially for the video gaming community—that specializes in text, image, video and audio communication between users in a chat channel. Discord runs on Windows, macOS, Android, iOS, Linux, and in web browsers. As of 21 July 2019, there are over 250 million unique users of the software.
@@ -1422,6 +1450,7 @@ Discord is a proprietary freeware VoIP application and digital distribution plat
         self.on_page(button)
 
     def on_telegram_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Telegram
 
 Telegram is a cloud-based instant messaging and voice over IP service. Telegram client apps are available for Android, iOS, Windows Phone, Windows NT, macOS and Linux. Users can send messages and exchange photos, videos, stickers, audio and files of any type.
@@ -1431,6 +1460,7 @@ Telegram's client-side code is open-source software but the source code for rece
         self.on_page(button)
 
     def on_signal_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Signal
 
 Signal is a cross-platform encrypted messaging service developed by the Signal Foundation and Signal Messenger LLC. It uses the Internet to send one-to-one and group messages, which can include files, voice notes, images and videos. Its mobile apps can also make one-to-one voice and video calls, and the Android version can optionally function as an SMS app.
@@ -1442,6 +1472,7 @@ All Signal software are free and open-source. The clients are published under th
         self.on_page(button)
 
     def on_hex_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """HexChat
 
 HexChat is an Internet Relay Chat client (IRC), forked from XChat. It has a choice of a tabbed document interface or tree interface, support for multiple servers, and numerous configuration options. Both command-line and graphical versions were available.
@@ -1449,6 +1480,7 @@ HexChat is an Internet Relay Chat client (IRC), forked from XChat. It has a choi
         self.on_page(button)
 
     def on_franz_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Franz
 
 Franz Messaging app is one of my top best messaging apps for linux platform. It’s a free, simple to use chat app that combines all the various chat & messaging services features into one promising application. 
@@ -1478,6 +1510,7 @@ If you have multiple business and private accounts, then Franz Messaging app wil
         self.on_page(button)
 
     def on_0ad_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """0 A.D.
 
 The best strategic game for Linux (in my opinion)
@@ -1489,6 +1522,7 @@ It also supports online and LAN multiplayer, custom map creation, adding mods to
         self.on_page(button)
 
     def on_tux_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """SuperTux
 
 The game, that every hardcore Linux users should play out.
@@ -1498,6 +1532,7 @@ SuperTux is a free and open-source two-dimensional platform video game published
         self.on_page(button)
 
     def on_wot_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """World Of Tanks (Unofficial)
 
 World of Tanks (WoT) is a massively multiplayer online game developed by Belarusian company Wargaming, featuring mid-20th century (1930s–1960s) era combat vehicles. It is built upon a freemium business model where the game is free-to-play, but participants also have the option of paying a fee for use of "premium" features. The focus is on player vs. player gameplay with each player controlling an armored vehicle.
@@ -1507,6 +1542,7 @@ World of Tanks has been ported to multiple gaming consoles. The PlayStation 4, X
         self.on_page(button)
 
     def on_pol_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Play On Linux
 
 One of the best ways to play Windows games on Linux.
@@ -1517,6 +1553,7 @@ Few games are compatible with GNU/Linux at the moment and it certainly is a fact
         self.on_page(button)
 
     def on_steam_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Steam
 
 The overall best when it comes to gaming on every platform.
@@ -1526,6 +1563,7 @@ Steam is the ultimate game platform, also for Linux. It offers Steam Play featur
         self.on_page(button)
 
     def on_mc_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Minecraft
 
 Everyone knows this game... But if you don't, here's a short descriptio.
@@ -1535,6 +1573,7 @@ Minecraft is a sandbox video game created by Swedish game developer Markus Perss
         self.on_page(button)
 
     def on_pops_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Popsicle
 
 Popsicle is a lightweight open source USB image writer tool written in Rust by System76, the company behind a lots of outsandingly great Linux Desktops/Laptops and the heavy customized Ubuntu based distro, Pop!_OS.
@@ -1542,6 +1581,7 @@ Popsicle is a lightweight open source USB image writer tool written in Rust by S
         self.on_page(button)
 
     def on_woe_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """WoeUSB
 
 Write Windows ISO to removable storage.
@@ -1553,6 +1593,7 @@ woeusb is a CLI utility that does the actual creation of a bootable Windows inst
         self.on_page(button)
 
     def on_wine_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Wine
 
 Run Windows programs on Linux
@@ -1562,6 +1603,7 @@ Wine (originally an acronym for "Wine Is Not an Emulator") is a compatibility la
         self.on_page(button)
 
     def on_vbox_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Oracle Virtualbox
 
 Run virtual machines on your PC
@@ -1573,6 +1615,7 @@ VirtualBox was originally developed by Innotek GmbH and released in 2007 as an o
         self.on_page(button)
 
     def on_gparted_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """GParted
 
 The ultimate partition manager for Linux
@@ -1591,6 +1634,7 @@ http://gparted.org
         self.on_page(button)
 
     def on_gest_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Touchpad Gestures
 
 The app is called ‘Gestures’ and is described by its developer as being a “minimal Gtk+ GUI app for libinput-gestures”.
@@ -1604,6 +1648,7 @@ But by using the “Gestures” app you can quickly effect a set of custom track
         self.on_page(button)
 
     def on_auda_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Audacity
 
 The free and open-source audio tool
@@ -1615,6 +1660,7 @@ Audacity can be used to perform a number of audio editing and recording tasks su
         self.on_page(button)
 
     def on_deja_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Déja-Dup
 
 One of the most powerful backup solutions for Linux
@@ -1626,6 +1672,7 @@ You can do full system backups, Home folder backup or even settings backup in Ub
         self.on_page(button)
 
     def on_tims_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Timeshift
 
 The best backup solution (in my opinion) for Linux
@@ -1641,6 +1688,7 @@ Timeshift is similar to applications like rsnapshot, BackInTime and TimeVault bu
         self.on_page(button)
 
     def on_tw_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """TeamViewer
 
 TeamViewer (TeamViewer 6) is a popular piece of  software used for Internet-based remote access and support. TeamViewer software can connect to any PC or server, so you can remote control your partner's PC as if you were sitting right in front of it. For the remote session to work the partner has to start a small application, which does not require installation or administrative rights.
@@ -1650,6 +1698,7 @@ TeamViewer 6 is the latest version of the software and works with Windows, Mac, 
         self.on_page(button)
 
     def on_box_clicked (self, button):
+        g.bp = "App Spotlight"
         g.label = """Gnome Boxes
 
 The simpliest way to run virtual machines as a normal, non-expert user.
@@ -1657,6 +1706,109 @@ The simpliest way to run virtual machines as a normal, non-expert user.
 GNOME Boxes is an application of the GNOME Desktop Environment, used to access remote or virtual systems. Boxes uses the QEMU, KVM, and libvirt virtualisation technologies.
 
 GNOME Boxes requires the CPU to support some kind of Hardware-assisted virtualization (Intel VT-x, for example).
+        """
+        self.on_page(button)
+
+    def on_mint_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """Linux Mint
+
+Linux Mint was my first distro, and now I am a hardcore Linux user, so it was really beginner friendly :)
+First of all, the DE (Cinnamon) looks nearly exactly like Windows, so it is easy to get used to it. It is also pretty lightweight and stable for the everydays. It also supports deskletts and plugins. It has all the codecs and drivers that you will need out of the box, and it has a driver manager also. Regarding the OS itself, it is based on Ubuntu LTS version so it is compatible with everything and it is also reliable. The community is excellent! If you have some questions or problems, just ask, and probably within a few days you will get a solution. I recommend it to every beginner.
+
+Website: https://www.linuxmint.com
+        """
+        self.on_page(button)
+
+    def on_ubuntu_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """Ubuntu
+
+Ubuntu is one of the oldest and most popular consumer Linux distos. Because of this, the support is outstanding. It has a lots of flavours (Kubuntu with KDE, Xubuntu with XFCE, Lubuntu with LXQT and so on...), the main version uses GNOME as its DE with some tweaks. It is stable and up to date enough for daily usage, and it has lots of programs in its repos. If you still can not find something there are lots of PPAs out there. It runs on nearly everything without problems, and the installation process is extremely easy and straightforward.
+
+Website: https://ubuntu.com
+        """
+        self.on_page(button)
+
+    def on_solus_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """Solus Linux
+
+Solus is a pretty fresh Linux distro built from scratch by a small (but growing) group of talented developers and users. The story behind the project is also very special. The community is rather small, but very helpful. The OS is extremely stable and well optimized, and its own DE, Budgie is also very modern and useful. The only drawback is that because of it is based on nothing, not every package is avilable. However, probablyy you will find everything right in the official repos without the need of any 3rd party repo. If not, then you can request new packages on the official site. I recommend it for those who are not afraid of a littlebit of learning to make everything work.
+
+Website: https://getsol.us/home/
+        """
+        self.on_page(button)
+
+    def on_deepin_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """Deepin Linux
+
+Deepin is the beautiful, minimalist, well supported, regularly updated and perfectly optimized distro from China with lots of great features and an interesting name. It is based on Debian (Unstable), it has a rolling release update method and a lots of own programs (DDE, DWM, Deepin Boot maker, Deepin Installer/Music/Movie/Backup/Clone/Recovery/Print/Connect and so on...). If you would like to use something that works out of the box (in nearly every case), and you do not want to learn anything about computers and Linux, then this is the perfect choice for you.
+
+Website: https://www.deepin.org/en/
+        """
+        self.on_page(button)
+
+    def on_elementary_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """Elementary OS
+
+Elementary is the macOS of the Linux world. Not because it is expensive or closed source, but because of its simplicity and user friendliness. If you are a beginner, then maybe this is the perfect distro for you. It is nothing special, no bloatware, based on Ubuntu, simple interface, stability and performance. But what else do you need? Regarding its pretty old-school look, trust me, you will get used to it after around a week, and after that you will just love it.
+
+Website: https://elementary.io
+        """
+        self.on_page(button)
+
+    def on_zorin_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """Zorin OS
+
+Personally, I do not like this distro, because of its philosophy. It is a littlebit like Windows in my eyes. At the other hand it is a well constructed and complete OS that works out of the box on a PC, Laptop, or even a Tablet (Intel CPU). It has a simple UI with a start menu, a tablet UI and a Pro version (khm Windows 10...). If it is okay for you, then it is a great Ubuntu based distro.
+
+Website: https://zorinos.com
+        """
+        self.on_page(button)
+
+    def on_steamos_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
+        """
+        self.on_page(button)
+
+    def on_deb_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
+        """
+        self.on_page(button)
+
+    def on_fedora_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
+        """
+        self.on_page(button)
+
+    def on_suse_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
+        """
+        self.on_page(button)
+
+    def on_arch_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
+        """
+        self.on_page(button)
+
+    def on_gentoo_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
+        """
+        self.on_page(button)
+
+    def on_lfs_clicked (self, button):
+        g.bp = "Distro Boutique"
+        g.label = """
         """
         self.on_page(button)
 
