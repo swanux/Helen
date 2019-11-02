@@ -47,6 +47,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/box.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkImage" id="box_img1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/barrier.png</property>
+    <property name="pixel_size">50</property>
+  </object>
   <object class="GtkImage" id="chrome_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -322,6 +328,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/signal.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkImage" id="skart_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/supertuxkart.png</property>
+    <property name="pixel_size">50</property>
+  </object>
   <object class="GtkImage" id="skype_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -421,13 +433,19 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="wot_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/wot.png</property>
+    <property name="pixbuf">icons/lutris.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wps_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/woffice.png</property>
+    <property name="pixel_size">50</property>
+  </object>
+  <object class="GtkImage" id="zorin_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/zorin.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkWindow" id="window">
@@ -827,7 +845,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="browser_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="row_spacing">9</property>
+                            <property name="row_spacing">4</property>
                             <property name="column_spacing">5</property>
                             <property name="column_homogeneous">True</property>
                             <child>
@@ -836,6 +854,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">opera_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -852,6 +874,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">chrome_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -868,6 +894,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">web_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -884,6 +914,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">firefox_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -900,6 +934,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">vivaldi_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -916,6 +954,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">edge_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -932,6 +974,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_opera_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -945,6 +991,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_chrome_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -958,6 +1008,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_web_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -971,6 +1025,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_firefox_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -984,6 +1042,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_vivaldi_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -997,6 +1059,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_edge_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1039,7 +1105,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="office_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="row_spacing">9</property>
+                            <property name="row_spacing">4</property>
                             <property name="column_spacing">5</property>
                             <property name="column_homogeneous">True</property>
                             <child>
@@ -1048,6 +1114,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_woffice_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1061,6 +1131,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_loffice_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1074,6 +1148,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_ooffice_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1087,6 +1165,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_msoffice_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1100,6 +1182,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_goffice_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1113,6 +1199,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_foffice_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1126,6 +1216,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">wps_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1142,6 +1236,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">loffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1158,6 +1256,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">ooffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1174,6 +1276,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">msoffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1190,6 +1296,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">goffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1206,6 +1316,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">foffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1251,7 +1365,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="editor_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="row_spacing">9</property>
+                            <property name="row_spacing">4</property>
                             <property name="column_spacing">5</property>
                             <property name="column_homogeneous">True</property>
                             <child>
@@ -1260,6 +1374,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">gedit_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1276,6 +1394,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">gnu_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1292,6 +1414,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">vscode_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1308,6 +1434,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">atom_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1324,6 +1454,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">stedit_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1340,6 +1474,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">geany_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1356,6 +1494,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gedit_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1369,6 +1511,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gnu_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1382,6 +1528,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_vscode_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1395,6 +1545,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_atom_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1408,6 +1562,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_stedit_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1421,6 +1579,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_geany_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1463,7 +1625,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="comm_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="row_spacing">9</property>
+                            <property name="row_spacing">4</property>
                             <property name="column_spacing">5</property>
                             <property name="column_homogeneous">True</property>
                             <child>
@@ -1472,6 +1634,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">skype_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1488,6 +1654,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">discord_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1504,6 +1674,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">telegram_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1520,6 +1694,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">signal_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1536,6 +1714,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">hex_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1552,6 +1734,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">franz_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1568,6 +1754,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_skype_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1581,6 +1771,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_discord_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1594,6 +1788,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_telegram_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1607,6 +1805,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_signal_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1620,6 +1822,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_hex_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1633,6 +1839,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_franz_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1675,7 +1885,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="games_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="row_spacing">9</property>
+                            <property name="row_spacing">4</property>
                             <property name="column_spacing">5</property>
                             <property name="column_homogeneous">True</property>
                             <child>
@@ -1684,6 +1894,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">0ad_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1700,6 +1914,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">tux_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1711,15 +1929,19 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="wot">
-                                <property name="label" translatable="yes">World Of Tanks (Unofficial)</property>
+                              <object class="GtkButton" id="lutris">
+                                <property name="label" translatable="yes">Lutris</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">wot_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_wot_clicked" swapped="no"/>
+                                <signal name="clicked" handler="on_lutris_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1732,6 +1954,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">pol_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1748,6 +1974,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">steam_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1764,6 +1994,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">mc_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1780,6 +2014,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_0ad_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1793,6 +2031,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_tux_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1801,12 +2043,16 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="wot_but">
+                              <object class="GtkButton" id="lutris_but">
                                 <property name="label" translatable="yes">Scanning...</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <signal name="clicked" handler="on_wot_but_clicked" swapped="no"/>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <signal name="clicked" handler="on_lutris_but_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1819,6 +2065,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_pol_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1832,6 +2082,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_steam_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -1845,12 +2099,65 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_mc_but_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
                                 <property name="top_attach">3</property>
                               </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="skart">
+                                <property name="label" translatable="yes">SuperTuxKart</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="image">skart_img</property>
+                                <property name="image_position">top</property>
+                                <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="on_skart_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="skart_but">
+                                <property name="label" translatable="yes">Scanning...</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <signal name="clicked" handler="on_skart_but_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">5</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
                             </child>
                           </object>
                         </child>
@@ -1887,7 +2194,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="extras_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="row_spacing">9</property>
+                            <property name="row_spacing">4</property>
                             <property name="column_spacing">5</property>
                             <property name="column_homogeneous">True</property>
                             <child>
@@ -1896,6 +2203,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">pops_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1912,6 +2223,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">woe_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1928,6 +2243,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">wine_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1944,6 +2263,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">vbox_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1960,6 +2283,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">gparted_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1976,6 +2303,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">gestures_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -1992,6 +2323,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">auda_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -2008,6 +2343,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">deja_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -2024,6 +2363,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">tims_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -2040,6 +2383,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_pops_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2053,6 +2400,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_woe_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2066,6 +2417,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_wine_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2079,6 +2434,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_vbox_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2092,6 +2451,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gparted_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2105,6 +2468,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gest_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2118,6 +2485,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_auda_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2131,6 +2502,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_deja_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2144,6 +2519,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_tims_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2157,6 +2536,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">tw_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -2173,6 +2556,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_tw_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2186,6 +2573,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <property name="image">box_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
@@ -2202,6 +2593,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_box_but_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -2210,10 +2605,41 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <placeholder/>
+                              <object class="GtkButton" id="barr">
+                                <property name="label" translatable="yes">Barrier by debauchee</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="image">box_img1</property>
+                                <property name="image_position">top</property>
+                                <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="on_barr_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">6</property>
+                              </packing>
                             </child>
                             <child>
-                              <placeholder/>
+                              <object class="GtkButton" id="barr_but">
+                                <property name="label" translatable="yes">Scanning...</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <signal name="clicked" handler="on_barr_but_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">7</property>
+                              </packing>
                             </child>
                           </object>
                         </child>
@@ -2296,6 +2722,36 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="rew_link">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="web_link">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                   </object>
@@ -2995,6 +3451,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_mint_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3007,7 +3464,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
-                                        <property name="image">help_ico</property>
+                                        <property name="image">help_ico9</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
                                         <signal name="clicked" handler="on_help_mint_clicked" swapped="no"/>
@@ -3035,6 +3492,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_ubuntu_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3075,6 +3533,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_solus_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3163,6 +3622,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_deepin_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3203,6 +3663,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_elementary_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3243,6 +3704,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_zorin_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3354,6 +3816,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_steamos_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3385,7 +3848,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="steamos">
-                                    <property name="label" translatable="yes">Steam OS</property>
+                                    <property name="label" translatable="yes">Steam OS Beta</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3398,18 +3861,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="left_attach">0</property>
                                     <property name="top_attach">0</property>
                                   </packing>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
                                 </child>
                               </object>
                               <packing>
@@ -3493,6 +3944,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_deb_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3505,7 +3957,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
-                                        <property name="image">help_ico9</property>
+                                        <property name="image">help_ico11</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
                                         <signal name="clicked" handler="on_help_deb_clicked" swapped="no"/>
@@ -3533,6 +3985,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_fedora_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3573,6 +4026,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_suse_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3585,7 +4039,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
-                                        <property name="image">help_ico11</property>
+                                        <property name="image">help_ico</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
                                         <signal name="clicked" handler="on_help_suse_clicked" swapped="no"/>
@@ -3636,7 +4090,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="opsu">
-                                    <property name="label" translatable="yes">OpenSuse</property>
+                                    <property name="label" translatable="yes">openSUSE Tumbleweed</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3732,6 +4186,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_arch_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3772,6 +4227,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_gentoo_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3812,6 +4268,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="on_downl_lfs_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3934,11 +4391,5 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkImage" id="zorin_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
-    <property name="pixel_size">50</property>
   </object>
 </interface>

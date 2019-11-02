@@ -5,9 +5,20 @@ import gi
 import os
 import webbrowser
 import threading
+import time
+from datetime import date
+from urllib.request import urlopen
+from decimal import Decimal
+
 dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
 os.chdir(dire)
 import common as g
+g.today = date.today()
+g.month = g.today.strftime("%m")
+g.day = g.today.strftime("%d")
+g.year = g.today.strftime("%y")
+g.runE = False
+print(g.day, g.month, g.year, g.today)
 xorw = os.popen('echo $XDG_SESSION_TYPE').read()
 if "x" in xorw:
     g.lehete = "You need to reboot or log in and out again after the install has been completed to apply all changes."
@@ -16,8 +27,12 @@ else:
 g.dir = dire
 gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit2', '4.0')
-from gi.repository import Gtk, GLib, WebKit2
+from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
 
+colorR = Gdk.color_parse('red')
+rgbaR = Gdk.RGBA.from_color(colorR)
+colorG = Gdk.color_parse('green')
+rgbaG = Gdk.RGBA.from_color(colorG)
 
 UI_FILE = "hsuite.glade"
 
@@ -30,6 +45,10 @@ print(g.user)
 g.spinning = False
 g.scanner = True
 g.doIt = False
+g.cache = []
+g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'True', 'downl_elementary' : 'True', 'downl_zorin' : 'True', 'downl_deepin' : 'True', 'downl_steamos' : 'True', 'downl_deb' : 'True', 'downl_fedora' : 'True', 'downl_suse' : 'True', 'downl_gentoo' : 'True', 'downl_arch' : 'True', 'downl_lfs' : 'True',}
+g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_elementary', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
+g.dlistLen = len(g.dlist)
 
 wer = os.popen('ls').read()
 print(str(wer))
@@ -64,18 +83,46 @@ elif 'Debian' in dist:
         g.doIt = True
         print('first run')
 else:
-    g.distro = 'Error 4'
+    g.distro = 'Not Compatible Error'
 print(g.distro)
 
 class myThread (threading.Thread):
+#    def toggle(self, state):
+#        builder = Gtk.Builder()
+#        for i in range(g.dlistLen):
+#            if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
+#                print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
+#                g.cBut = builder.get_object(g.dlist[i])
+#                print(g.cBut)
+#                GLib.idle_add(g.cBut.set_sensitive, state)
+#                g.shDict[g.dlist[i]] = "%s" % state
     def __init__(self, threadID, name):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+        g._stop_event = False
     def run(self):
         print ("Starting " + self.name)
         my_thread()
         print ("Exiting " + self.name)
+        if g.CA == "download":
+            g.runE = False
+            GLib.idle_add(g.downl.set_label, g.orig)
+            print(g.orig)
+            print("Label restore")
+            if g.rmE:
+                os.system('rm /home/%s/Downloads/%s' % (g.user, g.file_name) )
+            else:
+                GLib.idle_add(g.downl.set_label, "Ready in ~/Downloads/")
+                GLib.idle_add(g.downl.set_sensitive, False)
+                g.shDict[g.Tdownl] = "PFalse"
+                print("done with it")
+#            print("calling toggle")
+#            self.toggle(True)
+#            print("called")
+    def stop(self):
+        g._stop_event = True
+        print("stop func")
 
 #######################################################################################
 
@@ -93,6 +140,20 @@ def my_thread():
             app.asroot()
         elif g.distro == 'Arch':
             g.asr = 'pacman -Runs --noconfirm  opera opera-ffmpeg-codecs flashplugin'
+            app.asroot()
+    elif g.CA == 'Lutris':
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.asr = 'apt install lutris -y'
+            app.asroot()
+        elif g.distro == 'Arch':
+            g.asr = 'pacman -Sq --noconfirm lutris'
+            app.asroot()
+    elif g.CA == 'LutrisR':
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.asr = 'apt purge lutris -y ; apt autoremove -y'
+            app.asroot()
+        elif g.distro == 'Arch':
+            g.asr = 'pacman -Runs --noconfirm  lutris'
             app.asroot()
     elif g.CA == 'Chrome':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -114,7 +175,7 @@ def my_thread():
             g.asr = 'apt install epiphany-browser -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm epiphany'
+            g.asr = 'pacman -Sq --noconfirm epiphany'
             app.asroot()
     elif g.CA == 'WebR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -128,7 +189,7 @@ def my_thread():
             g.asr = 'apt install firefox -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm firefox'
+            g.asr = 'pacman -Sq --noconfirm firefox'
             app.asroot()
         elif g.distro == 'Debian':
             g.asr = 'apt install firefox-esr -y'
@@ -193,7 +254,7 @@ def my_thread():
             g.asr = 'apt install gedit gedit-plugins -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm gedit gedit-plugins'
+            g.asr = 'pacman -Sq --noconfirm gedit gedit-plugins'
             app.asroot()
     elif g.CA == 'GeditR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -207,7 +268,7 @@ def my_thread():
             g.asr = 'apt install emacs26 -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm emacs'
+            g.asr = 'pacman -Sq --noconfirm emacs'
             app.asroot()
         elif g.distro == 'Debian':
             g.asr = 'apt install emacs -y'
@@ -227,7 +288,7 @@ def my_thread():
             g.asr = 'apt install code -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm code'
+            g.asr = 'pacman -Sq --noconfirm code'
             app.asroot()
     elif g.CA == 'Visual Studio CodeR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -241,7 +302,7 @@ def my_thread():
             g.asr = 'apt install atom -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm atom'
+            g.asr = 'pacman -Sq --noconfirm atom'
             app.asroot()
     elif g.CA == 'Atom EditorR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -255,7 +316,7 @@ def my_thread():
             g.asr = 'apt install sublime-text -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm sublime-text'
+            g.asr = 'pacman -Sq --noconfirm sublime-text'
             app.asroot()
     elif g.CA == 'Sublime Text EditorR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -269,7 +330,7 @@ def my_thread():
             g.asr = 'apt install geany -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm geany'
+            g.asr = 'pacman -Sq --noconfirm geany'
             app.asroot()
     elif g.CA == 'GeanyR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -283,7 +344,7 @@ def my_thread():
             g.asr = 'apt install discord -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm discord'
+            g.asr = 'pacman -Sq --noconfirm discord'
             app.asroot()
     elif g.CA == 'DiscordR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -297,7 +358,7 @@ def my_thread():
             g.asr = 'apt install telegram-desktop -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm telegram-desktop'
+            g.asr = 'pacman -Sq --noconfirm telegram-desktop'
             app.asroot()
     elif g.CA == 'TelegramR':
         if g.distro == 'Ubuntu'or g.distro == 'Debian':
@@ -326,7 +387,7 @@ def my_thread():
             g.asr = 'apt install hexchat -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm hexchat'
+            g.asr = 'pacman -Sq --noconfirm hexchat'
             app.asroot()
     elif g.CA == 'HexChatR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -340,7 +401,7 @@ def my_thread():
             g.asr = 'apt install supertux -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm supertux'
+            g.asr = 'pacman -Sq --noconfirm supertux'
             app.asroot()
     elif g.CA == 'SuperTuxR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -354,7 +415,7 @@ def my_thread():
             g.asr = 'apt install playonlinux -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm playonlinux'
+            g.asr = 'pacman -Sq --noconfirm playonlinux'
             app.asroot()
     elif g.CA == 'Play On LinuxR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -411,7 +472,7 @@ def my_thread():
             g.asr = 'apt install gnome-boxes -y'
             app.asroot()
         elif g.distro == 'Arch':
-            g.asr = 'pacman -S --noconfirm gnome-boxes'
+            g.asr = 'pacman -Sq --noconfirm gnome-boxes'
             app.asroot()
     elif g.CA == 'Gnome BoxesR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -584,8 +645,9 @@ def my_thread():
             app.asroot()
     elif g.CA == 'Touchpad Gestures':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install libinput-tools libinput-bin wmctrl python3 xdotool python3-setuptools -y ; gpasswd -a %s input ; git clone https://github.com/bulletmark/libinput-gestures.git ; git clone https://gitlab.com/cunidev/gestures ; cd %s ; cd libinput-gestures ; ./libinput-gestures-setup install ; cd .. ; cd gestures ; python3 setup.py install ; cd .. ; rm -rf libinput-gestures ; rm -rf gestures ; cp /usr/share/hsuite/confs/libinput-gestures.conf ~/.config' % (g.user, g.dir)
+            g.asr = 'apt install libinput-tools libinput-bin wmctrl python3 xdotool python3-setuptools -y ; gpasswd -a %s input ; git clone https://github.com/bulletmark/libinput-gestures.git ; git clone https://gitlab.com/cunidev/gestures ; cd %s ; cd libinput-gestures ; ./libinput-gestures-setup install ; cd .. ; cd gestures ; python3 setup.py install ; cd .. ; rm -rf libinput-gestures ; rm -rf gestures' % (g.user, g.dir)
             app.asroot()
+            os.system('cp /usr/share/hsuite/confs/libinput-gestures.conf ~/.config')
         elif g.distro == 'Arch':
             g.num = 3
             g.fold = 'libinput-gestures'
@@ -593,6 +655,7 @@ def my_thread():
             g.num = 1
             g.fold = 'gestures'
             app.aurer()
+            os.system('cp /usr/share/hsuite/confs/libinput-gestures.conf ~/.config')
     elif g.CA == 'Touchpad GesturesR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.asr = 'apt purge libinput-tools xdotool libinput-bin python3-setuptools -y ; apt autoremove -y ; rm -rf /usr/local/bin/gestures ; rm -rf /usr/bin/libinput-gestures ; rm -rf /usr/share/applications/libinput-gestures.desktop ; rm -rf /usr/share/applications/org.cunidev.gestures.desktop'
@@ -615,6 +678,20 @@ def my_thread():
         elif g.distro == 'Arch':
             g.asr = 'pacman -Runs --noconfirm skypeforlinux-stable-bin'
             app.asroot()
+    elif g.CA == 'Barrier by debauchee':
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.asr = 'apt install barrier -y'
+            app.asroot()
+        elif g.distro == 'Arch':
+            g.asr = 'pacman -Sq --noconfirm barrier'
+            app.asroot()
+    elif g.CA == 'SkypeR':
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.asr = 'apt purge barrier -y ; apt autoremove -y'
+            app.asroot()
+        elif g.distro == 'Arch':
+            g.asr = 'pacman -Runs --noconfirm barrier'
+            app.asroot()
     elif g.CA == '0 A.D.':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.asr = 'apt install 0ad -y'
@@ -628,6 +705,20 @@ def my_thread():
             app.asroot()
         elif g.distro == 'Arch':
             g.asr = 'pacman -Runs --noconfirm 0ad'
+            app.asroot()
+    elif g.CA == 'SuperTuxKart':
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.asr = 'apt install supertuxkart -y'
+            app.asroot()
+        elif g.distro == 'Arch':
+            g.asr = 'pacman -Sq --noconfirm supertuxkart'
+            app.asroot()
+    elif g.CA == 'SuperTuxKartR':
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.asr = 'apt purge supertuxkart -y ; apt autoremove -y'
+            app.asroot()
+        elif g.distro == 'Arch':
+            g.asr = 'pacman -Runs --noconfirm supertuxkart'
             app.asroot()
 #    elif g.CA == 'powertop':
 #        if g.distro == 'Ubuntu':
@@ -661,6 +752,28 @@ def my_thread():
         elif g.distro == 'Arch':
             g.asr = 'pacman -Runs --noconfirm steam steam-native-runtime'
             app.asroot()
+    elif g.CA == "download":
+        print("DLthread...")
+#        def toggle(state):
+#             builder = Gtk.Builder()
+#             for i in range(g.dlistLen):
+#                 print("Toggle %s" % i)
+#                 if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
+#                     print(g.dlist[i], g.shDict[g.dlist[i]], g.Tdownl)
+#                     g.cBut = builder.get_object(g.dlist[i])
+#                     GLib.idle_add(g.cBut.set_sensitive, state)
+#                     g.shDict[g.dlist[i]] = "%s" % state
+#        toggle(False)
+        while not g._stop_event:
+            buffer = g.u.read(g.block_sz)
+            if not buffer:
+               break
+            g.file_size_dl += len(buffer)
+            g.f.write(buffer)
+#            g.status = r"%10d  [%3.2f%%]" % (g.file_size_dl, g.file_size_dl * 100. / g.file_size)
+            g.status = r"Cancel  [%3.2f%%]" % (g.file_size_dl * 100. / g.file_size)
+            GLib.idle_add(g.downl.set_label, g.status)
+#        toggle(True)
 #    elif g.CA == 'aptORaur':
 #        if g.distro == 'Ubuntu':
 #            os.system('add-apt-repository -y ppa:apt-fast/stable && apt update && echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections && echo debconf apt-fast/dlflag boolean true | debconf-set-selections && echo debconf apt-fast/aptmanager string apt | debconf-set-selections && apt install apt-fast -y')
@@ -762,6 +875,14 @@ class GUI:
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.status2 = g.status
 
+    def colorer(self):
+        self.OnCheck()
+        g.gbut.set_label(g.status)
+        if g.status == "Remove":
+            g.gbut.override_background_color(0,rgbaR)
+        else:
+            g.gbut.override_background_color(0,rgbaG)
+
     def scanner(self):
 
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -800,8 +921,10 @@ class GUI:
         franz_but = self.builder.get_object("franz_but")
 
         ad_but = self.builder.get_object("0ad_but")
+        skart_but = self.builder.get_object("skart_but")
         tux_but = self.builder.get_object("tux_but")
-        wot_but = self.builder.get_object("wot_but")
+        lutris_but = self.builder.get_object("lutris_but")
+        barr_but = self.builder.get_object("barr_but")
         pol_but = self.builder.get_object("pol_but")
         steam_but = self.builder.get_object("steam_but")
         mc_but = self.builder.get_object("mc_but")
@@ -822,20 +945,26 @@ class GUI:
         if g.distro == 'Arch':
             g.name = 'opera'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'opera-stable'
+            g.name = 'opera-stable/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
-        opera_but.set_label(g.status)
+        g.gbut = opera_but
+        self.colorer()
         g.opera_value = g.status
+
+        g.name = 'barrier/'
+        g.gbut = barr_but
+        self.colorer()
+        g.barr_value = g.status
 
         if g.distro == 'Arch':
             g.name = 'google-chrome'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'google-chrome-stable'
+            g.name = 'google-chrome-stable/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
+        g.gbut = chrome_but
+        self.colorer()
         self.stamp()
         chrome_but.set_label(g.status2)
         g.chrome_value = g.status
@@ -843,33 +972,35 @@ class GUI:
         if g.distro == 'Arch':
             g.name = 'epiphany'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'epiphany-browser'
+            g.name = 'epiphany-browser/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
-        web_but.set_label(g.status)
+        g.gbut = web_but
+        self.colorer()
         g.web_value = g.status
 
         g.name = 'firefox'
-        self.OnCheck()
-        firefox_but.set_label(g.status)
+        g.gbut = firefox_but
+        self.colorer()
         g.firefox_value = g.status
 
         if g.distro == 'Arch':
             g.name = 'vivaldi'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'vivaldi-stable'
+            g.name = 'vivaldi-stable/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
+        g.gbut = vivaldi_but
+        self.colorer()
         self.stamp()
         vivaldi_but.set_label(g.status2)
         g.vivaldi_value = g.status
 
         edge_but.set_label("Coming soon")
 
-        g.name = 'wps-office'
-        self.OnCheck()
+        g.name = 'wps-office/'
+        g.gbut = woffice_but
+        self.colorer()
         self.stamp()
         woffice_but.set_label(g.status2)
         g.woffice_value = g.status
@@ -880,17 +1011,18 @@ class GUI:
             g.name = 'libreoffice'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
-        loffice_but.set_label(g.status)
+        g.gbut = loffice_but
+        self.colorer()
         g.loffice_value = g.status
 
         if g.distro == 'Arch':
             g.name = 'onlyoffice-bin'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'onlyoffice-desktopeditors'
+            g.name = 'onlyoffice-desktopeditors/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
+        g.gbut = ooffice_but
+        self.colorer()
         self.stamp()
         ooffice_but.set_label(g.status2)
         g.ooffice_value = g.status
@@ -905,112 +1037,124 @@ class GUI:
             g.name = 'softmaker-freeoffice'
         else:
             print('EROOR IN NAME')
-        self.OnCheck()
+        g.gbut = foffice_but
+        self.colorer()
         self.stamp()
         foffice_but.set_label(g.status2)
         g.foffice_value = g.status
 
         g.name = 'gedit'
-        self.OnCheck()
-        gedit_but.set_label(g.status)
+        g.gbut = gedit_but
+        self.colorer()
         g.gedit_value = g.status
 
         if g.distro == 'Arch' or g.distro == 'Debian':
             g.name = 'emacs/'
         elif g.distro == 'Ubuntu':
-            g.name = 'emacs26'
+            g.name = 'emacs26/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
-        gnu_but.set_label(g.status)
+        g.gbut = gnu_but
+        self.colorer()
         g.gnu_value = g.status
 
         g.name = 'code/s'
-        self.OnCheck()
-        vscode_but.set_label(g.status)
+        g.gbut = vscode_but
+        self.colorer()
         g.vscode_value = g.status
 
         g.name = 'atom/'
-        self.OnCheck()
-        atom_but.set_label(g.status)
+        g.gbut = atom_but
+        self.colorer()
         g.atom_value = g.status
 
-        g.name = 'sublime-text'
-        self.OnCheck()
-        stedit_but.set_label(g.status)
+        g.name = 'sublime-text/'
+        g.gbut = stedit_but
+        self.colorer()
         g.stedit_value = g.status
 
-        g.name = 'geany'
-        self.OnCheck()
-        geany_but.set_label(g.status)
+        g.name = 'geany/'
+        g.gbut = geany_but
+        self.colorer()
         g.geany_value = g.status
 
         if g.distro == 'Arch':
             g.name = 'skypeforlinux-stable-bin'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'skypeforlinux'
+            g.name = 'skypeforlinux/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
-        skype_but.set_label(g.status)
+        g.gbut = skype_but
+        self.colorer()
         g.skype_value = g.status
 
-        g.name = 'discord'
-        self.OnCheck()
-        discord_but.set_label(g.status)
+        g.name = 'discord/'
+        g.gbut = discord_but
+        self.colorer()
         g.discord_value = g.status
 
-        g.name = 'telegram-desktop'
-        self.OnCheck()
-        telegram_but.set_label(g.status)
+        g.name = 'telegram-desktop/'
+        g.gbut = telegram_but
+        self.colorer()
         g.telegram_value = g.status
 
         if g.distro == 'Arch':
             g.name = 'signal'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'signal-desktop'
+            g.name = 'signal-desktop/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
+        g.gbut = signal_but
+        self.colorer()
         self.stamp()
         signal_but.set_label(g.status2)
         g.signal_value = g.status
 
-        g.name = 'hexchat'
-        self.OnCheck()
-        hex_but.set_label(g.status)
+        g.name = 'hexchat/'
+        g.gbut = hex_but
+        self.colorer()
         g.hex_value = g.status
 
         g.name = 'franz/'
-        self.OnCheck()
+        g.gbut = franz_but
+        self.colorer()
         self.stamp()
         franz_but.set_label(g.status2)
         g.franz_value = g.status
 
-        g.name = '0ad'
-        self.OnCheck()
-        ad_but.set_label(g.status)
+        g.name = '0ad/'
+        g.gbut = ad_but
+        self.colorer()
         g.ad_value = g.status
 
-        g.name = 'supertux'
-        self.OnCheck()
-        tux_but.set_label(g.status)
+        g.name = 'supertux/'
+        g.gbut = tux_but
+        self.colorer()
         g.tux_value = g.status
 
-        wot_but.set_label("Working on it (with Wine)")
+        g.name = 'lutris/'
+        g.gbut = lutris_but
+        self.colorer()
+        g.lutris_value = g.status
 
-        g.name = 'playonlinux'
-        self.OnCheck()
-        pol_but.set_label(g.status)
+        g.name = 'playonlinux/'
+        g.gbut = pol_but
+        self.colorer()
         g.pol_value = g.status
 
-        g.name = 'steam-launcher'
-        self.OnCheck()
-        steam_but.set_label(g.status)
+        if g.distro == 'Arch':
+            g.name = 'steam-launcher'
+        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+            g.name = 'steam/'
+        else:
+            print('ERROR IN NAME')
+        g.gbut = steam_but
+        self.colorer()
         g.steam_value = g.status
 
-        g.name = 'minecraft-launcher'
-        self.OnCheck()
+        g.name = 'minecraft-launcher/'
+        g.gbut = mc_but
+        self.colorer()
         self.stamp()
         mc_but.set_label(g.status2)
         g.mc_value = g.status
@@ -1018,87 +1162,229 @@ class GUI:
         if g.distro == 'Arch':
             g.name = 'popsicle-gtk-git'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'popsicle'
+            g.name = 'popsicle/'
         else:
             print('ERROR IN NAME')
-        self.OnCheck()
+        g.gbut = pops_but
+        self.colorer()
         self.stamp()
         pops_but.set_label(g.status2)
         g.pops_value = g.status
 
-        g.name = 'woeusb'
-        self.OnCheck()
+        g.name = 'woeusb/'
+        g.gbut = woe_but
+        self.colorer()
         self.stamp()
         woe_but.set_label(g.status2)
         g.woe_value = g.status
 
-        g.name = 'wine'
-        self.OnCheck()
-        wine_but.set_label(g.status)
+        g.name = 'wine/'
+        g.gbut = wine_but
+        self.colorer()
         g.wine_value = g.status
 
-        g.name = 'virtualbox'
-        self.OnCheck()
-        vbox_but.set_label(g.status)
+        g.name = 'virtualbox/'
+        g.gbut = vbox_but
+        self.colorer()
         g.vbox_value = g.status
 
-        g.name = 'gparted'
-        self.OnCheck()
-        gparted_but.set_label(g.status)
+        g.name = 'gparted/'
+        g.gbut = gparted_but
+        self.colorer()
         g.gparted_value = g.status
 
         g.name = 'Touchpad'
-        self.OnCheck()
+        g.gbut = gest_but
+        self.colorer()
         self.stamp()
         gest_but.set_label(g.status2)
         g.gest_value = g.status
 
-        g.name = 'audacity'
-        self.OnCheck()
-        auda_but.set_label(g.status)
+        g.name = 'audacity/'
+        g.gbut = auda_but
+        self.colorer()
         g.auda_value = g.status
 
-        g.name = 'deja-dup'
-        self.OnCheck()
-        deja_but.set_label(g.status)
+        g.name = 'deja-dup/'
+        g.gbut = deja_but
+        self.colorer()
         g.deja_value = g.status
 
-        g.name = 'timeshift'
-        self.OnCheck()
+        g.name = 'timeshift/'
+        g.gbut = tims_but
+        self.colorer()
         self.stamp()
         tims_but.set_label(g.status2)
         g.tims_value = g.status
 
         g.name = 'TeamViewer'
-        self.OnCheck()
-        tw_but.set_label(g.status)
+        g.gbut = tw_but
+        self.colorer()
         g.tw_value = g.status
 
-        g.name = 'gnome-boxes'
-        self.OnCheck()
-        box_but.set_label(g.status)
+        g.name = 'gnome-boxes/'
+        g.gbut = box_but
+        self.colorer()
         g.box_value = g.status
+
+        g.name = 'supertuxkart/'
+        g.gbut = skart_but
+        self.colorer()
+        g.skart_value = g.status
 
         g.scanner = False
 #################################################################################
+# Download methods
+
+    def toggle(self, state):
+        for i in range(g.dlistLen):
+            print("Toggle %s" % i)
+            if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
+                print(g.dlist[i], g.shDict[g.dlist[i]], g.Tdownl)
+                g.cBut = self.builder.get_object(g.dlist[i])
+                GLib.idle_add(g.cBut.set_sensitive, state)
+                g.shDict[g.dlist[i]] = "%s" % state
+
+    def on_downl_begin(self):
+        g.month = g.today.strftime("%m")
+        g.day = g.today.strftime("%d")
+        g.year = g.today.strftime("%y")
+        g.u = urlopen(g.url)
+        g.file_size = int(g.u.getheader('Content-Length'))
+        if g.dowE == False:
+            print("not downloading")
+            return
+        if g.runE == True:
+            g.rmE = True
+            g.t1.stop()
+            g.t1.join()
+            self.toggle(True)
+            return
+        elif g.runE == False:
+            g.runE = True
+            g.rmE = False
+            g.orig = g.downl.get_label()
+        g.file_name = g.url.split('/')[-1]
+        g.CA = "download"
+        g.f = open('/home/%s/Downloads/%s' % (g.user, g.file_name) , 'wb')
+        print("Downloading: %s Bytes: %s" % (g.file_name, g.file_size))
+        g.file_size_dl = 0
+        g.block_sz = 8192
+        self.toggle(False)
+        g.t1 = myThread(1, "Thread-1")
+        g.t1.daemon = True
+        g.t1.start()
+        g.t1.join
+        self.toggle(True)
+
+
+
+    def on_downl_mint_clicked(self, button):
+        print("mint")
+        g.downl = self.builder.get_object('downl_mint')
+        g.Tdownl = 'downl_mint'
+        g.url = "http://mirrors.evowise.com/linuxmint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso"
+        self.on_downl_begin()
+
+    def on_downl_ubuntu_clicked(self, button):
+        print("ubuntu")
+        g.downl = self.builder.get_object('downl_ubuntu')
+        g.Tdownl = 'downl_ubuntu'
+        g.url = "http://releases.ubuntu.com/19.10/ubuntu-19.10-desktop-amd64.iso"
+        self.on_downl_begin()
+
+    def on_downl_solus_clicked(self, button):
+        print("solus")
+        g.downl = self.builder.get_object('downl_solus')
+        g.Tdownl = 'downl_solus'
+        g.url = "http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso"
+        self.on_downl_begin()
+
+    def on_downl_deepin_clicked(self, button):
+        print("deepin")
+        g.downl = self.builder.get_object('downl_deepin')
+        g.Tdownl = 'downl_deepin'
+        g.url = "https://netix.dl.sourceforge.net/project/deepin/15.11/deepin-15.11-amd64.iso"
+        self.on_downl_begin()
+
+    def on_downl_elementary_clicked(self, button):
+        print("elementary")
+        g.downl = self.builder.get_object('downl_elementary')
+        g.Tdownl = 'downl_elementary'
+        g.url = "https://ams3.dl.elementary.io/download/MTU3MjY5MDE3Mw==/elementaryos-5.0-stable.20181016.iso"
+        self.on_downl_begin()
+
+    def on_downl_zorin_clicked(self, button):
+        print("zorin")
+        g.downl = self.builder.get_object('downl_zorin')
+        g.Tdownl = 'downl_zorin'
+        g.url = "https://netcologne.dl.sourceforge.net/project/zorin-os/15/Zorin-OS-15-Core-64-bit-r1.iso"
+        self.on_downl_begin()
+
+    def on_downl_steamos_clicked(self, button):
+        print("steamos")
+        g.downl = self.builder.get_object('downl_steamos')
+        g.Tdownl = 'downl_steamos'
+        g.url = "http://repo.steampowered.com/download/SteamOSDVD.iso"
+        self.on_downl_begin()
+
+    def on_downl_deb_clicked(self, button):
+        print("deb")
+        g.downl = self.builder.get_object('downl_deb')
+        g.Tdownl = 'downl_deb'
+        g.url = "https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-10.1.0-amd64-cinnamon+nonfree.iso"
+        self.on_downl_begin()
+
+    def on_downl_fedora_clicked(self, button):
+        print("fedora")
+        g.downl = self.builder.get_object('downl_fedora')
+        g.Tdownl = 'downl_fedora'
+        g.url = "http://fedora.inode.at/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso"
+        self.on_downl_begin()
+
+    def on_downl_suse_clicked(self, button):
+        print("suse")
+        g.downl = self.builder.get_object('downl_suse')
+        g.Tdownl = 'downl_suse'
+        g.url = "https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso"
+        self.on_downl_begin()
+
+    def on_downl_arch_clicked(self, button):
+        print("arch")
+        g.downl = self.builder.get_object('downl_arch')
+        g.Tdownl = 'downl_arch'
+        if g.day == "01":
+            g.month = int(g.month, button) - 1
+        g.url = "http://mirrors.evowise.com/archlinux/iso/2019.%s.01/archlinux-2019.%s.01-x86_64.iso" % (g.month, g.month)
+        self.on_downl_begin()
+
+    def on_downl_gentoo_clicked(self, button):
+        print("gentoo")
+        g.downl = self.builder.get_object('downl_gentoo')
+        g.Tdownl = 'downl_gentoo'
+        g.url = "http://distfiles.gentoo.org/releases/amd64/autobuilds/20191030T214502Z/install-amd64-minimal-20191030T214502Z.iso"
+        self.on_downl_begin()
+
+    def on_downl_lfs_clicked(self, button):
+        print("lfs")
+        g.downl = self.builder.get_object('downl_lfs')
+        g.Tdownl = 'downl_lfs'
+        g.url = "http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/LFS-BOOK-9.0-systemd.pdf"
+        self.on_downl_begin()
+
+######## End of functions
 
     def button_clicked (self, button):
 
-        if g.bp == "App Spotlight":
-            if g.scanner == False:
-                print('VALUE_FOUND')
-                notebook_box = self.builder.get_object('notebook_box')
-                g.stack.set_visible_child(notebook_box)
-            elif g.scanner:
-                notebook_box = self.builder.get_object('notebook_box')
-                g.stack.set_visible_child(notebook_box)
-                print('NO_VALUE')
-                app.scanner()
-            else:
-                print('ERROR')
-        elif g.bp == "Distro Boutique":
-            distro_box = self.builder.get_object('distro_box')
-            g.stack.set_visible_child(distro_box)
+        if g.scanner == False:
+            print('VALUE_FOUND')
+            notebook_box = self.builder.get_object('notebook_box')
+            g.stack.set_visible_child(notebook_box)
+        elif g.scanner:
+            notebook_box = self.builder.get_object('notebook_box')
+            g.stack.set_visible_child(notebook_box)
+            print('NO_VALUE')
+            app.scanner()
         else:
             print('ERROR')
 
@@ -1170,6 +1456,20 @@ class GUI:
 
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')
+        if not g.cache:
+            for i in range(g.dlistLen):
+                cBut = self.builder.get_object(g.dlist[i])
+                g.dowE = False
+                fNam = "self.on_%s_clicked(button)" % g.dlist[i]
+                eval(fNam)
+                g.dowE = True
+                g.file_size = Decimal(int(g.file_size) / 1024 / 1024)
+                cBut.set_label("Download (%s MB)" % round(g.file_size,1))
+                g.cache.append(round(g.file_size,1))
+        else:
+            for i in range(g.dlistLen):
+                cBut = self.builder.get_object(g.dlist[i])
+                cBut.set_label("Download (%s MB)" % g.cache[i])
         g.stack.set_visible_child(distro_box)
 
     def on_about_but_clicked(self, button):
@@ -1207,9 +1507,39 @@ class GUI:
         g.text = self.builder.get_object('page_txt')
         page = self.builder.get_object('scroll_desc')
         back_button = self.builder.get_object('back_button')
+        page_box = self.builder.get_object('page_box')
+        rew_link = self.builder.get_object('rew_link')
+        rew_link.set_sensitive(False)
+        rew_link.set_always_show_image(False)
+        rew_link.set_label("")
+        web_link = self.builder.get_object('web_link')
+        web_link.set_sensitive(False)
+        web_link.set_always_show_image(False)
+        web_link.set_label("")
+        ##
+        if g.bp == "Distro Boutique":
+            img = Gtk.Image.new_from_icon_name("dialog-information", 0)
+            img2 = Gtk.Image.new_from_icon_name("dialog-information", 0)
+            rew_link.set_sensitive(True)
+            rew_link.set_image(img)
+            rew_link.set_always_show_image(True)
+            rew_link.set_label(" Demo/Review (YouTube)")
+            rew_link.connect("clicked", self.on_rew_link_clicked)
+            web_link.set_sensitive(True)
+            web_link.set_image(img2)
+            web_link.set_always_show_image(True)
+            web_link.set_label(" Website")
+            web_link.connect("clicked", self.on_web_link_clicked)
+        ##
         g.text.set_text(g.label)
         back_button.set_label(g.bp)
         g.stack.set_visible_child(page)
+
+    def on_rew_link_clicked(self, button):
+        webbrowser.open_new(g.web)
+
+    def on_web_link_clicked(self, button):
+        webbrowser.open_new(g.rew)
 ############################################################################
     def on_opera_clicked (self, button):
         g.bp = "App Spotlight"
@@ -1218,9 +1548,9 @@ class GUI:
 Fast, secure, easy-to-use browser
 Try the Opera browser - now with a built-in ad blocker, battery saver and free VPN.
 
-Opera is one of the most underrated browsers out yet. However, it's one of the bests, if not the best. 
+Opera is one of the most underrated browsers out yet. However, it's one of the bests, if not the best.
 It's based on Chromium, so it's basicly Chrome on steroids. It's faster, lighter, more secure and more productive.
-The Opera Sync is the best on the market, and the sidebar with integrated messengers is really productive. 
+The Opera Sync is the best on the market, and the sidebar with integrated messengers is really productive.
 
 Give the web browser of the future a try!
         """
@@ -1230,11 +1560,21 @@ Give the web browser of the future a try!
         g.bp = "App Spotlight"
         g.label = """Google Chrome
 
-Google Chrome is the most popular browser nowadays for Android and PC also. 
-It's reliable, stable and fast, however, you know, Google doesn't respect your privacy sometimes... 
+Google Chrome is the most popular browser nowadays for Android and PC also.
+It's reliable, stable and fast, however, you know, Google doesn't respect your privacy sometimes...
 
 But at the end of the day, Chrome is still one of the best choices
 if you'd like to use a well-known, cross platform browser.
+        """
+        self.on_page(button)
+
+    def on_skart_clicked (self, button):
+        g.bp = "App Spotlight"
+        g.label = """SuperTuxKart
+
+Karts. Nitro. Action! SuperTuxKart is a 3D open-source arcade racer with a variety characters, tracks, and modes to play. Our aim is to create a game that is more fun than realistic, and provide an enjoyable experience for all ages.
+
+In Story mode, you must face the evil Nolok, and defeat him in order to make the Mascot Kingdom safe once again! You can race by yourself against the computer, compete in several Grand Prix cups, or try to beat your fastest time in Time Trial mode. You can also race or battle with up to eight friends on a single computer, play on a local network or play online with other players all over the world.
         """
         self.on_page(button)
 
@@ -1242,11 +1582,11 @@ if you'd like to use a well-known, cross platform browser.
         g.bp = "App Spotlight"
         g.label = """Gnome Web
 
-Gnome Web is a simple and lightweight yet powerful browser. 
-It only supports Linux, so it isn't the best for you 
-if you would like to have your settings and pages synced on the go. 
-It is the best for old hardware and laptops (bacause it is very battery friendly). 
-It could be a good choice if you are coming from mac, because its user interface is similar to Safari. 
+Gnome Web is a simple and lightweight yet powerful browser.
+It only supports Linux, so it isn't the best for you
+if you would like to have your settings and pages synced on the go.
+It is the best for old hardware and laptops (bacause it is very battery friendly).
+It could be a good choice if you are coming from mac, because its user interface is similar to Safari.
 
 Note: It also the only browser that supports touchpad gestures for Linux out of the box.
         """
@@ -1264,9 +1604,9 @@ Features:
     - Better, faster page loading that uses less computer memory.
     - Gorgeous design and smart features for intelligent browsing.
 
-Firefox is made by Mozilla, the non-profit champions of a healthy internet. 
-Mozilla also tackles issues like privacy, misinformation and trolling 
-by investing in fellowships, campaigns and new technologies designed to make 
+Firefox is made by Mozilla, the non-profit champions of a healthy internet.
+Mozilla also tackles issues like privacy, misinformation and trolling
+by investing in fellowships, campaigns and new technologies designed to make
 the internet healthier.
         """
         self.on_page(button)
@@ -1277,12 +1617,12 @@ the internet healthier.
 
 A browser should adapt to you, not the other way around.
 
-We believe that many people want to customize 
-and tweak every square inch of their browser to make it their own. 
-They want access to advanced tools without sacrificing performance or security. 
+We believe that many people want to customize
+and tweak every square inch of their browser to make it their own.
+They want access to advanced tools without sacrificing performance or security.
 And they want to be heard.
 
-"We’re building a browser that is powerful, personal and flexible. 
+"We’re building a browser that is powerful, personal and flexible.
 A browser that adapts to you, not the other way around."
 
 This is the philosophy of the Vivaldi team. The CEO is the ex-founder of Opera.
@@ -1296,15 +1636,15 @@ I recommend you to try this browser out. (Android version is also on the way)
         g.label = """Microsoft Edge
 
 Microsoft Edge was originally announced as a replacement for Internet Explorer,
-which had been the default browser in Windows operating systems since 1995. 
-However, both Edge and Internet Explorer are included with Windows 10, 
+which had been the default browser in Windows operating systems since 1995.
+However, both Edge and Internet Explorer are included with Windows 10,
 with Edge simply acting as the default browser.
 
-Microsoft Edge requires at least 1 gigabyte of memory. 
+Microsoft Edge requires at least 1 gigabyte of memory.
 The browser offers better security and better organization than Internet Explorer
 as well as a reading list which is similar to (but separate from) bookmarks.
 
-Now Chromium based Edge browser is on the way, 
+Now Chromium based Edge browser is on the way,
 and hopefully it is arriving to Linux between 2020 and 2021.
         """
         self.on_page(button)
@@ -1483,9 +1823,9 @@ HexChat is an Internet Relay Chat client (IRC), forked from XChat. It has a choi
         g.bp = "App Spotlight"
         g.label = """Franz
 
-Franz Messaging app is one of my top best messaging apps for linux platform. It’s a free, simple to use chat app that combines all the various chat & messaging services features into one promising application. 
+Franz Messaging app is one of my top best messaging apps for linux platform. It’s a free, simple to use chat app that combines all the various chat & messaging services features into one promising application.
 
-Currently it supports 
+Currently it supports
     ~ Slack
     ~ WhatsApp
     ~ WeChat
@@ -1501,8 +1841,8 @@ Currently it supports
     ~ Discord
     ~ Linkedin
     ~ Outlook
-    ~ and many more. 
-    
+    ~ and many more.
+
 At the moment, you are only able to install and run the app on the following operating systems “Mac, Windows & Linux”.
 
 If you have multiple business and private accounts, then Franz Messaging app will allow you to add all your accounts so its easy to manage them from a single dashboard. What this means is, you could add / manage five different Facebook Messenger accounts all at once.
@@ -1531,13 +1871,21 @@ SuperTux is a free and open-source two-dimensional platform video game published
         """
         self.on_page(button)
 
-    def on_wot_clicked (self, button):
+    def on_lutris_clicked (self, button):
         g.bp = "App Spotlight"
-        g.label = """World Of Tanks (Unofficial)
+        g.label = """Lutris
 
-World of Tanks (WoT) is a massively multiplayer online game developed by Belarusian company Wargaming, featuring mid-20th century (1930s–1960s) era combat vehicles. It is built upon a freemium business model where the game is free-to-play, but participants also have the option of paying a fee for use of "premium" features. The focus is on player vs. player gameplay with each player controlling an armored vehicle.
+Lutris is an Open Source gaming platform for Linux. It installs and launches games so you can start playing without the hassle of setting up your games. Get your games from GOG, Steam, Battle.net, Origin, Uplay and many other sources running on any Linux powered gaming machine.
+        """
+        self.on_page(button)
 
-World of Tanks has been ported to multiple gaming consoles. The PlayStation 4, Xbox 360 and Xbox Ones version was developed by Wargaming West studio. World of Tanks has also recently expanded to mobile platforms under the title World of Tanks Blitz, in addition to a board game titled World of Tanks Rush and a collectable card game titled World of Tanks: Generals. World of Tanks was followed by World of Warplanes and World of Warships.
+    def on_barr_clicked (self, button):
+        g.bp = "App Spotlight"
+        g.label = """Barrier by debauchee
+
+Barrier is KVM software forked from Symless's synergy 1.9 codebase. Synergy was a commercialized reimplementation of the original CosmoSynergy written by Chris Schoeneman.
+
+Whereas synergy has moved beyond its goals from the 1.x era, Barrier aims to maintain that simplicity. Barrier will let you use your keyboard and mouse from machine A to control machine B (or more). It's that simple.
         """
         self.on_page(button)
 
@@ -1623,12 +1971,12 @@ The ultimate partition manager for Linux
 The gparted application is the GNOME partition editor for creating, reorganizing, and deleting disk partitions.
 A disk device can be subdivided into one or more partitions. The gparted application enables you to change the partition organization on a disk device while preserving the contents of the partition.
 
-With gparted you can accomplish the following tasks: 
-- Create a partition table on a disk device. 
-- Enable and disable partition flags such as boot and hidden. 
+With gparted you can accomplish the following tasks:
+- Create a partition table on a disk device.
+- Enable and disable partition flags such as boot and hidden.
 - Perform actions with partitions such as create, delete, resize, move, check, label, copy, and paste.
 
-More documentation can be found in the application help manual, and online at: 
+More documentation can be found in the application help manual, and online at:
 http://gparted.org
         """
         self.on_page(button)
@@ -1655,7 +2003,7 @@ The free and open-source audio tool
 
 Audacity is the name of a popular open source multilingual audio editor and recorder software that is used to record and edit sounds. It is free and works on Windows, Mac OS X, GNU/Linux and other operating systems.
 
-Audacity can be used to perform a number of audio editing and recording tasks such as making ringtones, mixing stero tracks, transferring tapes and records to computer or CD, splitting recordings into separate tracks and more. The Audacity Wiki provides indepth tutorials on how to do these types of tasks in Audacity. Vendors can also freely bundle Audacity with their products or sell or distribute copies of Audacity under the GNU General Public License (GPL). 
+Audacity can be used to perform a number of audio editing and recording tasks such as making ringtones, mixing stero tracks, transferring tapes and records to computer or CD, splitting recordings into separate tracks and more. The Audacity Wiki provides indepth tutorials on how to do these types of tasks in Audacity. Vendors can also freely bundle Audacity with their products or sell or distribute copies of Audacity under the GNU General Public License (GPL).
         """
         self.on_page(button)
 
@@ -1665,7 +2013,7 @@ Audacity can be used to perform a number of audio editing and recording tasks su
 
 One of the most powerful backup solutions for Linux
 
-Deja-dup: is a simple yet powerful backup tool included with Ubuntu. It offers the power of resync with incremental backups, encryption, scheduling, and support for remote services. With Deja-dup, you can quickly revert files to previous versions or restore missing files from a file manager window. 
+Deja-dup: is a simple yet powerful backup tool included with Ubuntu. It offers the power of resync with incremental backups, encryption, scheduling, and support for remote services. With Deja-dup, you can quickly revert files to previous versions or restore missing files from a file manager window.
 
 You can do full system backups, Home folder backup or even settings backup in Ubuntu. You can backup to your GDrive storage also.
         """
@@ -1711,104 +2059,134 @@ GNOME Boxes requires the CPU to support some kind of Hardware-assisted virtualiz
 
     def on_mint_clicked (self, button):
         g.bp = "Distro Boutique"
+        g.web = "https://www.linuxmint.com"
+        g.rew = "https://youtu.be/fm7d2mM0cqQ"
         g.label = """Linux Mint
 
 Linux Mint was my first distro, and now I am a hardcore Linux user, so it was really beginner friendly :)
 First of all, the DE (Cinnamon) looks nearly exactly like Windows, so it is easy to get used to it. It is also pretty lightweight and stable for the everydays. It also supports deskletts and plugins. It has all the codecs and drivers that you will need out of the box, and it has a driver manager also. Regarding the OS itself, it is based on Ubuntu LTS version so it is compatible with everything and it is also reliable. The community is excellent! If you have some questions or problems, just ask, and probably within a few days you will get a solution. I recommend it to every beginner.
-
-Website: https://www.linuxmint.com
         """
         self.on_page(button)
 
     def on_ubuntu_clicked (self, button):
         g.bp = "Distro Boutique"
+        g.web = "https://ubuntu.com"
+        g.rew = "https://youtu.be/lzFcjW70xZ4"
         g.label = """Ubuntu
 
 Ubuntu is one of the oldest and most popular consumer Linux distos. Because of this, the support is outstanding. It has a lots of flavours (Kubuntu with KDE, Xubuntu with XFCE, Lubuntu with LXQT and so on...), the main version uses GNOME as its DE with some tweaks. It is stable and up to date enough for daily usage, and it has lots of programs in its repos. If you still can not find something there are lots of PPAs out there. It runs on nearly everything without problems, and the installation process is extremely easy and straightforward.
-
-Website: https://ubuntu.com
         """
         self.on_page(button)
 
     def on_solus_clicked (self, button):
         g.bp = "Distro Boutique"
+        g.web = "https://getsol.us/home/"
+        g.rew = "https://youtu.be/ZJE28tnPkRE"
         g.label = """Solus Linux
 
 Solus is a pretty fresh Linux distro built from scratch by a small (but growing) group of talented developers and users. The story behind the project is also very special. The community is rather small, but very helpful. The OS is extremely stable and well optimized, and its own DE, Budgie is also very modern and useful. The only drawback is that because of it is based on nothing, not every package is avilable. However, probablyy you will find everything right in the official repos without the need of any 3rd party repo. If not, then you can request new packages on the official site. I recommend it for those who are not afraid of a littlebit of learning to make everything work.
-
-Website: https://getsol.us/home/
         """
         self.on_page(button)
 
     def on_deepin_clicked (self, button):
         g.bp = "Distro Boutique"
+        g.web = "https://www.deepin.org/en/"
+        g.rew = "https://youtu.be/Uq_IbFNueTE"
         g.label = """Deepin Linux
 
 Deepin is the beautiful, minimalist, well supported, regularly updated and perfectly optimized distro from China with lots of great features and an interesting name. It is based on Debian (Unstable), it has a rolling release update method and a lots of own programs (DDE, DWM, Deepin Boot maker, Deepin Installer/Music/Movie/Backup/Clone/Recovery/Print/Connect and so on...). If you would like to use something that works out of the box (in nearly every case), and you do not want to learn anything about computers and Linux, then this is the perfect choice for you.
-
-Website: https://www.deepin.org/en/
         """
         self.on_page(button)
 
     def on_elementary_clicked (self, button):
         g.bp = "Distro Boutique"
+        g.web = "https://elementary.io"
+        g.rew = "https://youtu.be/9qO_Ft_wRqs"
         g.label = """Elementary OS
 
 Elementary is the macOS of the Linux world. Not because it is expensive or closed source, but because of its simplicity and user friendliness. If you are a beginner, then maybe this is the perfect distro for you. It is nothing special, no bloatware, based on Ubuntu, simple interface, stability and performance. But what else do you need? Regarding its pretty old-school look, trust me, you will get used to it after around a week, and after that you will just love it.
-
-Website: https://elementary.io
         """
         self.on_page(button)
 
     def on_zorin_clicked (self, button):
         g.bp = "Distro Boutique"
+        g.web = "https://zorinos.com"
+        g.rew = "https://youtu.be/30BKvLCEdkQ"
         g.label = """Zorin OS
 
 Personally, I do not like this distro, because of its philosophy. It is a littlebit like Windows in my eyes. At the other hand it is a well constructed and complete OS that works out of the box on a PC, Laptop, or even a Tablet (Intel CPU). It has a simple UI with a start menu, a tablet UI and a Pro version (khm Windows 10...). If it is okay for you, then it is a great Ubuntu based distro.
-
-Website: https://zorinos.com
         """
         self.on_page(button)
 
     def on_steamos_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "https://store.steampowered.com/steamos/"
+        g.rew = "https://youtu.be/1saebgKGLuY"
+        g.label = """Steam OS
+
+SteamOS is the primary operating system for the Steam Machine gaming platform by Valve Corporation. It is based on Debian Linux. It was released alongside the start of end-user beta testing of Steam Machines in December 2013.
         """
         self.on_page(button)
 
     def on_deb_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "https://www.debian.org"
+        g.rew = "https://youtu.be/fUcvL4fbtPo"
+        g.label = """Debian
+
+Debian GNU/Linux, is a Linux distribution composed of free and open-source software, developed by the community-supported Debian Project, which was established by Ian Murdock on August 16, 1993. The first version, Debian 0.01, was released on September 15, 1993, and the first stable version, 1.1, was released on June 17, 1996. The Debian Stable branch is the most popular edition for personal computers and servers, and is the basis for many other distributions.
         """
         self.on_page(button)
 
     def on_fedora_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "https://getfedora.org"
+        g.rew = "https://youtu.be/DO2acx2W2i8"
+        g.label = """Fedora
+
+Fedora Linux is a Linux distribution developed by the independent community-supported Fedora Project, sponsored primarily by Red Hat with substantial support by other companies. Fedora contains software distributed under various free and open-source licenses and aims to be on the leading edge of such technologies. Fedora is the upstream source of the commercial Red Hat Enterprise Linux distribution.
         """
         self.on_page(button)
 
-    def on_suse_clicked (self, button):
+    def on_opsu_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "https://www.opensuse.org"
+        g.rew = "https://youtu.be/9oonm2GCCMo"
+        g.label = """openSUSE
+
+openSUSE, formerly SUSE Linux and SuSE Linux Professional, is a Linux distribution sponsored by SUSE Linux GmbH and other companies. It is widely used throughout the world. The focus of its development is creating usable open-source tools for software developers and system administrators, while providing a user-friendly desktop and feature-rich server environment.
         """
         self.on_page(button)
 
     def on_arch_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "https://www.archlinux.org"
+        g.rew = "https://youtu.be/8RqFL92IEYs"
+        g.label = """Arch Linux
+
+Arch Linux is a Linux distribution for computers based on x86-64 architectures. The Arch Linux repositories contain both libre, and nonfree software, and the default Arch Linux kernel contains nonfree proprietary blobs, hence the distribution is not endorsed by the GNU project.
+
+The design approach of the development team follows the KISS principle ("keep it simple, stupid") as the general guideline. It focuses on elegance, code correctness, minimalism, simplicity, and expects the user to be willing to make some effort to understand the system's operation. A package manager written specifically for Arch Linux, pacman, is used to install, remove and update software packages.
         """
         self.on_page(button)
 
     def on_gentoo_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "https://www.gentoo.org"
+        g.rew = "https://youtu.be/6D5X78XsLi8"
+        g.label = """Gentoo
+
+Gentoo Linux is a Linux distribution built using the Portage package management system. Unlike a binary software distribution, the source code is compiled locally according to the user's preferences and is often optimized for the specific type of computer. Precompiled binaries are available for some larger packages or those with no available source code.
         """
         self.on_page(button)
 
     def on_lfs_clicked (self, button):
         g.bp = "Distro Boutique"
-        g.label = """
+        g.web = "http://www.linuxfromscratch.org"
+        g.rew = "https://youtu.be/qZJzbI6ZJ34"
+        g.label = """LFS
+
+Linux From Scratch (LFS) is a project that provides you with step-by-step instructions for building your own custom Linux system, entirely from source code.
         """
         self.on_page(button)
 
@@ -1819,8 +2197,8 @@ Website: https://zorinos.com
         g.inMsg = 'Installing '+g.name+':'
         g.indMsg = g.name+' installed sucsesfully!'
         if g.name == 'Timeshift' and g.distro == 'Arch':
-            g.inMsg = 'Installing '+g.name+'''. NOTE: The AUR package is currently 
-broken because vala incompatibility. If it does not work correctly 
+            g.inMsg = 'Installing '+g.name+'''. NOTE: The AUR package is currently
+broken because vala incompatibility. If it does not work correctly
 run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken install.'''
 
     def onRem(self):
@@ -2123,6 +2501,19 @@ run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken inst
         print(g.CA)
         self.OnNeed()
 
+    def on_skart_but_clicked(self, button):
+        g.name = 'SuperTuxKart'
+        if g.ad_value == 'Install':
+            if g.distro == 'Arch':
+                g.kbTime = 2
+            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+                g.kbTime = 2
+            self.onIns()
+        elif g.ad_value == 'Remove':
+            self.onRem()
+        print(g.CA)
+        self.OnNeed()
+
     def on_tux_but_clicked(self, button):
         g.name = 'SuperTux'
         if g.tux_value == 'Install':
@@ -2136,8 +2527,31 @@ run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken inst
         print(g.CA)
         self.OnNeed()
 
-    def on_wot_but_clicked(self, button):
-        g.name = 'World Of Tanks (Unofficial)'
+    def on_lutris_but_clicked(self, button):
+        g.name = 'Lutris'
+        if g.pol_value == 'Install':
+            if g.distro == 'Arch':
+                g.kbTime = 1
+            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+                g.kbTime = 1
+            self.onIns()
+        elif g.pol_value == 'Remove':
+            self.onRem()
+        print(g.CA)
+        self.OnNeed()
+
+    def on_barr_but_clicked(self, button):
+        g.name = 'Barrier by debauchee'
+        if g.pol_value == 'Install':
+            if g.distro == 'Arch':
+                g.kbTime = 1
+            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+                g.kbTime = 1
+            self.onIns()
+        elif g.pol_value == 'Remove':
+            self.onRem()
+        print(g.CA)
+        self.OnNeed()
 
     def on_pol_but_clicked(self, button):
         g.name = 'Play On Linux'
@@ -2372,7 +2786,14 @@ run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken inst
                 return True
         elif g.spinning == False:
             print('Standing')
-        self.button_clicked(button)
+        if g.bp == "App Spotlight":
+            self.button_clicked(button)
+        elif g.bp == "Distro Boutique":
+            distro_box = self.builder.get_object('distro_box')
+            g.stack.set_visible_child(distro_box)
+        else:
+            print('ERROR')
 
+GObject.threads_init()
 app = GUI()
 Gtk.main()

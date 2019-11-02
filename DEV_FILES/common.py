@@ -19,4 +19,5 @@ doIt = False
 text = 'Description'
 stack = 'GTK base'
 name = 'appName'
+t1 = 'test'
 # appname_value = 'installORremove'
