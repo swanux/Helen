@@ -1294,10 +1294,10 @@ class GUI:
         g.t1.start()
 #        cKer = threading.Event()
 #        threading.Thread()
-#        g.t1.join()
+        g.t1.join()
 #        if g.t1.isAlive() != True:
 #            print("TruTogle0")
-#            self.toggle(True)
+        self.toggle(True)
         print("EndOf0")
 
 
