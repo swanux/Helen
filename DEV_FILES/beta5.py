@@ -89,7 +89,9 @@ print(g.distro)
 class myThread (threading.Thread):
 #    def toggle(self, state):
 #        builder = Gtk.Builder()
+#        builder.add_from_file(UI_FILE)
 #        for i in range(g.dlistLen):
+#            print("Toggle %s" % i)
 #            if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
 #                print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
 #                g.cBut = builder.get_object(g.dlist[i])
@@ -102,8 +104,24 @@ class myThread (threading.Thread):
         self.name = name
         g._stop_event = False
     def run(self):
+#        builder = Gtk.Builder()
+#        builder.add_from_file(UI_FILE)
         print ("Starting " + self.name)
+#        if g.CA == "download":
+#            print("goTogle")
+#            for i in range(g.dlistLen):
+#                print("Toggle %s" % i)
+#                if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
+#                    print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
+#                    g.cBut = builder.get_object(g.dlist[i])
+#                    print(g.cBut)
+#                    GLib.idle_add(g.cBut.set_sensitive, False)
+#                    g.shDict[g.dlist[i]] = "False"
+#            self.toggle(False)
         my_thread()
+#        G = GUI()
+#        func = G.toggle
+#        func(True)
         print ("Exiting " + self.name)
         if g.CA == "download":
             g.runE = False
@@ -118,6 +136,14 @@ class myThread (threading.Thread):
                 g.shDict[g.Tdownl] = "PFalse"
                 print("done with it")
 #            print("calling toggle")
+#            for i in range(g.dlistLen):
+#                print("Toggle %s" % i)
+#                if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
+#                    print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
+#                    g.cBut = builder.get_object(g.dlist[i])
+#                    print(g.cBut)
+#                    GLib.idle_add(g.cBut.set_sensitive, True)
+#                    g.shDict[g.dlist[i]] = "True"
 #            self.toggle(True)
 #            print("called")
     def stop(self):
@@ -754,16 +780,6 @@ def my_thread():
             app.asroot()
     elif g.CA == "download":
         print("DLthread...")
-#        def toggle(state):
-#             builder = Gtk.Builder()
-#             for i in range(g.dlistLen):
-#                 print("Toggle %s" % i)
-#                 if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
-#                     print(g.dlist[i], g.shDict[g.dlist[i]], g.Tdownl)
-#                     g.cBut = builder.get_object(g.dlist[i])
-#                     GLib.idle_add(g.cBut.set_sensitive, state)
-#                     g.shDict[g.dlist[i]] = "%s" % state
-#        toggle(False)
         while not g._stop_event:
             buffer = g.u.read(g.block_sz)
             if not buffer:
@@ -1258,6 +1274,7 @@ class GUI:
             g.rmE = True
             g.t1.stop()
             g.t1.join()
+            print("TruTogle")
             self.toggle(True)
             return
         elif g.runE == False:
@@ -1270,12 +1287,18 @@ class GUI:
         print("Downloading: %s Bytes: %s" % (g.file_name, g.file_size))
         g.file_size_dl = 0
         g.block_sz = 8192
+        print("FalsTogle")
         self.toggle(False)
         g.t1 = myThread(1, "Thread-1")
-        g.t1.daemon = True
+        g.t1.setDaemon = True
         g.t1.start()
-        g.t1.join
-        self.toggle(True)
+#        cKer = threading.Event()
+#        threading.Thread()
+#        g.t1.join()
+#        if g.t1.isAlive() != True:
+#            print("TruTogle0")
+#            self.toggle(True)
+        print("EndOf0")
 
 
 
