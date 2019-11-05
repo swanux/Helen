@@ -453,8 +453,8 @@ Author: Dániel Kolozsi (@swanux)
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">window</property>
     <property name="window_position">center</property>
-    <property name="default_width">660</property>
-    <property name="default_height">370</property>
+    <property name="default_width">715</property>
+    <property name="default_height">400</property>
     <property name="icon">icons/hsuite.png</property>
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
@@ -3389,8 +3389,8 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                               <object class="GtkGrid" id="begin_grid">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="row_spacing">9</property>
-                                <property name="column_spacing">5</property>
+                                <property name="row_spacing">4</property>
+                                <property name="column_spacing">2</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkButton" id="mint">
@@ -3398,6 +3398,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">mint_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3414,6 +3418,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">ubuntu_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3430,6 +3438,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">solus_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3450,6 +3462,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_mint_clicked" swapped="no"/>
                                       </object>
@@ -3464,6 +3480,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico9</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3491,6 +3511,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_ubuntu_clicked" swapped="no"/>
                                       </object>
@@ -3505,6 +3529,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico1</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3532,6 +3560,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_solus_clicked" swapped="no"/>
                                       </object>
@@ -3546,6 +3578,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico2</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3569,6 +3605,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">deepin_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3585,6 +3625,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">elementary_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3601,6 +3645,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">zorin_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3621,6 +3669,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_deepin_clicked" swapped="no"/>
                                       </object>
@@ -3635,6 +3687,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico5</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3662,6 +3718,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_elementary_clicked" swapped="no"/>
                                       </object>
@@ -3676,6 +3736,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico4</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3703,6 +3767,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_zorin_clicked" swapped="no"/>
                                       </object>
@@ -3717,6 +3785,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico3</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3802,8 +3874,8 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                               <object class="GtkGrid" id="office_grid1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="row_spacing">9</property>
-                                <property name="column_spacing">5</property>
+                                <property name="row_spacing">4</property>
+                                <property name="column_spacing">2</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkBox" id="buts_box6">
@@ -3815,6 +3887,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_steamos_clicked" swapped="no"/>
                                       </object>
@@ -3829,6 +3905,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico6</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3852,6 +3932,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">steamos_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -3861,18 +3945,6 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="left_attach">0</property>
                                     <property name="top_attach">0</property>
                                   </packing>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
                                 </child>
                               </object>
                               <packing>
@@ -3942,8 +4014,8 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                               <object class="GtkGrid" id="editor_grid1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="row_spacing">9</property>
-                                <property name="column_spacing">5</property>
+                                <property name="row_spacing">4</property>
+                                <property name="column_spacing">2</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkBox" id="buts_box9">
@@ -3955,6 +4027,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_deb_clicked" swapped="no"/>
                                       </object>
@@ -3969,6 +4045,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico11</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -3996,6 +4076,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_fedora_clicked" swapped="no"/>
                                       </object>
@@ -4010,6 +4094,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico10</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -4037,6 +4125,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_suse_clicked" swapped="no"/>
                                       </object>
@@ -4051,6 +4143,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -4074,6 +4170,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">deb_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -4090,6 +4190,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">fedora_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -4106,6 +4210,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">opsu_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -4184,8 +4292,8 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                               <object class="GtkGrid" id="comm_grid1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="row_spacing">9</property>
-                                <property name="column_spacing">5</property>
+                                <property name="row_spacing">4</property>
+                                <property name="column_spacing">2</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkBox" id="buts_box12">
@@ -4197,6 +4305,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_arch_clicked" swapped="no"/>
                                       </object>
@@ -4211,6 +4323,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico12</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -4238,6 +4354,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_gentoo_clicked" swapped="no"/>
                                       </object>
@@ -4252,6 +4372,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico13</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -4279,6 +4403,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
                                         <signal name="clicked" handler="on_downl_lfs_clicked" swapped="no"/>
                                       </object>
@@ -4293,6 +4421,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="image">help_ico14</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
@@ -4316,6 +4448,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">arch_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -4332,6 +4468,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">gentoo_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
@@ -4348,6 +4488,10 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
                                     <property name="image">lfs_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>

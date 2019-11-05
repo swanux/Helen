@@ -4,11 +4,12 @@
 import gi
 import os
 import webbrowser
-import threading
+from threading import Thread
 import time
 from datetime import date
 from urllib.request import urlopen
 from decimal import Decimal
+from concurrent import futures
 
 dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
 os.chdir(dire)
@@ -42,13 +43,16 @@ print(pkg)
 g.user = os.popen("logname").read()
 g.user = g.user.rstrip()
 print(g.user)
+fn = 'sth'
 g.spinning = False
 g.scanner = True
 g.doIt = False
+g.Tdownl = ''
 g.cache = []
 g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'True', 'downl_elementary' : 'True', 'downl_zorin' : 'True', 'downl_deepin' : 'True', 'downl_steamos' : 'True', 'downl_deb' : 'True', 'downl_fedora' : 'True', 'downl_suse' : 'True', 'downl_gentoo' : 'True', 'downl_arch' : 'True', 'downl_lfs' : 'True',}
 g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_elementary', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
 g.dlistLen = len(g.dlist)
+g.uriDict = {'downl_mint' : 'http://mirrors.evowise.com/linuxmint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso', 'downl_ubuntu' : 'http://releases.ubuntu.com/19.10/ubuntu-19.10-desktop-amd64.iso', 'downl_solus' : 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso', 'downl_elementary' : 'https://ams3.dl.elementary.io/download/MTU3Mjk2NDY5NA==/elementaryos-5.0-stable.20181016.iso', 'downl_zorin' : 'https://netcologne.dl.sourceforge.net/project/zorin-os/15/Zorin-OS-15-Core-64-bit-r1.iso', 'downl_deepin' : 'https://netix.dl.sourceforge.net/project/deepin/15.11/deepin-15.11-amd64.iso', 'downl_steamos' : 'http://repo.steampowered.com/download/SteamOSDVD.iso', 'downl_deb' : 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-10.1.0-amd64-cinnamon+nonfree.iso', 'downl_fedora' : 'http://fedora.inode.at/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso', 'downl_suse' : 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso', 'downl_gentoo' : 'http://distfiles.gentoo.org/releases/amd64/autobuilds/20191030T214502Z/install-amd64-minimal-20191030T214502Z.iso', 'downl_arch' : 'http://mirrors.evowise.com/archlinux/iso/2019.%s.01/archlinux-2019.%s.01-x86_64.iso' % (g.month, g.month), 'downl_lfs' : 'http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/LFS-BOOK-9.0-systemd.pdf'}
 
 wer = os.popen('ls').read()
 print(str(wer))
@@ -86,66 +90,16 @@ else:
     g.distro = 'Not Compatible Error'
 print(g.distro)
 
-class myThread (threading.Thread):
-#    def toggle(self, state):
-#        builder = Gtk.Builder()
-#        builder.add_from_file(UI_FILE)
-#        for i in range(g.dlistLen):
-#            print("Toggle %s" % i)
-#            if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
-#                print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
-#                g.cBut = builder.get_object(g.dlist[i])
-#                print(g.cBut)
-#                GLib.idle_add(g.cBut.set_sensitive, state)
-#                g.shDict[g.dlist[i]] = "%s" % state
+class myThread (Thread):
     def __init__(self, threadID, name):
-        threading.Thread.__init__(self)
+        Thread.__init__(self)
         self.threadID = threadID
         self.name = name
         g._stop_event = False
     def run(self):
-#        builder = Gtk.Builder()
-#        builder.add_from_file(UI_FILE)
         print ("Starting " + self.name)
-#        if g.CA == "download":
-#            print("goTogle")
-#            for i in range(g.dlistLen):
-#                print("Toggle %s" % i)
-#                if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
-#                    print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
-#                    g.cBut = builder.get_object(g.dlist[i])
-#                    print(g.cBut)
-#                    GLib.idle_add(g.cBut.set_sensitive, False)
-#                    g.shDict[g.dlist[i]] = "False"
-#            self.toggle(False)
         my_thread()
-#        G = GUI()
-#        func = G.toggle
-#        func(True)
         print ("Exiting " + self.name)
-        if g.CA == "download":
-            g.runE = False
-            GLib.idle_add(g.downl.set_label, g.orig)
-            print(g.orig)
-            print("Label restore")
-            if g.rmE:
-                os.system('rm /home/%s/Downloads/%s' % (g.user, g.file_name) )
-            else:
-                GLib.idle_add(g.downl.set_label, "Ready in ~/Downloads/")
-                GLib.idle_add(g.downl.set_sensitive, False)
-                g.shDict[g.Tdownl] = "PFalse"
-                print("done with it")
-#            print("calling toggle")
-#            for i in range(g.dlistLen):
-#                print("Toggle %s" % i)
-#                if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
-#                    print(g.dlist[i], g.Tdownl, g.shDict[g.dlist[i]])
-#                    g.cBut = builder.get_object(g.dlist[i])
-#                    print(g.cBut)
-#                    GLib.idle_add(g.cBut.set_sensitive, True)
-#                    g.shDict[g.dlist[i]] = "True"
-#            self.toggle(True)
-#            print("called")
     def stop(self):
         g._stop_event = True
         print("stop func")
@@ -711,7 +665,7 @@ def my_thread():
         elif g.distro == 'Arch':
             g.asr = 'pacman -Sq --noconfirm barrier'
             app.asroot()
-    elif g.CA == 'SkypeR':
+    elif g.CA == 'Barrier by debaucheeR':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.asr = 'apt purge barrier -y ; apt autoremove -y'
             app.asroot()
@@ -778,18 +732,6 @@ def my_thread():
         elif g.distro == 'Arch':
             g.asr = 'pacman -Runs --noconfirm steam steam-native-runtime'
             app.asroot()
-    elif g.CA == "download":
-        print("DLthread...")
-        while not g._stop_event:
-            buffer = g.u.read(g.block_sz)
-            if not buffer:
-               break
-            g.file_size_dl += len(buffer)
-            g.f.write(buffer)
-#            g.status = r"%10d  [%3.2f%%]" % (g.file_size_dl, g.file_size_dl * 100. / g.file_size)
-            g.status = r"Cancel  [%3.2f%%]" % (g.file_size_dl * 100. / g.file_size)
-            GLib.idle_add(g.downl.set_label, g.status)
-#        toggle(True)
 #    elif g.CA == 'aptORaur':
 #        if g.distro == 'Ubuntu':
 #            os.system('add-apt-repository -y ppa:apt-fast/stable && apt update && echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections && echo debconf apt-fast/dlflag boolean true | debconf-set-selections && echo debconf apt-fast/aptmanager string apt | debconf-set-selections && apt install apt-fast -y')
@@ -1252,14 +1194,41 @@ class GUI:
 #################################################################################
 # Download methods
 
-    def toggle(self, state):
+    def toggle(self, fn):
+        print(self, fn, g.state)
         for i in range(g.dlistLen):
             print("Toggle %s" % i)
             if g.dlist[i] != g.Tdownl and g.shDict[g.dlist[i]] != "PFalse":
                 print(g.dlist[i], g.shDict[g.dlist[i]], g.Tdownl)
                 g.cBut = self.builder.get_object(g.dlist[i])
-                GLib.idle_add(g.cBut.set_sensitive, state)
-                g.shDict[g.dlist[i]] = "%s" % state
+                GLib.idle_add(g.cBut.set_sensitive, g.state)
+                g.shDict[g.dlist[i]] = "%s" % g.state
+
+    def ex_target(self):
+        print("DLthread...")
+        g.quit = False
+        while not g.quit:
+            buffer = g.u.read(g.block_sz)
+            if not buffer:
+               break
+            g.file_size_dl += len(buffer)
+            g.f.write(buffer)
+#            g.status = r"%10d  [%3.2f%%]" % (g.file_size_dl, g.file_size_dl * 100. / g.file_size)
+            g.status = r"Cancel  [%3.2f%%]" % (g.file_size_dl * 100. / g.file_size)
+            time.sleep(0.1)
+            GLib.idle_add(g.downl.set_label, g.status)
+        print("DLend!!")
+        g.runE = False
+        GLib.idle_add(g.downl.set_label, g.orig)
+        print(g.orig)
+        print("Label restore")
+        if g.rmE:
+            os.system('rm /home/%s/Downloads/%s' % (g.user, g.file_name) )
+        else:
+            GLib.idle_add(g.downl.set_label, "Ready in ~/Downloads/")
+            GLib.idle_add(g.downl.set_sensitive, False)
+            g.shDict[g.Tdownl] = "PFalse"
+            print("done with it")
 
     def on_downl_begin(self):
         g.month = g.today.strftime("%m")
@@ -1267,38 +1236,30 @@ class GUI:
         g.year = g.today.strftime("%y")
         g.u = urlopen(g.url)
         g.file_size = int(g.u.getheader('Content-Length'))
-        if g.dowE == False:
-            print("not downloading")
-            return
         if g.runE == True:
             g.rmE = True
-            g.t1.stop()
-            g.t1.join()
+            g.quit = True
             print("TruTogle")
-            self.toggle(True)
+            g.state = True
+            self.toggle(fn)
             return
         elif g.runE == False:
             g.runE = True
             g.rmE = False
             g.orig = g.downl.get_label()
         g.file_name = g.url.split('/')[-1]
-        g.CA = "download"
         g.f = open('/home/%s/Downloads/%s' % (g.user, g.file_name) , 'wb')
         print("Downloading: %s Bytes: %s" % (g.file_name, g.file_size))
         g.file_size_dl = 0
         g.block_sz = 8192
         print("FalsTogle")
-        self.toggle(False)
-        g.t1 = myThread(1, "Thread-1")
-        g.t1.setDaemon = True
-        g.t1.start()
-#        cKer = threading.Event()
-#        threading.Thread()
-        g.t1.join()
-#        if g.t1.isAlive() != True:
-#            print("TruTogle0")
-        self.toggle(True)
-        print("EndOf0")
+        g.state = False
+        self.toggle(fn)
+
+        g.t1 = futures.ThreadPoolExecutor(max_workers=2)
+        f = g.t1.submit(self.ex_target)
+        g.state = True
+        f.add_done_callback(self.toggle)
 
 
 
@@ -1477,18 +1438,43 @@ class GUI:
     def on_ac_but_clicked(self, button):
         self.on_htools_but_clicked(button)
 
+    def getSize (self):
+        print("Getting size...")
+#        G = GUI()
+        for i in range(g.dlistLen):
+            g.month = g.today.strftime("%m")
+            g.day = g.today.strftime("%d")
+            g.year = g.today.strftime("%y")
+            cBut = self.builder.get_object(g.dlist[i])
+            time.sleep(0.1)
+            print("rundownl")
+            print(g.dlist[i])
+#            g.downl = self.builder.get_object('downl_mint')
+#            g.Tdownl = g.dlist[i]
+            if 'arch' in g.dlist[i]:
+                if g.day == "01":
+                    g.month = int(g.month, button) - 1
+            g.url = g.uriDict[g.dlist[i]]
+#            print("URL : %s" % g.url)
+            g.u = urlopen(g.url)
+            g.file_size = int(g.u.getheader('Content-Length'))
+            print("runned")
+            g.file_size = Decimal(int(g.file_size) / 1024 / 1024)
+            GLib.idle_add(cBut.set_label, "Download (%s MB)" % round(g.file_size,1))
+            g.cache.append(round(g.file_size,1))
+
+    def done (self, fn):
+        print("Sizes fetched.")
+
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')
         if not g.cache:
-            for i in range(g.dlistLen):
-                cBut = self.builder.get_object(g.dlist[i])
-                g.dowE = False
-                fNam = "self.on_%s_clicked(button)" % g.dlist[i]
-                eval(fNam)
-                g.dowE = True
-                g.file_size = Decimal(int(g.file_size) / 1024 / 1024)
-                cBut.set_label("Download (%s MB)" % round(g.file_size,1))
-                g.cache.append(round(g.file_size,1))
+            g.state = False
+            self.toggle(fn)
+            g.tS = futures.ThreadPoolExecutor(max_workers=2)
+            f = g.tS.submit(self.getSize)
+            g.state = True
+            f.add_done_callback(self.toggle)
         else:
             for i in range(g.dlistLen):
                 cBut = self.builder.get_object(g.dlist[i])
@@ -1553,16 +1539,16 @@ class GUI:
             web_link.set_always_show_image(True)
             web_link.set_label(" Website")
             web_link.connect("clicked", self.on_web_link_clicked)
-        ##
+
         g.text.set_text(g.label)
         back_button.set_label(g.bp)
         g.stack.set_visible_child(page)
 
     def on_rew_link_clicked(self, button):
-        webbrowser.open_new(g.web)
+        webbrowser.open_new(g.rew)
 
     def on_web_link_clicked(self, button):
-        webbrowser.open_new(g.rew)
+        webbrowser.open_new(g.web)
 ############################################################################
     def on_opera_clicked (self, button):
         g.bp = "App Spotlight"
@@ -2526,13 +2512,13 @@ run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken inst
 
     def on_skart_but_clicked(self, button):
         g.name = 'SuperTuxKart'
-        if g.ad_value == 'Install':
+        if g.skart_value == 'Install':
             if g.distro == 'Arch':
                 g.kbTime = 2
             elif g.distro == 'Ubuntu' or g.distro == 'Debian':
                 g.kbTime = 2
             self.onIns()
-        elif g.ad_value == 'Remove':
+        elif g.skart_value == 'Remove':
             self.onRem()
         print(g.CA)
         self.OnNeed()
@@ -2552,26 +2538,26 @@ run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken inst
 
     def on_lutris_but_clicked(self, button):
         g.name = 'Lutris'
-        if g.pol_value == 'Install':
+        if g.lutris_value == 'Install':
             if g.distro == 'Arch':
                 g.kbTime = 1
             elif g.distro == 'Ubuntu' or g.distro == 'Debian':
                 g.kbTime = 1
             self.onIns()
-        elif g.pol_value == 'Remove':
+        elif g.lutris_value == 'Remove':
             self.onRem()
         print(g.CA)
         self.OnNeed()
 
     def on_barr_but_clicked(self, button):
         g.name = 'Barrier by debauchee'
-        if g.pol_value == 'Install':
+        if g.barr_value == 'Install':
             if g.distro == 'Arch':
                 g.kbTime = 1
             elif g.distro == 'Ubuntu' or g.distro == 'Debian':
                 g.kbTime = 1
             self.onIns()
-        elif g.pol_value == 'Remove':
+        elif g.barr_value == 'Remove':
             self.onRem()
         print(g.CA)
         self.OnNeed()
