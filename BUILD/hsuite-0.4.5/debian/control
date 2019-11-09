@@ -1,0 +1,13 @@
+Source: hsuite
+Section: utils
+Priority: optional
+Maintainer: Dániel Kolozsi <dani@kolozsi.net>
+Build-Depends: debhelper (>= 11), software-properties-common, dh-python, python3
+Standards-Version: 0.4.5-1
+X-Python3-Version: >= 3.2
+
+Package: hsuite
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}, software-properties-common, util-linux, debconf, bash, wget, unzip, coreutils, python3-gi, xdg-utils, gir1.2-webkit2-4.0
+Homepage: <https://github.com/swanux/hsuite>
+Description: HSuite Beta v0.5 | Hermes

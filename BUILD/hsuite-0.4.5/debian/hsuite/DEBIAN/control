@@ -1,0 +1,10 @@
+Package: hsuite
+Version: 0.4.5-1
+Architecture: all
+Maintainer: Dániel Kolozsi <dani@kolozsi.net>
+Installed-Size: 614
+Depends: python3:any (>= 3.2~), software-properties-common, util-linux, debconf, bash, wget, unzip, coreutils, python3-gi, xdg-utils, gir1.2-webkit2-4.0
+Section: utils
+Priority: optional
+Homepage: <https://github.com/swanux/hsuite>
+Description: HSuite Beta v0.5 | Hermes

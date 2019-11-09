@@ -1,0 +1,16 @@
+#!/bin/sh
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8320CA65CB2DE8E5 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB3E94ADBE1229CF && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D980A17457F6FB06 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3413DA98AA3E7F5E && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1F3045A5DF7587C3 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 425956BB3E31DF51 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FF0E01EEAAFC9CD && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1E5F8BBC5BEB10AE && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6494C6D6997C215E && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8D04CE49EFB20B23 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 03C3AD3A7F068E5D && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 531EE72F4C9D234C && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D615560BA5C7FF72 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C5E224500C1289C8 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2F683C52980AECF && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F24AEA9FB05498B7 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
+wget -qO- https://deb.opera.com/archive.key | apt-key add -
+wget https://www.virtualbox.org/download/oracle_vbox_2016.asc | apt-key add oracle_vbox_2016.asc | rm oracle_vbox_2016.asc
+echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
+echo "deb https://mega.nz/linux/MEGAsync/xUbuntu_19.04/ ./" | tee /etc/apt/sources.list.d/megasync.list
+echo "deb https://deb.opera.com/opera-stable/ stable non-free" | tee /etc/apt/sources.list.d/opera-stable.list
+echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | tee /etc/apt/sources.list.d/skype-stable.list
+echo "deb http://ppa.launchpad.net/system76/pop/ubuntu disco main" | tee /etc/apt/sources.list.d/system76-ubuntu-pop-disco.list
+echo "deb http://linux.teamviewer.com/deb stable main" | tee /etc/apt/sources.list.d/teamviewer.list
+echo "deb http://repo.vivaldi.com/stable/deb/ stable main" | tee /etc/apt/sources.list.d/vivaldi.list
+echo "deb http://repo.steampowered.com/steam/ precise steam" | tee /etc/apt/sources.list.d/steam.list
+echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vscode.list
+echo "deb http://mirror.inode.at/data/deepin stable non-free contrib\ndeb https://download.onlyoffice.com/repo/debian squeeze main\ndeb http://shop.softmaker.com/repo/apt wheezy non-free\ndeb [arch=amd64] https://updates.signal.org/desktop/apt xenial main\ndeb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu disco main\ndeb http://ppa.launchpad.net/kelleyk/emacs/ubuntu disco main\ndeb http://download.virtualbox.org/virtualbox/debian bionic contrib" | tee /etc/apt/sources.list.d/hsources.list
+apt update
