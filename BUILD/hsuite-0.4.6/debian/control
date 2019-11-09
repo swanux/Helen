@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: Dániel Kolozsi <dani@kolozsi.net>
 Build-Depends: debhelper (>= 11), software-properties-common, dh-python, python3
-Standards-Version: 0.4.5-1
+Standards-Version: 0.4.6-1
 X-Python3-Version: >= 3.2
 
 Package: hsuite
