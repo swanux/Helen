@@ -421,7 +421,7 @@ def my_thread():
             app.asroot()
     elif g.CA == 'TeamViewer':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'DEBIAN_FRONTEND=noninteractive apt install teamviewer -y'
+            g.asr = 'DEBIAN_FRONTEND=noninteractive apt install teamviewer -y ; teamviewer --daemon enable'
             app.asroot()
         elif g.distro == 'Arch':
             os.system('wget https://download.teamviewer.com/download/linux/teamviewer_amd64.tar.xz')
