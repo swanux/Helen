@@ -1,94 +1,88 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import gi
-import os
-import webbrowser
-from threading import Thread
-import time
-from datetime import date
-from urllib.request import urlopen
-from decimal import Decimal
-from concurrent import futures
+#import gi
+#import os
+#import webbrowser
+#from threading import Thread
+#import time
+#from datetime import date
+#from urllib.request import urlopen
+#from decimal import Decimal
+#from concurrent import futures
 
-dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
-os.chdir(dire)
-import common as g
-g.today = date.today()
-g.month = g.today.strftime("%m")
-g.day = g.today.strftime("%d")
-g.year = g.today.strftime("%y")
-g.runE = False
-print(g.day, g.month, g.year, g.today)
-xorw = os.popen('echo $XDG_SESSION_TYPE').read()
-if "x" in xorw:
-    g.lehete = "You need to reboot or log in and out again after the install has been completed to apply all changes."
-else:
-    g.lehete = "You can currently only use this feature with x11 based desktop. It does not support Wayland."
-g.dir = dire
-gi.require_version('Gtk', '3.0')
-gi.require_version('WebKit2', '4.0')
-from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
+#dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
+#os.chdir(dire)
+#import common as g
+#g.today = date.today()
+#g.month = g.today.strftime("%m")
+#g.day = g.today.strftime("%d")
+#g.year = g.today.strftime("%y")
+#g.runE = False
+#print(g.day, g.month, g.year, g.today)
+#xorw = os.popen('echo $XDG_SESSION_TYPE').read()
+#if "x" in xorw:
+#    g.lehete = "You need to reboot or log in and out again after the install has been completed to apply all changes."
+#else:
+#    g.lehete = "You can currently only use this feature with x11 based desktop. It does not support Wayland."
+#gi.require_version('Gtk', '3.0')
+#gi.require_version('WebKit2', '4.0')
+#from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
 
-colorR = Gdk.color_parse('red')
-rgbaR = Gdk.RGBA.from_color(colorR)
-colorG = Gdk.color_parse('green')
-rgbaG = Gdk.RGBA.from_color(colorG)
+#colorR = Gdk.color_parse('red')
+#rgbaR = Gdk.RGBA.from_color(colorR)
+#colorG = Gdk.color_parse('green')
+#rgbaG = Gdk.RGBA.from_color(colorG)
 
-UI_FILE = "hsuite.glade"
+#UI_FILE = "hsuite.glade"
 
-pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"]
-print(pkg)
+#pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"]
 
-g.user = os.popen("logname").read()
-g.user = g.user.rstrip()
-print(g.user)
-fn = 'sth'
-g.spinning = False
-g.scanner = True
-g.doIt = False
-g.Tdownl = ''
-g.cache = []
-g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'True', 'downl_elementary' : 'True', 'downl_zorin' : 'True', 'downl_deepin' : 'True', 'downl_steamos' : 'True', 'downl_deb' : 'True', 'downl_fedora' : 'True', 'downl_suse' : 'True', 'downl_gentoo' : 'True', 'downl_arch' : 'True', 'downl_lfs' : 'True',}
-g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_elementary', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
-g.dlistLen = len(g.dlist)
-g.uriDict = {'downl_mint' : 'http://mirrors.evowise.com/linuxmint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso', 'downl_ubuntu' : 'http://releases.ubuntu.com/19.10/ubuntu-19.10-desktop-amd64.iso', 'downl_solus' : 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso', 'downl_elementary' : 'https://ams3.dl.elementary.io/download/MTU3Mjk2NDY5NA==/elementaryos-5.0-stable.20181016.iso', 'downl_zorin' : 'https://netcologne.dl.sourceforge.net/project/zorin-os/15/Zorin-OS-15-Core-64-bit-r1.iso', 'downl_deepin' : 'https://netix.dl.sourceforge.net/project/deepin/15.11/deepin-15.11-amd64.iso', 'downl_steamos' : 'http://repo.steampowered.com/download/SteamOSDVD.iso', 'downl_deb' : 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-10.1.0-amd64-cinnamon+nonfree.iso', 'downl_fedora' : 'http://fedora.inode.at/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso', 'downl_suse' : 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso', 'downl_gentoo' : 'http://distfiles.gentoo.org/releases/amd64/autobuilds/20191030T214502Z/install-amd64-minimal-20191030T214502Z.iso', 'downl_arch' : 'http://mirrors.evowise.com/archlinux/iso/2019.%s.01/archlinux-2019.%s.01-x86_64.iso' % (g.month, g.month), 'downl_lfs' : 'http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/LFS-BOOK-9.0-systemd.pdf'}
+#g.user = os.popen("logname").read()
+#g.user = g.user.rstrip()
+#print(g.user)
+#fn = 'sth'
+#g.spinning = False
+#g.scanner = True
+#g.Tdownl = ''
+#g.cache = []
+#g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'True', 'downl_elementary' : 'True', 'downl_zorin' : 'True', 'downl_deepin' : 'True', 'downl_steamos' : 'True', 'downl_deb' : 'True', 'downl_fedora' : 'True', 'downl_suse' : 'True', 'downl_gentoo' : 'True', 'downl_arch' : 'True', 'downl_lfs' : 'True',}
+#g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_elementary', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
+#g.dlistLen = len(g.dlist)
+#g.uriDict = {'downl_mint' : 'http://mirrors.evowise.com/linuxmint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso', 'downl_ubuntu' : 'http://releases.ubuntu.com/19.10/ubuntu-19.10-desktop-amd64.iso', 'downl_solus' : 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso', 'downl_elementary' : 'https://ams3.dl.elementary.io/download/MTU3Mjk2NDY5NA==/elementaryos-5.0-stable.20181016.iso', 'downl_zorin' : 'https://netcologne.dl.sourceforge.net/project/zorin-os/15/Zorin-OS-15-Core-64-bit-r1.iso', 'downl_deepin' : 'https://netix.dl.sourceforge.net/project/deepin/15.11/deepin-15.11-amd64.iso', 'downl_steamos' : 'http://repo.steampowered.com/download/SteamOSDVD.iso', 'downl_deb' : 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-10.1.0-amd64-cinnamon+nonfree.iso', 'downl_fedora' : 'http://fedora.inode.at/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso', 'downl_suse' : 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso', 'downl_gentoo' : 'http://distfiles.gentoo.org/releases/amd64/autobuilds/20191030T214502Z/install-amd64-minimal-20191030T214502Z.iso', 'downl_arch' : 'http://mirrors.evowise.com/archlinux/iso/2019.%s.01/archlinux-2019.%s.01-x86_64.iso' % (g.month, g.month), 'downl_lfs' : 'http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/LFS-BOOK-9.0-systemd.pdf'}
 
-wer = os.popen('ls').read()
-print(str(wer))
+#wer = os.popen('ls').read()
+#print(str(wer))
 
-dist = os.popen('uname -a').read()
-print(dist)
-if  'Ubuntu' in dist:
-    g.distro = 'Ubuntu'
-    vane = os.path.exists("/etc/apt/sources.list.d/hsources.list")
-    print(vane)
-    if vane:
-        print('not first run')
-    else:
-        g.doIt = True
-        print('first run')
-elif 'archlinux' in dist or 'MANJARO' in dist:
-    g.distro = 'Arch'
-    vane = os.path.exists("/etc/hsuite.conf")
-    print(vane)
-    if vane:
-        print('not first run')
-    else:
-        g.doIt = True
-        print('first run')
-elif 'Debian' in dist:
-    g.distro = 'Debian'
-    vane = os.path.exists("/etc/apt/sources.list.d/hsources.list")
-    print(vane)
-    if vane:
-        print('not first run')
-    else:
-        g.doIt = True
-        print('first run')
-else:
-    g.distro = 'Not Compatible Error'
-print(g.distro)
+#dist = os.popen('uname -a').read()
+#print(dist)
+#if  'Ubuntu' in dist:
+#    g.distro = 'Ubuntu'
+#    vane = os.path.exists("/etc/apt/sources.list.d/hsources.list")
+#    print(vane)
+#    if vane:
+#        print('not first run')
+#    else:
+#        print('first run')
+#elif 'archlinux' in dist or 'MANJARO' in dist:
+#    g.distro = 'Arch'
+#    vane = os.path.exists("/etc/hsuite.conf")
+#    print(vane)
+#    if vane:
+#        print('not first run')
+#    else:
+#        print('first run')
+#elif 'Debian' in dist:
+#    g.distro = 'Debian'
+#    vane = os.path.exists("/etc/apt/sources.list.d/hsources.list")
+#    print(vane)
+#    if vane:
+#        print('not first run')
+#    else:
+#        print('first run')
+#else:
+#    g.distro = 'Not Compatible Error'
+#print(g.distro)
 
 class myThread (Thread):
     def __init__(self, threadID, name):
@@ -625,7 +619,7 @@ def my_thread():
             app.asroot()
     elif g.CA == 'Touchpad Gestures':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install libinput-tools libinput-bin wmctrl python3 xdotool python3-setuptools -y ; gpasswd -a %s input ; git clone https://github.com/bulletmark/libinput-gestures.git ; git clone https://gitlab.com/cunidev/gestures ; cd %s ; cd libinput-gestures ; ./libinput-gestures-setup install ; cd .. ; cd gestures ; python3 setup.py install ; cd .. ; rm -rf libinput-gestures ; rm -rf gestures' % (g.user, g.dir)
+            g.asr = 'apt install libinput-tools libinput-bin wmctrl python3 xdotool python3-setuptools -y ; gpasswd -a %s input ; cd %s ; git clone https://github.com/bulletmark/libinput-gestures.git ; git clone https://gitlab.com/cunidev/gestures ; cd libinput-gestures ; ./libinput-gestures-setup install ; cd .. ; cd gestures ; python3 setup.py install ; cd .. ; rm -rf libinput-gestures ; rm -rf gestures' % (g.user, dire)
             app.asroot()
             os.system('cp /usr/share/hsuite/confs/libinput-gestures.conf ~/.config')
         elif g.distro == 'Arch':
@@ -1231,9 +1225,9 @@ class GUI:
             print("done with it")
 
     def on_downl_begin(self):
-        g.month = g.today.strftime("%m")
-        g.day = g.today.strftime("%d")
-        g.year = g.today.strftime("%y")
+        # g.month = g.today.strftime("%m")
+        # g.day = g.today.strftime("%d")
+        # g.year = g.today.strftime("%y")
         g.u = urlopen(g.url)
         g.file_size = int(g.u.getheader('Content-Length'))
         if g.runE == True:
@@ -1442,9 +1436,9 @@ class GUI:
         print("Getting size...")
 #        G = GUI()
         for i in range(g.dlistLen):
-            g.month = g.today.strftime("%m")
-            g.day = g.today.strftime("%d")
-            g.year = g.today.strftime("%y")
+            # g.month = g.today.strftime("%m")
+            # g.day = g.today.strftime("%d")
+            # g.year = g.today.strftime("%y")
             cBut = self.builder.get_object(g.dlist[i])
             time.sleep(0.1)
             print("rundownl")
