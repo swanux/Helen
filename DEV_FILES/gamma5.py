@@ -14,6 +14,7 @@ gi.require_version('WebKit2', '4.0')
 import gi
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
 import os
+import re
 import webbrowser
 from threading import Thread
 import time
@@ -47,7 +48,7 @@ elif 'archlinux' in dist or 'MANJARO' in dist:
 elif 'Debian' in dist:
     g.distro = 'Debian'
 else:
-    g.distro = 'Not Compatible Error'
+    g.distro = 'Automatic distro detection failed!'
 
 ## Colors (button)
 colorR = Gdk.color_parse('red')
@@ -65,14 +66,55 @@ g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_el
 g.dlistLen = len(g.dlist) # The number of distros
 
 # Links
-archLink = 'http://mirrors.evowise.com/archlinux/iso/2019.%s.01/archlinux-2019.%s.01-x86_64.iso' % (g.month, g.month)
-ubuntuLink = 'http://releases.ubuntu.com/19.10/ubuntu-19.10-desktop-amd64.iso'
-mintLink = 'http://mirrors.evowise.com/linuxmint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso'
-deepinLink = 'https://netix.dl.sourceforge.net/project/deepin/15.11/deepin-15.11-amd64.iso'
-debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-10.1.0-amd64-cinnamon+nonfree.iso'
+if g.day == "01":
+    aMonth = int(g.month, button) - 1
+archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (g.year, aMonth, g.year, aMonth)
+
+reponse = urlopen("http://releases.ubuntu.com")
+dat = reponse.read()
+text = dat.decode('utf-8')
+pattern = re.findall(r'"+[\d]+.[\d]+/', text)
+lenn = len(pattern)
+vers = re.split(r'[\W]', pattern[lenn-1])
+ubuntuLink = 'http://releases.ubuntu.com/%s.%s/ubuntu-%s.%s-desktop-amd64.iso' % (vers[1], vers[2], vers[1], vers[2])
+
+reponse = urlopen("http://mirrors.evowise.com/linuxmint/stable/")
+dat = reponse.read()
+text = dat.decode('utf-8')
+pattern = re.findall(r'"+[\d]+.[\d]+/', text)
+lenn = len(pattern)
+vers = re.split(r'[\W]', pattern[lenn-1])
+mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s.%s/linuxmint-%s.%s-cinnamon-64bit.iso' % (vers[1], vers[2], vers[1], vers[2])
+
+reponse = urlopen("http://mirror.inode.at/data/deepin-cd/")
+dat = reponse.read()
+text = dat.decode('utf-8')
+pattern = re.findall(r'"+[\d]+.[\d]+/', text)
+lenn = len(pattern)
+vers = re.split(r'[\W]', pattern[lenn-1])
+deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s.%s/deepin-%s.%s-amd64.iso' % (vers[1], vers[2], vers[1], vers[2])
+
+reponse = urlopen("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/")
+dat = reponse.read()
+text = dat.decode('utf-8')
+pattern = re.search(r'debian-live-+[\d]+.[\d]+.[\d]', text).group()
+debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/%s-amd64-cinnamon+nonfree.iso' % pattern
+
 steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
+
 elementaryLink = 'https://ams3.dl.elementary.io/download/MTU3Mjk2NDY5NA==/elementaryos-5.0-stable.20181016.iso'
+
+reponse = urlopen("https://sourceforge.net/projects/zorin-os/files/")
+dat = reponse.read()
+text = dat.decode('utf-8')
+pattern = re.findall(r'files/+[\d]+/download', text)
+pattern = ''.join(pattern)
+pattern = re.findall(r'[\d]+[\d]', pattern) # ????????
+
+lenn = len(pattern)
+vers = re.split(r'[\W]', pattern[lenn-1])
 zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/15/Zorin-OS-15-Core-64-bit-r1.iso'
+
 fedoraLink = 'http://fedora.inode.at/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso'
 opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
 solusLink = 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso'
