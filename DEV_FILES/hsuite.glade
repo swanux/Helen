@@ -552,7 +552,7 @@ Author: Dániel Kolozsi (@swanux)
                         </child>
                         <child>
                           <object class="GtkButton" id="ac_but">
-                            <property name="label" translatable="yes">Android Corner</property>
+                            <property name="label" translatable="yes">HSwitcher</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>

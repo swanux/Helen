@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#______________________________________________________________________________________________ BEGINNING OF INIT ________________________________________________________________________________________________________#
+#______________________________________________________________________________________________ BEGINNING OF INIT _________________________________________________________________________#
 
 
 ### Import modules ###
@@ -66,58 +66,87 @@ g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_el
 g.dlistLen = len(g.dlist) # The number of distros
 
 # Links
+
+def findNew():
+    reponse = urlopen(urii)
+    dat = reponse.read()
+    text = dat.decode('utf-8')
+    pattern = re.findall(r'%s' % perPat, text)
+    print(pattern)
+    pattern = ''.join(pattern)
+    print(pattern)
+    pattern = pattern.replace(".", "")
+    pattern = re.findall(r'%s' % perVer, pattern)
+    print(pattern)
+    pattern = list(map(int, pattern))
+    print(pattern)
+    pattern.sort()
+    print(pattern)
+    g.vers = pattern[-1]
+    print(g.vers)
+    g.vers = [int(i) for i in str(g.vers)]
+    print(g.vers)
+
 if g.day == "01":
     aMonth = int(g.month, button) - 1
 archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (g.year, aMonth, g.year, aMonth)
 
-reponse = urlopen("http://releases.ubuntu.com")
-dat = reponse.read()
-text = dat.decode('utf-8')
-pattern = re.findall(r'"+[\d]+.[\d]+/', text)
-lenn = len(pattern)
-vers = re.split(r'[\W]', pattern[lenn-1])
-ubuntuLink = 'http://releases.ubuntu.com/%s.%s/ubuntu-%s.%s-desktop-amd64.iso' % (vers[1], vers[2], vers[1], vers[2])
+urii = "http://releases.ubuntu.com"
+perPat = '"+[\d]+.[\d]+/'
+perVer = '[\d]+[\d]+[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3], g.vers[0], g.vers[1], g.vers[2], g.vers[3])
 
-reponse = urlopen("http://mirrors.evowise.com/linuxmint/stable/")
-dat = reponse.read()
-text = dat.decode('utf-8')
-pattern = re.findall(r'"+[\d]+.[\d]+/', text)
-lenn = len(pattern)
-vers = re.split(r'[\W]', pattern[lenn-1])
-mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s.%s/linuxmint-%s.%s-cinnamon-64bit.iso' % (vers[1], vers[2], vers[1], vers[2])
+urii = "http://mirrors.evowise.com/linuxmint/stable/"
+perPat = '"+[\d]+.[\d]+/'
+perVer = '[\d]+[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[0], g.vers[1], g.vers[2])
 
-reponse = urlopen("http://mirror.inode.at/data/deepin-cd/")
-dat = reponse.read()
-text = dat.decode('utf-8')
-pattern = re.findall(r'"+[\d]+.[\d]+/', text)
-lenn = len(pattern)
-vers = re.split(r'[\W]', pattern[lenn-1])
-deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s.%s/deepin-%s.%s-amd64.iso' % (vers[1], vers[2], vers[1], vers[2])
+urii = "http://mirror.inode.at/data/deepin-cd/"
+perPat = '"+[\d]+.[\d]+/'
+perVer = '[\d]+[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3], g.vers[0], g.vers[1], g.vers[2], g.vers[3])
 
-reponse = urlopen("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/")
-dat = reponse.read()
-text = dat.decode('utf-8')
-pattern = re.search(r'debian-live-+[\d]+.[\d]+.[\d]', text).group()
-debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/%s-amd64-cinnamon+nonfree.iso' % pattern
+urii = "https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/"
+perPat = 'debian-live-+[\d]+[\d]+.[\d]+.[\d]'
+perVer = '[\d]+[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3])
 
 steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
 
 elementaryLink = 'https://ams3.dl.elementary.io/download/MTU3Mjk2NDY5NA==/elementaryos-5.0-stable.20181016.iso'
 
-reponse = urlopen("https://sourceforge.net/projects/zorin-os/files/")
-dat = reponse.read()
-text = dat.decode('utf-8')
-pattern = re.findall(r'files/+[\d]+/download', text)
-pattern = ''.join(pattern)
-pattern = re.findall(r'[\d]+[\d]', pattern) # ????????
+urii = "https://sourceforge.net/projects/zorin-os/files/"
+perPat = 'files/+[\d]+/download'
+perVer = '[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/%s%s/Zorin-OS-%s%s-Core-64-bit-r1.iso' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
 
-lenn = len(pattern)
-vers = re.split(r'[\W]', pattern[lenn-1])
-zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/15/Zorin-OS-15-Core-64-bit-r1.iso'
+urii = "http://fedora.inode.at/releases/"
+perPat = '"+[\d]+/'
+perVer = '[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-1.9.iso' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
 
-fedoraLink = 'http://fedora.inode.at/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso'
 opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
+
+urii = "http://fedora.inode.at/releases/"
+perPat = '"+[\d]+/'
+perVer = '[\d]+[\d]'
+verForm = '[\d]+[\d]'
+findNew()
+
 solusLink = 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso'
+
 gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/20191030T214502Z/install-amd64-minimal-20191030T214502Z.iso'
 lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/LFS-BOOK-9.0-systemd.pdf'
 g.uriDict = {'downl_mint' : mintLink, 'downl_ubuntu' : ubuntuLink, 'downl_solus' : solusLink, 'downl_elementary' : elementaryLink, 'downl_zorin' : zorinosLink, 'downl_deepin' : deepinLink, 'downl_steamos' : steamosLink, 'downl_deb' : debianLink, 'downl_fedora' : fedoraLink, 'downl_suse' : opensuseLink, 'downl_gentoo' : gentooLink, 'downl_arch' : archLink, 'downl_lfs' : lfsLink}
@@ -149,4 +178,4 @@ print("Output of $uname -a$ : "dist)
 print("Detected distro: "g.distro)
 
 
-#______________________________________________________________________________________________ END OF INIT _____________________________________________________________________________________________________________#
+#______________________________________________________________________________________________ END OF INIT ______________________________________________________________________________________#
