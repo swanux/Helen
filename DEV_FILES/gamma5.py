@@ -27,7 +27,7 @@ from concurrent import futures
 dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
 os.chdir(dire)
 
-import common as g # For global values
+import common as g                          # For global values
 
 
 ### Declare global variables ###
@@ -40,7 +40,7 @@ g.day = g.today.strftime("%d")
 g.year = g.today.strftime("%Y")
 
 ## Detect distro
-dist = os.popen('uname -a').read() # Get distro name
+dist = os.popen('uname -a').read()          # Get distro name
 if  'Ubuntu' in dist:
     g.distro = 'Ubuntu'
 elif 'archlinux' in dist or 'MANJARO' in dist:
@@ -57,13 +57,13 @@ colorG = Gdk.color_parse('green')
 rgbaG = Gdk.RGBA.from_color(colorG)
 
 ## Used with Distro Boutique
-g.runE = False # To check if a download is already in progress or not
-fn = 'sth' # It's declared because of some functions which ones are called from concurrent future
-g.Tdownl = '' # The name of the currently in progress download
-g.cache = [] # Array that contains the fetched sizes of the ISOs
+g.runE = False                              # To check if a download is already in progress or not
+fn = 'sth'                                  # It's declared because of some functions which ones are called from concurrent future
+g.Tdownl = ''                               # The name of the currently in progress download
+g.cache = []                                # Array that contains the fetched sizes of the ISOs
 g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'True', 'downl_zorin' : 'True', 'downl_deepin' : 'True', 'downl_steamos' : 'True', 'downl_deb' : 'True', 'downl_fedora' : 'True', 'downl_suse' : 'True', 'downl_gentoo' : 'True', 'downl_arch' : 'True', 'downl_lfs' : 'True',} # Dictionary for current state of download buttons (clickable or not)
 g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs'] # List of distros
-g.dlistLen = len(g.dlist) # The number of distros
+g.dlistLen = len(g.dlist)                   # The number of distros
 
 # Links
 
@@ -151,20 +151,20 @@ lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-
 g.uriDict = {'downl_mint' : mintLink, 'downl_ubuntu' : ubuntuLink, 'downl_solus' : solusLink, 'downl_zorin' : zorinosLink, 'downl_deepin' : deepinLink, 'downl_steamos' : steamosLink, 'downl_deb' : debianLink, 'downl_fedora' : fedoraLink, 'downl_suse' : opensuseLink, 'downl_gentoo' : gentooLink, 'downl_arch' : archLink, 'downl_lfs' : lfsLink}
 
 ## Used with App Spotlight
-pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"] # For AUR builds (this will be depracted in the future)
-g.spinning = False # Check if the spinner is spinning or not
-g.scanner = True # Check if PKG cache is already in memory or not
+pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"]          # For AUR builds (this will be depracted in the future)
+g.spinning = False                                                                              # Check if the spinner is spinning or not
+g.scanner = True                                                                                # Check if PKG cache is already in memory or not
 
 ## Used generally
-UI_FILE = "hsuite.glade" # The glade file
-g.user = os.popen("who|awk '{print $1}'r").read() # Getting the name of the non-root user
-g.user = g.user.rstrip() # Edit to only contain the name itself
-xorw = os.popen('echo $XDG_SESSION_TYPE').read() # Get current session type
-if "x" in xorw: # It's Xorg, so it wokrs with gestures'
+UI_FILE = "hsuite.glade"                                                                        # The glade file
+g.user = os.popen("who|awk '{print $1}'r").read()                                               # Getting the name of the non-root user
+g.user = g.user.rstrip()                                                                        # Edit to only contain the name itself
+xorw = os.popen('echo $XDG_SESSION_TYPE').read()                                                # Get current session type
+if "x" in xorw:                                                                                 # It's Xorg, so it wokrs with gestures'
     g.lehete = "You need to reboot or log in and out again after the install has been completed to apply all changes."
-else: # It is Wayland, so it won't work
+else:                                                                                           # It is Wayland, so it won't work
     g.lehete = "You can currently only use this feature with x11 based desktop. It does not support Wayland."
-wer = os.popen('ls').read() # Discover the current working dir
+wer = os.popen('ls').read()                                                                     # Discover the current working dir
 
 ## Print info to debug
 print("Current date: %s" % g.today)
@@ -179,7 +179,7 @@ print("Detected distro: %s" % g.distro)
 
 #______________________________________________________________________________________________ END OF INIT ______________________________________________________________________________________#
 
-#______________________________________________________________________________________________ BEGIN OF THREADS ______________________________________________________________________________________#
+#_________________________________________________________________________________________ BEGIN OF THREADS _____________________________________________________________________________________#
 
 # This class and function is the core of every background process in the program
 
@@ -191,21 +191,21 @@ class myThread (Thread):
         g._stop_event = False
     def run(self):
         print ("Starting " + self.name)
-        my_thread() # Calls the function
+        my_thread()                                                                 # Calls the function
         print ("Exiting " + self.name)
     def stop(self):
         g._stop_event = True
         print("stop func")
 
 def my_thread():
-    if g.CA == 'Opera': # g.CA is a global variable which is declared before calling this function. Its main role is to indicate the name of the program which is being changed/used. It tells the function what to do. CA means "Current Action"
-        if g.distro == 'Ubuntu' or g.distro == 'Debian': # We need to check the current distro for some distro specific commands
+    if g.CA == 'Opera':                                                             # g.CA is a global variable which is declared before calling this function. Its main role is to indicate the name of the program which is being changed/used. It tells the function what to do. CA means "Current Action"
+        if g.distro == 'Ubuntu' or g.distro == 'Debian':                            # We need to check the current distro for some distro specific commands
             g.asr = 'DEBIAN_FRONTEND=noninteractive apt install opera-stable pepperflashplugin-nonfree -y' # g.asr is a global parameter, it means "as root". If something is given to asr, it'll run it with pkexec prompt
-            app.asroot() # It calls the function itself
+            app.asroot()                                                            # It calls the function itself
         elif g.distro == 'Arch':
             g.asr = 'pacman -Sq --noconfirm opera opera-ffmpeg-codecs flashplugin'
             app.asroot()
-    elif g.CA == 'OperaR': # The R means this is for the removal of the program.
+    elif g.CA == 'OperaR':                                                          # The R means this is for the removal of the program.
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.asr = 'apt purge opera-stable pepperflashplugin-nonfree -y ; apt autoremove -y'
             app.asroot()
@@ -808,7 +808,7 @@ def my_thread():
     else:
         print('Error 3')
 
-#______________________________________________________________________________________________ END OF THREADS ______________________________________________________________________________________#
+#___________________________________________________________________________________________ END OF THREADS ______________________________________________________________________________________#
 
 #______________________________________________________________________________________________ BEGIN OF GUI ______________________________________________________________________________________#
 
@@ -816,15 +816,15 @@ def my_thread():
 
 class GUI:
 
-    def asroot(self): # The function to display prompt for root acces.
+    def asroot(self):                                               # The function to display prompt for root acces.
         with open("bashLayer.sh") as f:
             lines = f.readlines()
         lines[2] = 'CMD="%s"\n' % g.asr
         with open("bashLayer.sh", "w") as f:
             f.writelines(lines)
-        os.system('bash bashLayer.sh') # bashLayer.sh is a small bash script which runs predefined programs. It's like a module.
+        os.system('bash bashLayer.sh')                              # bashLayer.sh is a small bash script which runs predefined programs. It's like a module.
 
-    def aurer(self): # The builder for AUR
+    def aurer(self):                                                # The builder for AUR
         with open("logname.sh") as f:
             lines = f.readlines()
         cmd = 'echo $USER && cd /home/%s/.tmp_hsuite && git clone https://aur.archlinux.org/%s.git && cd %s && makepkg -rc' % (g.user, g.fold, g.fold)
@@ -839,69 +839,69 @@ class GUI:
         g.asr = 'pacman -U --noconfirm /home/%s/.tmp_hsuite/%s/%s ; rm -rf /home/%s/.tmp_hsuite/' % (g.user, g.fold, pkg, g.user)
         app.asroot()
 
-    count = 0 # It'll be used later when displaying the time during program install
-    def __init__(self): # Init the main gui
+    count = 0                                                       # It'll be used later when displaying the time during program install
+    def __init__(self):                                             # Init the main gui
 
-        self.builder = Gtk.Builder() # Prepare to use builder
-        self.win = Gtk.Window() # The main window
-        self.builder.add_from_file(UI_FILE) # Import the glade file
-        g.browserholder = WebKit2.WebView() # Prepare webview
-        g.browserholder.set_editable(False) # Disable user interraction
-        self.builder.connect_signals(self) # Connect all signals
-        g.stack = self.builder.get_object('stack') # Get the main stack object
+        self.builder = Gtk.Builder()                                # Prepare to use builder
+        self.win = Gtk.Window()                                     # The main window
+        self.builder.add_from_file(UI_FILE)                         # Import the glade file
+        g.browserholder = WebKit2.WebView()                         # Prepare webview
+        g.browserholder.set_editable(False)                         # Disable user interraction
+        self.builder.connect_signals(self)                          # Connect all signals
+        g.stack = self.builder.get_object('stack')                  # Get the main stack object
 
-        g.window = self.builder.get_object('window') # Get the main window
+        g.window = self.builder.get_object('window')                # Get the main window
         if os.geteuid() == 0:
-           g.window.set_title(g.version+' (as superuser)') # Indicate if runnung as root or not
+           g.window.set_title(g.version+' (as superuser)')          # Indicate if runnung as root or not
         else:
             g.window.set_title(g.version)
-        g.window.show_all() # Display the program
+        g.window.show_all()                                         # Display the program
 
-    def on_window_delete_event(self, window, e): # This happens when close button is clicked
-        x, y = g.window.get_position() # Getting the window position
-        sx, sy = g.window.get_size() # Get the size of the window
-        dialogWindow = Gtk.MessageDialog(None, # Make a popup window without parent
+    def on_window_delete_event(self, window, e):                    # This happens when close button is clicked
+        x, y = g.window.get_position()                              # Getting the window position
+        sx, sy = g.window.get_size()                                # Get the size of the window
+        dialogWindow = Gtk.MessageDialog(None,                      # Make a popup window without parent
                               Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT, # make it modal (always on top) and destroy together with main window (for example on force quit)
-                              Gtk.MessageType.QUESTION, # message type is question
-                              Gtk.ButtonsType.YES_NO, # add yes and no buttons
+                              Gtk.MessageType.QUESTION,             # message type is question
+                              Gtk.ButtonsType.YES_NO,               # add yes and no buttons
                               "Do you really would like to exit now?") # set the label
-        dialogWindow.set_title("Prompt") # set the title
-        dsx, dsy = dialogWindow.get_size() # get the dialogs size
-        dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2)) # Move it to the center of the main window
-        dx, dy = dialogWindow.get_position() # set the position
-        dialogWindow.show_all() # display the dialog
-        res = dialogWindow.run() # save the response
-        if res == Gtk.ResponseType.YES: # if yes ...
+        dialogWindow.set_title("Prompt")                            # set the title
+        dsx, dsy = dialogWindow.get_size()                          # get the dialogs size
+        dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))           # Move it to the center of the main window
+        dx, dy = dialogWindow.get_position()                        # set the position
+        dialogWindow.show_all()                                     # display the dialog
+        res = dialogWindow.run()                                    # save the response
+        if res == Gtk.ResponseType.YES:                             # if yes ...
             print('OK pressed')
             dialogWindow.destroy()
-            Gtk.main_quit() # quit program
-        elif res == Gtk.ResponseType.NO: # if no ...
+            Gtk.main_quit()                                         # quit program
+        elif res == Gtk.ResponseType.NO:                            # if no ...
             print('No pressed')
-            dialogWindow.destroy()# sestroy dialog
-            return True # end function
+            dialogWindow.destroy()                                  # sestroy dialog
+            return True                                             # end function
 
 ###################################################################################
 
-    def stamp(self): # indicate if that program is from AUR or not
+    def stamp(self):                                            # indicate if that program is from AUR or not
         if g.distro == 'Arch':
             g.status2 = g.status+' (AUR)'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian': # if the distro isn't arch, there is no need for that
+        elif g.distro == 'Ubuntu' or g.distro == 'Debian':      # if the distro isn't arch, there is no need for that
             g.status2 = g.status
 
-    def colorer(self): # Set the button colors
-        self.OnCheck() # Call function to check if apps are installed or not
-        g.gbut.set_label(g.status) # set the button label depending on this
+    def colorer(self):                                          # Set the button colors
+        self.OnCheck()                                          # Call function to check if apps are installed or not
+        g.gbut.set_label(g.status)                              # set the button label depending on this
         if g.status == "Remove":
-            g.gbut.override_background_color(0,rgbaR) # red for remove
+            g.gbut.override_background_color(0,rgbaR)           # red for remove
         else:
-            g.gbut.override_background_color(0,rgbaG) # green for install
+            g.gbut.override_background_color(0,rgbaG)           # green for install
 
-    def scanner(self): # Scans the OS for programs
+    def scanner(self):                                          # Scans the OS for programs
 
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.insList = os.popen('apt list --installed').read() # list of installed apps on debian based OS
         elif g.distro == 'Arch':
-            g.insList = os.popen('pacman -Q').read() # same on arch
+            g.insList = os.popen('pacman -Q').read()            # same on arch
         else:
             print('PACK ERROR')
 
@@ -959,12 +959,12 @@ class GUI:
         if g.distro == 'Arch':
             g.name = 'opera'
         elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'opera-stable/' # the name to check for
+            g.name = 'opera-stable/'                        # the name to check for
         else:
             print('ERROR IN NAME')
-        g.gbut = opera_but # importing the button to a general global variable
-        self.colorer() # Call function for setting label and color
-        g.opera_value = g.status # value refers to the state: Install/Remove DING
+        g.gbut = opera_but                                  # importing the button to a general global variable
+        self.colorer()                                      # Call function for setting label and color
+        g.opera_value = g.status                            # value refers to the state: Install/Remove DING
 
         g.name = 'barrier/'
         g.gbut = barr_but
@@ -979,7 +979,7 @@ class GUI:
             print('ERROR IN NAME')
         g.gbut = chrome_but
         self.colorer()
-        self.stamp() # place stamp on it on arch
+        self.stamp()                                        # place stamp on it on arch
         chrome_but.set_label(g.status2)
         g.chrome_value = g.status
 
@@ -1246,11 +1246,11 @@ class GUI:
         self.colorer()
         g.skart_value = g.status
 
-        g.scanner = False # It indicates that the state of every program is now loaded into the memory
+        g.scanner = False                                                   # It indicates that the state of every program is now loaded into the memory
 
 ### Download methods
 
-    def toggle(self, fn): # Disable or enable buttons based on a pattern
+    def toggle(self, fn):                                                   # Disable or enable buttons based on a pattern
         print(self, fn, g.state)
         for i in range(g.dlistLen):
             print("Toggle %s" % i)
@@ -1260,62 +1260,62 @@ class GUI:
                 GLib.idle_add(g.cBut.set_sensitive, g.state)
                 g.shDict[g.dlist[i]] = "%s" % g.state
 
-    def ex_target(self): # Starting download in a background thread BUT inside the GUI class, not the thread. This is because of the nature of GTK (and other GUI toolkits) that can't handle GUI changes from outside of the main thread (gui class)
+    def ex_target(self):                                                    # Starting download in a background thread BUT inside the GUI class, not the thread. This is because of the nature of GTK (and other GUI toolkits) that can't handle GUI changes from outside of the main thread (gui class)
         print("DLthread...")
-        g.quit = False # This variable shows if the thread needs to exit
+        g.quit = False                                                      # This variable shows if the thread needs to exit
         while not g.quit:
-            buffer = g.u.read(g.block_sz) # Reads the downloaded bytes in blocks
+            buffer = g.u.read(g.block_sz)                                   # Reads the downloaded bytes in blocks
             if not buffer:
-               break # break if error occures
-            g.file_size_dl += len(buffer) # Set the downloaded file size to buffer
-            g.f.write(buffer) # write this block to the downloaded file
+               break                                                        # break if error occures
+            g.file_size_dl += len(buffer)                                   # Set the downloaded file size to buffer
+            g.f.write(buffer)                                               # write this block to the downloaded file
             g.status = r"Cancel  [%3.2f%%]" % (g.file_size_dl * 100 / g.file_size) # Calculate precentage
-            GLib.idle_add(g.downl.set_label, g.status) # Place on waiting list to change the label to the actual status
+            GLib.idle_add(g.downl.set_label, g.status)                      # Place on waiting list to change the label to the actual status
         print("DLend!!")
-        g.runE = False # Shows that no downloads are running
-        GLib.idle_add(g.downl.set_label, g.orig) # Set back the button label to the original
+        g.runE = False                                                      # Shows that no downloads are running
+        GLib.idle_add(g.downl.set_label, g.orig)                            # Set back the button label to the original
         print(g.orig)
         print("Label restore")
-        if g.rmE: # If the download is aborted by the user, remove the already downloaded file
+        if g.rmE:                                                           # If the download is aborted by the user, remove the already downloaded file
             os.system('rm /home/%s/Downloads/%s' % (g.user, g.file_name) )
         else:
-            GLib.idle_add(g.downl.set_label, "Ready in ~/Downloads/") # Set label to ready
-            GLib.idle_add(g.downl.set_sensitive, False) # Disable button
-            g.shDict[g.Tdownl] = "PFalse" # Set the state to permanent false
+            GLib.idle_add(g.downl.set_label, "Ready in ~/Downloads/")       # Set label to ready
+            GLib.idle_add(g.downl.set_sensitive, False)                     # Disable button
+            g.shDict[g.Tdownl] = "PFalse"                                   # Set the state to permanent false
             print("done with it")
 
     def on_downl_begin(self):
-        g.u = urlopen(g.url) # Open the url
-        g.file_size = int(g.u.getheader('Content-Length')) # Get the size of the file
-        if g.runE == True: # If download is already running
-            g.rmE = True # set remove flag to true
-            g.quit = True # tell the thread to stop
+        g.u = urlopen(g.url)                                                # Open the url
+        g.file_size = int(g.u.getheader('Content-Length'))                  # Get the size of the file
+        if g.runE == True:                                                  # If download is already running
+            g.rmE = True                                                    # set remove flag to true
+            g.quit = True                                                   # tell the thread to stop
             print("TruTogle")
-            g.state = True # set button state to enabled
-            self.toggle(fn) # enable every button
-            return # end
-        elif g.runE == False: # If no downloads are running
-            g.runE = True # toggle that now one is running
-            g.rmE = False # we don't need to remove the downloaded file, because it's ready
-            g.orig = g.downl.get_label() # save the original label of the button
-        g.file_name = g.url.split('/')[-1] # get the filename
-        g.f = open('/home/%s/Downloads/%s' % (g.user, g.file_name) , 'wb') # set download location
+            g.state = True                                                  # set button state to enabled
+            self.toggle(fn)                                                 # enable every button
+            return                                                          # end
+        elif g.runE == False:                                               # If no downloads are running
+            g.runE = True                                                   # toggle that now one is running
+            g.rmE = False                                                   # we don't need to remove the downloaded file, because it's ready
+            g.orig = g.downl.get_label()                                    # save the original label of the button
+        g.file_name = g.url.split('/')[-1]                                  # get the filename
+        g.f = open('/home/%s/Downloads/%s' % (g.user, g.file_name) , 'wb')  # set download location
         print("Downloading: %s Bytes: %s" % (g.file_name, g.file_size))
-        g.file_size_dl = 0 # set downloaded size to 0
-        g.block_sz = 8192 # set block size
+        g.file_size_dl = 0                                                  # set downloaded size to 0
+        g.block_sz = 8192                                                   # set block size
         print("FalsTogle")
-        g.state = False # disable buttons
-        self.toggle(fn) # run function to do this
+        g.state = False                                                     # disable buttons
+        self.toggle(fn)                                                     # run function to do this
 
-        g.t1 = futures.ThreadPoolExecutor(max_workers=2) # init thread
-        f = g.t1.submit(self.ex_target) # start it
-        g.state = True # set buttons to active
-        f.add_done_callback(self.toggle) # after done run this function
+        g.t1 = futures.ThreadPoolExecutor(max_workers=2)                    # init thread
+        f = g.t1.submit(self.ex_target)                                     # start it
+        g.state = True                                                      # set buttons to active
+        f.add_done_callback(self.toggle)                                    # after done run this function
 
     def on_downl_mint_clicked(self, button):
         print("mint")
         g.downl = self.builder.get_object('downl_mint')
-        g.Tdownl = 'downl_mint' # this download
+        g.Tdownl = 'downl_mint'                                             # this download
         g.url = g.uriDict["downl_mint"]
         self.on_downl_begin()
 
@@ -1398,54 +1398,54 @@ class GUI:
 
 ######## End of download section
 
-    def button_clicked (self, button): # Button is the name of the app spotlight button
+    def button_clicked (self, button):                                              # Button is the name of the app spotlight button
 
-        if g.scanner == False: # If already in memory don't waste resources
+        if g.scanner == False:                                                      # If already in memory don't waste resources
             print('VALUE_FOUND')
-            notebook_box = self.builder.get_object('notebook_box') # notebook box is the name of the app spotlight page
-            g.stack.set_visible_child(notebook_box) # set it visible
-        elif g.scanner: # if not in memory, then scan it now
+            notebook_box = self.builder.get_object('notebook_box')                  # notebook box is the name of the app spotlight page
+            g.stack.set_visible_child(notebook_box)                                 # set it visible
+        elif g.scanner:                                                             # if not in memory, then scan it now
             notebook_box = self.builder.get_object('notebook_box')
             g.stack.set_visible_child(notebook_box)
             print('NO_VALUE')
-            app.scanner() # start scanning
+            app.scanner()                                                           # start scanning
         else:
             print('ERROR')
 
-    def OnNeed(self): # This is executed when an app is being installed/removed
-        g.scanner = True # removes scan cache from memory because it needs to rescan because one app changed
-        g.spinning = True # indicates that the spinner is running
-        sTxt = self.builder.get_object('spinner_txt') # get the label of the spinner
-        sTxt.set_label('Loading...') # set to loading
-        spinner = self.builder.get_object('spinner') # get spinner itself
-        t1 = myThread(1, "Thread-1") # init thread with thread function
-        t1.start() # start it
-        spinner_box = self.builder.get_object('spinner_box') # get the box with the spinner
-        g.stack.set_visible_child(spinner_box) # make it visible
-        g.m = 0 # set minutes to 0
-        spinner.start() # start spinner
-        def counter(timer): # function for counting time
-            s=timer.count+1 # seconds incraseing
-            timer.count = s # counter is equal to s
-            if g.name+'R' == g.CA: # if removing
+    def OnNeed(self):                                                               # This is executed when an app is being installed/removed
+        g.scanner = True                                                            # removes scan cache from memory because it needs to rescan because one app changed
+        g.spinning = True                                                           # indicates that the spinner is running
+        sTxt = self.builder.get_object('spinner_txt')                               # get the label of the spinner
+        sTxt.set_label('Loading...')                                                # set to loading
+        spinner = self.builder.get_object('spinner')                                # get spinner itself
+        t1 = myThread(1, "Thread-1")                                                # init thread with thread function
+        t1.start()                                                                  # start it
+        spinner_box = self.builder.get_object('spinner_box')                        # get the box with the spinner
+        g.stack.set_visible_child(spinner_box)                                      # make it visible
+        g.m = 0                                                                     # set minutes to 0
+        spinner.start()                                                             # start spinner
+        def counter(timer):                                                         # function for counting time
+            s=timer.count+1                                                         # seconds incraseing
+            timer.count = s                                                         # counter is equal to s
+            if g.name+'R' == g.CA:                                                  # if removing
                 sTxt.set_label(g.rmMsg+'         Elapsed time : '+str(g.m)+':'+str(s)) # set spin label
-            else: # if installing
+            else:                                                                   # if installing
                 sTxt.set_label(g.inMsg+'         Elapsed time : '+str(g.m)+':'+str(s)+'        It will take around %d minute(s).' % g.kbTime) # kb time is ETA, rmMsg is remove message, insMsg is install message
-            if s == 59: # add one to min and reset sec
+            if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
                 g.m = g.m+1
-            if t1.isAlive(): # if thread is still running repeat
+            if t1.isAlive():                                                        # if thread is still running repeat
                 return True
-            else: # on exit
-                timer.count = 0 # reset counter
-                spinner.stop() # stop spinner
-                button = 0 # declare button variable (don't know why)
-                self.button_clicked(button) # imitate reopening of app spotlight
-                g.spinning = False # indicate that spinner stopped
-                return False # end
-        self.source_id = GLib.timeout_add(1000, counter, self) # DING
+            else:                                                                   # on exit
+                timer.count = 0                                                     # reset counter
+                spinner.stop()                                                      # stop spinner
+                button = 0                                                          # declare button variable (don't know why)
+                self.button_clicked(button)                                         # imitate reopening of app spotlight
+                g.spinning = False                                                  # indicate that spinner stopped
+                return False                                                        # end
+        self.source_id = GLib.timeout_add(1000, counter, self)                      # DING
 
-    def on_fb_but_clicked(self, button): # feedback button
+    def on_fb_but_clicked(self, button):                                            # feedback button
         view_fb = self.builder.get_object('view_fb')
         web_box = self.builder.get_object('web_box')
         g.browserholder.load_uri("https://docs.google.com/forms/d/e/1FAIpQLSec6abGuF3c-zTyLt1NUes2kifOlAAhrc5FOLPUIPUHhA9cmA/viewform?hl=en") # load google from
@@ -1453,17 +1453,17 @@ class GUI:
         g.browserholder.show()
         g.stack.set_visible_child(web_box)
 
-    def on_git_link_clicked(self, button): # information button in about section
-        webbrowser.open_new("https://swanux.github.io/hsuite/") # open project page in browser
+    def on_git_link_clicked(self, button):                                          # information button in about section
+        webbrowser.open_new("https://swanux.github.io/hsuite/")                     # open project page in browser
 
-    def on_htools_but_clicked(self, button): # htools clicked
+    def on_htools_but_clicked(self, button):                                        # htools clicked
         x, y = g.window.get_position()
         sx, sy = g.window.get_size()
         dialogWindow = Gtk.MessageDialog(None,
                               Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                               Gtk.MessageType.INFO,
                               Gtk.ButtonsType.OK,
-                              g.txt1) # dialog for prompting that this feature isn't ready yet
+                              g.txt1)                                               # dialog for prompting that this feature isn't ready yet
 
         dialogWindow.set_title("Coming soon")
         dsx, dsy = dialogWindow.get_size()
@@ -1472,43 +1472,43 @@ class GUI:
         res = dialogWindow.run()
         dialogWindow.destroy()
 
-    def on_ac_but_clicked(self, button): # previously android corner (ac) is same as htools
+    def on_ac_but_clicked(self, button):                                            # previously android corner (ac) is same as htools
         self.on_htools_but_clicked(button)
 
-    def getSize (self): # fetch download sizes
+    def getSize (self):                                                             # fetch download sizes
         print("Getting size...")
-        for i in range(g.dlistLen): # dlistlen is the length of dlist
-            cBut = self.builder.get_object(g.dlist[i]) # dlist is distro list (contains all distro names), cbut is current button
+        for i in range(g.dlistLen):                                                 # dlistlen is the length of dlist
+            cBut = self.builder.get_object(g.dlist[i])                              # dlist is distro list (contains all distro names), cbut is current button
             print("rundownl")
             print(g.dlist[i])
-            g.url = g.uriDict[g.dlist[i]] # get url from dictionary
+            g.url = g.uriDict[g.dlist[i]]                                           # get url from dictionary
             g.u = urlopen(g.url)
             g.file_size = int(g.u.getheader('Content-Length'))
             print("runned")
-            g.file_size = Decimal(int(g.file_size) / 1024 / 1024) # convert to MB
+            g.file_size = Decimal(int(g.file_size) / 1024 / 1024)                   # convert to MB
             GLib.idle_add(cBut.set_label, "Download (%s MB)" % round(g.file_size,1)) # set download label
-            g.cache.append(round(g.file_size,1)) # store value in cache
+            g.cache.append(round(g.file_size,1))                                    # store value in cache
 
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')
-        if not g.cache: # if not fetched already
-            g.state = False # disable
-            self.toggle(fn) #         all buttons
-            g.tS = futures.ThreadPoolExecutor(max_workers=2) # init non-normal thread (getting sizes)
+        if not g.cache:                                                             # if not fetched already
+            g.state = False                                                         # disable
+            self.toggle(fn)                                                         #         all buttons
+            g.tS = futures.ThreadPoolExecutor(max_workers=2)                        # init non-normal thread (getting sizes)
             f = g.tS.submit(self.getSize)
-            g.state = True # toggle everything back when ready
+            g.state = True                                                          # toggle everything back when ready
             f.add_done_callback(self.toggle)
-        else: # if loaded
+        else:                                                                       # if loaded
             for i in range(g.dlistLen):
                 cBut = self.builder.get_object(g.dlist[i])
-                cBut.set_label("Download (%s MB)" % g.cache[i]) # load from cache
+                cBut.set_label("Download (%s MB)" % g.cache[i])                     # load from cache
         g.stack.set_visible_child(distro_box)
 
-    def on_about_but_clicked(self, button): # on about ...
+    def on_about_but_clicked(self, button):                                         # on about ...
         scroll_about = self.builder.get_object('scroll_about')
         g.stack.set_visible_child(scroll_about)
 
-    def OnCheck(self): # check if program is installed or not
+    def OnCheck(self):                                                              # check if program is installed or not
         if 'Touchpad' in g.name:
             vane = os.path.exists("/usr/share/applications/org.cunidev.gestures.desktop")
             print(vane)
@@ -1535,24 +1535,24 @@ class GUI:
         scroll_home = self.builder.get_object('scroll_home')
         g.stack.set_visible_child(scroll_home)
 
-    def on_page(self, button): # general descrition page
+    def on_page(self, button):                                      # general descrition page
         g.text = self.builder.get_object('page_txt')
         page = self.builder.get_object('scroll_desc')
-        back_button = self.builder.get_object('back_button') # back but not to home
+        back_button = self.builder.get_object('back_button')        # back but not to home
         page_box = self.builder.get_object('page_box')
-        rew_link = self.builder.get_object('rew_link') # hide rew link and web link when not in distro boutique
+        rew_link = self.builder.get_object('rew_link')              # hide rew link and web link when not in distro boutique
         rew_link.hide()
         web_link = self.builder.get_object('web_link')
         web_link.hide()
-        if g.bp == "Distro Boutique": # if yes, show. g.bp indicates the current page, regarding its meaning I have no idea
+        if g.bp == "Distro Boutique":                               # if yes, show. g.bp indicates the current page, regarding its meaning I have no idea
             rew_link.show()
             web_link.show()
         g.text.set_text(g.label)
         back_button.set_label(g.bp)
         g.stack.set_visible_child(page)
 
-    def on_back_button_clicked (self, button): # when going back but not to home
-        if g.spinning: # if installation in progress
+    def on_back_button_clicked (self, button):                      # when going back but not to home
+        if g.spinning:                                              # if installation in progress
             x, y = g.window.get_position()
             sx, sy = g.window.get_size()
             dialogWindow = Gtk.MessageDialog(None,
@@ -1603,14 +1603,14 @@ class GUI:
         g.name = 'Opera'
         if g.opera_value == 'Install':
             if g.distro == 'Arch':
-                g.kbTime = 1 # set ETA
+                g.kbTime = 1                                        # set ETA
             elif g.distro == 'Ubuntu' or g.distro == 'Debian':
                 g.kbTime = 1
-            self.onIns() # set ins text
+            self.onIns()                                            # set ins text
         elif g.opera_value == 'Remove':
-            self.onRem() # or rem
+            self.onRem()                                            # or rem
         print(g.CA)
-        self.OnNeed() # begin operation
+        self.OnNeed()                                               # begin operation
 
     def on_chrome_but_clicked(self, button):
         g.name = 'Chrome'
