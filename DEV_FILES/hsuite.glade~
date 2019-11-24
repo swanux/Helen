@@ -262,6 +262,16 @@ Author: Dániel Kolozsi (@swanux)
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
   </object>
+  <object class="GtkImage" id="image7">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-info</property>
+  </object>
+  <object class="GtkImage" id="image8">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-dialog-info</property>
+  </object>
   <object class="GtkImage" id="lfs_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -2726,12 +2736,13 @@ If you click on the icon of the program, you'll see some extra informations abou
                     </child>
                     <child>
                       <object class="GtkButton" id="rew_link">
+                        <property name="label" translatable="yes">Demo/Review (YouTube)</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
+                        <property name="image">image7</property>
+                        <property name="always_show_image">True</property>
+                        <signal name="clicked" handler="on_rew_link_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -2741,12 +2752,13 @@ If you click on the icon of the program, you'll see some extra informations abou
                     </child>
                     <child>
                       <object class="GtkButton" id="web_link">
+                        <property name="label" translatable="yes">Website</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
+                        <property name="image">image8</property>
+                        <property name="always_show_image">True</property>
+                        <signal name="clicked" handler="on_web_link_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
