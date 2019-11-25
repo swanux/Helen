@@ -65,91 +65,6 @@ g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'Tru
 g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs'] # List of distros
 g.dlistLen = len(g.dlist)                   # The number of distros
 
-# Links
-
-def findNew():
-    reponse = urlopen(urii)
-    dat = reponse.read()
-    text = dat.decode('utf-8')
-    pattern = re.findall(r'%s' % perPat, text)
-    print(pattern)
-    pattern = ''.join(pattern)
-    print(pattern)
-    pattern = pattern.replace(".", "")
-    pattern = re.findall(r'%s' % perVer, pattern)
-    print(pattern)
-    pattern = list(map(int, pattern))
-    try:
-        pattern.remove(710)
-        pattern.remove(710)
-    except:
-        print("no lfs")
-    print(pattern)
-    pattern.sort()
-    print(pattern)
-    g.vers = pattern[-1]
-    print(g.vers)
-    g.vers = [int(i) for i in str(g.vers)]
-    print(g.vers)
-
-if g.day == "01":
-    aMonth = int(g.month, button) - 1
-else:
-    aMonth = g.month
-archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (g.year, aMonth, g.year, aMonth)
-
-urii = "http://releases.ubuntu.com"
-perPat = '"+[\d]+.[\d]+/'
-perVer = '[\d]+[\d]+[\d]+[\d]'
-findNew()
-ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3], g.vers[0], g.vers[1], g.vers[2], g.vers[3])
-
-urii = "http://mirrors.evowise.com/linuxmint/stable/"
-perPat = '"+[\d]+.[\d]+/'
-perVer = '[\d]+[\d]+[\d]'
-findNew()
-mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[0], g.vers[1], g.vers[2])
-
-urii = "http://mirror.inode.at/data/deepin-cd/"
-perPat = '"+[\d]+.[\d]+/'
-perVer = '[\d]+[\d]+[\d]'
-findNew()
-deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3], g.vers[0], g.vers[1], g.vers[2], g.vers[3])
-
-urii = "https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/"
-perPat = 'debian-live-+[\d]+[\d]+.[\d]+.[\d]'
-perVer = '[\d]+[\d]+[\d]'
-findNew()
-debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3])
-
-steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
-
-urii = "https://sourceforge.net/projects/zorin-os/files/"
-perPat = 'files/+[\d]+/download'
-perVer = '[\d]+[\d]'
-findNew()
-zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/%s%s/Zorin-OS-%s%s-Core-64-bit-r1.iso' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
-
-urii = "http://fedora.inode.at/releases/"
-perPat = '"+[\d]+/'
-perVer = '[\d]+[\d]'
-findNew()
-fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-1.9.iso' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
-
-opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
-
-solusLink = 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso'
-
-gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20191120T214502Z.iso'
-
-urii = "http://www.linuxfromscratch.org/lfs/downloads/"
-perPat = '[\d]+.[\d]+-systemd/'
-perVer = '[\d]+[\d]'
-findNew()
-lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-%s.%s-systemd.pdf' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
-
-g.uriDict = {'downl_mint' : mintLink, 'downl_ubuntu' : ubuntuLink, 'downl_solus' : solusLink, 'downl_zorin' : zorinosLink, 'downl_deepin' : deepinLink, 'downl_steamos' : steamosLink, 'downl_deb' : debianLink, 'downl_fedora' : fedoraLink, 'downl_suse' : opensuseLink, 'downl_gentoo' : gentooLink, 'downl_arch' : archLink, 'downl_lfs' : lfsLink}
-
 ## Used with App Spotlight
 pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"]          # For AUR builds (this will be depracted in the future)
 g.spinning = False                                                                              # Check if the spinner is spinning or not
@@ -1409,6 +1324,10 @@ class GUI:
             g.stack.set_visible_child(notebook_box)
             print('NO_VALUE')
             app.scanner()                                                           # start scanning
+#            g.t1 = futures.ThreadPoolExecutor(max_workers=2)                    # init thread
+#            f = g.t1.submit(self.scan_target)                                     # start it
+#            g.state = True                                                      # set buttons to active
+#            f.add_done_callback(self.toggle)                                    # after done run this function
         else:
             print('ERROR')
 
@@ -1476,6 +1395,88 @@ class GUI:
         self.on_htools_but_clicked(button)
 
     def getSize (self):                                                             # fetch download sizes
+        print('Getting Links...')
+        def findNew():
+            reponse = urlopen(urii)
+            dat = reponse.read()
+            text = dat.decode('utf-8')
+            pattern = re.findall(r'%s' % perPat, text)
+            g.gentoo = pattern[0]
+            pattern = ''.join(pattern)
+            pattern = pattern.replace(".", "")
+            pattern = re.findall(r'%s' % perVer, pattern)
+            pattern = list(map(int, pattern))
+            try:
+                pattern.remove(710)
+                pattern.remove(710)
+            except:
+                print("no lfs")
+            pattern.sort()
+            g.vers = pattern[-1]
+            g.vers = [int(i) for i in str(g.vers)]
+
+        if g.day == "01":
+            aMonth = int(g.month, button) - 1
+        else:
+            aMonth = g.month
+        archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (g.year, aMonth, g.year, aMonth)
+
+        urii = "http://releases.ubuntu.com" # The URL
+        perPat = '"+[\d]+.[\d]+/'           # Personal pattern
+        perVer = '[\d]+[\d]+[\d]+[\d]'      # Personal version syntax
+        findNew()                           # Call function
+        ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3], g.vers[0], g.vers[1], g.vers[2], g.vers[3])
+
+        urii = "http://mirrors.evowise.com/linuxmint/stable/"
+        perPat = '"+[\d]+.[\d]+/'
+        perVer = '[\d]+[\d]+[\d]'
+        findNew()
+        mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[0], g.vers[1], g.vers[2])
+
+        urii = "http://mirror.inode.at/data/deepin-cd/"
+        perPat = '"+[\d]+.[\d]+/'
+        perVer = '[\d]+[\d]+[\d]'
+        findNew()
+        deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3], g.vers[0], g.vers[1], g.vers[2], g.vers[3])
+
+        urii = "https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/"
+        perPat = 'debian-live-+[\d]+[\d]+.[\d]+.[\d]'
+        perVer = '[\d]+[\d]+[\d]'
+        findNew()
+        debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (g.vers[0], g.vers[1], g.vers[2], g.vers[3])
+
+        steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
+
+        urii = "https://sourceforge.net/projects/zorin-os/files/"
+        perPat = 'files/+[\d]+/download'
+        perVer = '[\d]+[\d]'
+        findNew()
+        zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/%s%s/Zorin-OS-%s%s-Core-64-bit-r1.iso' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
+
+        urii = "http://fedora.inode.at/releases/"
+        perPat = '"+[\d]+/'
+        perVer = '[\d]+[\d]'
+        findNew()
+        fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-1.9.iso' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
+
+        opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
+
+        solusLink = 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso'
+
+        urii = "http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/"
+        perPat = '[\d]+[\d]+[\w]+[\d][\w]'
+        perVer = '[\d]+[\d]'
+        findNew()
+        gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-%s.iso' % g.gentoo
+
+        urii = "http://www.linuxfromscratch.org/lfs/downloads/"
+        perPat = '[\d]+.[\d]+-systemd/'
+        perVer = '[\d]+[\d]'
+        findNew()
+        lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-%s.%s-systemd.pdf' % (g.vers[0], g.vers[1], g.vers[0], g.vers[1])
+
+        g.uriDict = {'downl_mint' : mintLink, 'downl_ubuntu' : ubuntuLink, 'downl_solus' : solusLink, 'downl_zorin' : zorinosLink, 'downl_deepin' : deepinLink, 'downl_steamos' : steamosLink, 'downl_deb' : debianLink, 'downl_fedora' : fedoraLink, 'downl_suse' : opensuseLink, 'downl_gentoo' : gentooLink, 'downl_arch' : archLink, 'downl_lfs' : lfsLink}
+        print('Updated linklist!!')
         print("Getting size...")
         for i in range(g.dlistLen):                                                 # dlistlen is the length of dlist
             cBut = self.builder.get_object(g.dlist[i])                              # dlist is distro list (contains all distro names), cbut is current button
@@ -1483,6 +1484,7 @@ class GUI:
             print(g.dlist[i])
             g.url = g.uriDict[g.dlist[i]]                                           # get url from dictionary
             g.u = urlopen(g.url)
+            time.sleep(0.1)
             g.file_size = int(g.u.getheader('Content-Length'))
             print("runned")
             g.file_size = Decimal(int(g.file_size) / 1024 / 1024)                   # convert to MB
