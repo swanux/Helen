@@ -1065,7 +1065,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="edge_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                                <property name="label" translatable="yes">Coming Soon</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2019,7 +2019,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="0ad_but">
+                              <object class="GtkButton" id="ad_but">
                                 <property name="label" translatable="yes">Scanning...</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -3725,17 +3725,11 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="downl_elementary">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_left">5</property>
-                                        <property name="margin_right">5</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
+                                        <property name="can_focus">False</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_elementary_clicked" swapped="no"/>
+                                        <property name="label" translatable="yes">Avilable from website only</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

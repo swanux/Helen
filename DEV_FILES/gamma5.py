@@ -69,6 +69,13 @@ g.dlistLen = len(g.dlist)                   # The number of distros
 pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"]          # For AUR builds (this will be depracted in the future)
 g.spinning = False                                                                              # Check if the spinner is spinning or not
 g.scanner = True                                                                                # Check if PKG cache is already in memory or not
+g.appList = ['opera-stable/', 'barrier/', 'google-chrome-stable/', 'epiphany-browser/', 'firefox', 'vivaldi-stable/', 'wps-office/', 'libreoffice', 'onlyoffice-desktopeditors/', 'softmaker-freeoffice', 'gedit', 'emacs26/', 'code/s', 'atom/', 'sublime-text/', 'geany/', 'skypeforlinux/', 'discord/', 'telegram-desktop/', 'signal-desktop/', 'hexchat/', 'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox/', 'gparted/', 'Touchpad', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
+g.archDict = {'opera-stable/' : 'opera', 'barrier/' : 'barrier/', 'google-chrome-stable/' : 'google-chrome', 'epiphany-browser/' : 'epiphany', 'firefox' : 'firefox', 'vivaldi-stable/' : 'vivaldi', 'wps-office/' : 'wps-office/', 'libreoffice' : 'libreoffice-fresh', 'onlyoffice-desktopeditors/' : 'onlyoffice-bin', 'softmaker-freeoffice' : 'freeoffice', 'gedit' : 'gedit', 'emacs26/' : 'emacs/', 'code/s' : 'code/s', 'atom/' : 'atom/', 'sublime-text/' : 'sublime-text/', 'geany/' : 'geany/', 'skypeforlinux/' : 'skypeforlinux-stable-bin', 'discord/' : 'discord/', 'telegram-desktop/' : 'telegram-desktop/', 'signal-desktop/' : 'signal', 'hexchat/' : 'hexchat/', 'franz/' : 'franz/', '0ad/' : '0ad/', 'supertux/' : 'supertux/', 'lutris/' : 'lutris/', 'playonlinux/' : 'playonlinux/', 'steam/' : 'steam-launcher', 'minecraft-launcher/' : 'minecraft-launcher/', 'popsicle/' : 'popsicle-gtk-git', 'woeusb/' : 'woeusb/', 'wine/' : 'wine/', 'virtualbox/' : 'virtualbox/', 'gparted/' : 'gparted/', 'Touchpad' : 'Touchpad', 'audacity/' : 'audacity/', 'deja-dup/' : 'deja-dup/', 'timeshift/' : 'timeshift/', 'TeamViewer' : 'TeamViewer', 'gnome-boxes/' : 'gnome-boxes/', 'supertuxkart/' : 'supertuxkart/'}                             # The dictionary woth the context of debname:archname
+g.humAppsList = ['opera', 'chrome', 'web', 'firefox', 'vivaldi', 'edge', 'woffice', 'loffice', 'ooffice', 'msoffice', 'goffice', 'foffice', 'gedit', 'gnu', 'vscode', 'atom', 'stedit', 'geany', 'skype', 'discord', 'telegram', 'signal', 'hex', 'franz', 'ad', 'skart', 'tux', 'lutris', 'barr', 'pol', 'steam', 'mc', 'pops', 'woe', 'wine', 'vbox', 'gparted', 'gest', 'auda', 'deja', 'tims', 'tw', 'box']
+g.butDict = {'opera-stable/' : 'opera', 'barrier/' : 'barr', 'google-chrome-stable/' : 'chrome', 'epiphany-browser/' : 'web', 'firefox' : 'firefox', 'vivaldi-stable/' : 'vivaldi', 'wps-office/' : 'woffice', 'libreoffice' : 'loffice', 'onlyoffice-desktopeditors/' : 'ooffice', 'softmaker-freeoffice' : 'foffice', 'gedit' : 'gedit', 'emacs26/' : 'gnu', 'code/s' : 'vscode', 'atom/' : 'atom', 'sublime-text/' : 'stedit', 'geany/' : 'geany', 'skypeforlinux/' : 'skype', 'discord/' : 'discord', 'telegram-desktop/' : 'telegram', 'signal-desktop/' : 'signal', 'hexchat/' : 'hex', 'franz/' : 'franz', '0ad/' : 'ad', 'supertux/' : 'tux', 'lutris/' : 'lutris', 'playonlinux/' : 'pol', 'steam/' : 'steam', 'minecraft-launcher/' : 'mc', 'popsicle/' : 'pops', 'woeusb/' : 'woe', 'wine/' : 'wine', 'virtualbox/' : 'vbox', 'gparted/' : 'gparted', 'Touchpad' : 'gest', 'audacity/' : 'auda', 'deja-dup/' : 'deja', 'timeshift/' : 'tims', 'TeamViewer' : 'tw', 'gnome-boxes/' : 'box', 'supertuxkart/' : 'skart'}
+g.appListLen = len(g.appList)
+g.statDict = {'Opera' : '', 'Chrome' : '', 'Web' : '', 'Firefox' : '', 'Vivaldi' : '', 'Edge' : '', 'WPS Office' : '', 'Libreoffice' : '', 'Only Office' : '', 'Free Office' : '', 'Gedit' : '', 'GNU Emacs' : '', 'Visual Studio Code' : '', 'Atom Editor' : '', 'Sublime Text Editor' : '', 'Geany' : '', 'Skype' : '', 'Discord' : '', 'Telegram' : '', 'Signal' : '', 'HexChat' : '', 'Franz' : '', '0 A.D.' : '', 'SuperTuxKart' : '', 'SuperTux' : '', 'Lutris' : '', 'Barrier by debauchee' : '', 'Play On Linux' : '', 'Steam' : '', 'Minecraft' : '', 'Popsicle' : '', 'WoeUSB' : '', 'Wine' : '', 'Virtualbox' : '', 'GParted' : '', 'Touchpad Gestures' : '', 'Audacity' : '', 'Déja-Dup' : '', 'Timeshift' : '', 'TeamViewer' : '', 'Gnome Boxes' : ''}
+g.layDict = {'opera-stable/' : 'Opera', 'google-chrome-stable/' : 'Chrome', 'epiphany-browser/' : 'Web', 'firefox' : 'Firefox', 'vivaldi-stable/' : 'Vivaldi', 'dikk' : 'Edge', 'wps-office/' : 'WPS Office', 'libreoffice' : 'Libreoffice', 'onlyoffice-desktopeditors/' : 'Only Office', 'softmaker-freeoffice' : 'Free Office', 'gedit' : 'Gedit', 'emacs26/' : 'GNU Emacs', 'code/s' : 'Visual Studio Code', 'atom/' : 'Atom Editor', 'sublime-text/' : 'Sublime Text Editor', 'geany/' : 'Geany', 'skypeforlinux/' : 'Skype', 'discord/' : 'Discord', 'telegram-desktop/' : 'Telegram', 'signal-desktop/' : 'Signal', 'hexchat/' : 'HexChat', 'franz/' : 'Franz', '0ad/' : '0 A.D.', 'supertux/' : 'SuperTuxKart', 'supertuxkart/' : 'SuperTux', 'lutris/' : 'Lutris', 'barrier/' : 'Barrier by debauchee', 'playonlinux/' : 'Play On Linux', 'steam/' : 'Steam', 'minecraft-launcher/' : 'Minecraft', 'popsicle/' : 'Popsicle', 'woeusb/' : 'WoeUSB', 'wine/' : 'Wine', 'virtualbox/' : 'Virtualbox', 'gparted/' : 'GParted', 'Touchpad' : 'Touchpad Gestures', 'audacity/' : 'Audacity', 'deja-dup/' : 'Déja-Dup', 'timeshift/' : 'Timeshift', 'TeamViewer' : 'TeamViewer', 'gnome-boxes/' : 'Gnome Boxes'}
 
 ## Used generally
 UI_FILE = "hsuite.glade"                                                                        # The glade file
@@ -797,11 +804,11 @@ class GUI:
 
 ###################################################################################
 
-    def stamp(self):                                            # indicate if that program is from AUR or not
-        if g.distro == 'Arch':
-            g.status2 = g.status+' (AUR)'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':      # if the distro isn't arch, there is no need for that
-            g.status2 = g.status
+#    def stamp(self):                                            # indicate if that program is from AUR or not
+#        if g.distro == 'Arch':
+#            g.status2 = g.status+' (AUR)'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':      # if the distro isn't arch, there is no need for that
+#            g.status2 = g.status
 
     def colorer(self):                                          # Set the button colors
         self.OnCheck()                                          # Call function to check if apps are installed or not
@@ -822,344 +829,357 @@ class GUI:
 
 ### Getting the buttons from the UI file
 
-        opera_but = self.builder.get_object("opera_but")
-        chrome_but = self.builder.get_object("chrome_but")
-        web_but = self.builder.get_object("web_but")
-        firefox_but = self.builder.get_object("firefox_but")
-        vivaldi_but = self.builder.get_object("vivaldi_but")
-        edge_but = self.builder.get_object("edge_but")
-        woffice_but = self.builder.get_object("woffice_but")
-        loffice_but = self.builder.get_object("loffice_but")
-        ooffice_but = self.builder.get_object("ooffice_but")
-        msoffice_but = self.builder.get_object("msoffice_but")
-        goffice_but = self.builder.get_object("goffice_but")
-        foffice_but = self.builder.get_object("foffice_but")
-        gedit_but = self.builder.get_object("gedit_but")
-        gnu_but = self.builder.get_object("gnu_but")
-        vscode_but = self.builder.get_object("vscode_but")
-        atom_but = self.builder.get_object("atom_but")
-        stedit_but = self.builder.get_object("stedit_but")
-        geany_but = self.builder.get_object("geany_but")
+#        opera_but = self.builder.get_object("opera_but")
+#        chrome_but = self.builder.get_object("chrome_but")
+#        web_but = self.builder.get_object("web_but")
+#        firefox_but = self.builder.get_object("firefox_but")
+#        vivaldi_but = self.builder.get_object("vivaldi_but")
+#        edge_but = self.builder.get_object("edge_but")
+#        woffice_but = self.builder.get_object("woffice_but")
+#        loffice_but = self.builder.get_object("loffice_but")
+#        ooffice_but = self.builder.get_object("ooffice_but")
+#        msoffice_but = self.builder.get_object("msoffice_but")
+#        goffice_but = self.builder.get_object("goffice_but")
+#        foffice_but = self.builder.get_object("foffice_but")
+#        gedit_but = self.builder.get_object("gedit_but")
+#        gnu_but = self.builder.get_object("gnu_but")
+#        vscode_but = self.builder.get_object("vscode_but")
+#        atom_but = self.builder.get_object("atom_but")
+#        stedit_but = self.builder.get_object("stedit_but")
+#        geany_but = self.builder.get_object("geany_but")
 
-        skype_but = self.builder.get_object("skype_but")
-        discord_but = self.builder.get_object("discord_but")
-        telegram_but = self.builder.get_object("telegram_but")
-        signal_but = self.builder.get_object("signal_but")
-        hex_but = self.builder.get_object("hex_but")
-        franz_but = self.builder.get_object("franz_but")
+#        skype_but = self.builder.get_object("skype_but")
+#        discord_but = self.builder.get_object("discord_but")
+#        telegram_but = self.builder.get_object("telegram_but")
+#        signal_but = self.builder.get_object("signal_but")
+#        hex_but = self.builder.get_object("hex_but")
+#        franz_but = self.builder.get_object("franz_but")
 
-        ad_but = self.builder.get_object("0ad_but")
-        skart_but = self.builder.get_object("skart_but")
-        tux_but = self.builder.get_object("tux_but")
-        lutris_but = self.builder.get_object("lutris_but")
-        barr_but = self.builder.get_object("barr_but")
-        pol_but = self.builder.get_object("pol_but")
-        steam_but = self.builder.get_object("steam_but")
-        mc_but = self.builder.get_object("mc_but")
+#        ad_but = self.builder.get_object("ad_but")
+#        skart_but = self.builder.get_object("skart_but")
+#        tux_but = self.builder.get_object("tux_but")
+#        lutris_but = self.builder.get_object("lutris_but")
+#        barr_but = self.builder.get_object("barr_but")
+#        pol_but = self.builder.get_object("pol_but")
+#        steam_but = self.builder.get_object("steam_but")
+#        mc_but = self.builder.get_object("mc_but")
 
-        pops_but = self.builder.get_object("pops_but")
-        woe_but = self.builder.get_object("woe_but")
-        wine_but = self.builder.get_object("wine_but")
-        vbox_but = self.builder.get_object("vbox_but")
-        gparted_but = self.builder.get_object("gparted_but")
-        gest_but = self.builder.get_object("gest_but")
-        auda_but = self.builder.get_object("auda_but")
-        deja_but = self.builder.get_object("deja_but")
-        tims_but = self.builder.get_object("tims_but")
-        tw_but = self.builder.get_object("tw_but")
-        box_but = self.builder.get_object("box_but")
+#        pops_but = self.builder.get_object("pops_but")
+#        woe_but = self.builder.get_object("woe_but")
+#        wine_but = self.builder.get_object("wine_but")
+#        vbox_but = self.builder.get_object("vbox_but")
+#        gparted_but = self.builder.get_object("gparted_but")
+#        gest_but = self.builder.get_object("gest_but")
+#        auda_but = self.builder.get_object("auda_but")
+#        deja_but = self.builder.get_object("deja_but")
+#        tims_but = self.builder.get_object("tims_but")
+#        tw_but = self.builder.get_object("tw_but")
+#        box_but = self.builder.get_object("box_but")
 
 ### Check for every program in the list
 
-        if g.distro == 'Arch':
-            g.name = 'opera'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'opera-stable/'                        # the name to check for
-        else:
-            print('ERROR IN NAME')
-        g.gbut = opera_but                                  # importing the button to a general global variable
-        self.colorer()                                      # Call function for setting label and color
-        g.opera_value = g.status                            # value refers to the state: Install/Remove DING
+        for i in range(g.appListLen):
+            if g.distro == 'Arch':
+                g.name = g.archDict[g.appList[i]]
+            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+                g.name = g.appList[i]                                               # the name to check for
+            else:
+                print('ERROR IN NAME')
+            g.gbut = self.builder.get_object("%s_but" % g.butDict[g.appList[i]])    # importing the button to a general global variable
+            self.colorer()                                                          # Call function for setting label and color
+            g.current_value = g.status                                              # value refers to the state: Install/Remove DING
+            g.tempNam = g.layDict[g.appList[i]]
+            g.statDict[g.tempNam] = g.status
 
-        g.name = 'barrier/'
-        g.gbut = barr_but
-        self.colorer()
-        g.barr_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'opera'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'opera-stable/'                        # the name to check for
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = opera_but                                  # importing the button to a general global variable
+#        self.colorer()                                      # Call function for setting label and color
+#        g.opera_value = g.status                            # value refers to the state: Install/Remove DING
 
-        if g.distro == 'Arch':
-            g.name = 'google-chrome'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'google-chrome-stable/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = chrome_but
-        self.colorer()
-        self.stamp()                                        # place stamp on it on arch
-        chrome_but.set_label(g.status2)
-        g.chrome_value = g.status
+#        g.name = 'barrier/'
+#        g.gbut = barr_but
+#        self.colorer()
+#        g.barr_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'epiphany'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'epiphany-browser/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = web_but
-        self.colorer()
-        g.web_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'google-chrome'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'google-chrome-stable/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = chrome_but
+#        self.colorer()
+#        self.stamp()                                        # place stamp on it on arch
+#        chrome_but.set_label(g.status2)
+#        g.chrome_value = g.status
 
-        g.name = 'firefox'
-        g.gbut = firefox_but
-        self.colorer()
-        g.firefox_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'epiphany'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'epiphany-browser/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = web_but
+#        self.colorer()
+#        g.web_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'vivaldi'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'vivaldi-stable/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = vivaldi_but
-        self.colorer()
-        self.stamp()
-        vivaldi_but.set_label(g.status2)
-        g.vivaldi_value = g.status
+#        g.name = 'firefox'
+#        g.gbut = firefox_but
+#        self.colorer()
+#        g.firefox_value = g.status
 
-        edge_but.set_label("Coming soon")
+#        if g.distro == 'Arch':
+#            g.name = 'vivaldi'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'vivaldi-stable/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = vivaldi_but
+#        self.colorer()
+#        self.stamp()
+#        vivaldi_but.set_label(g.status2)
+#        g.vivaldi_value = g.status
 
-        g.name = 'wps-office/'
-        g.gbut = woffice_but
-        self.colorer()
-        self.stamp()
-        woffice_but.set_label(g.status2)
-        g.woffice_value = g.status
+#        edge_but.set_label("Coming soon")
 
-        if g.distro == 'Arch':
-            g.name = 'libreoffice-fresh'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'libreoffice'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = loffice_but
-        self.colorer()
-        g.loffice_value = g.status
+#        g.name = 'wps-office/'
+#        g.gbut = woffice_but
+#        self.colorer()
+#        self.stamp()
+#        woffice_but.set_label(g.status2)
+#        g.woffice_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'onlyoffice-bin'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'onlyoffice-desktopeditors/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = ooffice_but
-        self.colorer()
-        self.stamp()
-        ooffice_but.set_label(g.status2)
-        g.ooffice_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'libreoffice-fresh'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'libreoffice'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = loffice_but
+#        self.colorer()
+#        g.loffice_value = g.status
 
-        msoffice_but.set_label('Open in browser')
+#        if g.distro == 'Arch':
+#            g.name = 'onlyoffice-bin'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'onlyoffice-desktopeditors/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = ooffice_but
+#        self.colorer()
+#        self.stamp()
+#        ooffice_but.set_label(g.status2)
+#        g.ooffice_value = g.status
 
-        goffice_but.set_label('Open in browser')
+#        msoffice_but.set_label('Open in browser')
 
-        if g.distro == 'Arch':
-            g.name = 'freeoffice'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'softmaker-freeoffice'
-        else:
-            print('EROOR IN NAME')
-        g.gbut = foffice_but
-        self.colorer()
-        self.stamp()
-        foffice_but.set_label(g.status2)
-        g.foffice_value = g.status
+#        goffice_but.set_label('Open in browser')
 
-        g.name = 'gedit'
-        g.gbut = gedit_but
-        self.colorer()
-        g.gedit_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'freeoffice'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'softmaker-freeoffice'
+#        else:
+#            print('EROOR IN NAME')
+#        g.gbut = foffice_but
+#        self.colorer()
+#        self.stamp()
+#        foffice_but.set_label(g.status2)
+#        g.foffice_value = g.status
 
-        if g.distro == 'Arch' or g.distro == 'Debian':
-            g.name = 'emacs/'
-        elif g.distro == 'Ubuntu':
-            g.name = 'emacs26/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = gnu_but
-        self.colorer()
-        g.gnu_value = g.status
+#        g.name = 'gedit'
+#        g.gbut = gedit_but
+#        self.colorer()
+#        g.gedit_value = g.status
 
-        g.name = 'code/s'
-        g.gbut = vscode_but
-        self.colorer()
-        g.vscode_value = g.status
+#        if g.distro == 'Arch' or g.distro == 'Debian':
+#            g.name = 'emacs/'
+#        elif g.distro == 'Ubuntu':
+#            g.name = 'emacs26/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = gnu_but
+#        self.colorer()
+#        g.gnu_value = g.status
 
-        g.name = 'atom/'
-        g.gbut = atom_but
-        self.colorer()
-        g.atom_value = g.status
+#        g.name = 'code/s'
+#        g.gbut = vscode_but
+#        self.colorer()
+#        g.vscode_value = g.status
 
-        g.name = 'sublime-text/'
-        g.gbut = stedit_but
-        self.colorer()
-        g.stedit_value = g.status
+#        g.name = 'atom/'
+#        g.gbut = atom_but
+#        self.colorer()
+#        g.atom_value = g.status
 
-        g.name = 'geany/'
-        g.gbut = geany_but
-        self.colorer()
-        g.geany_value = g.status
+#        g.name = 'sublime-text/'
+#        g.gbut = stedit_but
+#        self.colorer()
+#        g.stedit_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'skypeforlinux-stable-bin'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'skypeforlinux/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = skype_but
-        self.colorer()
-        g.skype_value = g.status
+#        g.name = 'geany/'
+#        g.gbut = geany_but
+#        self.colorer()
+#        g.geany_value = g.status
 
-        g.name = 'discord/'
-        g.gbut = discord_but
-        self.colorer()
-        g.discord_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'skypeforlinux-stable-bin'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'skypeforlinux/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = skype_but
+#        self.colorer()
+#        g.skype_value = g.status
 
-        g.name = 'telegram-desktop/'
-        g.gbut = telegram_but
-        self.colorer()
-        g.telegram_value = g.status
+#        g.name = 'discord/'
+#        g.gbut = discord_but
+#        self.colorer()
+#        g.discord_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'signal'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'signal-desktop/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = signal_but
-        self.colorer()
-        self.stamp()
-        signal_but.set_label(g.status2)
-        g.signal_value = g.status
+#        g.name = 'telegram-desktop/'
+#        g.gbut = telegram_but
+#        self.colorer()
+#        g.telegram_value = g.status
 
-        g.name = 'hexchat/'
-        g.gbut = hex_but
-        self.colorer()
-        g.hex_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'signal'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'signal-desktop/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = signal_but
+#        self.colorer()
+#        self.stamp()
+#        signal_but.set_label(g.status2)
+#        g.signal_value = g.status
 
-        g.name = 'franz/'
-        g.gbut = franz_but
-        self.colorer()
-        self.stamp()
-        franz_but.set_label(g.status2)
-        g.franz_value = g.status
+#        g.name = 'hexchat/'
+#        g.gbut = hex_but
+#        self.colorer()
+#        g.hex_value = g.status
 
-        g.name = '0ad/'
-        g.gbut = ad_but
-        self.colorer()
-        g.ad_value = g.status
+#        g.name = 'franz/'
+#        g.gbut = franz_but
+#        self.colorer()
+#        self.stamp()
+#        franz_but.set_label(g.status2)
+#        g.franz_value = g.status
 
-        g.name = 'supertux/'
-        g.gbut = tux_but
-        self.colorer()
-        g.tux_value = g.status
+#        g.name = '0ad/'
+#        g.gbut = ad_but
+#        self.colorer()
+#        g.ad_value = g.status
 
-        g.name = 'lutris/'
-        g.gbut = lutris_but
-        self.colorer()
-        g.lutris_value = g.status
+#        g.name = 'supertux/'
+#        g.gbut = tux_but
+#        self.colorer()
+#        g.tux_value = g.status
 
-        g.name = 'playonlinux/'
-        g.gbut = pol_but
-        self.colorer()
-        g.pol_value = g.status
+#        g.name = 'lutris/'
+#        g.gbut = lutris_but
+#        self.colorer()
+#        g.lutris_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'steam-launcher'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'steam/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = steam_but
-        self.colorer()
-        g.steam_value = g.status
+#        g.name = 'playonlinux/'
+#        g.gbut = pol_but
+#        self.colorer()
+#        g.pol_value = g.status
 
-        g.name = 'minecraft-launcher/'
-        g.gbut = mc_but
-        self.colorer()
-        self.stamp()
-        mc_but.set_label(g.status2)
-        g.mc_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'steam-launcher'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'steam/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = steam_but
+#        self.colorer()
+#        g.steam_value = g.status
 
-        if g.distro == 'Arch':
-            g.name = 'popsicle-gtk-git'
-        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.name = 'popsicle/'
-        else:
-            print('ERROR IN NAME')
-        g.gbut = pops_but
-        self.colorer()
-        self.stamp()
-        pops_but.set_label(g.status2)
-        g.pops_value = g.status
+#        g.name = 'minecraft-launcher/'
+#        g.gbut = mc_but
+#        self.colorer()
+#        self.stamp()
+#        mc_but.set_label(g.status2)
+#        g.mc_value = g.status
 
-        g.name = 'woeusb/'
-        g.gbut = woe_but
-        self.colorer()
-        self.stamp()
-        woe_but.set_label(g.status2)
-        g.woe_value = g.status
+#        if g.distro == 'Arch':
+#            g.name = 'popsicle-gtk-git'
+#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#            g.name = 'popsicle/'
+#        else:
+#            print('ERROR IN NAME')
+#        g.gbut = pops_but
+#        self.colorer()
+#        self.stamp()
+#        pops_but.set_label(g.status2)
+#        g.pops_value = g.status
 
-        g.name = 'wine/'
-        g.gbut = wine_but
-        self.colorer()
-        g.wine_value = g.status
+#        g.name = 'woeusb/'
+#        g.gbut = woe_but
+#        self.colorer()
+#        self.stamp()
+#        woe_but.set_label(g.status2)
+#        g.woe_value = g.status
 
-        g.name = 'virtualbox/'
-        g.gbut = vbox_but
-        self.colorer()
-        g.vbox_value = g.status
+#        g.name = 'wine/'
+#        g.gbut = wine_but
+#        self.colorer()
+#        g.wine_value = g.status
 
-        g.name = 'gparted/'
-        g.gbut = gparted_but
-        self.colorer()
-        g.gparted_value = g.status
+#        g.name = 'virtualbox/'
+#        g.gbut = vbox_but
+#        self.colorer()
+#        g.vbox_value = g.status
 
-        g.name = 'Touchpad'
-        g.gbut = gest_but
-        self.colorer()
-        self.stamp()
-        gest_but.set_label(g.status2)
-        g.gest_value = g.status
+#        g.name = 'gparted/'
+#        g.gbut = gparted_but
+#        self.colorer()
+#        g.gparted_value = g.status
 
-        g.name = 'audacity/'
-        g.gbut = auda_but
-        self.colorer()
-        g.auda_value = g.status
+#        g.name = 'Touchpad'
+#        g.gbut = gest_but
+#        self.colorer()
+#        self.stamp()
+#        gest_but.set_label(g.status2)
+#        g.gest_value = g.status
 
-        g.name = 'deja-dup/'
-        g.gbut = deja_but
-        self.colorer()
-        g.deja_value = g.status
+#        g.name = 'audacity/'
+#        g.gbut = auda_but
+#        self.colorer()
+#        g.auda_value = g.status
 
-        g.name = 'timeshift/'
-        g.gbut = tims_but
-        self.colorer()
-        self.stamp()
-        tims_but.set_label(g.status2)
-        g.tims_value = g.status
+#        g.name = 'deja-dup/'
+#        g.gbut = deja_but
+#        self.colorer()
+#        g.deja_value = g.status
 
-        g.name = 'TeamViewer'
-        g.gbut = tw_but
-        self.colorer()
-        g.tw_value = g.status
+#        g.name = 'timeshift/'
+#        g.gbut = tims_but
+#        self.colorer()
+#        self.stamp()
+#        tims_but.set_label(g.status2)
+#        g.tims_value = g.status
 
-        g.name = 'gnome-boxes/'
-        g.gbut = box_but
-        self.colorer()
-        g.box_value = g.status
+#        g.name = 'TeamViewer'
+#        g.gbut = tw_but
+#        self.colorer()
+#        g.tw_value = g.status
 
-        g.name = 'supertuxkart/'
-        g.gbut = skart_but
-        self.colorer()
-        g.skart_value = g.status
+#        g.name = 'gnome-boxes/'
+#        g.gbut = box_but
+#        self.colorer()
+#        g.box_value = g.status
+
+#        g.name = 'supertuxkart/'
+#        g.gbut = skart_but
+#        self.colorer()
+#        g.skart_value = g.status
 
         g.scanner = False                                                   # It indicates that the state of every program is now loaded into the memory
 
@@ -1346,10 +1366,7 @@ class GUI:
         def counter(timer):                                                         # function for counting time
             s=timer.count+1                                                         # seconds incraseing
             timer.count = s                                                         # counter is equal to s
-            if g.name+'R' == g.CA:                                                  # if removing
-                sTxt.set_label(g.rmMsg+'         Elapsed time : '+str(g.m)+':'+str(s)) # set spin label
-            else:                                                                   # if installing
-                sTxt.set_label(g.inMsg+'         Elapsed time : '+str(g.m)+':'+str(s)+'        It will take around %d minute(s).' % g.kbTime) # kb time is ETA, rmMsg is remove message, insMsg is install message
+            sTxt.set_label('Processing'+g.name+'         Elapsed time : '+str(g.m)+':'+str(s))  # set spin label
             if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
                 g.m = g.m+1
@@ -1601,18 +1618,17 @@ class GUI:
 
 ### What to do on button clicks
 
-    def on_opera_but_clicked(self, button):
-        g.name = 'Opera'
-        if g.opera_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1                                        # set ETA
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()                                            # set ins text
-        elif g.opera_value == 'Remove':
-            self.onRem()                                            # or rem
+    def lilFunc (self):
+        if g.statDict[g.name] == 'Install':
+            g.CA = g.name
+        elif g.statDict[g.name] == 'Remove':
+            g.CA = g.name+'R'
         print(g.CA)
         self.OnNeed()                                               # begin operation
+
+    def on_opera_but_clicked(self, button):
+        g.name = 'Opera'
+        self.lilFunc()
 
     def on_chrome_but_clicked(self, button):
         g.name = 'Chrome'
@@ -1642,16 +1658,17 @@ class GUI:
 
     def on_firefox_but_clicked(self, button):
         g.name = 'Firefox'
-        if g.firefox_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 2
-            self.onIns()
-        elif g.firefox_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
+#        if g.firefox_value == 'Install':
+#            if g.distro == 'Arch':
+#                g.kbTime = 1
+#            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
+#                g.kbTime = 2
+#            self.onIns()
+#        elif g.firefox_value == 'Remove':
+#            self.onRem()
+#        print(g.CA)
+#        self.OnNeed()
 
     def on_vivaldi_but_clicked(self, button):
         g.name = 'Vivaldi'
@@ -2802,23 +2819,22 @@ Linux From Scratch (LFS) is a project that provides you with step-by-step instru
         """
         self.on_page(button)
 
-    def onIns(self): # sets the texts for ins
-        g.CA = g.name
-        g.inMsg = 'Installing '+g.name+':'
-        g.indMsg = g.name+' installed sucsesfully!'
-        if g.name == 'Timeshift' and g.distro == 'Arch':
-            g.inMsg = 'Installing '+g.name+'''. NOTE: The AUR package is currently
-broken because vala incompatibility. If it does not work correctly
-run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken install.'''
+#    def onIns(self): # sets the texts for ins
+#        g.CA = g.name
+#        g.inMsg = 'Installing '+g.name+':'
+#        g.indMsg = g.name+' installed sucsesfully!'
+#        if g.name == 'Timeshift' and g.distro == 'Arch':
+#            g.inMsg = 'Installing '+g.name+'''. NOTE: The AUR package is currently
+#broken because vala incompatibility. If it does not work correctly
+#run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken install.'''
 
-    def onRem(self): # same for rem
-        g.CA = g.name+'R'
-        g.rmMsg = 'Removing '+g.name+':'
-        g.rmdMsg = g.name+' removed sucsesfully.'
+#    def onRem(self): # same for rem
+#        g.CA = g.name+'R'
+#        g.rmMsg = 'Removing '+g.name+':'
+#        g.rmdMsg = g.name+' removed sucsesfully.'
 
 #### End of descriptions
 #______________________________________________________________________________________________ END OF GUI ______________________________________________________________________________________#
 
-GObject.threads_init() # init threads functionality
 app = GUI() # variable to call GUI class
 Gtk.main() # execute main GTK window

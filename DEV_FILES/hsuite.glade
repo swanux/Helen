@@ -1065,7 +1065,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="edge_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                                <property name="label" translatable="yes">Coming Soon</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1171,7 +1171,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="msoffice_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                                <property name="label" translatable="yes">Open in browser</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1188,7 +1188,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="goffice_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                                <property name="label" translatable="yes">Open in browser</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2019,7 +2019,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="0ad_but">
+                              <object class="GtkButton" id="ad_but">
                                 <property name="label" translatable="yes">Scanning...</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
