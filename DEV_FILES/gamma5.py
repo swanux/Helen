@@ -804,12 +804,6 @@ class GUI:
 
 ###################################################################################
 
-#    def stamp(self):                                            # indicate if that program is from AUR or not
-#        if g.distro == 'Arch':
-#            g.status2 = g.status+' (AUR)'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':      # if the distro isn't arch, there is no need for that
-#            g.status2 = g.status
-
     def colorer(self):                                          # Set the button colors
         self.OnCheck()                                          # Call function to check if apps are installed or not
         g.gbut.set_label(g.status)                              # set the button label depending on this
@@ -827,55 +821,6 @@ class GUI:
         else:
             print('PACK ERROR')
 
-### Getting the buttons from the UI file
-
-#        opera_but = self.builder.get_object("opera_but")
-#        chrome_but = self.builder.get_object("chrome_but")
-#        web_but = self.builder.get_object("web_but")
-#        firefox_but = self.builder.get_object("firefox_but")
-#        vivaldi_but = self.builder.get_object("vivaldi_but")
-#        edge_but = self.builder.get_object("edge_but")
-#        woffice_but = self.builder.get_object("woffice_but")
-#        loffice_but = self.builder.get_object("loffice_but")
-#        ooffice_but = self.builder.get_object("ooffice_but")
-#        msoffice_but = self.builder.get_object("msoffice_but")
-#        goffice_but = self.builder.get_object("goffice_but")
-#        foffice_but = self.builder.get_object("foffice_but")
-#        gedit_but = self.builder.get_object("gedit_but")
-#        gnu_but = self.builder.get_object("gnu_but")
-#        vscode_but = self.builder.get_object("vscode_but")
-#        atom_but = self.builder.get_object("atom_but")
-#        stedit_but = self.builder.get_object("stedit_but")
-#        geany_but = self.builder.get_object("geany_but")
-
-#        skype_but = self.builder.get_object("skype_but")
-#        discord_but = self.builder.get_object("discord_but")
-#        telegram_but = self.builder.get_object("telegram_but")
-#        signal_but = self.builder.get_object("signal_but")
-#        hex_but = self.builder.get_object("hex_but")
-#        franz_but = self.builder.get_object("franz_but")
-
-#        ad_but = self.builder.get_object("ad_but")
-#        skart_but = self.builder.get_object("skart_but")
-#        tux_but = self.builder.get_object("tux_but")
-#        lutris_but = self.builder.get_object("lutris_but")
-#        barr_but = self.builder.get_object("barr_but")
-#        pol_but = self.builder.get_object("pol_but")
-#        steam_but = self.builder.get_object("steam_but")
-#        mc_but = self.builder.get_object("mc_but")
-
-#        pops_but = self.builder.get_object("pops_but")
-#        woe_but = self.builder.get_object("woe_but")
-#        wine_but = self.builder.get_object("wine_but")
-#        vbox_but = self.builder.get_object("vbox_but")
-#        gparted_but = self.builder.get_object("gparted_but")
-#        gest_but = self.builder.get_object("gest_but")
-#        auda_but = self.builder.get_object("auda_but")
-#        deja_but = self.builder.get_object("deja_but")
-#        tims_but = self.builder.get_object("tims_but")
-#        tw_but = self.builder.get_object("tw_but")
-#        box_but = self.builder.get_object("box_but")
-
 ### Check for every program in the list
 
         for i in range(g.appListLen):
@@ -890,296 +835,6 @@ class GUI:
             g.current_value = g.status                                              # value refers to the state: Install/Remove DING
             g.tempNam = g.layDict[g.appList[i]]
             g.statDict[g.tempNam] = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'opera'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'opera-stable/'                        # the name to check for
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = opera_but                                  # importing the button to a general global variable
-#        self.colorer()                                      # Call function for setting label and color
-#        g.opera_value = g.status                            # value refers to the state: Install/Remove DING
-
-#        g.name = 'barrier/'
-#        g.gbut = barr_but
-#        self.colorer()
-#        g.barr_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'google-chrome'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'google-chrome-stable/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = chrome_but
-#        self.colorer()
-#        self.stamp()                                        # place stamp on it on arch
-#        chrome_but.set_label(g.status2)
-#        g.chrome_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'epiphany'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'epiphany-browser/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = web_but
-#        self.colorer()
-#        g.web_value = g.status
-
-#        g.name = 'firefox'
-#        g.gbut = firefox_but
-#        self.colorer()
-#        g.firefox_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'vivaldi'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'vivaldi-stable/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = vivaldi_but
-#        self.colorer()
-#        self.stamp()
-#        vivaldi_but.set_label(g.status2)
-#        g.vivaldi_value = g.status
-
-#        edge_but.set_label("Coming soon")
-
-#        g.name = 'wps-office/'
-#        g.gbut = woffice_but
-#        self.colorer()
-#        self.stamp()
-#        woffice_but.set_label(g.status2)
-#        g.woffice_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'libreoffice-fresh'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'libreoffice'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = loffice_but
-#        self.colorer()
-#        g.loffice_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'onlyoffice-bin'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'onlyoffice-desktopeditors/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = ooffice_but
-#        self.colorer()
-#        self.stamp()
-#        ooffice_but.set_label(g.status2)
-#        g.ooffice_value = g.status
-
-#        msoffice_but.set_label('Open in browser')
-
-#        goffice_but.set_label('Open in browser')
-
-#        if g.distro == 'Arch':
-#            g.name = 'freeoffice'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'softmaker-freeoffice'
-#        else:
-#            print('EROOR IN NAME')
-#        g.gbut = foffice_but
-#        self.colorer()
-#        self.stamp()
-#        foffice_but.set_label(g.status2)
-#        g.foffice_value = g.status
-
-#        g.name = 'gedit'
-#        g.gbut = gedit_but
-#        self.colorer()
-#        g.gedit_value = g.status
-
-#        if g.distro == 'Arch' or g.distro == 'Debian':
-#            g.name = 'emacs/'
-#        elif g.distro == 'Ubuntu':
-#            g.name = 'emacs26/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = gnu_but
-#        self.colorer()
-#        g.gnu_value = g.status
-
-#        g.name = 'code/s'
-#        g.gbut = vscode_but
-#        self.colorer()
-#        g.vscode_value = g.status
-
-#        g.name = 'atom/'
-#        g.gbut = atom_but
-#        self.colorer()
-#        g.atom_value = g.status
-
-#        g.name = 'sublime-text/'
-#        g.gbut = stedit_but
-#        self.colorer()
-#        g.stedit_value = g.status
-
-#        g.name = 'geany/'
-#        g.gbut = geany_but
-#        self.colorer()
-#        g.geany_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'skypeforlinux-stable-bin'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'skypeforlinux/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = skype_but
-#        self.colorer()
-#        g.skype_value = g.status
-
-#        g.name = 'discord/'
-#        g.gbut = discord_but
-#        self.colorer()
-#        g.discord_value = g.status
-
-#        g.name = 'telegram-desktop/'
-#        g.gbut = telegram_but
-#        self.colorer()
-#        g.telegram_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'signal'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'signal-desktop/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = signal_but
-#        self.colorer()
-#        self.stamp()
-#        signal_but.set_label(g.status2)
-#        g.signal_value = g.status
-
-#        g.name = 'hexchat/'
-#        g.gbut = hex_but
-#        self.colorer()
-#        g.hex_value = g.status
-
-#        g.name = 'franz/'
-#        g.gbut = franz_but
-#        self.colorer()
-#        self.stamp()
-#        franz_but.set_label(g.status2)
-#        g.franz_value = g.status
-
-#        g.name = '0ad/'
-#        g.gbut = ad_but
-#        self.colorer()
-#        g.ad_value = g.status
-
-#        g.name = 'supertux/'
-#        g.gbut = tux_but
-#        self.colorer()
-#        g.tux_value = g.status
-
-#        g.name = 'lutris/'
-#        g.gbut = lutris_but
-#        self.colorer()
-#        g.lutris_value = g.status
-
-#        g.name = 'playonlinux/'
-#        g.gbut = pol_but
-#        self.colorer()
-#        g.pol_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'steam-launcher'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'steam/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = steam_but
-#        self.colorer()
-#        g.steam_value = g.status
-
-#        g.name = 'minecraft-launcher/'
-#        g.gbut = mc_but
-#        self.colorer()
-#        self.stamp()
-#        mc_but.set_label(g.status2)
-#        g.mc_value = g.status
-
-#        if g.distro == 'Arch':
-#            g.name = 'popsicle-gtk-git'
-#        elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#            g.name = 'popsicle/'
-#        else:
-#            print('ERROR IN NAME')
-#        g.gbut = pops_but
-#        self.colorer()
-#        self.stamp()
-#        pops_but.set_label(g.status2)
-#        g.pops_value = g.status
-
-#        g.name = 'woeusb/'
-#        g.gbut = woe_but
-#        self.colorer()
-#        self.stamp()
-#        woe_but.set_label(g.status2)
-#        g.woe_value = g.status
-
-#        g.name = 'wine/'
-#        g.gbut = wine_but
-#        self.colorer()
-#        g.wine_value = g.status
-
-#        g.name = 'virtualbox/'
-#        g.gbut = vbox_but
-#        self.colorer()
-#        g.vbox_value = g.status
-
-#        g.name = 'gparted/'
-#        g.gbut = gparted_but
-#        self.colorer()
-#        g.gparted_value = g.status
-
-#        g.name = 'Touchpad'
-#        g.gbut = gest_but
-#        self.colorer()
-#        self.stamp()
-#        gest_but.set_label(g.status2)
-#        g.gest_value = g.status
-
-#        g.name = 'audacity/'
-#        g.gbut = auda_but
-#        self.colorer()
-#        g.auda_value = g.status
-
-#        g.name = 'deja-dup/'
-#        g.gbut = deja_but
-#        self.colorer()
-#        g.deja_value = g.status
-
-#        g.name = 'timeshift/'
-#        g.gbut = tims_but
-#        self.colorer()
-#        self.stamp()
-#        tims_but.set_label(g.status2)
-#        g.tims_value = g.status
-
-#        g.name = 'TeamViewer'
-#        g.gbut = tw_but
-#        self.colorer()
-#        g.tw_value = g.status
-
-#        g.name = 'gnome-boxes/'
-#        g.gbut = box_but
-#        self.colorer()
-#        g.box_value = g.status
-
-#        g.name = 'supertuxkart/'
-#        g.gbut = skart_but
-#        self.colorer()
-#        g.skart_value = g.status
 
         g.scanner = False                                                   # It indicates that the state of every program is now loaded into the memory
 
@@ -1344,10 +999,6 @@ class GUI:
             g.stack.set_visible_child(notebook_box)
             print('NO_VALUE')
             app.scanner()                                                           # start scanning
-#            g.t1 = futures.ThreadPoolExecutor(max_workers=2)                    # init thread
-#            f = g.t1.submit(self.scan_target)                                     # start it
-#            g.state = True                                                      # set buttons to active
-#            f.add_done_callback(self.toggle)                                    # after done run this function
         else:
             print('ERROR')
 
@@ -1366,7 +1017,7 @@ class GUI:
         def counter(timer):                                                         # function for counting time
             s=timer.count+1                                                         # seconds incraseing
             timer.count = s                                                         # counter is equal to s
-            sTxt.set_label('Processing'+g.name+'         Elapsed time : '+str(g.m)+':'+str(s))  # set spin label
+            sTxt.set_label('Processing '+g.name+'         Elapsed time : '+str(g.m)+':'+str(s))  # set spin label
             if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
                 g.m = g.m+1
@@ -1621,10 +1272,29 @@ class GUI:
     def lilFunc (self):
         if g.statDict[g.name] == 'Install':
             g.CA = g.name
+            if g.name == 'Touchpad Gestures':
+                x, y = g.window.get_position()
+                sx, sy = g.window.get_size()
+                dialogWindow = Gtk.MessageDialog(None, # some prompts
+                                      Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                                      Gtk.MessageType.WARNING,
+                                      Gtk.ButtonsType.OK,
+                                      g.lehete)
+
+                dialogWindow.set_title("Attention!")
+                dsx, dsy = dialogWindow.get_size()
+                dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
+                dialogWindow.show_all()
+                res = dialogWindow.run()
+                dialogWindow.destroy()
+                print('OK pressed')
+                dialogWindow.destroy()
+            print(g.CA)
+            self.OnNeed()
         elif g.statDict[g.name] == 'Remove':
             g.CA = g.name+'R'
-        print(g.CA)
-        self.OnNeed()                                               # begin operation
+            print(g.CA)
+            self.OnNeed()                               # begin operation
 
     def on_opera_but_clicked(self, button):
         g.name = 'Opera'
@@ -1632,98 +1302,34 @@ class GUI:
 
     def on_chrome_but_clicked(self, button):
         g.name = 'Chrome'
-        if g.chrome_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 4
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.chrome_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_web_but_clicked(self, button):
         g.name = 'Web'
-        if g.web_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.web_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_firefox_but_clicked(self, button):
         g.name = 'Firefox'
         self.lilFunc()
-#        if g.firefox_value == 'Install':
-#            if g.distro == 'Arch':
-#                g.kbTime = 1
-#            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-#                g.kbTime = 2
-#            self.onIns()
-#        elif g.firefox_value == 'Remove':
-#            self.onRem()
-#        print(g.CA)
-#        self.OnNeed()
 
     def on_vivaldi_but_clicked(self, button):
         g.name = 'Vivaldi'
-        if g.vivaldi_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 4
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.vivaldi_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_edge_but_clicked(self, button):
         g.name = 'Edge'
 
     def on_woffice_but_clicked(self, button):
         g.name = 'WPS Office'
-        if g.woffice_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 15
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 3
-            self.onIns()
-        elif g.woffice_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_loffice_but_clicked(self, button):
         g.name = 'Libreoffice'
-        if g.loffice_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 2
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 3
-            self.onIns()
-        elif g.loffice_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_ooffice_but_clicked(self, button):
         g.name = 'Only Office'
-        if g.ooffice_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 9
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 2
-            self.onIns()
-        elif g.ooffice_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_msoffice_but_clicked(self, button):
         webbrowser.open_new("https://office.com")
@@ -1733,438 +1339,131 @@ class GUI:
 
     def on_foffice_but_clicked(self, button):
         g.name = 'Free Office'
-        if g.foffice_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 7
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 5
-            self.onIns()
-        elif g.foffice_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_gedit_but_clicked(self, button):
         g.name = 'Gedit'
-        if g.gedit_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.gedit_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_gnu_but_clicked(self, button):
         g.name = 'GNU Emacs'
-        if g.gnu_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.gnu_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_vscode_but_clicked(self, button):
         g.name = 'Visual Studio Code'
-        if g.vscode_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.vscode_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_atom_but_clicked(self, button):
         g.name = 'Atom Editor'
-        if g.atom_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 4
-            self.onIns()
-        elif g.atom_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_stedit_but_clicked(self, button):
         g.name = 'Sublime Text Editor'
-        if g.stedit_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.stedit_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_geany_but_clicked(self, button):
         g.name = 'Geany'
-        if g.geany_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.geany_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_skype_but_clicked(self, button):
         g.name = 'Skype'
-        if g.skype_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 5
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.skype_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_discord_but_clicked(self, button):
         g.name = 'Discord'
-        if g.discord_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.discord_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_telegram_but_clicked(self, button):
         g.name = 'Telegram'
-        if g.telegram_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.telegram_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_signal_but_clicked(self, button):
         g.name = 'Signal'
-        if g.signal_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 8
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.signal_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_hex_but_clicked(self, button):
         g.name = 'HexChat'
-        if g.hex_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.hex_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_franz_but_clicked(self, button):
         g.name = 'Franz'
-        if g.franz_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 8
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.franz_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_0ad_but_clicked(self, button):
         g.name = '0 A.D.'
-        if g.ad_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 2
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 5
-            self.onIns()
-        elif g.ad_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_skart_but_clicked(self, button):
         g.name = 'SuperTuxKart'
-        if g.skart_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 2
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 2
-            self.onIns()
-        elif g.skart_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_tux_but_clicked(self, button):
         g.name = 'SuperTux'
-        if g.tux_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 2
-            self.onIns()
-        elif g.tux_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_lutris_but_clicked(self, button):
         g.name = 'Lutris'
-        if g.lutris_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.lutris_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_barr_but_clicked(self, button):
         g.name = 'Barrier by debauchee'
-        if g.barr_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.barr_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_pol_but_clicked(self, button):
         g.name = 'Play On Linux'
-        if g.pol_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 2
-            self.onIns()
-        elif g.pol_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_steam_but_clicked(self, button):
         g.name = 'Steam'
-        if g.steam_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.steam_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_mc_but_clicked(self, button):
         g.name = 'Minecraft'
-        if g.mc_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 3
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.mc_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_pops_but_clicked(self, button):
         g.name = 'Popsicle'
-        if g.pops_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 5
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.pops_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_woe_but_clicked(self, button):
         g.name = 'WoeUSB'
-        if g.woe_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 2
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.woe_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_wine_but_clicked(self, button):
         g.name = 'Wine'
-        if g.wine_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.wine_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_vbox_but_clicked(self, button):
         g.name = 'Virtualbox'
-        if g.vbox_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 2
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.vbox_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_gparted_but_clicked(self, button):
         g.name = 'GParted'
-        if g.gparted_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.gparted_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_gest_but_clicked(self, button):
         g.name = 'Touchpad Gestures'
-        if g.gest_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-            x, y = g.window.get_position()
-            sx, sy = g.window.get_size()
-            dialogWindow = Gtk.MessageDialog(None, # some prompts
-                                  Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                  Gtk.MessageType.WARNING,
-                                  Gtk.ButtonsType.OK,
-                                  g.lehete)
-
-            dialogWindow.set_title("Attention!")
-            dsx, dsy = dialogWindow.get_size()
-            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-            dialogWindow.show_all()
-            res = dialogWindow.run()
-            dialogWindow.destroy()
-            print('OK pressed')
-            dialogWindow.destroy()
-            self.OnNeed()
-            t1.join()
-        elif g.gest_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
-        t1.join()
+        self.lilFunc()
 
     def on_auda_but_clicked(self, button):
         g.name = 'Audacity'
-        if g.auda_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.auda_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_deja_but_clicked(self, button):
         g.name = 'Déja-Dup'
-        if g.deja_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.deja_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_tims_but_clicked(self, button):
         g.name = 'Timeshift'
-        if g.tims_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 2
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.tims_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_tw_but_clicked(self, button):
         g.name = 'TeamViewer'
-        if g.tw_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.tw_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
     def on_box_but_clicked(self, button):
         g.name = 'Gnome Boxes'
-        if g.box_value == 'Install':
-            if g.distro == 'Arch':
-                g.kbTime = 1
-            elif g.distro == 'Ubuntu' or g.distro == 'Debian':
-                g.kbTime = 1
-            self.onIns()
-        elif g.box_value == 'Remove':
-            self.onRem()
-        print(g.CA)
-        self.OnNeed()
+        self.lilFunc()
 
 #### End of button clicks
 
@@ -2818,20 +2117,6 @@ Gentoo Linux is a Linux distribution built using the Portage package management 
 Linux From Scratch (LFS) is a project that provides you with step-by-step instructions for building your own custom Linux system, entirely from source code.
         """
         self.on_page(button)
-
-#    def onIns(self): # sets the texts for ins
-#        g.CA = g.name
-#        g.inMsg = 'Installing '+g.name+':'
-#        g.indMsg = g.name+' installed sucsesfully!'
-#        if g.name == 'Timeshift' and g.distro == 'Arch':
-#            g.inMsg = 'Installing '+g.name+'''. NOTE: The AUR package is currently
-#broken because vala incompatibility. If it does not work correctly
-#run sudo rm -rf /home/$USER/.tmp_hsuite/ to remove trash files after broken install.'''
-
-#    def onRem(self): # same for rem
-#        g.CA = g.name+'R'
-#        g.rmMsg = 'Removing '+g.name+':'
-#        g.rmdMsg = g.name+' removed sucsesfully.'
 
 #### End of descriptions
 #______________________________________________________________________________________________ END OF GUI ______________________________________________________________________________________#
