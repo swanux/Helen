@@ -62,7 +62,8 @@ fn = 'sth'                                  # It's declared because of some func
 g.Tdownl = ''                               # The name of the currently in progress download
 g.cache = []                                # Array that contains the fetched sizes of the ISOs
 g.shDict = {'downl_mint' : 'True', 'downl_ubuntu' : 'True', 'downl_solus' : 'True', 'downl_zorin' : 'True', 'downl_deepin' : 'True', 'downl_steamos' : 'True', 'downl_deb' : 'True', 'downl_fedora' : 'True', 'downl_suse' : 'True', 'downl_gentoo' : 'True', 'downl_arch' : 'True', 'downl_lfs' : 'True',} # Dictionary for current state of download buttons (clickable or not)
-g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs'] # List of distros
+g.dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos', 'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
+                                            # List of distros
 g.dlistLen = len(g.dlist)                   # The number of distros
 
 ## Used with App Spotlight
@@ -70,12 +71,12 @@ pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"
 g.spinning = False                                                                              # Check if the spinner is spinning or not
 g.scanner = True                                                                                # Check if PKG cache is already in memory or not
 g.appList = ['opera-stable/', 'barrier/', 'google-chrome-stable/', 'epiphany-browser/', 'firefox', 'vivaldi-stable/', 'wps-office/', 'libreoffice', 'onlyoffice-desktopeditors/', 'softmaker-freeoffice', 'gedit', 'emacs26/', 'code/s', 'atom/', 'sublime-text/', 'geany/', 'skypeforlinux/', 'discord/', 'telegram-desktop/', 'signal-desktop/', 'hexchat/', 'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox/', 'gparted/', 'Touchpad', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
-g.archDict = {'opera-stable/' : 'opera', 'barrier/' : 'barrier/', 'google-chrome-stable/' : 'google-chrome', 'epiphany-browser/' : 'epiphany', 'firefox' : 'firefox', 'vivaldi-stable/' : 'vivaldi', 'wps-office/' : 'wps-office/', 'libreoffice' : 'libreoffice-fresh', 'onlyoffice-desktopeditors/' : 'onlyoffice-bin', 'softmaker-freeoffice' : 'freeoffice', 'gedit' : 'gedit', 'emacs26/' : 'emacs/', 'code/s' : 'code/s', 'atom/' : 'atom/', 'sublime-text/' : 'sublime-text/', 'geany/' : 'geany/', 'skypeforlinux/' : 'skypeforlinux-stable-bin', 'discord/' : 'discord/', 'telegram-desktop/' : 'telegram-desktop/', 'signal-desktop/' : 'signal', 'hexchat/' : 'hexchat/', 'franz/' : 'franz/', '0ad/' : '0ad/', 'supertux/' : 'supertux/', 'lutris/' : 'lutris/', 'playonlinux/' : 'playonlinux/', 'steam/' : 'steam-launcher', 'minecraft-launcher/' : 'minecraft-launcher/', 'popsicle/' : 'popsicle-gtk-git', 'woeusb/' : 'woeusb/', 'wine/' : 'wine/', 'virtualbox/' : 'virtualbox/', 'gparted/' : 'gparted/', 'Touchpad' : 'Touchpad', 'audacity/' : 'audacity/', 'deja-dup/' : 'deja-dup/', 'timeshift/' : 'timeshift/', 'TeamViewer' : 'TeamViewer', 'gnome-boxes/' : 'gnome-boxes/', 'supertuxkart/' : 'supertuxkart/'}                             # The dictionary woth the context of debname:archname
-g.humAppsList = ['opera', 'chrome', 'web', 'firefox', 'vivaldi', 'edge', 'woffice', 'loffice', 'ooffice', 'msoffice', 'goffice', 'foffice', 'gedit', 'gnu', 'vscode', 'atom', 'stedit', 'geany', 'skype', 'discord', 'telegram', 'signal', 'hex', 'franz', 'ad', 'skart', 'tux', 'lutris', 'barr', 'pol', 'steam', 'mc', 'pops', 'woe', 'wine', 'vbox', 'gparted', 'gest', 'auda', 'deja', 'tims', 'tw', 'box']
-g.butDict = {'opera-stable/' : 'opera', 'barrier/' : 'barr', 'google-chrome-stable/' : 'chrome', 'epiphany-browser/' : 'web', 'firefox' : 'firefox', 'vivaldi-stable/' : 'vivaldi', 'wps-office/' : 'woffice', 'libreoffice' : 'loffice', 'onlyoffice-desktopeditors/' : 'ooffice', 'softmaker-freeoffice' : 'foffice', 'gedit' : 'gedit', 'emacs26/' : 'gnu', 'code/s' : 'vscode', 'atom/' : 'atom', 'sublime-text/' : 'stedit', 'geany/' : 'geany', 'skypeforlinux/' : 'skype', 'discord/' : 'discord', 'telegram-desktop/' : 'telegram', 'signal-desktop/' : 'signal', 'hexchat/' : 'hex', 'franz/' : 'franz', '0ad/' : 'ad', 'supertux/' : 'tux', 'lutris/' : 'lutris', 'playonlinux/' : 'pol', 'steam/' : 'steam', 'minecraft-launcher/' : 'mc', 'popsicle/' : 'pops', 'woeusb/' : 'woe', 'wine/' : 'wine', 'virtualbox/' : 'vbox', 'gparted/' : 'gparted', 'Touchpad' : 'gest', 'audacity/' : 'auda', 'deja-dup/' : 'deja', 'timeshift/' : 'tims', 'TeamViewer' : 'tw', 'gnome-boxes/' : 'box', 'supertuxkart/' : 'skart'}
-g.appListLen = len(g.appList)
-g.statDict = {'Opera' : '', 'Chrome' : '', 'Web' : '', 'Firefox' : '', 'Vivaldi' : '', 'Edge' : '', 'WPS Office' : '', 'Libreoffice' : '', 'Only Office' : '', 'Free Office' : '', 'Gedit' : '', 'GNU Emacs' : '', 'Visual Studio Code' : '', 'Atom Editor' : '', 'Sublime Text Editor' : '', 'Geany' : '', 'Skype' : '', 'Discord' : '', 'Telegram' : '', 'Signal' : '', 'HexChat' : '', 'Franz' : '', '0 A.D.' : '', 'SuperTuxKart' : '', 'SuperTux' : '', 'Lutris' : '', 'Barrier by debauchee' : '', 'Play On Linux' : '', 'Steam' : '', 'Minecraft' : '', 'Popsicle' : '', 'WoeUSB' : '', 'Wine' : '', 'Virtualbox' : '', 'GParted' : '', 'Touchpad Gestures' : '', 'Audacity' : '', 'Déja-Dup' : '', 'Timeshift' : '', 'TeamViewer' : '', 'Gnome Boxes' : ''}
-g.layDict = {'opera-stable/' : 'Opera', 'google-chrome-stable/' : 'Chrome', 'epiphany-browser/' : 'Web', 'firefox' : 'Firefox', 'vivaldi-stable/' : 'Vivaldi', 'dikk' : 'Edge', 'wps-office/' : 'WPS Office', 'libreoffice' : 'Libreoffice', 'onlyoffice-desktopeditors/' : 'Only Office', 'softmaker-freeoffice' : 'Free Office', 'gedit' : 'Gedit', 'emacs26/' : 'GNU Emacs', 'code/s' : 'Visual Studio Code', 'atom/' : 'Atom Editor', 'sublime-text/' : 'Sublime Text Editor', 'geany/' : 'Geany', 'skypeforlinux/' : 'Skype', 'discord/' : 'Discord', 'telegram-desktop/' : 'Telegram', 'signal-desktop/' : 'Signal', 'hexchat/' : 'HexChat', 'franz/' : 'Franz', '0ad/' : '0 A.D.', 'supertux/' : 'SuperTuxKart', 'supertuxkart/' : 'SuperTux', 'lutris/' : 'Lutris', 'barrier/' : 'Barrier by debauchee', 'playonlinux/' : 'Play On Linux', 'steam/' : 'Steam', 'minecraft-launcher/' : 'Minecraft', 'popsicle/' : 'Popsicle', 'woeusb/' : 'WoeUSB', 'wine/' : 'Wine', 'virtualbox/' : 'Virtualbox', 'gparted/' : 'GParted', 'Touchpad' : 'Touchpad Gestures', 'audacity/' : 'Audacity', 'deja-dup/' : 'Déja-Dup', 'timeshift/' : 'Timeshift', 'TeamViewer' : 'TeamViewer', 'gnome-boxes/' : 'Gnome Boxes'}
+g.archDict = {'opera-stable/' : 'opera', 'barrier/' : 'barrier/', 'google-chrome-stable/' : 'google-chrome', 'epiphany-browser/' : 'epiphany', 'firefox' : 'firefox', 'vivaldi-stable/' : 'vivaldi', 'wps-office/' : 'wps-office/', 'libreoffice' : 'libreoffice-fresh', 'onlyoffice-desktopeditors/' : 'onlyoffice-bin', 'softmaker-freeoffice' : 'freeoffice', 'gedit' : 'gedit', 'emacs26/' : 'emacs/', 'code/s' : 'code/s', 'atom/' : 'atom/', 'sublime-text/' : 'sublime-text/', 'geany/' : 'geany/', 'skypeforlinux/' : 'skypeforlinux-stable-bin', 'discord/' : 'discord/', 'telegram-desktop/' : 'telegram-desktop/', 'signal-desktop/' : 'signal', 'hexchat/' : 'hexchat/', 'franz/' : 'franz/', '0ad/' : '0ad/', 'supertux/' : 'supertux/', 'lutris/' : 'lutris/', 'playonlinux/' : 'playonlinux/', 'steam/' : 'steam-launcher', 'minecraft-launcher/' : 'minecraft-launcher/', 'popsicle/' : 'popsicle-gtk-git', 'woeusb/' : 'woeusb/', 'wine/' : 'wine/', 'virtualbox/' : 'virtualbox/', 'gparted/' : 'gparted/', 'Touchpad' : 'Touchpad', 'audacity/' : 'audacity/', 'deja-dup/' : 'deja-dup/', 'timeshift/' : 'timeshift/', 'TeamViewer' : 'TeamViewer', 'gnome-boxes/' : 'gnome-boxes/', 'supertuxkart/' : 'supertuxkart/'}                             # The dictionary with the context of debname:archname
+g.humAppsList = ['opera', 'chrome', 'web', 'firefox', 'vivaldi', 'edge', 'woffice', 'loffice', 'ooffice', 'msoffice', 'goffice', 'foffice', 'gedit', 'gnu', 'vscode', 'atom', 'stedit', 'geany', 'skype', 'discord', 'telegram', 'signal', 'hex', 'franz', 'ad', 'skart', 'tux', 'lutris', 'barr', 'pol', 'steam', 'mc', 'pops', 'woe', 'wine', 'vbox', 'gparted', 'gest', 'auda', 'deja', 'tims', 'tw', 'box']                                                 # List with human readable names
+g.butDict = {'opera-stable/' : 'opera', 'barrier/' : 'barr', 'google-chrome-stable/' : 'chrome', 'epiphany-browser/' : 'web', 'firefox' : 'firefox', 'vivaldi-stable/' : 'vivaldi', 'wps-office/' : 'woffice', 'libreoffice' : 'loffice', 'onlyoffice-desktopeditors/' : 'ooffice', 'softmaker-freeoffice' : 'foffice', 'gedit' : 'gedit', 'emacs26/' : 'gnu', 'code/s' : 'vscode', 'atom/' : 'atom', 'sublime-text/' : 'stedit', 'geany/' : 'geany', 'skypeforlinux/' : 'skype', 'discord/' : 'discord', 'telegram-desktop/' : 'telegram', 'signal-desktop/' : 'signal', 'hexchat/' : 'hex', 'franz/' : 'franz', '0ad/' : 'ad', 'supertux/' : 'tux', 'lutris/' : 'lutris', 'playonlinux/' : 'pol', 'steam/' : 'steam', 'minecraft-launcher/' : 'mc', 'popsicle/' : 'pops', 'woeusb/' : 'woe', 'wine/' : 'wine', 'virtualbox/' : 'vbox', 'gparted/' : 'gparted', 'Touchpad' : 'gest', 'audacity/' : 'auda', 'deja-dup/' : 'deja', 'timeshift/' : 'tims', 'TeamViewer' : 'tw', 'gnome-boxes/' : 'box', 'supertuxkart/' : 'skart'}                                # Dictionary with the context of debname:humanName
+g.appListLen = len(g.appList)                           # Number of apps
+g.statDict = {'Opera' : '', 'Chrome' : '', 'Web' : '', 'Firefox' : '', 'Vivaldi' : '', 'Edge' : '', 'WPS Office' : '', 'Libreoffice' : '', 'Only Office' : '', 'Free Office' : '', 'Gedit' : '', 'GNU Emacs' : '', 'Visual Studio Code' : '', 'Atom Editor' : '', 'Sublime Text Editor' : '', 'Geany' : '', 'Skype' : '', 'Discord' : '', 'Telegram' : '', 'Signal' : '', 'HexChat' : '', 'Franz' : '', '0 A.D.' : '', 'SuperTuxKart' : '', 'SuperTux' : '', 'Lutris' : '', 'Barrier by debauchee' : '', 'Play On Linux' : '', 'Steam' : '', 'Minecraft' : '', 'Popsicle' : '', 'WoeUSB' : '', 'Wine' : '', 'Virtualbox' : '', 'GParted' : '', 'Touchpad Gestures' : '', 'Audacity' : '', 'Déja-Dup' : '', 'Timeshift' : '', 'TeamViewer' : '', 'Gnome Boxes' : ''} # store the status (installed or not)
+g.layDict = {'opera-stable/' : 'Opera', 'google-chrome-stable/' : 'Chrome', 'epiphany-browser/' : 'Web', 'firefox' : 'Firefox', 'vivaldi-stable/' : 'Vivaldi', 'dikk' : 'Edge', 'wps-office/' : 'WPS Office', 'libreoffice' : 'Libreoffice', 'onlyoffice-desktopeditors/' : 'Only Office', 'softmaker-freeoffice' : 'Free Office', 'gedit' : 'Gedit', 'emacs26/' : 'GNU Emacs', 'code/s' : 'Visual Studio Code', 'atom/' : 'Atom Editor', 'sublime-text/' : 'Sublime Text Editor', 'geany/' : 'Geany', 'skypeforlinux/' : 'Skype', 'discord/' : 'Discord', 'telegram-desktop/' : 'Telegram', 'signal-desktop/' : 'Signal', 'hexchat/' : 'HexChat', 'franz/' : 'Franz', '0ad/' : '0 A.D.', 'supertux/' : 'SuperTuxKart', 'supertuxkart/' : 'SuperTux', 'lutris/' : 'Lutris', 'barrier/' : 'Barrier by debauchee', 'playonlinux/' : 'Play On Linux', 'steam/' : 'Steam', 'minecraft-launcher/' : 'Minecraft', 'popsicle/' : 'Popsicle', 'woeusb/' : 'WoeUSB', 'wine/' : 'Wine', 'virtualbox/' : 'Virtualbox', 'gparted/' : 'GParted', 'Touchpad' : 'Touchpad Gestures', 'audacity/' : 'Audacity', 'deja-dup/' : 'Déja-Dup', 'timeshift/' : 'Timeshift', 'TeamViewer' : 'TeamViewer', 'gnome-boxes/' : 'Gnome Boxes'}                                          # debname:displayName
 
 ## Used generally
 UI_FILE = "hsuite.glade"                                                                        # The glade file
@@ -99,9 +100,9 @@ print("Output of $uname -a$ : %s" % dist)
 print("Detected distro: %s" % g.distro)
 
 
-#______________________________________________________________________________________________ END OF INIT ______________________________________________________________________________________#
+#______________________________________________________________________________________________ END OF INIT ______________________________________________________________________________#
 
-#_________________________________________________________________________________________ BEGIN OF THREADS _____________________________________________________________________________________#
+#_________________________________________________________________________________________ BEGIN OF THREADS _______________________________________________________________________________#
 
 # This class and function is the core of every background process in the program
 
@@ -257,14 +258,11 @@ def my_thread():
             g.asr = 'pacman -Runs --noconfirm gedit gedit-plugins'
             app.asroot()
     elif g.CA == 'GNU Emacs':
-        if g.distro == 'Ubuntu':
-            g.asr = 'apt install emacs26 -y'
+        if g.distro == 'Ubuntu'or g.distro == 'Debian':
+            g.asr = 'apt install emacs -y'
             app.asroot()
         elif g.distro == 'Arch':
             g.asr = 'pacman -Sq --noconfirm emacs'
-            app.asroot()
-        elif g.distro == 'Debian':
-            g.asr = 'apt install emacs -y'
             app.asroot()
     elif g.CA == 'GNU EmacsR':
         if g.distro == 'Ubuntu':
@@ -552,7 +550,7 @@ def my_thread():
             app.asroot()
     elif g.CA == 'Virtualbox':
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install virtualbox-6.0 -y'
+            g.asr = 'apt install virtualbox -y'
             app.asroot()
         elif g.distro == 'Arch':
             g.asr = 'pacman -Sq --noconfirm virtualbox ; /sbin/rcvboxdrv setup'
@@ -2119,7 +2117,7 @@ Linux From Scratch (LFS) is a project that provides you with step-by-step instru
         self.on_page(button)
 
 #### End of descriptions
-#______________________________________________________________________________________________ END OF GUI ______________________________________________________________________________________#
+#______________________________________________________________________________________________ END OF GUI __________________________________________________________________________________
 
 app = GUI() # variable to call GUI class
 Gtk.main() # execute main GTK window

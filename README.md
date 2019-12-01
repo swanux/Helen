@@ -2,7 +2,7 @@
 Here is the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
 
 **v0.4 | Aphrodite**
-*Note: This version is foucuses on new techniques rather than overall stability.*
+*Note: This version is foucusing on new techniques rather than overall stability.*
 
     * Rewritten the complete program in GTK3
     * Beautiful new logos by Seh
