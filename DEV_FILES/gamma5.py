@@ -259,7 +259,7 @@ def my_thread():
             app.asroot()
     elif g.CA == 'GNU Emacs':
         if g.distro == 'Ubuntu'or g.distro == 'Debian':
-            g.asr = 'apt install emacs -y'
+            g.asr = 'apt install emacs26 -y'
             app.asroot()
         elif g.distro == 'Arch':
             g.asr = 'pacman -Sq --noconfirm emacs'
