@@ -1,7 +1,6 @@
 import os
 status = 'Install'#'installORremove'
 CA = 'current action'
-version = 'HSuite v0.5 | Hermes'
 txt1 = 'Coming in future Beta releases...'
 distro = 'common distro'
 label = 'description'

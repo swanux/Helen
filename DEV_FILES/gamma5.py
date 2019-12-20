@@ -15,6 +15,7 @@ gi.require_version('WebKit2', '4.0')
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
 import os
 import re
+import sys
 import webbrowser
 from threading import Thread
 import time
@@ -27,7 +28,7 @@ from concurrent import futures
 dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
 os.chdir(dire)
 
-import common as g                          # For global values
+import osLayer as g                          # For global values and OS releated background tasks (App spotlight)
 
 
 ### Declare global variables ###
@@ -45,7 +46,7 @@ if  'Ubuntu' in dist:
     g.distro = 'Ubuntu'
 elif 'archlinux' in dist or 'MANJARO' in dist:
     g.distro = 'Arch'
-elif 'Debian' in dist:
+elif 'Debian' in dist or 'deepin' in dist:
     g.distro = 'Debian'
 else:
     g.distro = 'Automatic distro detection failed!'
@@ -80,6 +81,7 @@ g.layDict = {'opera-stable/' : 'Opera', 'google-chrome-stable/' : 'Chrome', 'epi
 
 ## Used generally
 UI_FILE = "hsuite.glade"                                                                        # The glade file
+version = 'HSuite v0.5 | Hermes'                                                                # Version of the program
 g.user = os.popen("who|awk '{print $1}'r").read()                                               # Getting the name of the non-root user
 g.user = g.user.rstrip()                                                                        # Edit to only contain the name itself
 xorw = os.popen('echo $XDG_SESSION_TYPE').read()                                                # Get current session type
@@ -102,9 +104,11 @@ print("Detected distro: %s" % g.distro)
 
 #______________________________________________________________________________________________ END OF INIT ______________________________________________________________________________#
 
-#_________________________________________________________________________________________ BEGIN OF THREADS _______________________________________________________________________________#
+#______________________________________________________________________________________________ BEGIN OF GUI ______________________________________________________________________________________#
 
-# This class and function is the core of every background process in the program
+# This class handles everything releated to the GUI and some background tasks connected to the program
+
+# class Thread(group=None, target=None, name=None, args=(), kwargs={}, *, daemon=None)
 
 class myThread (Thread):
     def __init__(self, threadID, name):
@@ -114,635 +118,13 @@ class myThread (Thread):
         g._stop_event = False
     def run(self):
         print ("Starting " + self.name)
-        my_thread()                                                                 # Calls the function
+        g.my_thread()                                                                 # Calls the function
         print ("Exiting " + self.name)
     def stop(self):
         g._stop_event = True
         print("stop func")
 
-def my_thread():
-    if g.CA == 'Opera':                                                             # g.CA is a global variable which is declared before calling this function. Its main role is to indicate the name of the program which is being changed/used. It tells the function what to do. CA means "Current Action"
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':                            # We need to check the current distro for some distro specific commands
-            g.asr = 'DEBIAN_FRONTEND=noninteractive apt install opera-stable pepperflashplugin-nonfree -y' # g.asr is a global parameter, it means "as root". If something is given to asr, it'll run it with pkexec prompt
-            app.asroot()                                                            # It calls the function itself
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm opera opera-ffmpeg-codecs flashplugin'
-            app.asroot()
-    elif g.CA == 'OperaR':                                                          # The R means this is for the removal of the program.
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge opera-stable pepperflashplugin-nonfree -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm  opera opera-ffmpeg-codecs flashplugin'
-            app.asroot()
-    elif g.CA == 'Lutris':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install lutris -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm lutris'
-            app.asroot()
-    elif g.CA == 'LutrisR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge lutris -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm  lutris'
-            app.asroot()
-    elif g.CA == 'Chrome':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install google-chrome-stable -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'google-chrome' # The name of the folder (AUR)
-            g.num = 2 # The position inside the folder (AUR)
-            app.aurer() # Calling the builder function
-    elif g.CA == 'ChromeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge google-chrome-stable -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm google-chrome'
-            app.asroot()
-    elif g.CA == 'Web':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install epiphany-browser -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm epiphany'
-            app.asroot()
-    elif g.CA == 'WebR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge epiphany-browser -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm epiphany'
-            app.asroot()
-    elif g.CA == 'Firefox':
-        if g.distro == 'Ubuntu':
-            g.asr = 'apt install firefox -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm firefox'
-            app.asroot()
-        elif g.distro == 'Debian':
-            g.asr = 'apt install firefox-esr -y'
-            app.asroot()
-    elif g.CA == 'FirefoxR':
-        if g.distro == 'Ubuntu':
-            g.asr = 'apt purge firefox -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm firefox'
-            app.asroot()
-        elif g.distro == 'Debian':
-            g.asr = 'apt purge firefox-esr -y ; apt autoremove -y'
-            app.asroot()
-    elif g.CA == 'Vivaldi':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install vivaldi-stable -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'vivaldi'
-            g.num = 2
-            app.aurer()
-    elif g.CA == 'VivaldiR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge vivaldi-stable -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm vivaldi'
-            app.asroot()
-    elif g.CA == 'Only Office':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install onlyoffice-desktopeditors -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'onlyoffice-bin'
-            g.num = 1
-            app.aurer()
-    elif g.CA == 'Only OfficeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge onlyoffice-desktopeditors -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm onlyoffice-bin'
-            app.asroot()
-    elif g.CA == 'Free Office':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install softmaker-freeoffice-2018 -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'freeoffice'
-            g.num = 1
-            app.aurer()
-    elif g.CA == 'Free OfficeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge softmaker-freeoffice-2018 -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --nocnonfirm freeoffice'
-            app.asroot()
-    elif g.CA == 'Gedit':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install gedit gedit-plugins -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm gedit gedit-plugins'
-            app.asroot()
-    elif g.CA == 'GeditR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge gedit gedit-plugins -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm gedit gedit-plugins'
-            app.asroot()
-    elif g.CA == 'GNU Emacs':
-        if g.distro == 'Ubuntu'or g.distro == 'Debian':
-            g.asr = 'apt install emacs26 -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm emacs'
-            app.asroot()
-    elif g.CA == 'GNU EmacsR':
-        if g.distro == 'Ubuntu':
-            g.asr = 'apt purge emacs26 -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm emacs'
-            app.asroot()
-        elif g.distro == 'Debian':
-            g.asr = 'apt purge emacs -y ; apt autoremove -y'
-            app.asroot()
-    elif g.CA == 'Visual Studio Code':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install code -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm code'
-            app.asroot()
-    elif g.CA == 'Visual Studio CodeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge code -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm code'
-            app.asroot()
-    elif g.CA == 'Atom Editor':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install atom -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm atom'
-            app.asroot()
-    elif g.CA == 'Atom EditorR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge atom -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm atom'
-            app.asroot()
-    elif g.CA == 'Sublime Text Editor':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install sublime-text -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm sublime-text'
-            app.asroot()
-    elif g.CA == 'Sublime Text EditorR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge sublime-text -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm sublime-text'
-            app.asroot()
-    elif g.CA == 'Geany':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install geany -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm geany'
-            app.asroot()
-    elif g.CA == 'GeanyR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge geany -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm geany'
-            app.asroot()
-    elif g.CA == 'Discord':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install discord -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm discord'
-            app.asroot()
-    elif g.CA == 'DiscordR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge discord -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm discord'
-            app.asroot()
-    elif g.CA == 'Telegram':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install telegram-desktop -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm telegram-desktop'
-            app.asroot()
-    elif g.CA == 'TelegramR':
-        if g.distro == 'Ubuntu'or g.distro == 'Debian':
-            g.asr = 'apt purge telegram-desktop -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm telegram-desktop'
-            app.asroot()
-    elif g.CA == 'Signal':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install signal-desktop -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'signal'
-            g.num = 2
-            app.aurer()
-    elif g.CA == 'SignalR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge signal-desktop -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm signal'
-            app.asroot()
-    elif g.CA == 'HexChat':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install hexchat -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm hexchat'
-            app.asroot()
-    elif g.CA == 'HexChatR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge hexchat -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm hexchat'
-            app.asroot()
-    elif g.CA == 'SuperTux':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install supertux -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm supertux'
-            app.asroot()
-    elif g.CA == 'SuperTuxR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge supertux -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm supertux'
-            app.asroot()
-    elif g.CA == 'Play On Linux':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install playonlinux -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm playonlinux'
-            app.asroot()
-    elif g.CA == 'Play On LinuxR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge playonlinux -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm playonlinux'
-            app.asroot()
-    elif g.CA == 'Minecraft':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'wget ~/Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb ; dpkg -i --force-all Minecraft.deb ; apt install -f -y ; rm Minecraft.deb'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'minecraft-launcher'
-            g.num = 1
-            app.aurer()
-    elif g.CA == 'MinecraftR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge minecraft-launcher -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm minecraft-launcher'
-            app.asroot()
-    elif g.CA == 'TeamViewer':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'DEBIAN_FRONTEND=noninteractive apt install teamviewer -y ; teamviewer --daemon enable'
-            app.asroot()
-        elif g.distro == 'Arch':
-            os.system('wget https://download.teamviewer.com/download/linux/teamviewer_amd64.tar.xz') # It's special, because it grabs the sources directly from the developers page and builds the most up to date version
-            ver = os.popen('ls').read()
-            ver = ver.split()
-            hos = len(ver)
-            print(hos)
-            i = 0
-            print(ver)
-            while i < hos:
-                if 'teamviewer' in ver[i]:
-                    ver = ver[i]
-                else:
-                    i += 1
-            os.system('tar -xJf %s && rm -rf %s' % (ver, ver))
-            g.asr = 'cd teamviewer ; ./tv-setup install force'
-            app.asroot()
-    elif g.CA == 'TeamViewerR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge teamviewer -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'cd teamviewer ; ./tv-setup uninstall force'
-            app.asroot()
-            os.system('rm -rf teamviewer && rm -rf /opt/teamviewer')
-    elif g.CA == 'Gnome Boxes':
-        if g.distro == 'Ubuntu'or g.distro == 'Debian':
-            g.asr = 'apt install gnome-boxes -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm gnome-boxes'
-            app.asroot()
-    elif g.CA == 'Gnome BoxesR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge gnome-boxes -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm gnome-boxes'
-            app.asroot()
-    elif g.CA == 'Franz':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install franz -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.num = 2
-            g.fold = 'franz'
-            app.aurer()
-    elif g.CA == 'FranzR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge franz -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm franz'
-            app.asroot()
-    elif g.CA == 'Libreoffice':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install libreoffice libreoffice-gtk -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm libreoffice-fresh'
-            app.asroot()
-    elif g.CA == 'LibreofficeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge libreoffice-* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm libreoffice-fresh'
-            app.asroot()
-    elif g.CA == 'WPS Office':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'DEBIAN_FRONTEND=noninteractive apt install wps-office ttf-wps-fonts -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.num = 2
-            g.fold = 'wps-office'
-            app.aurer()
-            g.num = 2
-            g.fold = 'ttf-wps-fonts'
-            app.aurer()
-    elif g.CA == 'WPS OfficeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge ttf-wps-fonts wps-office -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm wps-office ttf-wps-fonts'
-            app.asroot()
-    elif g.CA == 'Popsicle':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install popsicle* -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.fold = 'popsicle-git'
-            g.num = 3
-            app.aurer()
-    elif g.CA == 'PopsicleR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge popsicle* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm popsicle-gtk-git'
-            app.asroot()
-    elif g.CA == 'Wine':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install wine wine32 wine64 -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm wine'
-            app.asroot()
-    elif g.CA == 'WineR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge wine* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm wine'
-            app.asroot()
-    elif g.CA == 'Virtualbox':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install virtualbox -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm virtualbox ; /sbin/rcvboxdrv setup'
-            app.asroot()
-    elif g.CA == 'VirtualboxR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge virtualbox* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm virtualbox'
-            app.asroot()
-    elif g.CA == 'WoeUSB':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install woeusb -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.num = 2
-            g.fold = 'woeusb'
-            app.aurer()
-    elif g.CA == 'WoeUSBR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge woeusb -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm woeusb'
-            app.asroot()
-    elif g.CA == 'GParted':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install gparted gpart -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm gparted gpart'
-            app.asroot()
-    elif g.CA == 'GPartedR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge gpart* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm gparted'
-            app.asroot()
-    elif g.CA == 'Audacity':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install audacity -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm audacity'
-            app.asroot()
-    elif g.CA == 'AudacityR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge audacity* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm audacity'
-            app.asroot()
-    elif g.CA == 'Déja-Dup':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install deja-dup* -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm deja-dup'
-            app.asroot()
-    elif g.CA == 'Déja-DupR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge deja-dup* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm deja-dup'
-            app.asroot()
-    elif g.CA == 'Timeshift':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install timeshift -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.num = 1
-            g.fold = 'timeshift'
-            app.aurer()
-    elif g.CA == 'TimeshiftR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge timeshift -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm timeshift'
-            app.asroot()
-    elif g.CA == 'Touchpad Gestures':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install libinput-tools libinput-bin wmctrl python3 xdotool python3-setuptools -y ; gpasswd -a %s input ; cd %s ; git clone https://github.com/bulletmark/libinput-gestures.git ; git clone https://gitlab.com/cunidev/gestures ; cd libinput-gestures ; ./libinput-gestures-setup install ; cd .. ; cd gestures ; python3 setup.py install ; cd .. ; rm -rf libinput-gestures ; rm -rf gestures' % (g.user, dire)
-            app.asroot()
-            os.system('cp /usr/share/hsuite/confs/libinput-gestures.conf ~/.config')
-        elif g.distro == 'Arch':
-            g.num = 3
-            g.fold = 'libinput-gestures'
-            app.aurer()
-            g.num = 1
-            g.fold = 'gestures'
-            app.aurer()
-            os.system('cp /usr/share/hsuite/confs/libinput-gestures.conf ~/.config')
-    elif g.CA == 'Touchpad GesturesR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge libinput-tools xdotool libinput-bin python3-setuptools -y ; apt autoremove -y ; rm -rf /usr/local/bin/gestures ; rm -rf /usr/bin/libinput-gestures ; rm -rf /usr/share/applications/libinput-gestures.desktop ; rm -rf /usr/share/applications/org.cunidev.gestures.desktop'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm libinput-gestures gestures'
-            app.asroot()
-    elif g.CA == 'Skype':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install skypeforlinux -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.num = 3
-            g.fold = 'skypeforlinux-stable-bin'
-            app.aurer()
-    elif g.CA == 'SkypeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge skypeforlinux -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm skypeforlinux-stable-bin'
-            app.asroot()
-    elif g.CA == 'Barrier by debauchee':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install barrier -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm barrier'
-            app.asroot()
-    elif g.CA == 'Barrier by debaucheeR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge barrier -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm barrier'
-            app.asroot()
-    elif g.CA == '0 A.D.':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install 0ad -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm 0ad'
-            app.asroot()
-    elif g.CA == '0 A.D.R':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge 0ad -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm 0ad'
-            app.asroot()
-    elif g.CA == 'SuperTuxKart':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install supertuxkart -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm supertuxkart'
-            app.asroot()
-    elif g.CA == 'SuperTuxKartR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge supertuxkart -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm supertuxkart'
-            app.asroot()
-    elif g.CA == 'Steam':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt install steam-launcher -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Sq --noconfirm steam steam-native-runtime'
-            app.asroot()
-    elif g.CA == 'SteamR':
-        if g.distro == 'Ubuntu' or g.distro == 'Debian':
-            g.asr = 'apt purge steam* -y ; apt autoremove -y'
-            app.asroot()
-        elif g.distro == 'Arch':
-            g.asr = 'pacman -Runs --noconfirm steam steam-native-runtime'
-            app.asroot()
-    else:
-        print('Error 3')
-
-#___________________________________________________________________________________________ END OF THREADS ______________________________________________________________________________________#
-
-#______________________________________________________________________________________________ BEGIN OF GUI ______________________________________________________________________________________#
-
-# This class handles everything releated to the GUI and some background tasks connected to the program
-
 class GUI:
-
-    def asroot(self):                                               # The function to display prompt for root acces.
-        with open("bashLayer.sh") as f:
-            lines = f.readlines()
-        lines[2] = 'CMD="%s"\n' % g.asr
-        with open("bashLayer.sh", "w") as f:
-            f.writelines(lines)
-        os.system('bash bashLayer.sh')                              # bashLayer.sh is a small bash script which runs predefined programs. It's like a module.
 
     def aurer(self):                                                # The builder for AUR
         with open("logname.sh") as f:
@@ -757,7 +139,7 @@ class GUI:
         pkg = pkg[g.num]
         print(pkg)
         g.asr = 'pacman -U --noconfirm /home/%s/.tmp_hsuite/%s/%s ; rm -rf /home/%s/.tmp_hsuite/' % (g.user, g.fold, pkg, g.user)
-        app.asroot()
+        g.asroot()
 
     count = 0                                                       # It'll be used later when displaying the time during program install
     def __init__(self):                                             # Init the main gui
@@ -772,15 +154,15 @@ class GUI:
 
         g.window = self.builder.get_object('window')                # Get the main window
         if os.geteuid() == 0:
-           g.window.set_title(g.version+' (as superuser)')          # Indicate if runnung as root or not
+           g.window.set_title(version+' (as superuser)')          # Indicate if runnung as root or not
         else:
-            g.window.set_title(g.version)
+            g.window.set_title(version)
         g.window.show_all()                                         # Display the program
 
     def on_window_delete_event(self, window, e):                    # This happens when close button is clicked
         x, y = g.window.get_position()                              # Getting the window position
         sx, sy = g.window.get_size()                                # Get the size of the window
-        dialogWindow = Gtk.MessageDialog(None,                      # Make a popup window without parent
+        dialogWindow = Gtk.MessageDialog(window,                      # Make a popup window without parent
                               Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT, # make it modal (always on top) and destroy together with main window (for example on force quit)
                               Gtk.MessageType.QUESTION,             # message type is question
                               Gtk.ButtonsType.YES_NO,               # add yes and no buttons
@@ -795,6 +177,7 @@ class GUI:
             print('OK pressed')
             dialogWindow.destroy()
             Gtk.main_quit()                                         # quit program
+            sys.exit()
         elif res == Gtk.ResponseType.NO:                            # if no ...
             print('No pressed')
             dialogWindow.destroy()                                  # sestroy dialog
@@ -811,17 +194,13 @@ class GUI:
             g.gbut.override_background_color(0,rgbaG)           # green for install
 
     def scanner(self):                                          # Scans the OS for programs
-
         if g.distro == 'Ubuntu' or g.distro == 'Debian':
             g.insList = os.popen('apt list --installed').read() # list of installed apps on debian based OS
         elif g.distro == 'Arch':
             g.insList = os.popen('pacman -Q').read()            # same on arch
         else:
             print('PACK ERROR')
-
-### Check for every program in the list
-
-        for i in range(g.appListLen):
+        for i in range(g.appListLen):                         # Check for every program in the list
             if g.distro == 'Arch':
                 g.name = g.archDict[g.appList[i]]
             elif g.distro == 'Ubuntu' or g.distro == 'Debian':
@@ -835,6 +214,97 @@ class GUI:
             g.statDict[g.tempNam] = g.status
 
         g.scanner = False                                                   # It indicates that the state of every program is now loaded into the memory
+
+    def OnCheck(self):                                                              # check if program is installed or not
+        if 'Touchpad' in g.name:
+            vane = os.path.exists("/usr/share/applications/org.cunidev.gestures.desktop")
+            print(vane)
+            if vane:
+                g.status = 'Remove'
+            else:
+                g.status = 'Install'
+        elif 'TeamViewer' in g.name:
+            vane = os.path.exists("/opt/teamviewer")
+            print(vane)
+            if vane:
+                g.status = 'Remove'
+            else:
+                g.status = 'Install'
+        else:
+            if g.name in g.insList:
+                print('Found %s' % g.name)
+                g.status = 'Remove'
+            else:
+                print('Not found %s' % g.name)
+                g.status = 'Install'
+
+    def done (self):
+        global alive
+        alive = False
+
+    def OnNeed(self):                                                               # This is executed when an app is being installed/removed
+        g.scanner = True                                                            # removes scan cache from memory because it needs to rescan because one app changed
+        # g.spinning = True                                                           # indicates that the spinner is running
+        # sTxt = self.builder.get_object('spinner_txt')                               # get the label of the spinner
+        # sTxt.set_label('Loading...')                                                # set to loading
+        # spinner = self.builder.get_object('spinner')                                # get spinner itself
+        sTxt = g.cInB
+        sTxt.set_label('Loading...')
+        t1 = myThread(1, "Thread-1")                                                # init thread with thread function
+        t1.start()                                                                  # start it
+        # spinner_box = self.builder.get_object('spinner_box')                      # get the box with the spinner
+        # g.stack.set_visible_child(spinner_box)                                    # make it visible
+        g.m = 0                                                                     # set minutes to 0
+        # spinner.start()                                                           # start spinner
+        def counter(timer):                                                         # function for counting time
+            s=timer.count+1                                                         # seconds incraseing
+            timer.count = s                                                         # counter is equal to s
+            sTxt.set_label('Processing '+g.name+' '+str(g.m)+':'+str(s))            # set spin label
+            if s == 59:                                                             # add one to min and reset sec
+                timer.count = -1
+                g.m = g.m+1
+            if t1.isAlive():                                                        # if thread is still running repeat
+                return True
+            else:                                                                   # on exit
+                timer.count = 0                                                     # reset counter
+                # spinner.stop()                                                      # stop spinner
+                button = 0                                                          # declare button variable (don't know why)
+                self.button_clicked(button)                                         # imitate reopening of app spotlight
+                # g.spinning = False                                                  # indicate that spinner stopped
+                return False                                                        # end
+        self.source_id = GLib.timeout_add(1000, counter, self)                      # DING
+
+    def lilFunc (self):
+        g.comm2 = g.archDict[g.comm1]+' '+g.extra
+        g.cInB = self.builder.get_object("%s_but" % g.butDict[g.comm1])
+        if '/' in g.comm1:
+            g.comm1 = g.comm1.replace('/', '')
+        if '/' in g.comm2:
+            g.comm2 = g.comm2.replace('/', '')
+        if g.statDict[g.name] == 'Install':
+            if g.name == 'Touchpad Gestures':
+                x, y = g.window.get_position()
+                sx, sy = g.window.get_size()
+                dialogWindow = Gtk.MessageDialog(window,                                              # some prompts
+                                      Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                                      Gtk.MessageType.WARNING,
+                                      Gtk.ButtonsType.OK,
+                                      g.lehete)
+                dialogWindow.set_title("Attention!")
+                dsx, dsy = dialogWindow.get_size()
+                dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
+                dialogWindow.show_all()
+                res = dialogWindow.run()
+                dialogWindow.destroy()
+                print('OK pressed')
+                dialogWindow.destroy()
+            g.status = 'install'
+            print(g.name)
+            self.OnNeed()
+        elif g.statDict[g.name] == 'Remove':
+            g.status = 'remove'
+            print(g.name)
+            self.OnNeed()
 
 ### Download methods
 
@@ -895,7 +365,7 @@ class GUI:
         g.state = False                                                     # disable buttons
         self.toggle(fn)                                                     # run function to do this
 
-        g.t1 = futures.ThreadPoolExecutor(max_workers=2)                    # init thread
+        g.t1 = futures.ThreadPoolExecutor(max_workers=4)                    # init thread
         f = g.t1.submit(self.ex_target)                                     # start it
         g.state = True                                                      # set buttons to active
         f.add_done_callback(self.toggle)                                    # after done run this function
@@ -1000,36 +470,6 @@ class GUI:
         else:
             print('ERROR')
 
-    def OnNeed(self):                                                               # This is executed when an app is being installed/removed
-        g.scanner = True                                                            # removes scan cache from memory because it needs to rescan because one app changed
-        g.spinning = True                                                           # indicates that the spinner is running
-        sTxt = self.builder.get_object('spinner_txt')                               # get the label of the spinner
-        sTxt.set_label('Loading...')                                                # set to loading
-        spinner = self.builder.get_object('spinner')                                # get spinner itself
-        t1 = myThread(1, "Thread-1")                                                # init thread with thread function
-        t1.start()                                                                  # start it
-        spinner_box = self.builder.get_object('spinner_box')                        # get the box with the spinner
-        g.stack.set_visible_child(spinner_box)                                      # make it visible
-        g.m = 0                                                                     # set minutes to 0
-        spinner.start()                                                             # start spinner
-        def counter(timer):                                                         # function for counting time
-            s=timer.count+1                                                         # seconds incraseing
-            timer.count = s                                                         # counter is equal to s
-            sTxt.set_label('Processing '+g.name+'         Elapsed time : '+str(g.m)+':'+str(s))  # set spin label
-            if s == 59:                                                             # add one to min and reset sec
-                timer.count = -1
-                g.m = g.m+1
-            if t1.isAlive():                                                        # if thread is still running repeat
-                return True
-            else:                                                                   # on exit
-                timer.count = 0                                                     # reset counter
-                spinner.stop()                                                      # stop spinner
-                button = 0                                                          # declare button variable (don't know why)
-                self.button_clicked(button)                                         # imitate reopening of app spotlight
-                g.spinning = False                                                  # indicate that spinner stopped
-                return False                                                        # end
-        self.source_id = GLib.timeout_add(1000, counter, self)                      # DING
-
     def on_fb_but_clicked(self, button):                                            # feedback button
         view_fb = self.builder.get_object('view_fb')
         web_box = self.builder.get_object('web_box')
@@ -1048,7 +488,7 @@ class GUI:
                               Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                               Gtk.MessageType.INFO,
                               Gtk.ButtonsType.OK,
-                              g.txt1)                                               # dialog for prompting that this feature isn't ready yet
+                              'Coming in future Beta releases...')                  # dialog for prompting that this feature isn't ready yet
 
         dialogWindow.set_title("Coming soon")
         dsx, dsy = dialogWindow.get_size()
@@ -1176,29 +616,6 @@ class GUI:
         scroll_about = self.builder.get_object('scroll_about')
         g.stack.set_visible_child(scroll_about)
 
-    def OnCheck(self):                                                              # check if program is installed or not
-        if 'Touchpad' in g.name:
-            vane = os.path.exists("/usr/share/applications/org.cunidev.gestures.desktop")
-            print(vane)
-            if vane:
-                g.status = 'Remove'
-            else:
-                g.status = 'Install'
-        elif 'TeamViewer' in g.name:
-            vane = os.path.exists("/opt/teamviewer")
-            print(vane)
-            if vane:
-                g.status = 'Remove'
-            else:
-                g.status = 'Install'
-        else:
-            if g.name in g.insList:
-                print('Found %s' % g.name)
-                g.status = 'Remove'
-            else:
-                print('Not found %s' % g.name)
-                g.status = 'Install'
-
     def home_clicked (self, button): # back button
         scroll_home = self.builder.get_object('scroll_home')
         g.stack.set_visible_child(scroll_home)
@@ -1220,14 +637,14 @@ class GUI:
         g.stack.set_visible_child(page)
 
     def on_back_button_clicked (self, button):                      # when going back but not to home
-        if g.spinning:                                              # if installation in progress
+        if g.alive:                                                 # if installation in progress
             x, y = g.window.get_position()
             sx, sy = g.window.get_size()
-            dialogWindow = Gtk.MessageDialog(None,
+            dialogWindow = Gtk.MessageDialog(window,
                                   Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                                   Gtk.MessageType.QUESTION,
                                   Gtk.ButtonsType.YES_NO,
-                                  "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % g.CA)
+                                  "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % g.name)
             dialogWindow.set_title("Attention!")
             dsx, dsy = dialogWindow.get_size()
             dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
@@ -1237,21 +654,22 @@ class GUI:
             if res == Gtk.ResponseType.YES:
                 print('OK pressed')
                 dialogWindow.destroy()
-                print('Spinning')
+                print('Installation already running')
+#                g.exitE = True
                 if g.distro == 'Ubuntu' or g.distro == 'Debian':
                     g.asr = 'killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y'
                 elif g.distro == 'Arch':
                     g.asr = 'rm /var/lib/pacman/db.lck ; killal pacman ; pacman -R $(pacman -Qdtq)'
                 else:
                     print('ERROR IN DIST AB')
-                app.asroot()
+                g.asroot()
             elif res == Gtk.ResponseType.NO:
                 print('No pressed')
                 dialogWindow.destroy()
                 return True
-        elif g.spinning == False:
-            print('Standing')
-        if g.bp == "App Spotlight": # go back to app spotlight or distro boutique
+        elif g.alive == False:
+            print('nothing in progress')
+        if g.bp == "App Spotlight":                                 # go back to app spotlight or distro boutique
             self.button_clicked(button)
         elif g.bp == "Distro Boutique":
             distro_box = self.builder.get_object('distro_box')
@@ -1266,52 +684,30 @@ class GUI:
         webbrowser.open_new(g.web)
 
 ### What to do on button clicks
-
-    def lilFunc (self):
-        if g.statDict[g.name] == 'Install':
-            g.CA = g.name
-            if g.name == 'Touchpad Gestures':
-                x, y = g.window.get_position()
-                sx, sy = g.window.get_size()
-                dialogWindow = Gtk.MessageDialog(None, # some prompts
-                                      Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                      Gtk.MessageType.WARNING,
-                                      Gtk.ButtonsType.OK,
-                                      g.lehete)
-
-                dialogWindow.set_title("Attention!")
-                dsx, dsy = dialogWindow.get_size()
-                dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-                dialogWindow.show_all()
-                res = dialogWindow.run()
-                dialogWindow.destroy()
-                print('OK pressed')
-                dialogWindow.destroy()
-            print(g.CA)
-            self.OnNeed()
-        elif g.statDict[g.name] == 'Remove':
-            g.CA = g.name+'R'
-            print(g.CA)
-            self.OnNeed()                               # begin operation
-
     def on_opera_but_clicked(self, button):
         g.name = 'Opera'
+        g.comm1 = 'opera-stable/'
+        g.extra = 'opera-ffmpeg-codecs flashplugin'
         self.lilFunc()
 
     def on_chrome_but_clicked(self, button):
         g.name = 'Chrome'
+        g.comm1 = 'google-chrome-stable/'
         self.lilFunc()
 
     def on_web_but_clicked(self, button):
         g.name = 'Web'
+        g.comm1 = 'epiphany-browser/'
         self.lilFunc()
 
     def on_firefox_but_clicked(self, button):
         g.name = 'Firefox'
+        g.comm1 = 'firefox'
         self.lilFunc()
 
     def on_vivaldi_but_clicked(self, button):
         g.name = 'Vivaldi'
+        g.comm1 = 'vivaldi-stable/'
         self.lilFunc()
 
     def on_edge_but_clicked(self, button):
@@ -1319,14 +715,18 @@ class GUI:
 
     def on_woffice_but_clicked(self, button):
         g.name = 'WPS Office'
+        g.comm1 = 'wps-office/'
+        g.extra = 'ttf-wps-fonts'
         self.lilFunc()
 
     def on_loffice_but_clicked(self, button):
         g.name = 'Libreoffice'
+        g.comm1 = 'libreoffice'
         self.lilFunc()
 
     def on_ooffice_but_clicked(self, button):
         g.name = 'Only Office'
+        g.comm1 = 'onlyoffice-desktopeditors/'
         self.lilFunc()
 
     def on_msoffice_but_clicked(self, button):
@@ -1337,130 +737,165 @@ class GUI:
 
     def on_foffice_but_clicked(self, button):
         g.name = 'Free Office'
+        g.comm1 = 'softmaker-freeoffice'
         self.lilFunc()
 
     def on_gedit_but_clicked(self, button):
         g.name = 'Gedit'
+        g.comm1 = 'gedit'
+        g.extra = 'gedit-plugins'
         self.lilFunc()
 
     def on_gnu_but_clicked(self, button):
         g.name = 'GNU Emacs'
+        g.comm1 = 'emacs26/'
         self.lilFunc()
 
     def on_vscode_but_clicked(self, button):
         g.name = 'Visual Studio Code'
+        g.comm1 = 'code/s'
         self.lilFunc()
 
     def on_atom_but_clicked(self, button):
         g.name = 'Atom Editor'
+        g.comm1 = 'atom/'
         self.lilFunc()
 
     def on_stedit_but_clicked(self, button):
         g.name = 'Sublime Text Editor'
+        g.comm1 = 'sublime-text/'
         self.lilFunc()
 
     def on_geany_but_clicked(self, button):
         g.name = 'Geany'
+        g.comm1 = 'geany/'
         self.lilFunc()
 
     def on_skype_but_clicked(self, button):
         g.name = 'Skype'
+        g.comm1 = 'skypeforlinux/'
         self.lilFunc()
 
     def on_discord_but_clicked(self, button):
         g.name = 'Discord'
+        g.comm1 = 'discord/'
         self.lilFunc()
 
     def on_telegram_but_clicked(self, button):
         g.name = 'Telegram'
+        g.comm1 = 'telegram-desktop/'
         self.lilFunc()
 
     def on_signal_but_clicked(self, button):
         g.name = 'Signal'
+        g.comm1 = 'signal-desktop/'
         self.lilFunc()
 
     def on_hex_but_clicked(self, button):
         g.name = 'HexChat'
+        g.comm1 = 'hexchat/'
         self.lilFunc()
 
     def on_franz_but_clicked(self, button):
         g.name = 'Franz'
+        g.comm1 = 'franz/'
         self.lilFunc()
 
     def on_0ad_but_clicked(self, button):
         g.name = '0 A.D.'
+        g.comm1 = '0ad/'
         self.lilFunc()
 
     def on_skart_but_clicked(self, button):
         g.name = 'SuperTuxKart'
+        g.comm1 = 'supertuxkart/'
         self.lilFunc()
 
     def on_tux_but_clicked(self, button):
         g.name = 'SuperTux'
+        g.comm1 = 'supertux/'
         self.lilFunc()
 
     def on_lutris_but_clicked(self, button):
         g.name = 'Lutris'
+        g.comm1 = 'lutris/'
         self.lilFunc()
 
     def on_barr_but_clicked(self, button):
         g.name = 'Barrier by debauchee'
+        g.comm1 = 'barrier/'
         self.lilFunc()
 
     def on_pol_but_clicked(self, button):
         g.name = 'Play On Linux'
+        g.comm1 = 'playonlinux/'
         self.lilFunc()
 
     def on_steam_but_clicked(self, button):
         g.name = 'Steam'
+        g.comm1 = 'steam/'
         self.lilFunc()
 
     def on_mc_but_clicked(self, button):
         g.name = 'Minecraft'
+        g.comm1 = 'minecraft-launcher/'
         self.lilFunc()
 
     def on_pops_but_clicked(self, button):
         g.name = 'Popsicle'
+        g.comm1 = 'popsicle/'
+        g.extra = 'popsicle-gtk'
         self.lilFunc()
 
     def on_woe_but_clicked(self, button):
         g.name = 'WoeUSB'
+        g.comm1 = 'woeusb/'
         self.lilFunc()
 
     def on_wine_but_clicked(self, button):
         g.name = 'Wine'
+        g.comm1 = 'wine/'
         self.lilFunc()
 
     def on_vbox_but_clicked(self, button):
         g.name = 'Virtualbox'
+        g.comm1 = 'virtualbox/'
         self.lilFunc()
 
     def on_gparted_but_clicked(self, button):
         g.name = 'GParted'
+        g.comm1 = 'gparted/'
+        g.extra = 'gpart'
         self.lilFunc()
 
     def on_gest_but_clicked(self, button):
         g.name = 'Touchpad Gestures'
+        g.comm1 = 'Touchpad'
         self.lilFunc()
 
     def on_auda_but_clicked(self, button):
         g.name = 'Audacity'
+        g.comm1 = 'audacity/'
         self.lilFunc()
 
     def on_deja_but_clicked(self, button):
         g.name = 'Déja-Dup'
+        g.comm1 = 'deja-dup/'
         self.lilFunc()
 
     def on_tims_but_clicked(self, button):
         g.name = 'Timeshift'
+        g.comm1 = 'timeshift/'
         self.lilFunc()
 
     def on_tw_but_clicked(self, button):
         g.name = 'TeamViewer'
+        g.comm1 = 'TeamViewer'
         self.lilFunc()
 
     def on_box_but_clicked(self, button):
         g.name = 'Gnome Boxes'
+        g.comm1 = 'gnome-boxes/'
         self.lilFunc()
 
 #### End of button clicks

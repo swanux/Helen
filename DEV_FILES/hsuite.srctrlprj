@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <source_groups>
+        <source_group_8fa44dfc-1b52-4be6-b3a8-23feacf7c559>
+            <name>Python Source Group</name>
+            <source_extensions>
+                <source_extension>.py</source_extension>
+            </source_extensions>
+            <source_paths>
+                <source_path>gamma5.py</source_path>
+                <source_path>common.py</source_path>
+                <source_path>osLayer.py</source_path>
+            </source_paths>
+            <status>enabled</status>
+            <type>Python Source Group</type>
+        </source_group_8fa44dfc-1b52-4be6-b3a8-23feacf7c559>
+    </source_groups>
+    <version>8</version>
+</config>
