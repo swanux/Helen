@@ -6,6 +6,7 @@ from concurrent import futures
 asr = ''
 bp = ''
 alive = False
+extra = ''
 
 #_________________________________________________________________________________________ BEGIN OF THREADS _______________________________________________________________________________#
 
@@ -60,7 +61,7 @@ def my_thread():
 
 
 def my2_thread(dist, comm1, comm2):
-    elif CA == 'Firefox':
+    if CA == 'Firefox':
         if distro == 'Ubuntu':
             asr = 'apt install firefox -y'
             app.asroot()
