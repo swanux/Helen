@@ -11,24 +11,29 @@
 import os
 dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
 os.chdir(dire)
-
-# For global values and OS releated background tasks (App spotlight)
-from osLayer import my_thread
-from osLayer import asroot
-import details as d
-from concurrent import futures
-from decimal import Decimal
-from urllib.request import urlopen
-from datetime import date
-import time
-from threading import Thread
-import webbrowser
-import sys
-import re
+# Import GUI modules
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit2', '4.0')
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
+import re
+# Module for opening webbrowser
+import webbrowser
+# Running background processes
+from threading import Thread
+from concurrent import futures
+# Using time
+import time
+from datetime import date
+# URL handling
+from urllib.request import urlopen
+from decimal import Decimal
+# Own module for descriptions
+import details as d
+# Own module for root prompt and background installation
+from osLayer import asroot
+from osLayer import my_thread
+import osLayer
 
 ### Declare global variables ###
 
@@ -48,7 +53,12 @@ elif 'archlinux' in dist or 'MANJARO' in dist:
 elif 'Debian' in dist or 'deepin' in dist:
     distro = 'Debian'
 else:
-    distro = 'Automatic distro detection failed!'
+    if 'MANJARO' in dist:
+        distro = 'Arch'
+        print('W: Not fully compatible with Manjaro!')
+    elif 'deepin' in dist:
+        distro = 'Debian'
+        print('W: Not fully compatible with Deepin!')
 
 ## Colors (button)
 colorR = Gdk.color_parse('red')
@@ -66,9 +76,9 @@ Tdownl = ''
 # Array that contains the fetched sizes of the ISOs
 cache = []
 shDict = {'downl_mint': 'True', 'downl_ubuntu': 'True', 'downl_solus': 'True', 'downl_zorin': 'True', 'downl_deepin': 'True', 'downl_steamos': 'True', 'downl_deb': 'True',
-            'downl_fedora': 'True', 'downl_suse': 'True', 'downl_gentoo': 'True', 'downl_arch': 'True', 'downl_lfs': 'True', }  # Dictionary for current state of download buttons (clickable or not)
+          'downl_fedora': 'True', 'downl_suse': 'True', 'downl_gentoo': 'True', 'downl_arch': 'True', 'downl_lfs': 'True', }  # Dictionary for current state of download buttons (clickable or not)
 dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos',
-           'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
+         'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
 # List of distros
 dlistLen = len(dlist)                   # The number of distros
 
@@ -78,18 +88,18 @@ pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
 # Check if PKG cache is already in memory or not
 scanner = True
 appList = ['opera-stable/', 'barrier/', 'google-chrome-stable/', 'epiphany-browser/', 'firefox', 'vivaldi-stable/', 'wps-office/', 'libreoffice', 'onlyoffice-desktopeditors/', 'softmaker-freeoffice-2018', 'gedit', 'emacs26/', 'code/s', 'atom/', 'sublime-text/', 'geany/', 'skypeforlinux/', 'discord/', 'telegram-desktop/', 'signal-desktop/', 'hexchat/',
-             'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox/', 'gparted/', 'Touchpad', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
+           'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox/', 'gparted/', 'Touchpad', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
 archDict = {'opera-stable/': 'opera', 'barrier/': 'barrier/', 'google-chrome-stable/': 'google-chrome', 'epiphany-browser/': 'epiphany', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'wps-office/', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors/': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs26/': 'emacs/', 'code/s': 'code/s', 'atom/': 'atom/', 'sublime-text/': 'sublime-text/', 'geany/': 'geany/', 'skypeforlinux/': 'skypeforlinux-stable-bin', 'discord/': 'discord/', 'telegram-desktop/': 'telegram-desktop/', 'signal-desktop/': 'signal',
-              'hexchat/': 'hexchat/', 'franz/': 'franz/', '0ad/': '0ad/', 'supertux/': 'supertux/', 'lutris/': 'lutris/', 'playonlinux/': 'playonlinux/', 'steam/': 'steam-launcher', 'minecraft-launcher/': 'minecraft-launcher/', 'popsicle/': 'popsicle-gtk-git', 'woeusb/': 'woeusb/', 'wine/': 'wine/', 'virtualbox/': 'virtualbox/', 'gparted/': 'gparted/', 'Touchpad': 'Touchpad', 'audacity/': 'audacity/', 'deja-dup/': 'deja-dup/', 'timeshift/': 'timeshift/', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'gnome-boxes/', 'supertuxkart/': 'supertuxkart/'}                             # The dictionary with the context of debname:archname
+            'hexchat/': 'hexchat/', 'franz/': 'franz/', '0ad/': '0ad/', 'supertux/': 'supertux/', 'lutris/': 'lutris/', 'playonlinux/': 'playonlinux/', 'steam/': 'steam-launcher', 'minecraft-launcher/': 'minecraft-launcher/', 'popsicle/': 'popsicle-gtk-git', 'woeusb/': 'woeusb/', 'wine/': 'wine/', 'virtualbox/': 'virtualbox/', 'gparted/': 'gparted/', 'Touchpad': 'Touchpad', 'audacity/': 'audacity/', 'deja-dup/': 'deja-dup/', 'timeshift/': 'timeshift/', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'gnome-boxes/', 'supertuxkart/': 'supertuxkart/'}                             # The dictionary with the context of debname:archname
 humAppsList = ['opera', 'chrome', 'web', 'firefox', 'vivaldi', 'edge', 'woffice', 'loffice', 'ooffice', 'msoffice', 'goffice', 'foffice', 'gedit', 'gnu', 'vscode', 'atom', 'stedit', 'geany', 'skype', 'discord', 'telegram', 'signal', 'hex',
-                 'franz', 'ad', 'skart', 'tux', 'lutris', 'barr', 'pol', 'steam', 'mc', 'pops', 'woe', 'wine', 'vbox', 'gparted', 'gest', 'auda', 'deja', 'tims', 'tw', 'box']                                                 # List with human readable names
+               'franz', 'ad', 'skart', 'tux', 'lutris', 'barr', 'pol', 'steam', 'mc', 'pops', 'woe', 'wine', 'vbox', 'gparted', 'gest', 'auda', 'deja', 'tims', 'tw', 'box']                                                 # List with human readable names
 butDict = {'opera-stable/': 'opera', 'barrier/': 'barr', 'google-chrome-stable/': 'chrome', 'epiphany-browser/': 'web', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'woffice', 'libreoffice': 'loffice', 'onlyoffice-desktopeditors/': 'ooffice', 'softmaker-freeoffice-2018': 'foffice', 'gedit': 'gedit', 'emacs26/': 'gnu', 'code/s': 'vscode', 'atom/': 'atom', 'sublime-text/': 'stedit', 'geany/': 'geany', 'skypeforlinux/': 'skype', 'discord/': 'discord', 'telegram-desktop/': 'telegram',
-             'signal-desktop/': 'signal', 'hexchat/': 'hex', 'franz/': 'franz', '0ad/': 'ad', 'supertux/': 'tux', 'lutris/': 'lutris', 'playonlinux/': 'pol', 'steam/': 'steam', 'minecraft-launcher/': 'mc', 'popsicle/': 'pops', 'woeusb/': 'woe', 'wine/': 'wine', 'virtualbox/': 'vbox', 'gparted/': 'gparted', 'Touchpad': 'gest', 'audacity/': 'auda', 'deja-dup/': 'deja', 'timeshift/': 'tims', 'TeamViewer': 'tw', 'gnome-boxes/': 'box', 'supertuxkart/': 'skart'}                                # Dictionary with the context of debname:humanName
+           'signal-desktop/': 'signal', 'hexchat/': 'hex', 'franz/': 'franz', '0ad/': 'ad', 'supertux/': 'tux', 'lutris/': 'lutris', 'playonlinux/': 'pol', 'steam/': 'steam', 'minecraft-launcher/': 'mc', 'popsicle/': 'pops', 'woeusb/': 'woe', 'wine/': 'wine', 'virtualbox/': 'vbox', 'gparted/': 'gparted', 'Touchpad': 'gest', 'audacity/': 'auda', 'deja-dup/': 'deja', 'timeshift/': 'tims', 'TeamViewer': 'tw', 'gnome-boxes/': 'box', 'supertuxkart/': 'skart'}                                # Dictionary with the context of debname:humanName
 appListLen = len(appList)                           # Number of apps
 statDict = {'Opera': '', 'Chrome': '', 'Web': '', 'Firefox': '', 'Vivaldi': '', 'Edge': '', 'WPS Office': '', 'Libreoffice': '', 'Only Office': '', 'Free Office': '', 'Gedit': '', 'GNU Emacs': '', 'Visual Studio Code': '', 'Atom Editor': '', 'Sublime Text Editor': '', 'Geany': '', 'Skype': '', 'Discord': '', 'Telegram': '', 'Signal': '', 'HexChat': '', 'Franz': '',
-              '0 A.D.': '', 'SuperTuxKart': '', 'SuperTux': '', 'Lutris': '', 'Barrier by debauchee': '', 'Play On Linux': '', 'Steam': '', 'Minecraft': '', 'Popsicle': '', 'WoeUSB': '', 'Wine': '', 'Virtualbox': '', 'GParted': '', 'Touchpad Gestures': '', 'Audacity': '', 'Déja-Dup': '', 'Timeshift': '', 'TeamViewer': '', 'Gnome Boxes': ''}  # store the status (installed or not)
+            '0 A.D.': '', 'SuperTuxKart': '', 'SuperTux': '', 'Lutris': '', 'Barrier': '', 'Play On Linux': '', 'Steam': '', 'Minecraft': '', 'Popsicle': '', 'WoeUSB': '', 'Wine': '', 'Virtualbox': '', 'GParted': '', 'Touchpad Gestures': '', 'Audacity': '', 'Déja-Dup': '', 'Timeshift': '', 'TeamViewer': '', 'Gnome Boxes': ''}  # store the status (installed or not)
 layDict = {'opera-stable/': 'Opera', 'google-chrome-stable/': 'Chrome', 'epiphany-browser/': 'Web', 'firefox': 'Firefox', 'vivaldi-stable/': 'Vivaldi', 'dikk': 'Edge', 'wps-office/': 'WPS Office', 'libreoffice': 'Libreoffice', 'onlyoffice-desktopeditors/': 'Only Office', 'softmaker-freeoffice-2018': 'Free Office', 'gedit': 'Gedit', 'emacs26/': 'GNU Emacs', 'code/s': 'Visual Studio Code', 'atom/': 'Atom Editor', 'sublime-text/': 'Sublime Text Editor', 'geany/': 'Geany', 'skypeforlinux/': 'Skype', 'discord/': 'Discord', 'telegram-desktop/': 'Telegram', 'signal-desktop/': 'Signal', 'hexchat/': 'HexChat',
-             'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier by debauchee', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox/': 'Virtualbox', 'gparted/': 'GParted', 'Touchpad': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
+           'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox/': 'Virtualbox', 'gparted/': 'GParted', 'Touchpad': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
 
 # Used generally
 # The glade file
@@ -110,7 +120,8 @@ else:
     lehete = "You can currently only use this feature with x11 based desktop. It does not support Wayland."
 # Discover the current working dir
 wer = os.popen('ls').read()
-counter = 0
+scanningUrl = False
+cPkg = ''
 
 # Print info to debug
 print("Current date: %s" % today)
@@ -123,23 +134,26 @@ print("Output of $uname -a$ : %s" % dist)
 print("Detected distro: %s" % distro)
 
 
-#______________________________________________________________________________________________ END OF INIT ______________________________________________________________________________#
+#________________________________________________________________________ END OF INIT ____________________________________________________________#
 
-#______________________________________________________________________________________________ BEGIN OF GUI ______________________________________________________________________________________#
+#___________________________________________________________________ BEGIN OF GUI ___________________________________________________________________#
 
 # This class handles everything releated to the GUI and some background tasks connected to the program
 class myThread (Thread):
-    def __init__(self, threadID, name):
+    def __init__(self, threadID, name, status, comm1, comm2):
         Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+        self.comm1 = comm1
+        self.comm2 = comm2
+        self.status = status
         global _stop_event
         _stop_event = False
 
     def run(self):
         print("Starting " + self.name)
         # Calls the function
-        my_thread()
+        my_thread(self.status, distro, self.comm1, self.comm2)
         print("Exiting " + self.name)
 
     def stop(self):
@@ -149,6 +163,8 @@ class myThread (Thread):
 
 
 class GUI:
+
+    count = 0
 
     # def aurer(self):                                                # The builder for AUR
     #     with open("logname.sh") as f:
@@ -213,14 +229,15 @@ class GUI:
         # Move it to the center of the main window
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dx, dy = dialogWindow.get_position()                        # set the position
-        # display the dialog
+        print(dx, dy)
         dialogWindow.show_all()
         res = dialogWindow.run()                                    # save the response
         if res == Gtk.ResponseType.YES:                             # if yes ...
             print('OK pressed')
             dialogWindow.destroy()
-            Gtk.main_quit()                                         # quit program
-            sys.exit()
+            if osLayer.alive:
+                self.abort()
+            raise SystemExit
         elif res == Gtk.ResponseType.NO:                            # if no ...
             print('No pressed')
             dialogWindow.destroy()                                  # sestroy dialog
@@ -231,9 +248,10 @@ class GUI:
 
 ###################################################################################
 
-    def colorer(self):                                          # Set the button colors
+    # Set the button colors
+    def colorer(self, gbut, name):
         # Call function to check if apps are installed or not
-        self.OnCheck()
+        status = self.OnCheck(name)
         # set the button label depending on this
         gbut.set_label(status)
         if status == "Remove":
@@ -242,8 +260,11 @@ class GUI:
         else:
             gbut.override_background_color(
                 0, rgbaG)           # green for install
+        return status
 
-    def scanner(self):                                          # Scans the OS for programs
+    def scanner(self):                                         # Scans the OS for programs
+        global insList
+        global scanner
         if distro == 'Ubuntu' or distro == 'Debian':
             # list of installed apps on debian based OS
             insList = os.popen('apt list --installed').read()
@@ -260,13 +281,11 @@ class GUI:
                 name = appList[i]
             else:
                 print('ERROR IN NAME')
-            # importing the button to a general global variable
-            gbut = self.builder.get_object(
-                "%s_but" % butDict[appList[i]])
+            # importing the button
+            gbut = self.builder.get_object("%s_but" % butDict[appList[i]])
             # Call function for setting label and color
-            self.colorer()
-            # value refers to the state: Install/Remove DING
-            current_value = status
+            status = self.colorer(gbut, name)
+            # value refers to the state: Install/Remove
             tempNam = layDict[appList[i]]
             statDict[tempNam] = status
 
@@ -274,7 +293,7 @@ class GUI:
         scanner = False
 
     # check if program is installed or not
-    def OnCheck(self):
+    def OnCheck(self, name):
         if 'Touchpad' in name:
             vane = os.path.exists(
                 "/usr/share/applications/orcunidev.gestures.desktop")
@@ -297,6 +316,7 @@ class GUI:
             else:
                 print('Not found %s' % name)
                 status = 'Install'
+        return status
 
     def abort(self):
         x, y = window.get_position()
@@ -310,6 +330,7 @@ class GUI:
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dx, dy = dialogWindow.get_position()
+        print(dx, dy)
         dialogWindow.show_all()
         res = dialogWindow.run()
         if res == Gtk.ResponseType.YES:
@@ -317,34 +338,40 @@ class GUI:
             dialogWindow.destroy()
             print('Installation already running')
             if distro == 'Ubuntu' or distro == 'Debian':
-                asr = 'killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y'
+                asroot(
+                    'killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y')
             elif distro == 'Arch':
-                asr = 'rm /var/lib/pacman/db.lck ; killal pacman ; pacman -R $(pacman -Qdtq)'
+                asroot(
+                    'rm /var/lib/pacman/db.lck ; killal pacman ; pacman -R $(pacman -Qdtq)')
             else:
                 print('ERROR IN DIST AB')
-            asroot()
         elif res == Gtk.ResponseType.NO:
             print('No pressed')
             dialogWindow.destroy()
             return True
 
     # This is executed when an app is being installed/removed
-    def OnNeed(self):
+    def OnNeed(self, cInB, name, status, comm1, comm2):
+        global cPkg
+        global m
+        global scanner
         # removes scan cache from memory because it needs to rescan because one app changed
         scanner = True
         sTxt = cInB
         # Current pkg name
         cPkg = name
-        sTxt.set_label('Loadin..')
+        sTxt.set_label('Loading...')
         # init thread with thread function
-        t1 = myThread(1, "Thread-1")
+        t1 = myThread(1, "Thread-1", status, comm1, comm2)
         # start it
         t1.start()
         # set minutes to 0
         m = 0
-
         # function for counting time
+
         def counter(timer):
+            global m
+            global cPkg
             # seconds incraseing
             s = timer.count+1
             # counter is equal to s
@@ -363,10 +390,11 @@ class GUI:
                 button = 0
                 # imitate reopening of app spotlight
                 self.button_clicked(button)
+                cPkg = ''
                 return False                                                        # end
         self.source_id = GLib.timeout_add(1000, counter, self)
 
-    def lilFunc(self):
+    def lilFunc(self, name, comm1, extra):
         if name == cPkg:
             self.abort()
         else:
@@ -390,16 +418,15 @@ class GUI:
                     dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
                     dialogWindow.show_all()
                     res = dialogWindow.run()
+                    print(res)
                     dialogWindow.destroy()
                     print('OK pressed')
                     dialogWindow.destroy()
-                status = 'install'
                 print(name)
-                self.OnNeed()
+                self.OnNeed(cInB, name, 'install', comm1, comm2)
             elif statDict[name] == 'Remove':
-                status = 'remove'
                 print(name)
-                self.OnNeed()
+                self.OnNeed(cInB, name, 'remove', comm1, comm2)
 
 # Download methods
 
@@ -413,6 +440,8 @@ class GUI:
                 cBut = self.builder.get_object(dlist[i])
                 GLib.idle_add(cBut.set_sensitive, state)
                 shDict[dlist[i]] = "%s" % state
+        global scanningUrl
+        scanningUrl = False
 
     # Starting download in a background thread BUT inside the GUI class, not the thread. This is because of the nature of GTK (and other GUI toolkits) that can't handle GUI changes from outside of the main thread (gui class)
     def ex_target(self, block_sz, downl, file_size, file_name, file_size_dl, u, f):
@@ -482,8 +511,8 @@ class GUI:
             orig = downl.get_label()
         file_name = url.split('/')[-1]
         f = open('/home/%s/Downloads/%s' %
-                   (user, file_name), 'wb')  # set download location
-        print ('Downloading %s' % file_name)
+                 (user, file_name), 'wb')  # set download location
+        print('Downloading %s' % file_name)
         print("FalsTogle")
         # disable buttons
         state = False
@@ -492,7 +521,8 @@ class GUI:
         t1 = futures.ThreadPoolExecutor(
             max_workers=4)                    # init thread
         # start it
-        f = t1.submit(self.ex_target, 8192, downl, int(u.getheader('Content-Length')), file_name, 0, u, f)
+        f = t1.submit(self.ex_target, 8192, downl, int(
+            u.getheader('Content-Length')), file_name, 0, u, f)
         # set buttons to active
         state = True
         # after done run this function
@@ -503,73 +533,85 @@ class GUI:
         # this download
         global Tdownl
         Tdownl = 'downl_mint'
-        self.on_downl_begin(uriDict["downl_mint"], self.builder.get_object('downl_mint'))
+        self.on_downl_begin(uriDict["downl_mint"],
+                            self.builder.get_object('downl_mint'))
 
     def on_downl_ubuntu_clicked(self, button):
         print("ubuntu")
         global Tdownl
         Tdownl = 'downl_ubuntu'
-        self.on_downl_begin(uriDict["downl_ubuntu"], self.builder.get_object('downl_ubuntu'))
+        self.on_downl_begin(uriDict["downl_ubuntu"],
+                            self.builder.get_object('downl_ubuntu'))
 
     def on_downl_solus_clicked(self, button):
         print("solus")
         global Tdownl
         Tdownl = 'downl_solus'
-        self.on_downl_begin(uriDict["downl_solus"], self.builder.get_object('downl_solus'))
+        self.on_downl_begin(uriDict["downl_solus"],
+                            self.builder.get_object('downl_solus'))
 
     def on_downl_deepin_clicked(self, button):
         print("deepin")
         global Tdownl
         Tdownl = 'downl_deepin'
-        self.on_downl_begin(uriDict["downl_deepin"], self.builder.get_object('downl_deepin'))
+        self.on_downl_begin(uriDict["downl_deepin"],
+                            self.builder.get_object('downl_deepin'))
 
     def on_downl_zorin_clicked(self, button):
         print("zorin")
         global Tdownl
         Tdownl = 'downl_zorin'
-        self.on_downl_begin(uriDict["downl_zorin"], self.builder.get_object('downl_zorin'))
+        self.on_downl_begin(uriDict["downl_zorin"],
+                            self.builder.get_object('downl_zorin'))
 
     def on_downl_steamos_clicked(self, button):
         print("steamos")
         global Tdownl
         Tdownl = 'downl_steamos'
-        self.on_downl_begin(uriDict["downl_steamos"], self.builder.get_object('downl_steamos'))
+        self.on_downl_begin(uriDict["downl_steamos"],
+                            self.builder.get_object('downl_steamos'))
 
     def on_downl_deb_clicked(self, button):
         print("deb")
         global Tdownl
         Tdownl = 'downl_deb'
-        self.on_downl_begin(uriDict["downl_deb"], self.builder.get_object('downl_deb'))
+        self.on_downl_begin(uriDict["downl_deb"],
+                            self.builder.get_object('downl_deb'))
 
     def on_downl_fedora_clicked(self, button):
         print("fedora")
         global Tdownl
         Tdownl = 'downl_fedora'
-        self.on_downl_begin(uriDict["downl_fedora"], self.builder.get_object('downl_fedora'))
+        self.on_downl_begin(uriDict["downl_fedora"],
+                            self.builder.get_object('downl_fedora'))
 
     def on_downl_suse_clicked(self, button):
         print("suse")
         global Tdownl
         Tdownl = 'downl_suse'
-        self.on_downl_begin(uriDict["downl_suse"], self.builder.get_object('downl_suse'))
+        self.on_downl_begin(uriDict["downl_suse"],
+                            self.builder.get_object('downl_suse'))
 
     def on_downl_arch_clicked(self, button):
         print("arch")
         global Tdownl
         Tdownl = 'downl_arch'
-        self.on_downl_begin(uriDict["downl_arch"], self.builder.get_object('downl_arch'))
+        self.on_downl_begin(uriDict["downl_arch"],
+                            self.builder.get_object('downl_arch'))
 
     def on_downl_gentoo_clicked(self, button):
         print("gentoo")
         global Tdownl
         Tdownl = 'downl_gentoo'
-        self.on_downl_begin(uriDict["downl_gentoo"], self.builder.get_object('downl_gentoo'))
+        self.on_downl_begin(uriDict["downl_gentoo"],
+                            self.builder.get_object('downl_gentoo'))
 
     def on_downl_lfs_clicked(self, button):
         print("lfs")
         global Tdownl
         Tdownl = 'downl_lfs'
-        self.on_downl_begin(uriDict["downl_lfs"], self.builder.get_object('downl_lfs'))
+        self.on_downl_begin(uriDict["downl_lfs"],
+                            self.builder.get_object('downl_lfs'))
 
 # End of download section
 
@@ -623,6 +665,7 @@ class GUI:
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dialogWindow.show_all()
         res = dialogWindow.run()
+        print(res)
         dialogWindow.destroy()
 
     # previously android corner (ac) is same as htools
@@ -632,17 +675,18 @@ class GUI:
     # fetch download sizes
     def getSize(self):
         print('Getting Links...')
+
         def findNew(urii, perPat, perVer):
             global vers
             global gentoo
             reponse = urlopen(urii)
             dat = reponse.read()
             text = dat.decode('utf-8')
-            pattern = re.findall(r'%s' % perPat, text)
+            pattern = re.findall(perPat, text)
             gentoo = pattern[0]
             pattern = ''.join(pattern)
             pattern = pattern.replace(".", "")
-            pattern = re.findall(r'%s' % perVer, pattern)
+            pattern = re.findall(perVer, pattern)
             pattern = list(map(int, pattern))
             try:
                 pattern.remove(710)
@@ -654,28 +698,32 @@ class GUI:
             vers = [int(i) for i in str(vers)]
 
         if day == "01":
-            aMonth = int(month, button) - 1
+            aMonth = int(month) - 1
         else:
             aMonth = month
         archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (
             year, aMonth, year, aMonth)
 
-        findNew("http://releases.ubuntu.com", '"+[\d]+.[\d]+/', '[\d]+[\d]+[\d]+[\d]')
+        findNew("http://releases.ubuntu.com",
+                r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
         # global ubuntuLink
         ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (
             vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
 
-        findNew("http://mirrors.evowise.com/linuxmint/stable/", '"+[\d]+.[\d]+/', '[\d]+[\d]+[\d]')
+        findNew("http://mirrors.evowise.com/linuxmint/stable/",
+                r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global mintLink
         mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (
             vers[0], vers[1], vers[2], vers[0], vers[1], vers[2])
 
-        findNew("http://mirror.inode.at/data/deepin-cd/", '"+[\d]+.[\d]+/', '[\d]+[\d]+[\d]')
+        findNew("http://mirror.inode.at/data/deepin-cd/",
+                r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global deepinLink
         deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (
             vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
 
-        findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/", 'debian-live-+[\d]+[\d]+.[\d]+.[\d]', '[\d]+[\d]+[\d]')
+        findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/",
+                r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
         # global debianLink
         debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (
             vers[0], vers[1], vers[2], vers[3])
@@ -683,12 +731,13 @@ class GUI:
         # global steamosLink
         steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
 
-        findNew("https://sourceforge.net/projects/zorin-os/files/", 'files/+[\d]+/download', '[\d]+[\d]')
+        findNew("https://sourceforge.net/projects/zorin-os/files/",
+                r'files/+[\d]+/download', r'[\d]+[\d]')
         # global zorinosLink
         zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/%s%s/Zorin-OS-%s%s-Core-64-bit-r1.iso' % (
             vers[0], vers[1], vers[0], vers[1])
 
-        findNew("http://fedora.inode.at/releases/", '"+[\d]+/', '[\d]+[\d]')
+        findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
         # global fedoraLink
         fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-1.9.iso' % (
             vers[0], vers[1], vers[0], vers[1])
@@ -699,18 +748,20 @@ class GUI:
         # global solusLink
         solusLink = 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso'
 
-        findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/", '[\d]+[\d]+[\w]+[\d][\w]', '[\d]+[\d]')
+        findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/",
+                r'[\d]+[\d]+[\w]+[\d][\w]', r'[\d]+[\d]')
         # global gentooLink
         gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-%s.iso' % gentoo
 
-        findNew("http://www.linuxfromscratch.org/lfs/downloads/", '[\d]+.[\d]+-systemd/', '[\d]+[\d]')
+        findNew("http://www.linuxfromscratch.org/lfs/downloads/",
+                r'[\d]+.[\d]+-systemd/', r'[\d]+[\d]')
         # global lfsLink
         lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-%s.%s-systemd.pdf' % (
             vers[0], vers[1], vers[0], vers[1])
 
         global uriDict
         uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_zorin': zorinosLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
-                     'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink}
+                   'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink}
         print('Updated linklist!!')
         print("Getting size...")
         # dlistlen is the length of dlist
@@ -737,6 +788,8 @@ class GUI:
         if not cache:                                                             # if not fetched already
             # disable
             global state
+            global scanningUrl
+            scanningUrl = True
             state = False
             self.toggle(fn)  # all buttons
             # init non-normal thread (getting sizes)
@@ -745,9 +798,9 @@ class GUI:
             # toggle everything back when ready
             state = True
             f.add_done_callback(self.toggle)
-        else:                                                                       # if loaded
+        elif not scanningUrl:
             for i in range(dlistLen):
-                cBut = self.builder.get_object(dlist[i])
+                cBut = self.builder.get_object(dlist[i])        # if loaded
                 # load from cache
                 cBut.set_label("Download (%s MB)" % cache[i])
         stack.set_visible_child(distro_box)
@@ -766,7 +819,6 @@ class GUI:
         page = self.builder.get_object('scroll_desc')
         back_button = self.builder.get_object(
             'back_button')        # back but not to home
-        page_box = self.builder.get_object('page_box')
         # hide rew link and web link when not in distro boutique
         rew_link = self.builder.get_object('rew_link')
         rew_link.hide()
@@ -798,49 +850,33 @@ class GUI:
 
 # What to do on button clicks
     def on_opera_but_clicked(self, button):
-        name = 'Opera'
-        comm1 = 'opera-stable/'
-        extra = 'opera-ffmpeg-codecs flashplugin'
-        self.lilFunc()
+        self.lilFunc('Opera', 'opera-stable/',
+                     'opera-ffmpeg-codecs flashplugin')
 
     def on_chrome_but_clicked(self, button):
-        name = 'Chrome'
-        comm1 = 'google-chrome-stable/'
-        self.lilFunc()
+        self.lilFunc('Chrome', 'google-chrome-stable/', '')
 
     def on_web_but_clicked(self, button):
-        name = 'Web'
-        comm1 = 'epiphany-browser/'
-        self.lilFunc()
+        self.lilFunc('Web', 'epiphany-browser/', '')
 
     def on_firefox_but_clicked(self, button):
-        name = 'Firefox'
-        comm1 = 'firefox'
-        self.lilFunc()
+        self.lilFunc('Firefox', 'firefox', '')
 
     def on_vivaldi_but_clicked(self, button):
-        name = 'Vivaldi'
-        comm1 = 'vivaldi-stable/'
-        self.lilFunc()
+        self.lilFunc('Vivaldi', 'vivaldi-stable/', '')
 
     def on_edge_but_clicked(self, button):
         name = 'Edge'
+        print(name)
 
     def on_woffice_but_clicked(self, button):
-        name = 'WPS Office'
-        comm1 = 'wps-office/'
-        extra = 'ttf-wps-fonts'
-        self.lilFunc()
+        self.lilFunc('WPS Office', 'wps-office/', 'ttf-wps-fonts')
 
     def on_loffice_but_clicked(self, button):
-        name = 'Libreoffice'
-        comm1 = 'libreoffice'
-        self.lilFunc()
+        self.lilFunc('Libreoffice', 'libreoffice', '')
 
     def on_ooffice_but_clicked(self, button):
-        name = 'Only Office'
-        comm1 = 'onlyoffice-desktopeditors/'
-        self.lilFunc()
+        self.lilFunc('Only Office', 'onlyoffice-desktopeditors/', '')
 
     def on_msoffice_but_clicked(self, button):
         webbrowser.open_new("https://office.com")
@@ -849,172 +885,107 @@ class GUI:
         webbrowser.open_new("https://docs.google.com")
 
     def on_foffice_but_clicked(self, button):
-        name = 'Free Office'
-        comm1 = 'softmaker-freeoffice-2018'
-        self.lilFunc()
+        self.lilFunc('Free Office', 'softmaker-freeoffice-2018', '')
 
     def on_gedit_but_clicked(self, button):
-        name = 'Gedit'
-        comm1 = 'gedit'
-        extra = 'gedit-plugins'
-        self.lilFunc()
+        self.lilFunc('Gedit', 'gedit', 'gedit-plugins')
 
     def on_gnu_but_clicked(self, button):
-        name = 'GNU Emacs'
-        comm1 = 'emacs26/'
-        self.lilFunc()
+        self.lilFunc('GNU Emacs', 'emacs26/', '')
 
     def on_vscode_but_clicked(self, button):
-        name = 'Visual Studio Code'
-        comm1 = 'code/s'
-        self.lilFunc()
+        self.lilFunc('Visual Studio Code', 'code/s', '')
 
     def on_atom_but_clicked(self, button):
-        name = 'Atom Editor'
-        comm1 = 'atom/'
-        self.lilFunc()
+        self.lilFunc('Atom Editor', 'atom/', '')
 
     def on_stedit_but_clicked(self, button):
-        name = 'Sublime Text Editor'
-        comm1 = 'sublime-text/'
-        self.lilFunc()
+        self.lilFunc('Sublime Text Editor', 'sublime-text/', '')
 
     def on_geany_but_clicked(self, button):
-        name = 'Geany'
-        comm1 = 'geany/'
-        self.lilFunc()
+        self.lilFunc('Geany', 'geany/', '')
 
     def on_skype_but_clicked(self, button):
-        name = 'Skype'
-        comm1 = 'skypeforlinux/'
-        self.lilFunc()
+        self.lilFunc('Skype', 'skypeforlinux/', '')
 
     def on_discord_but_clicked(self, button):
-        name = 'Discord'
-        comm1 = 'discord/'
-        self.lilFunc()
+        self.lilFunc('Discord', 'discord/', '')
 
     def on_telegram_but_clicked(self, button):
-        name = 'Telegram'
-        comm1 = 'telegram-desktop/'
-        self.lilFunc()
+
+        self.lilFunc('Telegram', 'telegram-desktop/', '')
 
     def on_signal_but_clicked(self, button):
-        name = 'Signal'
-        comm1 = 'signal-desktop/'
-        self.lilFunc()
+        self.lilFunc('Signal', 'signal-desktop/', '')
 
     def on_hex_but_clicked(self, button):
-        name = 'HexChat'
-        comm1 = 'hexchat/'
-        self.lilFunc()
+        self.lilFunc('HexChat', 'hexchat/', '')
 
     def on_franz_but_clicked(self, button):
-        name = 'Franz'
-        comm1 = 'franz/'
-        self.lilFunc()
+        self.lilFunc('Franz', 'franz/', '')
 
     def on_0ad_but_clicked(self, button):
-        name = '0 A.D.'
-        comm1 = '0ad/'
-        self.lilFunc()
+        self.lilFunc('0 A.D.', '0ad/', '')
 
     def on_skart_but_clicked(self, button):
-        name = 'SuperTuxKart'
-        comm1 = 'supertuxkart/'
-        self.lilFunc()
+        self.lilFunc('SuperTuxKart', 'supertuxkart/', '')
 
     def on_tux_but_clicked(self, button):
-        name = 'SuperTux'
-        comm1 = 'supertux/'
-        self.lilFunc()
+        self.lilFunc('SuperTux', 'supertux/', '')
 
     def on_lutris_but_clicked(self, button):
-        name = 'Lutris'
-        comm1 = 'lutris/'
-        self.lilFunc()
+        self.lilFunc('Lutris', 'lutris/', '')
 
     def on_barr_but_clicked(self, button):
-        name = 'Barrier by debauchee'
-        comm1 = 'barrier/'
-        self.lilFunc()
+        self.lilFunc('Barrier', 'barrier/', '')
 
     def on_pol_but_clicked(self, button):
-        name = 'Play On Linux'
-        comm1 = 'playonlinux/'
-        self.lilFunc()
+        self.lilFunc('Play On Linux', 'playonlinux/', '')
 
     def on_steam_but_clicked(self, button):
-        name = 'Steam'
-        comm1 = 'steam/'
-        self.lilFunc()
+        self.lilFunc('Steam', 'steam/', '')
 
     def on_mc_but_clicked(self, button):
-        name = 'Minecraft'
-        comm1 = 'minecraft-launcher/'
-        self.lilFunc()
+        self.lilFunc('Minecraft', 'minecraft-launcher/', '')
 
     def on_pops_but_clicked(self, button):
-        name = 'Popsicle'
-        comm1 = 'popsicle/'
-        extra = 'popsicle-gtk'
-        self.lilFunc()
+        self.lilFunc('Popsicle', 'popsicle/', 'popsicle-gtk')
 
     def on_woe_but_clicked(self, button):
-        name = 'WoeUSB'
-        comm1 = 'woeusb/'
-        self.lilFunc()
+        self.lilFunc('WoeUSB', 'woeusb/', '')
 
     def on_wine_but_clicked(self, button):
-        name = 'Wine'
-        comm1 = 'wine/'
-        self.lilFunc()
+        self.lilFunc('Wine', 'wine/', '')
 
     def on_vbox_but_clicked(self, button):
-        name = 'Virtualbox'
-        comm1 = 'virtualbox/'
-        self.lilFunc()
+        self.lilFunc('Virtualbox', 'virtualbox/', '')
 
     def on_gparted_but_clicked(self, button):
-        name = 'GParted'
-        comm1 = 'gparted/'
-        extra = 'gpart'
-        self.lilFunc()
+        self.lilFunc('GParted', 'gparted/', 'gpart')
 
     def on_gest_but_clicked(self, button):
-        name = 'Touchpad Gestures'
-        comm1 = 'Touchpad'
-        self.lilFunc()
+        self.lilFunc('Touchpad Gestures', 'Touchpad', '')
 
     def on_auda_but_clicked(self, button):
-        name = 'Audacity'
-        comm1 = 'audacity/'
-        self.lilFunc()
+        self.lilFunc('Audacity', 'audacity/', '')
 
     def on_deja_but_clicked(self, button):
-        name = 'Déja-Dup'
-        comm1 = 'deja-dup/'
-        self.lilFunc()
+        self.lilFunc('Déja-Dup', 'deja-dup/', '')
 
     def on_tims_but_clicked(self, button):
-        name = 'Timeshift'
-        comm1 = 'timeshift/'
-        self.lilFunc()
+        self.lilFunc('Timeshift', 'timeshift/', '')
 
     def on_tw_but_clicked(self, button):
-        name = 'TeamViewer'
-        comm1 = 'TeamViewer'
-        self.lilFunc()
+        self.lilFunc('TeamViewer', 'TeamViewer', '')
 
     def on_box_but_clicked(self, button):
-        name = 'Gnome Boxes'
-        comm1 = 'gnome-boxes/'
-        self.lilFunc()
+        self.lilFunc('Gnome Boxes', 'gnome-boxes/', '')
 
 # End of button clicks
 
 
 # Descriptions
+
 
     def displayDesc(self, x, button):
         global label

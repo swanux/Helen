@@ -4,35 +4,32 @@
 import os
 alive = False
 
-#_________________________________________________________________________________________ BEGIN OF THREADS _______________________________________________________________________________#
+#________________________________________________________________ BEGIN OF THREADS ___________________________________________________________________#
 
 # This class and function is the core of every background process in the program
 
-def asroot():                                               # The function to display prompt for root acces.
+def asroot(asr):            # The function to display prompt for root acces.
         print(asr)
         os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
 
-def my_thread():
+def my_thread(status, distro, comm1, comm2):
     print(status+' '+distro)
     global alive
-    global asr
     alive = True
     if status == 'install':
         if distro == 'Ubuntu' or distro == 'Debian':
-            asr = 'DEBIAN_FRONTEND=noninteractive apt install %s -y' % comm1
-            os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+            if comm1 == 'firefox' and distro == 'Debian':
+                comm1='firefox-esr'
+            asroot('DEBIAN_FRONTEND=noninteractive apt install %s -y' % comm1)
         elif distro == 'Arch':
-            asr = 'pacman -Sq --noconfirm %s' % comm2
-            os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+            asroot('pacman -Sq --noconfirm %s' % comm2)
         else:
             print('E: Bad name in os_layer!!')
     elif status == 'remove':
         if distro == 'Ubuntu' or distro == 'Debian':
-            asr = 'apt purge %s -y ; apt autoremove -y' % comm1
-            os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+            asroot('apt purge %s -y ; apt autoremove -y' % comm1)
         elif distro == 'Arch':
-            asr = 'pacman -Runs --noconfirm  %s' % comm2
-            os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+            asroot('pacman -Runs --noconfirm  %s' % comm2)
         else:
             print('E: Bad name in os_layer!!')
     else:
