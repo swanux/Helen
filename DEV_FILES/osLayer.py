@@ -2,11 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from concurrent import futures
-asr = ''
-bp = ''
 alive = False
-extra = ''
 
 #_________________________________________________________________________________________ BEGIN OF THREADS _______________________________________________________________________________#
 
@@ -15,17 +11,6 @@ extra = ''
 def asroot():                                               # The function to display prompt for root acces.
         print(asr)
         os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
-
-
-myT = futures.ThreadPoolExecutor(max_workers=4)                    # init thread
-# f = myT.submit(asroot())                                     # start it
-# f.add_done_callback(done)                                    # after done run this function
-
-
-def done (x):
-    global alive
-    alive = False
-
 
 def my_thread():
     print(status+' '+distro)
