@@ -99,7 +99,7 @@ statDict = {'Opera': '', 'Chrome': '', 'Web': '', 'Firefox': '', 'Vivaldi': '', 
 layDict = {'opera-stable/': 'Opera', 'google-chrome-stable/': 'Chrome', 'epiphany-browser/': 'Web', 'firefox': 'Firefox', 'vivaldi-stable/': 'Vivaldi', 'dikk': 'Edge', 'wps-office/': 'WPS Office', 'libreoffice': 'Libreoffice', 'onlyoffice-desktopeditors/': 'Only Office', 'softmaker-freeoffice-2018': 'Free Office', 'gedit': 'Gedit', 'emacs26/': 'GNU Emacs', 'code/s': 'Visual Studio Code', 'atom/': 'Atom Editor', 'sublime-text/': 'Sublime Text Editor', 'geany/': 'Geany', 'skypeforlinux/': 'Skype', 'discord/': 'Discord', 'telegram-desktop/': 'Telegram', 'signal-desktop/': 'Signal', 'hexchat/': 'HexChat',
            'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox/': 'Virtualbox', 'gparted/': 'GParted', 'fusuma': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
 aurList = ['Chrome', 'Vivaldi', 'WPS Office', 'Only Office', 'Free Office', 'Signal', 'Franz', 'Minecraft', 'Popsicle', 'WoeUSB', 'Virtualbox', 'Timeshift', 'TeamViewer', 'Skype']
-specDList = ['Minecraft']
+specDList = ['']
 
 # Used generally
 # The glade file
@@ -115,10 +115,15 @@ osLayer.user = user
 xorw = os.popen('echo $XDG_SESSION_TYPE').read()
 # It's Xorg, so it wokrs with gestures'
 if "x" in xorw:
-    lehete = "You need to reboot after the install has been completed to apply all changes."
+    lehete = """You need to reboot after the install has been completed
+to apply all changes. You can configure the tool
+through the ~/.config/fusuma/config.yml file."""
 # It is Wayland, so it won't work
 else:
-    lehete = "You need to reboot after the install has been completed to apply all changes. However note that support for Wayland is experimental."
+    lehete = """You need to reboot after the install has been completed
+to apply all changes. However note that support for Wayland
+is experimental. You can configure the tool
+through the ~/.config/fusuma/config.yml file."""
 # Discover the current working dir
 wer = os.popen('ls').read()
 scanningUrl = False
@@ -859,7 +864,7 @@ class GUI:
         self.lilFunc('Web', 'epiphany-browser/', '', '', '')
 
     def on_firefox_but_clicked(self, button):
-        self.lilFunc('Firefox', 'firefox', '')
+        self.lilFunc('Firefox', 'firefox', '', '', '')
 
     def on_vivaldi_but_clicked(self, button):
         self.lilFunc('Vivaldi', 'vivaldi-stable/', '', 'alsa-libs desktop-file-utils gtk3 hicolor-icon-theme libcups libxss nss shared-mime-info libnotify pepper-flash', '')
