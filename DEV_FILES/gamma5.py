@@ -52,13 +52,18 @@ elif 'archlinux' in dist or 'MANJARO' in dist:
     distro = 'Arch'
 elif 'Debian' in dist or 'deepin' in dist:
     distro = 'Debian'
+if 'MANJARO' in dist:
+    distro = 'Arch'
+    print('W: Not fully compatible with Manjaro!')
+    os.system('zenity --warning --text="Your distro is detected as Manjaro.\nThis distro is not fully tested, you may encounter some problems with the program.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
+elif 'deepin' in dist:
+    distro = 'Debian'
+    print('W: Not fully compatible with Deepin!')
+    os.system('zenity --warning --text="Your distro is detected as Deepin.\nThis distro is not fully tested, you may encounter some problems with the program.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
 else:
-    if 'MANJARO' in dist:
-        distro = 'Arch'
-        print('W: Not fully compatible with Manjaro!')
-    elif 'deepin' in dist:
-        distro = 'Debian'
-        print('W: Not fully compatible with Deepin!')
+    print('E: Complete incompatibility!')
+    os.system('zenity --warning --text="Can not detect your distro.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan),\nDebian (buster). Aborting now." --ellipsize')
+    raise SystemExit
 
 ## Colors (button)
 colorR = Gdk.color_parse('red')
@@ -79,6 +84,8 @@ shDict = {'downl_mint': 'True', 'downl_ubuntu': 'True', 'downl_solus': 'True', '
           'downl_fedora': 'True', 'downl_suse': 'True', 'downl_gentoo': 'True', 'downl_arch': 'True', 'downl_lfs': 'True', }  # Dictionary for current state of download buttons (clickable or not)
 dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos',
          'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
+namDict = {'downl_mint' : 'Linux Mint', 'downl_ubuntu' : 'Ubuntu', 'downl_zorin' : 'Zorin OS', 'downl_solus' : 'Solus Linux', 'downl_deepin' : 'Deepin Linux', 'downl_steamos' : 'SteamOS',
+         'downl_fedora' : 'Fedora', 'downl_suse' : 'openSUSE', 'downl_deb' : 'Debian', 'downl_arch' : 'Arch', 'downl_gentoo' : 'Gentoo', 'downl_lfs' : 'Linux from Scratch (LFS)'}
 # List of distros
 dlistLen = len(dlist)                   # The number of distros
 
@@ -87,17 +94,17 @@ pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
        "o", "p"]          # For AUR builds (this will be depracted in the future)
 # Check if PKG cache is already in memory or not
 scanner = True
-appList = ['opera-stable/', 'barrier/', 'google-chrome-stable/', 'epiphany-browser/', 'firefox', 'vivaldi-stable/', 'wps-office/', 'libreoffice', 'onlyoffice-desktopeditors/', 'softmaker-freeoffice-2018', 'gedit', 'emacs26/', 'code/s', 'atom/', 'sublime-text/', 'geany/', 'skypeforlinux/', 'discord/', 'telegram-desktop/', 'signal-desktop/', 'hexchat/',
-           'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox/', 'gparted/', 'fusuma', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
-archDict = {'opera-stable/': 'opera', 'barrier/': 'barrier/', 'google-chrome-stable/': 'google-chrome', 'epiphany-browser/': 'epiphany', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'wps-office/', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors/': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs26/': 'emacs/', 'code/s': 'code/s', 'atom/': 'atom/', 'sublime-text/': 'sublime-text/', 'geany/': 'geany/', 'skypeforlinux/': 'skypeforlinux-stable-bin', 'discord/': 'discord/', 'telegram-desktop/': 'telegram-desktop/', 'signal-desktop/': 'signal-desktop',
-            'hexchat/': 'hexchat/', 'franz/': 'franz/', '0ad/': '0ad/', 'supertux/': 'supertux/', 'lutris/': 'lutris/', 'playonlinux/': 'playonlinux/', 'steam/': 'steam-launcher', 'minecraft-launcher/': 'minecraft-launcher/', 'popsicle/': 'popsicle-gtk-git', 'woeusb/': 'woeusb/', 'wine/': 'wine/', 'virtualbox/': 'virtualbox/', 'gparted/': 'gparted/', 'fusuma': 'fusuma', 'audacity/': 'audacity/', 'deja-dup/': 'deja-dup/', 'timeshift/': 'timeshift/', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'gnome-boxes/', 'supertuxkart/': 'supertuxkart/'}                             # The dictionary with the context of debname:archname
-butDict = {'opera-stable/': 'opera', 'barrier/': 'barr', 'google-chrome-stable/': 'chrome', 'epiphany-browser/': 'web', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'woffice', 'libreoffice': 'loffice', 'onlyoffice-desktopeditors/': 'ooffice', 'softmaker-freeoffice-2018': 'foffice', 'gedit': 'gedit', 'emacs26/': 'gnu', 'code/s': 'vscode', 'atom/': 'atom', 'sublime-text/': 'stedit', 'geany/': 'geany', 'skypeforlinux/': 'skype', 'discord/': 'discord', 'telegram-desktop/': 'telegram',
-           'signal-desktop/': 'signal', 'hexchat/': 'hex', 'franz/': 'franz', '0ad/': 'ad', 'supertux/': 'tux', 'lutris/': 'lutris', 'playonlinux/': 'pol', 'steam/': 'steam', 'minecraft-launcher/': 'mc', 'popsicle/': 'pops', 'woeusb/': 'woe', 'wine/': 'wine', 'virtualbox/': 'vbox', 'gparted/': 'gparted', 'fusuma': 'gest', 'audacity/': 'auda', 'deja-dup/': 'deja', 'timeshift/': 'tims', 'TeamViewer': 'tw', 'gnome-boxes/': 'box', 'supertuxkart/': 'skart'}                                # Dictionary with the context of debname:humanName
+appList = ['opera-stable/', 'barrier/', 'google-chrome-stable/', 'epiphany-browser/', 'firefox', 'vivaldi-stable/', 'wps-office/', 'libreoffice', 'onlyoffice-desktopeditors/', 'softmaker-freeoffice-2018', 'gedit', 'emacs', 'code/s', 'atom/', 'sublime-text/', 'geany/', 'skypeforlinux/', 'discord/', 'telegram-desktop/', 'signal-desktop/', 'hexchat/',
+           'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox', 'gparted/', 'fusuma', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
+archDict = {'opera-stable/': 'opera', 'barrier/': 'barrier/', 'google-chrome-stable/': 'google-chrome', 'epiphany-browser/': 'epiphany', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'wps-office/', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors/': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs': 'emacs/', 'code/s': 'code/s', 'atom/': 'atom/', 'sublime-text/': 'sublime-text/', 'geany/': 'geany/', 'skypeforlinux/': 'skypeforlinux-stable-bin', 'discord/': 'discord/', 'telegram-desktop/': 'telegram-desktop/', 'signal-desktop/': 'signal-desktop',
+            'hexchat/': 'hexchat/', 'franz/': 'franz/', '0ad/': '0ad/', 'supertux/': 'supertux/', 'lutris/': 'lutris/', 'playonlinux/': 'playonlinux/', 'steam/': 'steam-launcher', 'minecraft-launcher/': 'minecraft-launcher/', 'popsicle/': 'popsicle-gtk-git', 'woeusb/': 'woeusb/', 'wine/': 'wine/', 'virtualbox': 'virtualbox', 'gparted/': 'gparted/', 'fusuma': 'fusuma', 'audacity/': 'audacity/', 'deja-dup/': 'deja-dup/', 'timeshift/': 'timeshift/', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'gnome-boxes/', 'supertuxkart/': 'supertuxkart/'}                             # The dictionary with the context of debname:archname
+butDict = {'opera-stable/': 'opera', 'barrier/': 'barr', 'google-chrome-stable/': 'chrome', 'epiphany-browser/': 'web', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'woffice', 'libreoffice': 'loffice', 'onlyoffice-desktopeditors/': 'ooffice', 'softmaker-freeoffice-2018': 'foffice', 'gedit': 'gedit', 'emacs': 'gnu', 'code/s': 'vscode', 'atom/': 'atom', 'sublime-text/': 'stedit', 'geany/': 'geany', 'skypeforlinux/': 'skype', 'discord/': 'discord', 'telegram-desktop/': 'telegram',
+           'signal-desktop/': 'signal', 'hexchat/': 'hex', 'franz/': 'franz', '0ad/': 'ad', 'supertux/': 'tux', 'lutris/': 'lutris', 'playonlinux/': 'pol', 'steam/': 'steam', 'minecraft-launcher/': 'mc', 'popsicle/': 'pops', 'woeusb/': 'woe', 'wine/': 'wine', 'virtualbox': 'vbox', 'gparted/': 'gparted', 'fusuma': 'gest', 'audacity/': 'auda', 'deja-dup/': 'deja', 'timeshift/': 'tims', 'TeamViewer': 'tw', 'gnome-boxes/': 'box', 'supertuxkart/': 'skart'}                                # Dictionary with the context of debname:humanName
 appListLen = len(appList)                           # Number of apps
 statDict = {'Opera': '', 'Chrome': '', 'Web': '', 'Firefox': '', 'Vivaldi': '', 'Edge': '', 'WPS Office': '', 'Libreoffice': '', 'Only Office': '', 'Free Office': '', 'Gedit': '', 'GNU Emacs': '', 'Visual Studio Code': '', 'Atom Editor': '', 'Sublime Text Editor': '', 'Geany': '', 'Skype': '', 'Discord': '', 'Telegram': '', 'Signal': '', 'HexChat': '', 'Franz': '',
             '0 A.D.': '', 'SuperTuxKart': '', 'SuperTux': '', 'Lutris': '', 'Barrier': '', 'Play On Linux': '', 'Steam': '', 'Minecraft': '', 'Popsicle': '', 'WoeUSB': '', 'Wine': '', 'Virtualbox': '', 'GParted': '', 'Touchpad Gestures': '', 'Audacity': '', 'Déja-Dup': '', 'Timeshift': '', 'TeamViewer': '', 'Gnome Boxes': ''}  # store the status (installed or not)
-layDict = {'opera-stable/': 'Opera', 'google-chrome-stable/': 'Chrome', 'epiphany-browser/': 'Web', 'firefox': 'Firefox', 'vivaldi-stable/': 'Vivaldi', 'dikk': 'Edge', 'wps-office/': 'WPS Office', 'libreoffice': 'Libreoffice', 'onlyoffice-desktopeditors/': 'Only Office', 'softmaker-freeoffice-2018': 'Free Office', 'gedit': 'Gedit', 'emacs26/': 'GNU Emacs', 'code/s': 'Visual Studio Code', 'atom/': 'Atom Editor', 'sublime-text/': 'Sublime Text Editor', 'geany/': 'Geany', 'skypeforlinux/': 'Skype', 'discord/': 'Discord', 'telegram-desktop/': 'Telegram', 'signal-desktop/': 'Signal', 'hexchat/': 'HexChat',
-           'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox/': 'Virtualbox', 'gparted/': 'GParted', 'fusuma': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
+layDict = {'opera-stable/': 'Opera', 'google-chrome-stable/': 'Chrome', 'epiphany-browser/': 'Web', 'firefox': 'Firefox', 'vivaldi-stable/': 'Vivaldi', 'dikk': 'Edge', 'wps-office/': 'WPS Office', 'libreoffice': 'Libreoffice', 'onlyoffice-desktopeditors/': 'Only Office', 'softmaker-freeoffice-2018': 'Free Office', 'gedit': 'Gedit', 'emacs': 'GNU Emacs', 'code/s': 'Visual Studio Code', 'atom/': 'Atom Editor', 'sublime-text/': 'Sublime Text Editor', 'geany/': 'Geany', 'skypeforlinux/': 'Skype', 'discord/': 'Discord', 'telegram-desktop/': 'Telegram', 'signal-desktop/': 'Signal', 'hexchat/': 'HexChat',
+           'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox': 'Virtualbox', 'gparted/': 'GParted', 'fusuma': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
 aurList = ['Chrome', 'Vivaldi', 'WPS Office', 'Only Office', 'Free Office', 'Signal', 'Franz', 'Minecraft', 'Popsicle', 'WoeUSB', 'Virtualbox', 'Timeshift', 'TeamViewer', 'Skype']
 specDList = ['']
 
@@ -229,7 +236,11 @@ class GUI:
             print('OK pressed')
             dialogWindow.destroy()
             if osLayer.alive:
-                self.abort()
+                text = "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % cPkg
+                self.abort('install', text)
+            if quit == False:
+                text = "Do you really would like to abort now? Download is currently in progress for %s." % namDict[Tdownl]
+                self.abort('download', text)
             raise SystemExit
         elif res == Gtk.ResponseType.NO:                            # if no ...
             print('No pressed')
@@ -309,14 +320,14 @@ class GUI:
                 status = 'Install'
         return status
 
-    def abort(self):
+    def abort(self, mode, text):
         x, y = window.get_position()
         sx, sy = window.get_size()
         dialogWindow = Gtk.MessageDialog(window,
                                          Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                                          Gtk.MessageType.QUESTION,
                                          Gtk.ButtonsType.YES_NO,
-                                         "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % cPkg)
+                                         text)
         dialogWindow.set_title("Attention!")
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
@@ -325,15 +336,18 @@ class GUI:
         dialogWindow.show_all()
         res = dialogWindow.run()
         if res == Gtk.ResponseType.YES:
+            if mode == 'download':
+                quit = True
+            elif mode == 'install':
+                yesArch = 'rm /var/lib/pacman/db.lck ; killal pacman ; pacman -R $(pacman -Qdtq)'
+                yesDeb = 'killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y'
             print('OK pressed')
             dialogWindow.destroy()
             print('Installation already running')
             if distro == 'Ubuntu' or distro == 'Debian':
-                asroot(
-                    'killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y')
+                asroot(yesDeb)
             elif distro == 'Arch':
-                asroot(
-                    'rm /var/lib/pacman/db.lck ; killal pacman ; pacman -R $(pacman -Qdtq)')
+                asroot(yesArch)
             else:
                 print('ERROR IN DIST AB')
         elif res == Gtk.ResponseType.NO:
@@ -351,15 +365,31 @@ class GUI:
         sTxt = cInB
         # Current pkg name
         cPkg = name
-        sTxt.set_label('Loading...')
         # init thread with thread function
         t1 = myThread(1, "Thread-1", status, comm1, comm2, faur, extra, runDep, buildDep)
         # start it
         t1.start()
         # set minutes to 0
         m = 0
-        # function for counting time
+        
+        wt = False
+        print(self, wt)
+        for i in range(appListLen):
+            print("Toggle %s" % i)
+            if appList[i] != tempInd:
+                print(appList[i], butDict[appList[i]], tempInd)
+                cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
+                GLib.idle_add(cBut.set_sensitive, wt)
 
+        # time.sleep(0.5)
+        # for d in range(6):
+        #     if osLayer.waitState == False:
+        #         print('Break now')
+        #         break
+        #     else:
+        #         print('Waiting... %s' % osLayer.waitState)
+        #         time.sleep(0.5)
+        # function for counting time
         def counter(timer):
             global m
             global cPkg
@@ -380,10 +410,21 @@ class GUI:
                 # declare button variable (don't know why)
                 button = 0
                 # imitate reopening of app spotlight
+                wt = True
+                print(self, wt)
+                for i in range(appListLen):
+                    print("Toggle %s" % i)
+                    print(appList[i], butDict[appList[i]], tempInd)
+                    cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
+                    GLib.idle_add(cBut.set_sensitive, wt)
                 self.button_clicked(button)
                 cPkg = ''
                 return False                                                        # end
+        # if osLayer.havPass:
         self.source_id = GLib.timeout_add(1000, counter, self)
+            # shDict[dlist[i]] = "%s" % state
+        # else:
+        #     cPkg = ''
 
     def spece(self, name):
         if distro == 'Ubuntu' or distro == 'Debian':
@@ -400,11 +441,16 @@ class GUI:
             print('SpecERROR!')
 
     def lilFunc(self, name, comm1, extra, runDep, buildDep):
+        global tempInd
+        if osLayer.alive:
+            print('Operation already running, which is %s' % cPkg)
         if name == cPkg:
-            self.abort()
+            text = "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % cPkg
+            self.abort('install', text)
         else:
             comm2 = archDict[comm1]
             cInB = self.builder.get_object("%s_but" % butDict[comm1])
+            tempInd = comm1
             if '/' in comm1:
                 comm1 = comm1.replace('/', '')
             if '/' in comm2:
@@ -474,6 +520,7 @@ class GUI:
         runE = False
         # Set back the button label to the original
         GLib.idle_add(downl.set_label, orig)
+        print('quit: %s' % quit)
         print(orig)
         print("Label restore")
         # If the download is aborted by the user, remove the already downloaded file
@@ -487,6 +534,7 @@ class GUI:
             # Set the state to permanent false
             shDict[Tdownl] = "PFalse"
             print("done with it")
+        quit = True
 
     def on_downl_begin(self, url, downl):
         # Open the url
@@ -895,7 +943,7 @@ class GUI:
         self.lilFunc('Gedit', 'gedit', 'gedit-plugins', '', '')
 
     def on_gnu_but_clicked(self, button):
-        self.lilFunc('GNU Emacs', 'emacs26/', '', '', '')
+        self.lilFunc('GNU Emacs', 'emacs', '', '', '')
 
     def on_vscode_but_clicked(self, button):
         self.lilFunc('Visual Studio Code', 'code/s', '', '', '')
@@ -961,7 +1009,7 @@ class GUI:
         self.lilFunc('Wine', 'wine/', '', '', '')
 
     def on_vbox_but_clicked(self, button):
-        self.lilFunc('Virtualbox', 'virtualbox/', '', '', '')
+        self.lilFunc('Virtualbox', 'virtualbox', '', '', '')
 
     def on_gparted_but_clicked(self, button):
         self.lilFunc('GParted', 'gparted/', 'gpart', '', '')

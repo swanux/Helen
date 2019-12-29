@@ -4050,9 +4050,9 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">v0.5 | Hermes
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools,
-easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
-To view recent changes visit the link below.</property>
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) introduction program for the Linux operating system. Features include easy installation of high quality programs (helps finding alternatives), choosing from the countless Linux distributions, helping in everyday tasks or in development with a collection of free open source softwares (mainly from github, including my projects also) and more features are coming.
+
+To get informed about recent changes click on the button below.</property>
                                 <property name="justify">center</property>
                                 <property name="wrap">True</property>
                                 <attributes>

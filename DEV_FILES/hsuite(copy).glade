@@ -20,145 +20,145 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="0ad_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/0ad.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="arch_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/arch.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="atom_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/atom.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="auda_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/audacity.png</property>
     <property name="pixel_size">50</property>
   </object>
-  <object class="GtkImage" id="barrier_img1">
+  <object class="GtkImage" id="barrier_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/barrier.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="box_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/box.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="chrome_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/chrome.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deb_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/debian.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deepin_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/deepin.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deja_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/deja.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="discord_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/discord.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="edge_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/edge.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="elementary_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/elementary.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="fedora_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/fedora.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="firefox_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/firefox.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="foffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/foffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="franz_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/franz.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="geany_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/geany.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gedit_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/gedit.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gentoo_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/gentoo.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gestures_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/gestures.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gnu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/gnu.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="goffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/goffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gparted_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/gparted.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="help_ico">
@@ -229,7 +229,7 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="hex_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/hex.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="image1">
@@ -270,181 +270,181 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="lfs_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/lfs.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="loffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/loffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="lutris_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/lutris.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mc_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/mc.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mint_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/mint.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="msoffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/msoffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="ooffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/ooffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="opera_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/opera.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="opsu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/opensuse.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="pol_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/pol.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="pops_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/pops.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="signal_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/signal.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="skart_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/supertuxkart.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="skype_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/skype.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="solus_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/solus.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steam_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/steam.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steamos_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/steam.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="stedit_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/stedit.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="telegram_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/telegram.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tims_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/tims.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tux_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/tux.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tw_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/tw.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="ubuntu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/ubuntu.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vbox_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/virtualbox.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vivaldi_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/vivaldi.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vscode_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/vscode.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="web_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/web.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wine_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/wine.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="woe_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/woeusb.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wps_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
+    <property name="pixbuf">icons/woffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="zorin_img">
@@ -460,7 +460,7 @@ Author: Dániel Kolozsi (@swanux)
     <property name="window_position">center</property>
     <property name="default_width">715</property>
     <property name="default_height">400</property>
-    <property name="icon">icons/zorin.png</property>
+    <property name="icon">icons/hsuite.png</property>
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
     <child>
@@ -695,7 +695,7 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">False</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
-                            <property name="pixbuf">icons/zorin.png</property>
+                            <property name="pixbuf">icons/hsuite.png</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -2616,7 +2616,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <property name="image">barrier_img1</property>
+                                <property name="image">barrier_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="on_barr_clicked" swapped="no"/>
@@ -2835,11 +2835,11 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">30</property>
-                                <property name="label" translatable="yes">Welcome to Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the bestt distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
+                                <property name="label" translatable="yes">Welcome to the Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the bestt distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
 
 As you can see there are some categories. The first question is usually this: "Which's the best Linux distro?". However this question can't be answered, because there is no best one. The question should be: "Which's the most suitable distro for my needs?".  Thats why I collected distros into some main categories.
 
-Click on the buttons to download the chosen distro, click on the logo to get extra information or click on the question mark to get help.</property>
+Click on the buttons to download the chosen distro or click on the logo to get extra information.</property>
                                 <property name="justify">center</property>
                                 <property name="wrap">True</property>
                                 <attributes>
@@ -4018,7 +4018,7 @@ Click on the buttons to download the chosen distro, click on the logo to get ext
                               <object class="GtkImage" id="logo">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="pixbuf">icons/zorin.png</property>
+                                <property name="pixbuf">icons/hsuite.png</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>

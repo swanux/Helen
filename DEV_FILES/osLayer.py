@@ -4,15 +4,26 @@
 import os
 alive = False
 user = ''
-exe = True
+# waitState = False
+# havPass = False
 
 #________________________________________________________________ BEGIN OF THREADS ___________________________________________________________________#
 
 # This class and function is the core of every background process in the program
 
 def asroot(asr):            # The function to display prompt for root acces.
+        # global havPass
+        # global waitState
         print(asr)
-        os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+        # waitState = True
+        retCode = os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+        # if retCode == 0:
+        #     havPass = True
+        #     print('Gut')
+        # else:
+        #     havPass = False
+        #     print('Nein...')
+        # waitState = False
 
 
 # Search deps
@@ -102,7 +113,7 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
             if comm1 == 'fusuma':
                 asroot('yes | gem uninstall fusuma-plugin-wmctrl fusuma && apt purge xdotool libinput-tools -y && apt autoremove -y && gpasswd -d $USER input && rm -rf /home/$USER/.config/fusuma && rm /home/$USER/.config/autostart/fusuma.desktop')
             else:
-                asroot('apt purge %s %s -y ; apt autoremove -y' % (comm1, extra))
+                asroot('DEBIAN_FRONTEND=noninteractive apt purge %s %s -y ; apt autoremove -y' % (comm1, extra))
         elif distro == 'Arch':
             if comm2 == 'fusuma':
                 asroot('pacman -Runs --noconfirm xdotool libinput && yes | gem uninstall fusuma-plugin-wmctrl fusuma && gpasswd -d $USER input && && rm -rf /home/$USER/.config/fusuma && rm /home/$USER/.config/autostart/fusuma.desktop')
@@ -117,4 +128,4 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     print('end of func')
     alive = False
 
-#___________________________________________________________________ END OF THREADS ________________________________________________________________________________#
+#__________________________________________________________________ END OF THREADS _____________________________________________________________________#
