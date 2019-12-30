@@ -109,16 +109,16 @@ pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
 # Check if PKG cache is already in memory or not
 scanner = True
 appList = ['opera-stable/', 'barrier/', 'google-chrome-stable/', 'epiphany-browser/', 'firefox', 'vivaldi-stable/', 'wps-office/', 'libreoffice', 'onlyoffice-desktopeditors/', 'softmaker-freeoffice-2018', 'gedit', 'emacs', 'code/s', 'atom/', 'sublime-text/', 'geany/', 'skypeforlinux/', 'discord/', 'telegram-desktop/', 'signal-desktop/', 'hexchat/',
-           'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox', 'gparted/', 'fusuma', 'audacity/', 'deja-dup/', 'timeshift/', 'TeamViewer', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
+           'franz/', '0ad/', 'supertux/', 'lutris/', 'playonlinux/', 'steam/', 'minecraft-launcher/', 'popsicle/', 'woeusb/', 'wine/', 'virtualbox-6.1', 'gparted/', 'fusuma', 'audacity/', 'deja-dup/', 'timeshift/', 'teamviewer/', 'gnome-boxes/', 'supertuxkart/']                                                                        # The list with the debian app names
 archDict = {'opera-stable/': 'opera', 'barrier/': 'barrier/', 'google-chrome-stable/': 'google-chrome', 'epiphany-browser/': 'epiphany', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'wps-office/', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors/': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs': 'emacs/', 'code/s': 'code/s', 'atom/': 'atom/', 'sublime-text/': 'sublime-text/', 'geany/': 'geany/', 'skypeforlinux/': 'skypeforlinux-stable-bin', 'discord/': 'discord/', 'telegram-desktop/': 'telegram-desktop/', 'signal-desktop/': 'signal-desktop',
-            'hexchat/': 'hexchat/', 'franz/': 'franz/', '0ad/': '0ad/', 'supertux/': 'supertux/', 'lutris/': 'lutris/', 'playonlinux/': 'playonlinux/', 'steam/': 'steam-launcher', 'minecraft-launcher/': 'minecraft-launcher/', 'popsicle/': 'popsicle-gtk-git', 'woeusb/': 'woeusb/', 'wine/': 'wine/', 'virtualbox': 'virtualbox', 'gparted/': 'gparted/', 'fusuma': 'fusuma', 'audacity/': 'audacity/', 'deja-dup/': 'deja-dup/', 'timeshift/': 'timeshift/', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'gnome-boxes/', 'supertuxkart/': 'supertuxkart/'}                             # The dictionary with the context of debname:archname
+            'hexchat/': 'hexchat/', 'franz/': 'franz/', '0ad/': '0ad/', 'supertux/': 'supertux/', 'lutris/': 'lutris/', 'playonlinux/': 'playonlinux/', 'steam/': 'steam-launcher', 'minecraft-launcher/': 'minecraft-launcher/', 'popsicle/': 'popsicle-gtk-git', 'woeusb/': 'woeusb/', 'wine/': 'wine/', 'virtualbox-6.1': 'virtualbox', 'gparted/': 'gparted/', 'fusuma': 'fusuma', 'audacity/': 'audacity/', 'deja-dup/': 'deja-dup/', 'timeshift/': 'timeshift/', 'teamviewer/': 'TeamViewer', 'gnome-boxes/': 'gnome-boxes/', 'supertuxkart/': 'supertuxkart/'}                             # The dictionary with the context of debname:archname
 butDict = {'opera-stable/': 'opera', 'barrier/': 'barr', 'google-chrome-stable/': 'chrome', 'epiphany-browser/': 'web', 'firefox': 'firefox', 'vivaldi-stable/': 'vivaldi', 'wps-office/': 'woffice', 'libreoffice': 'loffice', 'onlyoffice-desktopeditors/': 'ooffice', 'softmaker-freeoffice-2018': 'foffice', 'gedit': 'gedit', 'emacs': 'gnu', 'code/s': 'vscode', 'atom/': 'atom', 'sublime-text/': 'stedit', 'geany/': 'geany', 'skypeforlinux/': 'skype', 'discord/': 'discord', 'telegram-desktop/': 'telegram',
-           'signal-desktop/': 'signal', 'hexchat/': 'hex', 'franz/': 'franz', '0ad/': 'ad', 'supertux/': 'tux', 'lutris/': 'lutris', 'playonlinux/': 'pol', 'steam/': 'steam', 'minecraft-launcher/': 'mc', 'popsicle/': 'pops', 'woeusb/': 'woe', 'wine/': 'wine', 'virtualbox': 'vbox', 'gparted/': 'gparted', 'fusuma': 'gest', 'audacity/': 'auda', 'deja-dup/': 'deja', 'timeshift/': 'tims', 'TeamViewer': 'tw', 'gnome-boxes/': 'box', 'supertuxkart/': 'skart'}                                # Dictionary with the context of debname:humanName
+           'signal-desktop/': 'signal', 'hexchat/': 'hex', 'franz/': 'franz', '0ad/': 'ad', 'supertux/': 'tux', 'lutris/': 'lutris', 'playonlinux/': 'pol', 'steam/': 'steam', 'minecraft-launcher/': 'mc', 'popsicle/': 'pops', 'woeusb/': 'woe', 'wine/': 'wine', 'virtualbox-6.1': 'vbox', 'gparted/': 'gparted', 'fusuma': 'gest', 'audacity/': 'auda', 'deja-dup/': 'deja', 'timeshift/': 'tims', 'teamviewer/': 'tw', 'gnome-boxes/': 'box', 'supertuxkart/': 'skart'}                                # Dictionary with the context of debname:humanName
 appListLen = len(appList)                           # Number of apps
 statDict = {'Opera': '', 'Chrome': '', 'Web': '', 'Firefox': '', 'Vivaldi': '', 'Edge': '', 'WPS Office': '', 'Libreoffice': '', 'Only Office': '', 'Free Office': '', 'Gedit': '', 'GNU Emacs': '', 'Visual Studio Code': '', 'Atom Editor': '', 'Sublime Text Editor': '', 'Geany': '', 'Skype': '', 'Discord': '', 'Telegram': '', 'Signal': '', 'HexChat': '', 'Franz': '',
-            '0 A.D.': '', 'SuperTuxKart': '', 'SuperTux': '', 'Lutris': '', 'Barrier': '', 'Play On Linux': '', 'Steam': '', 'Minecraft': '', 'Popsicle': '', 'WoeUSB': '', 'Wine': '', 'Virtualbox': '', 'GParted': '', 'Touchpad Gestures': '', 'Audacity': '', 'Déja-Dup': '', 'Timeshift': '', 'TeamViewer': '', 'Gnome Boxes': ''}  # store the status (installed or not)
+            '0 A.D.': '', 'SuperTuxKart': '', 'SuperTux': '', 'Lutris': '', 'Barrier': '', 'Play On Linux': '', 'Steam': '', 'Minecraft': '', 'Popsicle': '', 'WoeUSB': '', 'Wine': '', 'Virtualbox-6.1': '', 'GParted': '', 'Touchpad Gestures': '', 'Audacity': '', 'Déja-Dup': '', 'Timeshift': '', 'TeamViewer': '', 'Gnome Boxes': ''}  # store the status (installed or not)
 layDict = {'opera-stable/': 'Opera', 'google-chrome-stable/': 'Chrome', 'epiphany-browser/': 'Web', 'firefox': 'Firefox', 'vivaldi-stable/': 'Vivaldi', 'dikk': 'Edge', 'wps-office/': 'WPS Office', 'libreoffice': 'Libreoffice', 'onlyoffice-desktopeditors/': 'Only Office', 'softmaker-freeoffice-2018': 'Free Office', 'gedit': 'Gedit', 'emacs': 'GNU Emacs', 'code/s': 'Visual Studio Code', 'atom/': 'Atom Editor', 'sublime-text/': 'Sublime Text Editor', 'geany/': 'Geany', 'skypeforlinux/': 'Skype', 'discord/': 'Discord', 'telegram-desktop/': 'Telegram', 'signal-desktop/': 'Signal', 'hexchat/': 'HexChat',
-           'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox': 'Virtualbox', 'gparted/': 'GParted', 'fusuma': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'TeamViewer': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
+           'franz/': 'Franz', '0ad/': '0 A.D.', 'supertux/': 'SuperTuxKart', 'supertuxkart/': 'SuperTux', 'lutris/': 'Lutris', 'barrier/': 'Barrier', 'playonlinux/': 'Play On Linux', 'steam/': 'Steam', 'minecraft-launcher/': 'Minecraft', 'popsicle/': 'Popsicle', 'woeusb/': 'WoeUSB', 'wine/': 'Wine', 'virtualbox-6.1': 'Virtualbox', 'gparted/': 'GParted', 'fusuma': 'Touchpad Gestures', 'audacity/': 'Audacity', 'deja-dup/': 'Déja-Dup', 'timeshift/': 'Timeshift', 'teamviewer/': 'TeamViewer', 'gnome-boxes/': 'Gnome Boxes'}                                          # debname:displayName
 aurList = ['Chrome', 'Vivaldi', 'WPS Office', 'Only Office', 'Free Office', 'Signal', 'Franz', 'Minecraft', 'Popsicle', 'WoeUSB', 'Virtualbox', 'Timeshift', 'TeamViewer', 'Skype']
 specDList = ['']
 
@@ -267,6 +267,8 @@ class GUI:
         status = self.OnCheck(name)
         # set the button label depending on this
         gbut.set_label(status)
+        gbut.get_style_context().remove_class("red-background")
+        gbut.get_style_context().remove_class("green-background")
         if status == "Remove":
             gbut.get_style_context().add_class('red-background')
         else:
@@ -313,7 +315,7 @@ class GUI:
                 status = 'Install'
         elif 'TeamViewer' in name:
             vane = os.path.exists("/opt/teamviewer")
-            print(vane)
+            print('tw check! '+vane)
             if vane:
                 status = 'Remove'
             else:
@@ -345,6 +347,7 @@ class GUI:
         if res == Gtk.ResponseType.YES:
             if mode == 'download':
                 quit = True
+                print(quit)
             elif mode == 'install':
                 yesArch = 'rm /var/lib/pacman/db.lck ; killal pacman ; pacman -R $(pacman -Qdtq)'
                 yesDeb = 'killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y'
@@ -366,9 +369,7 @@ class GUI:
     def OnNeed(self, cInB, name, status, comm1, comm2, faur, extra, runDep, buildDep):
         global cPkg
         global m
-        global scanner
         # removes scan cache from memory because it needs to rescan because one app changed
-        scanner = True
         sTxt = cInB
         # Current pkg name
         cPkg = name
@@ -400,6 +401,7 @@ class GUI:
         def counter(timer):
             global m
             global cPkg
+            global scanner
             # seconds incraseing
             s = timer.count+1
             # counter is equal to s
@@ -424,6 +426,7 @@ class GUI:
                     print(appList[i], butDict[appList[i]], tempInd)
                     cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
                     GLib.idle_add(cBut.set_sensitive, wt)
+                scanner = True
                 self.button_clicked(button)
                 cPkg = ''
                 return False                                                        # end
@@ -1011,7 +1014,7 @@ class GUI:
         self.lilFunc('Wine', 'wine/', '', '', '')
 
     def on_vbox_but_clicked(self, button):
-        self.lilFunc('Virtualbox', 'virtualbox', '', '', '')
+        self.lilFunc('Virtualbox', 'virtualbox-6.1', '', '', '')
 
     def on_gparted_but_clicked(self, button):
         self.lilFunc('GParted', 'gparted/', 'gpart', '', '')
@@ -1029,7 +1032,7 @@ class GUI:
         self.lilFunc('Timeshift', 'timeshift/', '', 'cronie desktop-file-utils gtk3 json-glib libsoup rsync vte3 xapps libgee', '')
 
     def on_tw_but_clicked(self, button):
-        self.lilFunc('TeamViewer', 'TeamViewer', '', '', '')
+        self.lilFunc('TeamViewer', 'teamviewer/', '', '', '')
 
     def on_box_but_clicked(self, button):
         self.lilFunc('Gnome Boxes', 'gnome-boxes/', '', '', '')

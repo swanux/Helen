@@ -16,7 +16,7 @@ def asroot(asr):            # The function to display prompt for root acces.
         # global waitState
         print(asr)
         # waitState = True
-        retCode = os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
+        os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
         # if retCode == 0:
         #     havPass = True
         #     print('Gut')

@@ -281,15 +281,9 @@ With gparted you can accomplish the following tasks:
 - Enable and disable partition flags such as boot and hidden.
 - Perform actions with partitions such as create, delete, resize, move, check, label, copy, and paste.
 """
-gestures = """Touchpad Gestures
+gestures = """Touchpad Gestures (with fusuma)
 
-The app is called ‘Gestures’ and is described by its developer as being a “minimal Gtk+ GUI app for libinput-gestures”.
-
-Windows and macOS both come with a variety of useful touchpad gestures pre-configured out of the box, and offer easy-to-access settings for adjusting or changing gesture behaviour to your likin
-
-Alas Ubuntu, like many Linux distributions, is a little lacking in this regard. Only a handful of basic gestures for scrolling and right-click available out of the box on Ubuntu 18.04 LTS, for instance.
-
-But by using the “Gestures” app you can quickly effect a set of custom trackpad gestures that are on par with other operating systems, and in some cases, far more useful!
+Fusuma is a command line tool that allows you to configure the trackpad, and even includes multi-touch gestures. It's not perfect (nor does it remotely emulate the smoothness of the trackpad experience on either macOS or Chrome OS), but Fusuma does make using a trackpad on Linux exponentially better.
 """
 audacity = """Audacity
 

@@ -465,6 +465,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_db_but_clicked" swapped="no"/>
@@ -499,6 +503,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_ac_but_clicked" swapped="no"/>
@@ -559,6 +567,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="button_clicked" swapped="no"/>
@@ -575,6 +587,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_about_but_clicked" swapped="no"/>
@@ -591,6 +607,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_htools_but_clicked" swapped="no"/>
@@ -1000,6 +1020,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                               <object class="GtkButton" id="edge_but">
                                 <property name="label" translatable="yes">Coming Soon</property>
                                 <property name="visible">True</property>
+                                <property name="sensitive">False</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="margin_left">5</property>
@@ -2475,7 +2496,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="tw">
-                                <property name="label" translatable="yes">TeamViewer (Unofficial)</property>
+                                <property name="label" translatable="yes">TeamViewer</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
