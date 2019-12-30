@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 
+<!-- Generated with glade 3.22.1 
 
 Copyright (C) HSuite 2019
 
@@ -160,71 +160,6 @@ Author: Dániel Kolozsi (@swanux)
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/gparted.png</property>
     <property name="pixel_size">50</property>
-  </object>
-  <object class="GtkImage" id="help_ico">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico1">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico10">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico11">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico12">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico13">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico14">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico3">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico4">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico5">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico6">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
-  </object>
-  <object class="GtkImage" id="help_ico9">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
   </object>
   <object class="GtkImage" id="hex_img">
     <property name="visible">True</property>
@@ -464,6 +399,9 @@ Author: Dániel Kolozsi (@swanux)
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
     <child>
+      <placeholder/>
+    </child>
+    <child>
       <object class="GtkStack" id="stack">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -543,8 +481,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="hexpand">True</property>
-                            <property name="vexpand">True</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <signal name="clicked" handler="on_fb_but_clicked" swapped="no"/>
                           </object>
                           <packing>
@@ -681,6 +621,7 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="label" translatable="yes">Welcome to HSuite!</property>
                             <attributes>
                               <attribute name="weight" value="heavy"/>
+                              <attribute name="scale" value="1.5"/>
                             </attributes>
                           </object>
                           <packing>
@@ -2986,22 +2927,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_mint">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico9</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_mint_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3031,22 +2957,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_ubuntu">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico1</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_ubuntu_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3082,10 +2993,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="receives_default">True</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico2</property>
                                         <property name="image_position">top</property>
                                         <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_solus_clicked" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3175,22 +3084,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_deepin">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico5</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_deepin_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3216,22 +3110,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_elementary">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico4</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_elementary_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3261,22 +3140,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_zorin">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico3</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_zorin_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3319,7 +3183,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                     <property name="can_focus">True</property>
                     <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkViewport" id="view_office1">
+                      <object class="GtkViewport" id="view_gam">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -3347,7 +3211,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkGrid" id="office_grid1">
+                              <object class="GtkGrid" id="gam_grid">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
@@ -3375,22 +3239,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_steamos">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico6</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_steamos_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3451,7 +3300,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                     <property name="can_focus">True</property>
                     <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkViewport" id="view_edit1">
+                      <object class="GtkViewport" id="view_dev">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -3479,7 +3328,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkGrid" id="editor_grid1">
+                              <object class="GtkGrid" id="dev_grid">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
@@ -3507,22 +3356,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_deb">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico11</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_deb_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3552,22 +3386,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_fedora">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico10</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_fedora_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3597,22 +3416,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_suse">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_suse_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3709,7 +3513,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                     <property name="can_focus">True</property>
                     <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkViewport" id="view_comm1">
+                      <object class="GtkViewport" id="view_pu">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -3737,7 +3541,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkGrid" id="comm_grid1">
+                              <object class="GtkGrid" id="pu_grid">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
@@ -3765,22 +3569,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_arch">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico12</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_arch_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3810,22 +3599,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_gentoo">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico13</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_gentoo_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3855,22 +3629,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_lfs">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image">help_ico14</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                        <signal name="clicked" handler="on_help_lfs_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -4050,9 +3809,9 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">v0.5 | Hermes
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) introduction program for the Linux operating system. Features include easy installation of high quality programs (helps finding alternatives), choosing from the countless Linux distributions, helping in everyday tasks or in development with a collection of free open source softwares (mainly from github, including my projects also) and more features are coming.
-
-To get informed about recent changes click on the button below.</property>
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools,
+easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
+To view recent changes visit the link below.</property>
                                 <property name="justify">center</property>
                                 <property name="wrap">True</property>
                                 <attributes>

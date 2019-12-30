@@ -9,13 +9,26 @@
 
 # Set program root location
 import os
-dire = '/home/daniel/GitRepos/hsuite/DEV_FILES/'
-os.chdir(dire)
+try:
+    if getattr(sys, 'frozen') and hasattr(sys, '_MEIPASS'):
+        print(sys._MEIPASS)
+        os.chdir(sys._MEIPASS)
+        print('Running in production mode.')
+    else:
+        fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
+        print(fdir)
+        os.chdir(fdir)
+        print('Running in development mode.')
+except:
+    fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
+    print(fdir)
+    os.chdir(fdir)
+    print('Running in development mode.')
 # Import GUI modules
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit2', '4.0')
-from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject
+from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject, Gio
 import re
 # Module for opening webbrowser
 import webbrowser
@@ -52,6 +65,10 @@ elif 'archlinux' in dist or 'MANJARO' in dist:
     distro = 'Arch'
 elif 'Debian' in dist or 'deepin' in dist:
     distro = 'Debian'
+else:
+    print('E: Complete incompatibility!')
+    os.system('zenity --warning --text="Can not detect your distro.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan),\nDebian (buster). Aborting now." --ellipsize')
+    raise SystemExit
 if 'MANJARO' in dist:
     distro = 'Arch'
     print('W: Not fully compatible with Manjaro!')
@@ -60,16 +77,13 @@ elif 'deepin' in dist:
     distro = 'Debian'
     print('W: Not fully compatible with Deepin!')
     os.system('zenity --warning --text="Your distro is detected as Deepin.\nThis distro is not fully tested, you may encounter some problems with the program.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
-else:
-    print('E: Complete incompatibility!')
-    os.system('zenity --warning --text="Can not detect your distro.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan),\nDebian (buster). Aborting now." --ellipsize')
-    raise SystemExit
 
 ## Colors (button)
-colorR = Gdk.color_parse('red')
-rgbaR = Gdk.RGBA.from_color(colorR)
-colorG = Gdk.color_parse('green')
-rgbaG = Gdk.RGBA.from_color(colorG)
+provider = Gtk.CssProvider()
+colors = Gio.File.new_for_path('colors.css')
+provider.load_from_file(colors)
+Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
 
 # Used with Distro Boutique
 # To check if a download is already in progress or not
@@ -217,12 +231,7 @@ class GUI:
         x, y = window.get_position()
         # Get the size of the window
         sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(window,                      # Make a popup window without parent
-                                         # make it modal (always on top) and destroy together with main window (for example on force quit)
-                                         Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                         Gtk.MessageType.QUESTION,             # message type is question
-                                         Gtk.ButtonsType.YES_NO,               # add yes and no buttons
-                                         "Do you really would like to exit now?")  # set the label
+        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text='Do you really would like to exit now?')
         # set the title
         dialogWindow.set_title("Prompt")
         dsx, dsy = dialogWindow.get_size()                          # get the dialogs size
@@ -259,11 +268,9 @@ class GUI:
         # set the button label depending on this
         gbut.set_label(status)
         if status == "Remove":
-            gbut.override_background_color(
-                0, rgbaR)           # red for remove
+            gbut.get_style_context().add_class('red-background')
         else:
-            gbut.override_background_color(
-                0, rgbaG)           # green for install
+            gbut.get_style_context().add_class('green-background')
         return status
 
     def scanner(self):                                         # Scans the OS for programs
@@ -707,12 +714,7 @@ class GUI:
     def on_htools_but_clicked(self, button):
         x, y = window.get_position()
         sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(window,
-                                         Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                         Gtk.MessageType.INFO,
-                                         Gtk.ButtonsType.OK,
-                                         'Coming in future Beta releases...')                  # dialog for prompting that this feature isn't ready yet
-
+        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text='Coming in future Beta releases...')
         dialogWindow.set_title("Coming soon")
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
