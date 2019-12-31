@@ -11,5 +11,11 @@
 }
 
 button:hover{
-   background-color: black;
+   background-color: dimgray;
+}
+
+button{
+   background-image: none;
+   background-color: darkslategray;
+   color: white;
 }

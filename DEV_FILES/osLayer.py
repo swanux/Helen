@@ -28,22 +28,24 @@ def asroot(asr):            # The function to display prompt for root acces.
 
 # Search deps
 def aurer(fold, extra, runDep, buildDep):                                    # The builder for AUR
+    os.system('zenity --info --text="Note, that installing from AUR can require\npassword up to 3 times and can last longer (~5-10 mins).\nAlso note, that these packages may fail to build\ndue to problems in the PKGBUILD file from AUR." --ellipsize')
     asroot('pacman -Sq --noconfirm %s %s' % (runDep, buildDep))
     if extra == '':
         print('no extras')
         exe = False
     else:
+        exe = True
         extra = list(extra.split(" "))
         exLen = len(extra)
         print('len of ex: %s' % exLen)
     if exe:
         for i in range(exLen):
-            fold = extra[i]
-            cmd = 'mkdir .tmp_hsuite && echo $USER && cd /home/%s/.tmp_hsuite && git clone https://aur.archlinux.org/%s.git && cd %s && makepkg -rc' % (user, fold, fold)
-            os.system('runuser -l %s -c "%s"' % (user, cmd) )
-            asroot('pacman -U --noconfirm /home/%s/.tmp_hsuite/%s/*.pkg.tar.xz ; rm -rf /home/%s/.tmp_hsuite/ && pacman -Runs --noconfirm %s' % (user, fold, user, buildDep))
-    cmd = 'mkdir .tmp_hsuite && echo $USER && cd /home/%s/.tmp_hsuite && git clone https://aur.archlinux.org/%s.git && cd %s && makepkg -rc' % (user, fold, fold)
-    os.system('runuser -l %s -c "%s"' % (user, cmd) )
+            os.system('mkdir /home/$USER/.tmp_hsuite && echo $USER && cd /home/%s/.tmp_hsuite && git clone https://aur.archlinux.org/%s.git && cd %s && makepkg -rc' % (user, extra[i], extra[i]))
+            asroot('pacman -U --noconfirm /home/%s/.tmp_hsuite/%s/*.pkg.tar.xz ; rm -rf /home/%s/.tmp_hsuite/ && pacman -Runs --noconfirm %s' % (user, extra[i], user, buildDep))
+    if 'popsicle' in fold:
+        os.system('mkdir /home/$USER/.tmp_hsuite && echo $USER && cd /home/%s/.tmp_hsuite && git clone https://github.com/swanux/popsicle-git.git && cd %s && makepkg -rc' % (user, fold))
+    else:
+        os.system('mkdir /home/$USER/.tmp_hsuite && echo $USER && cd /home/%s/.tmp_hsuite && git clone https://aur.archlinux.org/%s.git && cd %s && makepkg -rc' % (user, fold, fold))
     asroot('pacman -U --noconfirm /home/%s/.tmp_hsuite/%s/*.pkg.tar.xz ; rm -rf /home/%s/.tmp_hsuite/ && pacman -Runs --noconfirm %s' % (user, fold, user, buildDep))
 
 
@@ -75,6 +77,8 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
             else:
                 asroot('DEBIAN_FRONTEND=noninteractive apt install %s %s -y' % (comm1, extra))
         elif distro == 'Arch':
+            if extra == 'popsicle-gtk':
+                extra = ''
             if faur:
                 aurer(comm2, extra, runDep, buildDep)
             else:
@@ -86,39 +90,32 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                     asroot('pacman -Sq --noconfirm wmctrl libinput xdotool && gem install %s fusuma-plugin-wmctrl && gpasswd -a $USER input' % comm2)
                     fusConfs()
                 elif comm2 == 'TeamViewer':
-                    os.system('mkdir /home/%s/.tmp_tw && cd /home/%s/.tmp_tw && wget https://download.teamviewer.com/download/linux/teamviewer_amd64.tar.xz' % (user, user))
-                    ver = os.popen('cd /home/%s/.tmp_tw && ls' % user).read()
-                    ver = ver.split()
-                    hos = len(ver)
-                    print(hos)
-                    i = 0
-                    print(ver)
-                    while i < hos:
-                        if 'teamviewer' in ver[i]:
-                            ver = ver[i]
-                        else:
-                            i += 1
-                    os.system('tar -xJf /home/%s/.tmp_tw/%s && rm -rf /home/%s/.tmp_tw/%s' % (user, ver, user, ver))
-                    asroot('cd /home/%s/.tmp_tw/teamviewer && ./tv-setup install force')
+                    os.system('mkdir /home/%s/.tmp_tw' % user)
+                    os.system('cd /home/%s/.tmp_tw && wget https://download.teamviewer.com/download/linux/teamviewer_amd64.tar.xz' % user)
+                    os.system('cd /home/%s/.tmp_tw && tar -xJf /home/%s/.tmp_tw/teamviewer_amd64.tar.xz && rm /home/%s/.tmp_tw/teamviewer_amd64.tar.xz' % (user, user, user))
+                    asroot('cd /home/%s/.tmp_tw/teamviewer && pacman -S --noconfirm qt5-quickcontrols qt5-webkit qt5-x11extras && ./tv-setup install force' % user)
                 elif comm2 == 'virtualbox':
                     asroot('pacman -Sq --noconfirm %s %s && /sbin/rcvboxdrv setup' % (comm2, extra))
+                    print('Applying patch for VBox on Arch')
                 else:
                     asroot('pacman -Sq --noconfirm %s %s' % (comm2, extra))
         else:
             print('E: Bad name in os_layer!!')
     elif status == 'remove':
         if distro == 'Ubuntu' or distro == 'Debian':
-            if extra == 'popsicle-cli-git':
-                extra = 'popsicle-gtk'
+            if comm1 == 'firefox' and distro == 'Debian':
+                comm1 = 'firefox-esr'
             if comm1 == 'fusuma':
                 asroot('yes | gem uninstall fusuma-plugin-wmctrl fusuma && apt purge xdotool libinput-tools -y && apt autoremove -y && gpasswd -d $USER input && rm -rf /home/$USER/.config/fusuma && rm /home/$USER/.config/autostart/fusuma.desktop')
             else:
                 asroot('DEBIAN_FRONTEND=noninteractive apt purge %s %s -y ; apt autoremove -y' % (comm1, extra))
         elif distro == 'Arch':
+            if extra == 'popsicle-gtk':
+                extra = ''
             if comm2 == 'fusuma':
                 asroot('pacman -Runs --noconfirm xdotool libinput && yes | gem uninstall fusuma-plugin-wmctrl fusuma && gpasswd -d $USER input && && rm -rf /home/$USER/.config/fusuma && rm /home/$USER/.config/autostart/fusuma.desktop')
             elif comm2 == 'TeamViewer':
-                asroot('cd /home/%s/.tmp_tw/teamviewer && ./tv-setup uninstall force && rm -rf teamviewer && rm -rf /opt/teamviewer' % user)
+                asroot('cd /home/%s/.tmp_tw/teamviewer && ./tv-setup uninstall force && rm -rf /home/%s/.tmp_tw/ && rm -rf /opt/teamviewer' % (user, user))
             else:
                 asroot('pacman -Runs --noconfirm  %s %s %s' % (comm2, extra, runDep))
         else:

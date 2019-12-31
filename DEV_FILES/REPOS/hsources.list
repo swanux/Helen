@@ -1,6 +1,0 @@
-deb http://mirror.inode.at/data/deepin stable non-free contrib # WPS,chrome,sublime,vivaldi,franz,teamviewer
-deb https://download.onlyoffice.com/repo/debian squeeze main
-deb http://shop.softmaker.com/repo/apt wheezy non-free # freeoffice
-deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main
-deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu disco main
-deb http://ppa.launchpad.net/kelleyk/emacs/ubuntu disco main
