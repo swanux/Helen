@@ -1,0 +1,21 @@
+.red-background{
+    background-image: none;
+    background-color: red;
+    color: white;
+}
+
+.green-background{
+    background-image: none;
+    background-color: green;
+    color: white;
+}
+
+button:hover{
+   background-color: dimgray;
+}
+
+button{
+   background-image: none;
+   background-color: darkslategray;
+   color: white;
+}
