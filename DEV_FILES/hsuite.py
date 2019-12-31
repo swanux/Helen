@@ -9,17 +9,13 @@
 
 # Set program root location
 import os
-try:
-    if getattr(sys, 'frozen') and hasattr(sys, '_MEIPASS'):
-        print(sys._MEIPASS)
-        os.chdir(sys._MEIPASS)
-        print('Running in production mode.')
-    else:
-        fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
-        print(fdir)
-        os.chdir(fdir)
-        print('Running in development mode.')
-except:
+pathCheck = os.popen('ls /usr/share/hsuite/').read()
+if 'hsuite' in pathCheck:
+    fdir = "/usr/share/hsuite/"
+    print(fdir)
+    os.chdir(fdir)
+    print('Running in production mode.')
+else:
     fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
     print(fdir)
     os.chdir(fdir)
