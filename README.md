@@ -64,6 +64,10 @@ https://streamable.com/9vryf
 
 https://streamable.com/bx8jp
 
+**v0.5**
+
+https://streamable.com/ki5zd
+
 # What is HSuite?
 
 *Be SSU (Simple, Small, Useful)*
