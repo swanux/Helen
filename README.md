@@ -22,7 +22,7 @@ Here is the changelog of every update. For further details you can always check 
 
 **For Ubuntu/Debian:**
 
-*Note:* Currently supported versions:
+**Note:** Currently supported versions:
 
     Debian 10 (buster)
     Ubuntu 18.04 (bionic)
@@ -34,7 +34,7 @@ To find out your codename on Ubuntu just run:
     source /etc/lsb-release \
     echo $DISTRIB_CODENAME
 
-*Tipp:* If you are using a distro that's not in the list but it is based on Debian/Ubuntu, then use the oldest codename.
+**Tipp:** If you are using a distro that's not in the list but it is based on Debian/Ubuntu, then use the oldest codename.
 E.g.: Use bionic for Ubuntu derivatives and buster for Debian derivatives.
 
 To install run:
@@ -97,9 +97,4 @@ https://streamable.com/ki5zd
 
 *Be SSU (Simple, Small, Useful)*
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. *ATTENTION!* This program is currently in Beta stage (v0.5). **NOTE:** Currently works on Debian/Ubuntu and Arch based distros.
-
-# Also checkout
-
-HelenArch (Help enter arch) is a CLI installer ISO for Arch Linux. **Installation made easy.**
-You can download it from here: https://sourceforge.net/projects/helenarch/
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.5). **NOTE:** Currently works on Debian/Ubuntu and Arch based distros.
