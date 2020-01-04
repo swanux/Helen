@@ -465,6 +465,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_db_but_clicked" swapped="no"/>
@@ -499,6 +503,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_ac_but_clicked" swapped="no"/>
@@ -559,6 +567,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="button_clicked" swapped="no"/>
@@ -575,6 +587,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_about_but_clicked" swapped="no"/>
@@ -591,6 +607,10 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
+                            <property name="margin_left">5</property>
+                            <property name="margin_right">5</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_htools_but_clicked" swapped="no"/>
@@ -1000,6 +1020,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                               <object class="GtkButton" id="edge_but">
                                 <property name="label" translatable="yes">Coming Soon</property>
                                 <property name="visible">True</property>
+                                <property name="sensitive">False</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="margin_left">5</property>
@@ -2776,7 +2797,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">30</property>
-                                <property name="label" translatable="yes">Welcome to the Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the bestt distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
+                                <property name="label" translatable="yes">Welcome to the Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the best distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
 
 As you can see there are some categories. The first question is usually this: "Which's the best Linux distro?". However this question can't be answered, because there is no best one. The question should be: "Which's the most suitable distro for my needs?".  Thats why I collected distros into some main categories.
 

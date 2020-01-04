@@ -1,3 +1,3 @@
 #!/bin/sh +e
 
-/usr/share/hsuite/hsuite.py
+/usr/share/hsuite/HSuite
