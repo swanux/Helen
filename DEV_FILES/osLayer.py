@@ -67,6 +67,8 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                 comm1 = 'firefox-esr'
             if extra == 'popsicle-cli-git':
                 extra = 'popsicle-gtk'
+            if comm1 = 'winehq-stable':
+                asroot('dpkg --add-architecture i386')
             if comm1 == 'fusuma':
                 try:
                     os.system('gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled')
