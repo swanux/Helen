@@ -172,7 +172,9 @@ print("Current day: %s" % day)
 print("Current month: %s" % month)
 print("Current year: %s" % year)
 print("Name of non-root user: %s" % user)
+print('---BEGIN---')
 print("Content of working directory: %s" % str(wer))
+print("---END---")
 print("Output of $uname -a$ : %s" % dist)
 print("Detected distro: %s" % distro)
 
@@ -355,7 +357,7 @@ class GUI:
                         print('Not found %s' % name)
                         status = 'Install'
                 except:
-                    print('Auto error handling --> Falling back to default')
+                    print('Auto error handling --> Falling back to default (Not found)')
                     status = 'Install'
         if self.spece(name):
             status = '%s (AUR)' % status

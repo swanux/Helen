@@ -4,6 +4,7 @@
 import os
 alive = False
 user = ''
+scanner = True
 # waitState = False
 # havPass = False
 
