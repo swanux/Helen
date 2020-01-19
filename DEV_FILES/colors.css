@@ -1,21 +1,24 @@
+button {
+    border-radius: 15px;
+    color:whitesmoke;
+    background-color: darkslategray;
+    background-image:none;
+}
+button:hover {
+    background-color: dimgray;
+    color:whitesmoke;
+}
+button:hover:active {
+    background-color: orange;
+    color: cyan;
+}
 .red-background{
     background-image: none;
     background-color: red;
     color: white;
 }
-
 .green-background{
     background-image: none;
     background-color: green;
     color: white;
-}
-
-button:hover{
-   background-color: dimgray;
-}
-
-button{
-   background-image: none;
-   background-color: darkslategray;
-   color: white;
 }

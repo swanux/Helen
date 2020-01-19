@@ -4,6 +4,10 @@
 #________________________________________________________________________________ BEGINNING OF INIT ____________________________________________________________#
 
 
+# Version of the program
+version = 'HSuite v0.5.1 | Hermes'
+v = ''
+
 ### Import modules ###
 
 
@@ -27,6 +31,8 @@ gi.require_version('WebKit2', '4.0')
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject, Gio
 import re
 import apt
+# Config
+from configparser import ConfigParser
 # Module for opening webbrowser
 import webbrowser
 # Running background processes
@@ -45,6 +51,7 @@ from osLayer import asroot
 from osLayer import my_thread
 import osLayer
 
+
 ### Declare global variables ###
 
 
@@ -54,26 +61,54 @@ month = today.strftime("%m")
 day = today.strftime("%d")
 year = today.strftime("%Y")
 
-# Detect distro
-dist = os.popen('uname -a').read()          # Get distro name
-if 'Ubuntu' in dist:
-    distro = 'Ubuntu'
-elif 'arch' in dist:
-    distro = 'Arch'
-elif 'Debian' in dist:
-    distro = 'Debian'
-elif 'MANJARO' in dist:
-    distro = 'Arch'
-    print('W: Not fully compatible with Manjaro!')
-    os.system('zenity --warning --text="Your distro is detected as Manjaro.\nThis distro is not fully tested, you may encounter some problems with the program.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
-elif 'deepin' in dist:
-    distro = 'Debian'
-    print('W: Not fully compatible with Deepin!')
-    os.system('zenity --warning --text="Your distro is detected as Deepin.\nThis distro is not fully tested, you may encounter some problems with the program.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
+# Getting the name of the non-root user
+user = os.popen("who|awk '{print $1}'r").read()
+# Edit to only contain the name itself
+user = user.rstrip()
+osLayer.user = user
+
+## Config section ##
+
+parser = ConfigParser()
+
+confP = '/home/%s/.config/hsuite.conf' % user
+if os.path.exists(confP):
+    print('Configured already')
+    parser.read(confP)
+    distro = parser.get('system', 'distro')
+    v = parser.get('hsuite', 'v')
+    dist = parser.get('system', 'dist')
 else:
-    print('E: Complete incompatibility!')
-    os.system('zenity --error --text="Can not detect your distro.\nCurrently tested on distros: Arch, Ubuntu (bionic, disco, eoan),\nDebian (buster). Aborting now." --ellipsize')
-    raise SystemExit
+    print('Config not found')
+    # Detect distro
+    dist = os.popen('uname -a').read()          # Get distro name
+    if 'Ubuntu' in dist:
+        distro = 'Ubuntu'
+    elif 'arch' in dist:
+        distro = 'Arch'
+    elif 'Debian' in dist:
+        distro = 'Debian'
+    elif 'MANJARO' in dist:
+        distro = 'Arch'
+        print('W: Not fully compatible with Manjaro!')
+        os.system('zenity --warning --text="Your distro is detected as Manjaro.\nThis distro is not fully tested,\nyou may encounter some problems\nwith the program. Currently tested\non distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
+    elif 'deepin' in dist:
+        distro = 'Debian'
+        print('W: Not fully compatible with Deepin!')
+        os.system('zenity --warning --text="Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
+    else:
+        print('E: Complete incompatibility!')
+        os.system('zenity --error --text="Can not detect your distro.\nCurrently tested on distros:\nArch, Ubuntu (bionic, disco, eoan),\nDebian (buster). Aborting now." --ellipsize')
+        raise SystemExit
+    parser.add_section('system')
+    parser.add_section('hsuite')
+    parser.set('system', 'distro',  distro)
+    parser.set('hsuite', 'v', version)
+    parser.set('system', 'dist', dist)
+    file = open(confP, "w+")
+    parser.write(file)
+    file.close()
+
 
 
 ## Colors (button)
@@ -123,13 +158,6 @@ specDList = ['']
 # Used generally
 # The glade file
 UI_FILE = "hsuite.glade"
-# Version of the program
-version = 'HSuite v0.5 | Hermes'
-# Getting the name of the non-root user
-user = os.popen("who|awk '{print $1}'r").read()
-# Edit to only contain the name itself
-user = user.rstrip()
-osLayer.user = user
 # Get current session type
 xorw = os.popen('echo $XDG_SESSION_TYPE').read()
 # It's Xorg, so it wokrs with gestures'
@@ -177,6 +205,11 @@ print("Content of working directory: %s" % str(wer))
 print("---END---")
 print("Output of $uname -a$ : %s" % dist)
 print("Detected distro: %s" % distro)
+print('Updated? : %s' % v)
+
+if v != version and v != '':
+    os.system('zenity --info --text="HSuite has been updated to %s.\nFor changelog visit https://swanux.github.io/hsuite/" --ellipsize' % version)
+    os.system('rm %s' % confP)
 
 
 #________________________________________________________________________ END OF INIT ____________________________________________________________#
@@ -262,6 +295,7 @@ class GUI:
         if res == Gtk.ResponseType.YES:                             # if yes ...
             print('OK pressed')
             dialogWindow.destroy()
+            code = 'force'
             if osLayer.alive:
                 text = "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % cPkg
                 code = self.abort('install', text)
@@ -364,6 +398,8 @@ class GUI:
         return status
 
     def abort(self, mode, text):
+        global quit
+        global rmE
         x, y = window.get_position()
         sx, sy = window.get_size()
         dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=text)
@@ -377,6 +413,7 @@ class GUI:
         if res == Gtk.ResponseType.YES:
             if mode == 'download':
                 quit = True
+                rmE = True
                 print(quit)
             elif mode == 'install':
                 print('Installation already running')
@@ -391,7 +428,6 @@ class GUI:
             return 'force'
         elif res == Gtk.ResponseType.NO:
             print('No pressed')
-            self.button_clicked('')
             dialogWindow.destroy()
             return True
 
@@ -562,6 +598,7 @@ class GUI:
         print("Label restore")
         # If the download is aborted by the user, remove the already downloaded file
         if rmE:
+            print('Cleaning up...')
             os.system('rm /home/%s/Downloads/%s' % (user, file_name))
         else:
             # Set label to ready
