@@ -322,7 +322,7 @@ class GUI:
         # Call function to check if apps are installed or not
         status = self.OnCheck(name)
         # set the button label depending on this
-        gbut.set_label(status)
+        GLib.idle_add(gbut.set_label, status)
         gbut.get_style_context().remove_class("red-background")
         gbut.get_style_context().remove_class("green-background")
         if "Remove" in status:
@@ -758,7 +758,9 @@ class GUI:
             stack.set_visible_child(notebook_box)
             print('NO_VALUE')
             # start scanning
-            app.scanner()
+            aS = futures.ThreadPoolExecutor(max_workers=2)
+            s = aS.submit(app.scanner)
+            print('SCANN START')
         else:
             print('ERROR')
 

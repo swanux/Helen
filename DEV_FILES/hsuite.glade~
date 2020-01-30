@@ -707,6 +707,10 @@ Author: Dániel Kolozsi (@swanux)
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
                 <property name="image">image1</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="home_clicked" swapped="no"/>
@@ -2655,12 +2659,17 @@ If you click on the icon of the program, you'll see some extra informations abou
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
+                    <property name="spacing">8</property>
                     <child>
                       <object class="GtkButton" id="back_button">
                         <property name="label" translatable="yes">App Spotlight</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="margin_left">5</property>
+                        <property name="margin_right">5</property>
+                        <property name="margin_top">5</property>
+                        <property name="margin_bottom">5</property>
                         <property name="image">image2</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="on_back_button_clicked" swapped="no"/>
@@ -2694,6 +2703,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="margin_left">5</property>
+                        <property name="margin_right">5</property>
+                        <property name="margin_top">5</property>
+                        <property name="margin_bottom">5</property>
                         <property name="image">image7</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="on_rew_link_clicked" swapped="no"/>
@@ -2710,6 +2723,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="margin_left">5</property>
+                        <property name="margin_right">5</property>
+                        <property name="margin_top">5</property>
+                        <property name="margin_bottom">5</property>
                         <property name="image">image8</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="on_web_link_clicked" swapped="no"/>
@@ -2742,6 +2759,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
                 <property name="image">image6</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="home_clicked" swapped="no"/>
@@ -2870,7 +2891,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
-                                <property name="column_spacing">2</property>
+                                <property name="column_spacing">5</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkButton" id="mint">
@@ -2878,6 +2899,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">mint_img</property>
@@ -2896,6 +2919,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">ubuntu_img</property>
@@ -2914,6 +2939,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">solus_img</property>
@@ -2936,6 +2963,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -2966,6 +2995,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -2996,6 +3027,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3008,20 +3041,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="help_solus">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="image_position">top</property>
-                                        <property name="always_show_image">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
+                                      <placeholder/>
                                     </child>
                                   </object>
                                   <packing>
@@ -3035,6 +3055,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">deepin_img</property>
@@ -3053,6 +3075,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">elementary_img</property>
@@ -3071,6 +3095,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">zorin_img</property>
@@ -3093,6 +3119,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3149,6 +3177,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3236,7 +3266,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
-                                <property name="column_spacing">2</property>
+                                <property name="column_spacing">5</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkBox" id="buts_box6">
@@ -3248,6 +3278,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3274,6 +3306,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">steamos_img</property>
@@ -3353,7 +3387,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
-                                <property name="column_spacing">2</property>
+                                <property name="column_spacing">5</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkBox" id="buts_box9">
@@ -3365,6 +3399,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3395,6 +3431,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3425,6 +3463,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3451,6 +3491,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">deb_img</property>
@@ -3469,6 +3511,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">fedora_img</property>
@@ -3487,6 +3531,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">opsu_img</property>
@@ -3566,7 +3612,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="row_spacing">4</property>
-                                <property name="column_spacing">2</property>
+                                <property name="column_spacing">5</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkBox" id="buts_box12">
@@ -3578,6 +3624,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3608,6 +3656,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3638,6 +3688,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
@@ -3664,6 +3716,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">arch_img</property>
@@ -3682,6 +3736,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">gentoo_img</property>
@@ -3700,6 +3756,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="margin_left">5</property>
+                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">lfs_img</property>
@@ -3775,6 +3833,10 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="margin_left">5</property>
+                        <property name="margin_right">5</property>
+                        <property name="margin_top">5</property>
+                        <property name="margin_bottom">5</property>
                         <property name="image">image3</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="home_clicked" swapped="no"/>
@@ -4127,6 +4189,10 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
                     <property name="image">image5</property>
                     <property name="always_show_image">True</property>
                     <signal name="clicked" handler="home_clicked" swapped="no"/>

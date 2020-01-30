@@ -1,16 +1,48 @@
 button {
     border-radius: 15px;
     color:whitesmoke;
-    background-color: darkslategray;
+    background-color: dimgray;
     background-image:none;
+    border-right-width: 3px; 
+    border-left-width: 3px;
+}
+notebook > header.top > tabs > tab {
+    background: dimgray;
+    color: whitesmoke;
+    border-image: none;
+    border: 3px solid rgba(0,0,0,0.4);
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: none;
+}
+notebook > header.bottom > tabs > tab {
+    background: dimgray;
+    color: whitesmoke;
+    border-image: none;
+    border: 3px solid rgba(0,0,0,0.4);
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: none;
+}
+notebook > header > tabs > tab:hover {
+    background: rgb(0, 153, 255);
+    color: whitesmoke;
+    border-image: none;
+}
+notebook > header > tabs > tab:checked {
+    background: rgb(0, 114, 221);
+    color: whitesmoke;
+    border-image: none;
 }
 button:hover {
-    background-color: dimgray;
+    background-color: rgb(0, 153, 255);
+    color:whitesmoke;
+}
+button:disabled {
+    background-color: rgb(54, 54, 54);
     color:whitesmoke;
 }
 button:hover:active {
-    background-color: orange;
-    color: cyan;
+    background-color: lightblue;
+    color: darkgreen;
 }
 .red-background{
     background-image: none;
