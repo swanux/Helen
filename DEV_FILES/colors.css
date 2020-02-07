@@ -10,7 +10,7 @@ notebook > header.top > tabs > tab {
     background: dimgray;
     color: whitesmoke;
     border-image: none;
-    border: 3px solid rgba(0,0,0,0.4);
+    border: 3px solid rgba(0, 0, 0, 0);
     border-radius: 10px 10px 0px 0px;
     border-bottom: none;
 }
@@ -18,7 +18,7 @@ notebook > header.bottom > tabs > tab {
     background: dimgray;
     color: whitesmoke;
     border-image: none;
-    border: 3px solid rgba(0,0,0,0.4);
+    border: 3px solid rgba(0,0,0,0.0);
     border-radius: 10px 10px 0px 0px;
     border-bottom: none;
 }

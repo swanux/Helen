@@ -2688,7 +2688,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="justify">center</property>
                         <property name="wrap">True</property>
                         <attributes>
-                          <attribute name="style" value="oblique"/>
+                          <attribute name="style" value="normal"/>
+                          <attribute name="weight" value="medium"/>
                         </attributes>
                       </object>
                       <packing>

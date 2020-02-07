@@ -823,7 +823,7 @@ class GUI:
 
         if day == "01":
             if month == "01":
-                aMonth = 11
+                aMonth = 12
                 aYear = int(year) - 1
             else:
                 aMonth = int(month) - 1
@@ -929,6 +929,7 @@ class GUI:
             state = True
             f.add_done_callback(self.toggle)
         elif not scanningUrl:
+            i = 0
             for i in range(dlistLen):
                 cBut = self.builder.get_object(dlist[i])        # if loaded
                 # load from cache
@@ -980,7 +981,7 @@ class GUI:
 
 # What to do on button clicks
     def on_opera_but_clicked(self, button):
-        self.lilFunc('Opera', 'opera-stable', 'opera-ffmpeg-codecs flashplugin', '', '')
+        self.lilFunc('Opera', 'opera-stable', 'opera-ffmpeg-codecs', '', '')
 
     def on_chrome_but_clicked(self, button):
         self.lilFunc('Chrome', 'google-chrome-stable', '', 'alsa-lib gtk3 libcups libxss libxtst nss', '')
