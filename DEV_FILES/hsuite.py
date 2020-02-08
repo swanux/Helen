@@ -309,10 +309,10 @@ class GUI:
                 return True
         elif res == Gtk.ResponseType.NO:                            # if no ...
             print('No pressed')
-            dialogWindow.destroy()                                  # sestroy dialog
+            dialogWindow.destroy()                                  # destroy dialog
             return True                                             # end function
         else:
-            dialogWindow.destroy()                                  # sestroy dialog
+            dialogWindow.destroy()                                  # destroy dialog
             return True                                             # end function
 
 ###################################################################################
@@ -1299,6 +1299,6 @@ class GUI:
 # End of descriptions
 # _____________________________________________________________________ END OF GUI ____________________________________________________________________#
 
-
-app = GUI()  # variable to call GUI class
-Gtk.main()  # execute main GTK window
+if __name__ == "__main__":
+    app = GUI()  # variable to call GUI class
+    Gtk.main()  # execute main GTK window
