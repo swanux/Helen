@@ -2,9 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import os
+from aptdaemon import client
 alive = False
 user = ''
 scanner = True
+apt_client = client.AptClient()
 # waitState = False
 # havPass = False
 
@@ -53,6 +55,12 @@ def aurer(fold, extra, runDep, buildDep):                                    # T
 def fusConfs():
     os.system('mkdir -p /home/$USER/.config/autostart && mkdir -p /home/$USER/.config/fusuma && cp /usr/share/hsuite/config.yml /home/$USER/.config/fusuma/ && cp /usr/share/hsuite/fusuma.desktop /home/$USER/.config/autostart/')
 
+def on_fin(transaction, exit_state):
+    global alive
+    alive = False
+    print('Trans : %s' % transaction)
+    print('Code : %s' % exit_state)
+    print("FIN")
 
 def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     print(status+' '+distro)
@@ -76,7 +84,16 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                 asroot('DEBIAN_FRONTEND=noninteractive apt install %s -y && gem install %s fusuma-plugin-wmctrl && gpasswd -a $USER input' % (extra, comm1))
                 fusConfs()
             else:
-                asroot('DEBIAN_FRONTEND=noninteractive apt install %s %s -y' % (comm1, extra))
+                # asroot('DEBIAN_FRONTEND=noninteractive apt install %s %s -y' % (comm1, extra))
+                if extra == "":
+                    pkgs = [comm1]
+                    print(*pkgs)
+                else:
+                    pkgs = [comm1, extra]
+                    print(*pkgs)
+                transaction = apt_client.install_packages(pkgs)
+                transaction.connect("finished", on_fin)
+                transaction.run()
         elif distro == 'Arch':
             if extra == 'popsicle-gtk':
                 extra = ''
@@ -124,6 +141,6 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     else:
         print('E: Bad status!')
     print('end of func')
-    alive = False
+    # alive = False
 
 #__________________________________________________________________ END OF THREADS _____________________________________________________________________#

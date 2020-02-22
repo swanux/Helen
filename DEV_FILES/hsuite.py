@@ -440,9 +440,11 @@ class GUI:
         # Current pkg name
         cPkg = name
         # init thread with thread function
-        t1 = myThread(1, "Thread-1", status, comm1, comm2, faur, extra, runDep, buildDep)
+        # t1 = myThread(1, "Thread-1", status, comm1, comm2, faur, extra, runDep, buildDep)
+        my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
+        print("##########-HEY-###############")
         # start it
-        t1.start()
+        # t1.start()
         # set minutes to 0
         m = 0
         
@@ -477,7 +479,7 @@ class GUI:
             if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
                 m = m+1
-            if t1.is_alive():                                                        # if thread is still running repeat
+            if osLayer.alive:                                                        # if thread is still running repeat
                 return True
             else:                                                                   # on exit
                 # reset counter
