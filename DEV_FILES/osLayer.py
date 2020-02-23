@@ -7,6 +7,8 @@ alive = False
 user = ''
 scanner = True
 apt_client = client.AptClient()
+trans = ""
+# apt_trans = client.AptTransaction()
 # waitState = False
 # havPass = False
 
@@ -62,10 +64,20 @@ def on_fin(transaction, exit_state):
     print('Code : %s' % exit_state)
     print("FIN")
 
+# def on_fin2(transaction, exit_state):
+#     print('REMOVEING OBSOLETED DEPS...')
+#     transaction = apt_trans.remove_obsoleted_depends
+#     transaction.connect("finished", on_fin)
+#     transaction.run()
+#     print('Trans : %s' % transaction)
+#     print('Code : %s' % exit_state)
+#     print("FIN")
+
 def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     print(status+' '+distro)
     print('faur: %s' % faur)
     global alive
+    global trans
     alive = True
     if status == 'install':
         if distro == 'Ubuntu' or distro == 'Debian':
@@ -91,9 +103,9 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                 else:
                     pkgs = [comm1, extra]
                     print(*pkgs)
-                transaction = apt_client.install_packages(pkgs)
-                transaction.connect("finished", on_fin)
-                transaction.run()
+                trans = apt_client.install_packages(pkgs)
+                trans.connect("finished", on_fin)
+                trans.run()
         elif distro == 'Arch':
             if extra == 'popsicle-gtk':
                 extra = ''
@@ -117,6 +129,7 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                     print('Applying patch for VBox on Arch')
                 else:
                     asroot('pacman -Sq --noconfirm %s %s' % (comm2, extra))
+                alive = False
         else:
             print('E: Bad name in os_layer!!')
     elif status == 'remove':
@@ -126,7 +139,16 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
             if comm1 == 'fusuma':
                 asroot('yes | gem uninstall fusuma-plugin-wmctrl fusuma && apt purge xdotool libinput-tools -y && apt autoremove -y && gpasswd -d $USER input && rm -rf /home/$USER/.config/fusuma && rm /home/$USER/.config/autostart/fusuma.desktop')
             else:
-                asroot('DEBIAN_FRONTEND=noninteractive apt purge %s %s -y ; apt autoremove -y' % (comm1, extra))
+                if extra == "":
+                    pkgs = [comm1]
+                    print(*pkgs)
+                else:
+                    pkgs = [comm1, extra]
+                    print(*pkgs)
+                trans = apt_client.remove_packages(pkgs)
+                trans.connect("finished", on_fin)
+                trans.run()
+                # asroot('DEBIAN_FRONTEND=noninteractive apt purge %s %s -y ; apt autoremove -y' % (comm1, extra))
         elif distro == 'Arch':
             if extra == 'popsicle-gtk':
                 extra = ''
@@ -136,11 +158,11 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                 asroot('cd /home/%s/.tmp_tw/teamviewer && ./tv-setup uninstall force && rm -rf /home/%s/.tmp_tw/ && rm -rf /opt/teamviewer' % (user, user))
             else:
                 asroot('pacman -Runs --noconfirm  %s %s %s' % (comm2, extra, runDep))
+            alive = False
         else:
             print('E: Bad name in os_layer!!')
     else:
         print('E: Bad status!')
     print('end of func')
-    # alive = False
 
 #__________________________________________________________________ END OF THREADS _____________________________________________________________________#

@@ -28,6 +28,7 @@ else:
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit2', '4.0')
+from aptdaemon import client
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject, Gio
 import re
 import apt
@@ -418,7 +419,8 @@ class GUI:
             elif mode == 'install':
                 print('Installation already running')
                 if distro == 'Ubuntu' or distro == 'Debian':
-                    asroot('killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y')
+                    # asroot('killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y')
+                    osLayer.trans.cancel()
                 elif distro == 'Arch':
                     asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
                 else:
@@ -564,8 +566,13 @@ class GUI:
             if dlist[i] != Tdownl and shDict[dlist[i]] != "PFalse":
                 print(dlist[i], shDict[dlist[i]], Tdownl)
                 cBut = self.builder.get_object(dlist[i])
-                GLib.idle_add(cBut.set_sensitive, state)
-                shDict[dlist[i]] = "%s" % state
+                t = cBut.get_label()
+                print(t)
+                if t == "Server error":
+                    print('ERROR')
+                else:
+                    GLib.idle_add(cBut.set_sensitive, state)
+                    shDict[dlist[i]] = "%s" % state
         global scanningUrl
         scanningUrl = False
 
@@ -833,7 +840,7 @@ class GUI:
         else:
             aMonth = month
             aYear = year
-        archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (
+        archLink = 'http://Wmirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (
             aYear, aMonth, aYear, aMonth)
 
         findNew("http://releases.ubuntu.com",
@@ -904,16 +911,20 @@ class GUI:
             print(dlist[i])
             # get url from dictionary
             url = uriDict[dlist[i]]
-            u = urlopen(url)
-            time.sleep(0.1)
-            file_size = int(u.getheader('Content-Length'))
-            print("runned")
-            # convert to MB
-            file_size = Decimal(int(file_size) / 1024 / 1024)
-            GLib.idle_add(cBut.set_label, "Download (%s MB)" %
-                          round(file_size, 1))  # set download label
-            # store value in cache
-            cache.append(round(file_size, 1))
+            try:
+                u = urlopen(url)
+                time.sleep(0.1)
+                file_size = int(u.getheader('Content-Length'))
+                print("runned")
+                # convert to MB
+                file_size = Decimal(int(file_size) / 1024 / 1024)
+                GLib.idle_add(cBut.set_label, "Download (%s MB)" %
+                            round(file_size, 1))  # set download label
+                # store value in cache
+                cache.append(round(file_size, 1))
+            except:
+                print('URL ERROR!')
+                GLib.idle_add(cBut.set_label, "Server error")
 
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')
@@ -931,7 +942,7 @@ class GUI:
             state = True
             f.add_done_callback(self.toggle)
         elif not scanningUrl:
-            i = 0
+            # i = 0
             for i in range(dlistLen):
                 cBut = self.builder.get_object(dlist[i])        # if loaded
                 # load from cache

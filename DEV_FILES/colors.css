@@ -7,20 +7,10 @@ button {
     border-left-width: 3px;
 }
 notebook > header.top > tabs > tab {
-    background: dimgray;
     color: whitesmoke;
-    border-image: none;
-    border: 3px solid rgba(0, 0, 0, 0);
-    border-radius: 10px 10px 0px 0px;
-    border-bottom: none;
 }
 notebook > header.bottom > tabs > tab {
-    background: dimgray;
     color: whitesmoke;
-    border-image: none;
-    border: 3px solid rgba(0,0,0,0.0);
-    border-radius: 10px 10px 0px 0px;
-    border-bottom: none;
 }
 notebook > header > tabs > tab:hover {
     background: rgb(0, 153, 255);
@@ -28,7 +18,7 @@ notebook > header > tabs > tab:hover {
     border-image: none;
 }
 notebook > header > tabs > tab:checked {
-    background: rgb(0, 114, 221);
+    background: rgb(0, 91, 175);
     color: whitesmoke;
     border-image: none;
 }
