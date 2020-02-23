@@ -465,10 +465,8 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
-                            <property name="margin_top">5</property>
-                            <property name="margin_bottom">5</property>
+                            <property name="margin_left">15</property>
+                            <property name="margin_right">15</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <signal name="clicked" handler="on_db_but_clicked" swapped="no"/>
@@ -485,8 +483,8 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">15</property>
+                            <property name="margin_right">15</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <signal name="clicked" handler="on_fb_but_clicked" swapped="no"/>
@@ -503,8 +501,8 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">15</property>
+                            <property name="margin_right">15</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
@@ -567,8 +565,8 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">15</property>
+                            <property name="margin_right">15</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
@@ -587,8 +585,8 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">15</property>
+                            <property name="margin_right">15</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
@@ -607,8 +605,8 @@ Author: Dániel Kolozsi (@swanux)
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="valign">center</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">15</property>
+                            <property name="margin_right">15</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
@@ -707,10 +705,10 @@ Author: Dániel Kolozsi (@swanux)
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
+                <property name="margin_left">15</property>
+                <property name="margin_right">15</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">10</property>
                 <property name="image">image1</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="home_clicked" swapped="no"/>
@@ -765,6 +763,8 @@ Author: Dániel Kolozsi (@swanux)
                               <object class="GtkLabel" id="info_txt">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">15</property>
+                                <property name="margin_right">15</property>
                                 <property name="margin_top">30</property>
                                 <property name="label" translatable="yes">Welcome to App Spotlight! Here are lots of high qualitiy programs sorted by category. You can easly switch between browsers, find the best office suite or install a good game. 
 
@@ -2666,10 +2666,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">5</property>
-                        <property name="margin_right">5</property>
-                        <property name="margin_top">5</property>
-                        <property name="margin_bottom">5</property>
+                        <property name="margin_left">15</property>
+                        <property name="margin_right">15</property>
+                        <property name="margin_top">10</property>
+                        <property name="margin_bottom">10</property>
                         <property name="image">image2</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="on_back_button_clicked" swapped="no"/>
@@ -2684,6 +2684,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                       <object class="GtkLabel" id="page_txt">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="margin_left">15</property>
+                        <property name="margin_right">15</property>
+                        <property name="margin_top">10</property>
+                        <property name="margin_bottom">10</property>
                         <property name="label" translatable="yes">Text Here</property>
                         <property name="justify">center</property>
                         <property name="wrap">True</property>
@@ -2704,8 +2708,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">5</property>
-                        <property name="margin_right">5</property>
+                        <property name="margin_left">15</property>
+                        <property name="margin_right">15</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="image">image7</property>
@@ -2724,8 +2728,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">5</property>
-                        <property name="margin_right">5</property>
+                        <property name="margin_left">15</property>
+                        <property name="margin_right">15</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="image">image8</property>
@@ -2760,10 +2764,10 @@ If you click on the icon of the program, you'll see some extra informations abou
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
+                <property name="margin_left">15</property>
+                <property name="margin_right">15</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">10</property>
                 <property name="image">image6</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="home_clicked" swapped="no"/>
@@ -2818,6 +2822,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                               <object class="GtkLabel" id="info_txt1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">15</property>
+                                <property name="margin_right">15</property>
                                 <property name="margin_top">30</property>
                                 <property name="label" translatable="yes">Welcome to the Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the best distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
 
@@ -3834,10 +3840,10 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">5</property>
-                        <property name="margin_right">5</property>
-                        <property name="margin_top">5</property>
-                        <property name="margin_bottom">5</property>
+                        <property name="margin_left">15</property>
+                        <property name="margin_right">15</property>
+                        <property name="margin_top">10</property>
+                        <property name="margin_bottom">10</property>
                         <property name="image">image3</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="home_clicked" swapped="no"/>
@@ -3915,10 +3921,10 @@ To view recent changes visit the link below.</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
+                                <property name="margin_left">15</property>
+                                <property name="margin_right">15</property>
                                 <property name="margin_top">20</property>
-                                <property name="margin_bottom">5</property>
+                                <property name="margin_bottom">10</property>
                                 <property name="relief">none</property>
                                 <property name="use_stock">True</property>
                                 <property name="image_position">top</property>
@@ -4193,10 +4199,10 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_right">5</property>
-                    <property name="margin_top">5</property>
-                    <property name="margin_bottom">5</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">15</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
                     <property name="image">image5</property>
                     <property name="always_show_image">True</property>
                     <signal name="clicked" handler="home_clicked" swapped="no"/>
