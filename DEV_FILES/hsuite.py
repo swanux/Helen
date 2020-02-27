@@ -5,7 +5,7 @@
 
 
 # Version of the program
-version = 'HSuite v0.5.1 | Hermes'
+version = 'HSuite v0.6 | Apollo'
 v = ''
 
 ### Import modules ###
@@ -31,6 +31,8 @@ gi.require_version('WebKit2', '4.0')
 from aptdaemon import client
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject, Gio
 import re
+from github import Github
+g = Github('1b1484f37f47d359cb18555418668fdb4a4a52e8')
 import apt
 # Config
 from configparser import ConfigParser
@@ -41,6 +43,7 @@ from threading import Thread
 from concurrent import futures
 # Using time
 import time
+import notify2
 from datetime import date
 # URL handling
 from urllib.request import urlopen
@@ -157,6 +160,7 @@ aurList = ['google-chrome', 'vivaldi', 'wps-office', 'onlyoffice-bin', 'freeoffi
 specDList = ['']
 
 # Used generally
+tC2 = futures.ThreadPoolExecutor(max_workers=2)
 # The glade file
 UI_FILE = "hsuite.glade"
 # Get current session type
@@ -268,6 +272,7 @@ class GUI:
         global window
         window = self.builder.get_object(
             'window')                  # Get the main window
+        # window.connect('check-resize', self.on_resize)
 
         if os.geteuid() == 0:
             # Indicate if runnung as root or not
@@ -276,6 +281,68 @@ class GUI:
             window.set_title(version)
         # Display the program
         window.show_all()
+    
+    # def on_resize(self, e):
+    #     time.sleep(0.01)
+    #     sx, sy = window.get_size()
+    #     num = sy/4
+    #     ssig = "%"
+    #     num2 = "%s%s" % (num, ssig)
+    #     css = """
+    #     window {
+    #         font-size: %s
+    #     }
+    #     button {
+    #         border-radius: 15px;
+    #         color:whitesmoke;
+    #         background-color: dimgray;
+    #         background-image:none;
+    #         border-right-width: 3px; 
+    #         border-left-width: 3px;
+    #     }
+    #     notebook > header.top > tabs > tab {
+    #         color: whitesmoke;
+    #     }
+    #     notebook > header.bottom > tabs > tab {
+    #         color: whitesmoke;
+    #     }
+    #     notebook > header > tabs > tab:hover {
+    #         background: rgb(0, 153, 255);
+    #         color: whitesmoke;
+    #         border-image: none;
+    #     }
+    #     notebook > header > tabs > tab:checked {
+    #         background: rgb(0, 91, 175);
+    #         color: whitesmoke;
+    #         border-image: none;
+    #     }
+    #     button:hover {
+    #         background-color: rgb(0, 153, 255);
+    #         color:whitesmoke;
+    #     }
+    #     button:disabled {
+    #         background-color: rgb(54, 54, 54);
+    #         color:whitesmoke;
+    #     }
+    #     button:hover:active {
+    #         background-color: lightblue;
+    #         color: darkgreen;
+    #     }
+    #     .red-background{
+    #         background-image: none;
+    #         background-color: red;
+    #         color: white;
+    #     }
+    #     .green-background{
+    #         background-image: none;
+    #         background-color: green;
+    #         color: white;
+    #     }
+    #     """
+    #     css = css % num2
+    #     css = str.encode(css)
+    #     provider.load_from_data(css)
+
 
     # This happens when close button is clicked
     def on_window_delete_event(self, window, e):
@@ -419,8 +486,10 @@ class GUI:
             elif mode == 'install':
                 print('Installation already running')
                 if distro == 'Ubuntu' or distro == 'Debian':
-                    # asroot('killall apt apt-get ; dpkg --configure -a ; apt autoremove -y ; apt autoclean -y')
-                    osLayer.trans.cancel()
+                    try:
+                        osLayer.trans.cancel()
+                    except:
+                        print('Cant cancel')
                 elif distro == 'Arch':
                     asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
                 else:
@@ -441,13 +510,7 @@ class GUI:
         sTxt = cInB
         # Current pkg name
         cPkg = name
-        # init thread with thread function
-        # t1 = myThread(1, "Thread-1", status, comm1, comm2, faur, extra, runDep, buildDep)
         my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
-        print("##########-HEY-###############")
-        # start it
-        # t1.start()
-        # set minutes to 0
         m = 0
         
         wt = False
@@ -458,15 +521,6 @@ class GUI:
                 print(appList[i], butDict[appList[i]], tempInd)
                 cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
                 GLib.idle_add(cBut.set_sensitive, wt)
-
-        # time.sleep(0.5)
-        # for d in range(6):
-        #     if osLayer.waitState == False:
-        #         print('Break now')
-        #         break
-        #     else:
-        #         print('Waiting... %s' % osLayer.waitState)
-        #         time.sleep(0.5)
         # function for counting time
         def counter(timer):
             global m
@@ -477,7 +531,7 @@ class GUI:
             # counter is equal to s
             timer.count = s
             sTxt.set_label('Processing '+name+' '+str(m) +
-                           ':'+str(s))            # set spin label
+                           ':'+str(s))
             if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
                 m = m+1
@@ -492,19 +546,19 @@ class GUI:
                 wt = True
                 print(self, wt)
                 for i in range(appListLen):
-                    print("Toggle %s" % i)
-                    print(appList[i], butDict[appList[i]], tempInd)
+                    # print("Toggle %s" % i)
+                    # print(appList[i], butDict[appList[i]], tempInd)
                     cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
                     GLib.idle_add(cBut.set_sensitive, wt)
                 scanner = True
                 self.button_clicked(button)
+                if not window.is_active():
+                    notify2.init('HSuite')
+                    n = notify2.Notification('HSuite', 'Finished processing %s!' % cPkg)
+                    n.show()
                 cPkg = ''
                 return False                                                        # end
-        # if osLayer.havPass:
         self.source_id = GLib.timeout_add(1000, counter, self)
-            # shDict[dlist[i]] = "%s" % state
-        # else:
-        #     cPkg = ''
 
     def spece(self, name):
         if distro == 'Ubuntu' or distro == 'Debian':
@@ -562,19 +616,20 @@ class GUI:
     def toggle(self, fn):
         print(self, fn, state)
         for i in range(dlistLen):
-            print("Toggle %s" % i)
+            # print("Toggle %s" % i)
             if dlist[i] != Tdownl and shDict[dlist[i]] != "PFalse":
-                print(dlist[i], shDict[dlist[i]], Tdownl)
+                # print(dlist[i], shDict[dlist[i]], Tdownl)
                 cBut = self.builder.get_object(dlist[i])
                 t = cBut.get_label()
-                print(t)
+                # print(t)
                 if t == "Server error":
-                    print('ERROR')
+                    print('Skipping due to server error')
                 else:
                     GLib.idle_add(cBut.set_sensitive, state)
                     shDict[dlist[i]] = "%s" % state
         global scanningUrl
-        scanningUrl = False
+        if state:
+            scanningUrl = False
 
     # Starting download in a background thread BUT inside the GUI class, not the thread. This is because of the nature of GTK (and other GUI toolkits) that can't handle GUI changes from outside of the main thread (gui class)
     def ex_target(self, block_sz, downl, file_size, file_name, file_size_dl, u, f):
@@ -617,6 +672,10 @@ class GUI:
             # Set the state to permanent false
             shDict[Tdownl] = "PFalse"
             print("done with it")
+            if not window.is_active():
+                notify2.init('HSuite')
+                n = notify2.Notification('HSuite', 'Finished downloading %s!' % namDict[Tdownl])
+                n.show()
         quit = True
 
     def on_downl_begin(self, url, downl):
@@ -770,18 +829,105 @@ class GUI:
             aS = futures.ThreadPoolExecutor(max_workers=2)
             s = aS.submit(app.scanner)
             print('SCANN START')
+            print(s)
         else:
             print('ERROR')
 
     # feedback button
     def on_fb_but_clicked(self, button):
-        view_fb = self.builder.get_object('view_fb')
+        global where
         web_box = self.builder.get_object('web_box')
-        browserholder.load_uri(
-            "https://docs.google.com/forms/d/e/1FAIpQLSec6abGuF3c-zTyLt1NUes2kifOlAAhrc5FOLPUIPUHhA9cmA/viewform?hl=en")  # load google from
-        view_fb.add(browserholder)
-        browserholder.show()
+        texV = self.builder.get_object('txt_long')
+        titE = self.builder.get_object('tit_entry')
+        text = texV.get_buffer()
+        text = text.set_text('')
+        titE.set_text('')
         stack.set_visible_child(web_box)
+        tC = futures.ThreadPoolExecutor(max_workers=2)
+        f = tC.submit(self.check)
+        where = 'fb'
+        f.add_done_callback(self.chk_again)
+
+    def check(self):
+        global net
+        try:
+            urlopen('http://216.58.192.142', timeout=5)
+            print('yes, net')
+            net = True
+        except:
+            print('no internet')
+            net = False
+    def chk_again(self, arg):
+        global where
+        global net
+        global state
+        global tC2
+        if not net:
+            button = 0
+            os.system('zenity --warning --text="You have no internet connection!" --ellipsize')
+            if where == 'fb':
+                self.home_clicked(button)
+            else:
+                tC2 = futures.ThreadPoolExecutor(max_workers=2)
+        else:
+            if where == 'gs':
+                tS = futures.ThreadPoolExecutor(max_workers=2)
+                f = tS.submit(self.getSize)
+                # toggle everything back when ready
+                state = True
+                f.add_done_callback(self.toggle)
+
+    def on_send(self, button):
+        titE = self.builder.get_object('tit_entry')
+        emE = self.builder.get_object('email_entry')
+        texV = self.builder.get_object('txt_long')
+        cat = self.builder.get_object('typ_comb')
+
+        title = titE.get_text()
+        email = emE.get_text()
+        text = texV.get_buffer()
+        start = text.get_start_iter()
+        end = text.get_end_iter()
+        text = text.get_text(start, end, True)
+        text = text+"\n\n---------------------------------\n\nEmail: %s" % email
+        category = cat.get_active_text()
+        print(title, text, category, email)
+        if '@' not in email or '.' not in email:
+            print('invalid email!!')
+            x, y = window.get_position()
+            sx, sy = window.get_size()
+            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text='Invalid email address!')
+            dialogWindow.set_title("Attention!")
+            dsx, dsy = dialogWindow.get_size()
+            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
+            dialogWindow.show_all()
+            res = dialogWindow.run()
+            print(res)
+            dialogWindow.destroy()
+            return
+
+        repo = g.get_repo('swanux/hsuite_feedbacks')
+        if category == 'Enhancement':
+            lab = ['enhancement']
+        elif category == 'Question':
+            lab = ['question']
+        elif category == 'Bug':
+            lab = ['bug']
+        else:
+            print('Feedback Error')
+            lab = ['invalid']
+        repo.create_issue(title=title, body=text, labels=lab)
+        self.home_clicked(button)
+        x, y = window.get_position()
+        sx, sy = window.get_size()
+        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text='Feedback submitted succesfully!')
+        dialogWindow.set_title("Information")
+        dsx, dsy = dialogWindow.get_size()
+        dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
+        dialogWindow.show_all()
+        res = dialogWindow.run()
+        print(res)
+        dialogWindow.destroy()
 
     # information button in about section
     def on_git_link_clicked(self, button):
@@ -825,7 +971,8 @@ class GUI:
                 pattern.remove(710)
                 pattern.remove(710)
             except:
-                print("no lfs")
+                # print("no lfs")
+                pass
             pattern.sort()
             vers = pattern[-1]
             vers = [int(i) for i in str(vers)]
@@ -840,7 +987,7 @@ class GUI:
         else:
             aMonth = month
             aYear = year
-        archLink = 'http://Wmirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (
+        archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (
             aYear, aMonth, aYear, aMonth)
 
         findNew("http://releases.ubuntu.com",
@@ -899,6 +1046,7 @@ class GUI:
             vers[0], vers[1], vers[0], vers[1])
 
         global uriDict
+        global cache
         uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_zorin': zorinosLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
                    'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink}
         print('Updated linklist!!')
@@ -907,15 +1055,15 @@ class GUI:
         for i in range(dlistLen):
             # dlist is distro list (contains all distro names), cbut is current button
             cBut = self.builder.get_object(dlist[i])
-            print("rundownl")
-            print(dlist[i])
+            # print("rundownl")
+            # print(dlist[i])
             # get url from dictionary
             url = uriDict[dlist[i]]
             try:
                 u = urlopen(url)
                 time.sleep(0.1)
                 file_size = int(u.getheader('Content-Length'))
-                print("runned")
+                # print("runned")
                 # convert to MB
                 file_size = Decimal(int(file_size) / 1024 / 1024)
                 GLib.idle_add(cBut.set_label, "Download (%s MB)" %
@@ -925,28 +1073,33 @@ class GUI:
             except:
                 print('URL ERROR!')
                 GLib.idle_add(cBut.set_label, "Server error")
+                cache.append(round(0, 1))
 
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')
-        if not cache:                                                             # if not fetched already
+        global cache
+        global tC2
+        global scanningUrl
+        thss = len(tC2._threads)
+        print(thss)
+        if not cache and thss == 0:                                                             # if not fetched already
             # disable
+            global where
             global state
-            global scanningUrl
             scanningUrl = True
             state = False
             self.toggle(fn)  # all buttons
             # init non-normal thread (getting sizes)
-            tS = futures.ThreadPoolExecutor(max_workers=2)
-            f = tS.submit(self.getSize)
-            # toggle everything back when ready
-            state = True
-            f.add_done_callback(self.toggle)
+            f = tC2.submit(self.check)
+            where = 'gs'
+            f.add_done_callback(self.chk_again)
         elif not scanningUrl:
-            # i = 0
+            i = 0
             for i in range(dlistLen):
                 cBut = self.builder.get_object(dlist[i])        # if loaded
                 # load from cache
                 cBut.set_label("Download (%s MB)" % cache[i])
+                # print(i)
         stack.set_visible_child(distro_box)
 
     # on about ...

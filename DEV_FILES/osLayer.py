@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import os
-from aptdaemon import client
+from aptdaemon import client, enums
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+from aptdaemon.gtk3widgets import AptProgressDialog
 alive = False
 user = ''
 scanner = True
@@ -17,19 +21,17 @@ trans = ""
 # This class and function is the core of every background process in the program
 
 def asroot(asr):            # The function to display prompt for root acces.
-        # global havPass
-        # global waitState
         print(asr)
-        # waitState = True
         os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
-        # if retCode == 0:
-        #     havPass = True
-        #     print('Gut')
-        # else:
-        #     havPass = False
-        #     print('Nein...')
-        # waitState = False
 
+# def show_progress(transaction):    
+#     # client = client.AptClient()
+#     # trans = client.upgrade_system(safe_mode=True)
+#     dia = AptProgressDialog(transaction)
+#     dia.connect("finished", on_fin)
+#     dia.run()
+#     Gtk.main()
+#     return trans.exit == enums.EXIT_SUCCESS
 
 # Search deps
 def aurer(fold, extra, runDep, buildDep):                                    # The builder for AUR
@@ -63,6 +65,7 @@ def on_fin(transaction, exit_state):
     print('Trans : %s' % transaction)
     print('Code : %s' % exit_state)
     print("FIN")
+    # Gtk.main_quit
 
 # def on_fin2(transaction, exit_state):
 #     print('REMOVEING OBSOLETED DEPS...')
@@ -96,7 +99,6 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                 asroot('DEBIAN_FRONTEND=noninteractive apt install %s -y && gem install %s fusuma-plugin-wmctrl && gpasswd -a $USER input' % (extra, comm1))
                 fusConfs()
             else:
-                # asroot('DEBIAN_FRONTEND=noninteractive apt install %s %s -y' % (comm1, extra))
                 if extra == "":
                     pkgs = [comm1]
                     print(*pkgs)
@@ -104,6 +106,7 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                     pkgs = [comm1, extra]
                     print(*pkgs)
                 trans = apt_client.install_packages(pkgs)
+                # show_progress(trans)
                 trans.connect("finished", on_fin)
                 trans.run()
         elif distro == 'Arch':
@@ -148,7 +151,6 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                 trans = apt_client.remove_packages(pkgs)
                 trans.connect("finished", on_fin)
                 trans.run()
-                # asroot('DEBIAN_FRONTEND=noninteractive apt purge %s %s -y ; apt autoremove -y' % (comm1, extra))
         elif distro == 'Arch':
             if extra == 'popsicle-gtk':
                 extra = ''
