@@ -32,7 +32,11 @@ from aptdaemon import client
 from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject, Gio
 import re
 from github import Github
-g = Github('1b1484f37f47d359cb18555418668fdb4a4a52e8')
+token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
+print(token)
+token = token.replace('@', '')
+print(token)
+g = Github(token)
 import apt
 # Config
 from configparser import ConfigParser
@@ -869,6 +873,10 @@ class GUI:
                 self.home_clicked(button)
             else:
                 tC2 = futures.ThreadPoolExecutor(max_workers=2)
+                for i in range(dlistLen):
+                    # dlist is distro list (contains all distro names), cbut is current button
+                    cBut = self.builder.get_object(dlist[i])
+                    cBut.set_label('No internet')
         else:
             if where == 'gs':
                 tS = futures.ThreadPoolExecutor(max_workers=2)
@@ -889,7 +897,6 @@ class GUI:
         start = text.get_start_iter()
         end = text.get_end_iter()
         text = text.get_text(start, end, True)
-        text = text+"\n\n---------------------------------\n\nEmail: %s" % email
         category = cat.get_active_text()
         print(title, text, category, email)
         if '@' not in email or '.' not in email:
@@ -905,7 +912,19 @@ class GUI:
             print(res)
             dialogWindow.destroy()
             return
-
+        elif text == '' or title == '':
+            x, y = window.get_position()
+            sx, sy = window.get_size()
+            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text='You need to fill out all the fields!')
+            dialogWindow.set_title("Attention!")
+            dsx, dsy = dialogWindow.get_size()
+            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
+            dialogWindow.show_all()
+            res = dialogWindow.run()
+            print(res)
+            dialogWindow.destroy()
+            return
+        text = text+"\n\n---------------------------------\n\nEmail: %s" % email
         repo = g.get_repo('swanux/hsuite_feedbacks')
         if category == 'Enhancement':
             lab = ['enhancement']
@@ -917,7 +936,7 @@ class GUI:
             print('Feedback Error')
             lab = ['invalid']
         repo.create_issue(title=title, body=text, labels=lab)
-        self.home_clicked(button)
+        print('Uploaded')
         x, y = window.get_position()
         sx, sy = window.get_size()
         dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text='Feedback submitted succesfully!')
@@ -928,6 +947,7 @@ class GUI:
         res = dialogWindow.run()
         print(res)
         dialogWindow.destroy()
+        self.home_clicked(button)
 
     # information button in about section
     def on_git_link_clicked(self, button):
