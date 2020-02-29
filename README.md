@@ -26,7 +26,8 @@ Here is the changelog of every update. For further details you can always check 
 
     Debian 10 (buster)
     Ubuntu 18.04 (bionic)
-    Ubuntu 19.04 (disco)
+    ABANDONED: Ubuntu 19.04 (disco)
+    -> Use *eoan* or *bionic* instead
     Ubuntu 19.10 (eoan)
 
 To find out your codename on Ubuntu just run:
@@ -39,8 +40,8 @@ E.g.: Use bionic for Ubuntu derivatives and buster for Debian derivatives.
 
 To install run:
 
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D0E48B8490DC4A21 \
-    echo "deb [arch=amd64] https://gitlab.com/swanux/hrepo/raw/master CODENAME_HERE main" | sudo tee -a /etc/apt/sources.list \
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D0E48B8490DC4A21
+    echo "deb https://gitlab.com/swanux/hrepo/raw/master $CODENAME main" | sudo tee -a /etc/apt/sources.list
     sudo apt update && sudo apt install hsuite
 
 And to remove, execute:
