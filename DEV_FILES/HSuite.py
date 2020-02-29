@@ -10,7 +10,6 @@ v = ''
 
 ### Import modules ###
 
-
 # Set program root location
 import os
 pathCheck = os.popen('ls /usr/share/hsuite/').read()
@@ -24,6 +23,17 @@ else:
     print(fdir)
     os.chdir(fdir)
     print('Running in development mode.')
+# Translation
+import gettext
+import locale
+APP = "hsuite"
+WHERE_AM_I = os.path.abspath(os.path.dirname(__file__))
+LOCALE_DIR = os.path.join(WHERE_AM_I, 'translations/mo')
+locale.setlocale(locale.LC_ALL, locale.getlocale())
+locale.bindtextdomain(APP, LOCALE_DIR)
+gettext.bindtextdomain(APP, LOCALE_DIR)
+gettext.textdomain(APP)
+_ = gettext.gettext
 # Import GUI modules
 import gi
 gi.require_version('Gtk', '3.0')
@@ -99,14 +109,17 @@ else:
     elif 'MANJARO' in dist:
         distro = 'Arch'
         print('W: Not fully compatible with Manjaro!')
-        os.system('zenity --warning --text="Your distro is detected as Manjaro.\nThis distro is not fully tested,\nyou may encounter some problems\nwith the program. Currently tested\non distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
+        mantxt = _("Your distro is detected as Manjaro.\nThis distro is not fully tested,\nyou may encounter some problems\nwith the program. Currently tested\non distros: Arch, Ubuntu (bionic, eoan), Debian (buster).")
+        os.system('zenity --warning --text=%s --ellipsize' % mantxt)
     elif 'deepin' in dist:
         distro = 'Debian'
         print('W: Not fully compatible with Deepin!')
-        os.system('zenity --warning --text="Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Arch, Ubuntu (bionic, disco, eoan), Debian (buster)." --ellipsize')
+        deptxt = _("Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Arch, Ubuntu (bionic, eoan), Debian (buster).")
+        os.system('zenity --warning --text=%s --ellipsize' % deptxt)
     else:
         print('E: Complete incompatibility!')
-        os.system('zenity --error --text="Can not detect your distro.\nCurrently tested on distros:\nArch, Ubuntu (bionic, disco, eoan),\nDebian (buster). Aborting now." --ellipsize')
+        kiltxt = _("Can not detect your distro.\nCurrently tested on distros:\nArch, Ubuntu (bionic, eoan),\nDebian (buster). Aborting now.")
+        os.system('zenity --error --text=%s --ellipsize' % kiltxt)
         raise SystemExit
     parser.add_section('system')
     parser.add_section('hsuite')
@@ -171,19 +184,21 @@ UI_FILE = "hsuite.glade"
 xorw = os.popen('echo $XDG_SESSION_TYPE').read()
 # It's Xorg, so it wokrs with gestures'
 if "x" in xorw:
-    lehete = """You need to reboot after the install has been completed
+    lehete = _("""You need to reboot after the install has been completed
 to apply all changes. You can configure the tool
-through the ~/.config/fusuma/config.yml file."""
+through the ~/.config/fusuma/config.yml file.""")
 # It is Wayland, so it won't work
 else:
-    lehete = """You need to reboot after the install has been completed
+    lehete = _("""You need to reboot after the install has been completed
 to apply all changes. However note that support for Wayland
 is experimental. You can configure the tool
-through the ~/.config/fusuma/config.yml file."""
+through the ~/.config/fusuma/config.yml file.""")
 # Discover the current working dir
 wer = os.popen('ls').read()
 scanningUrl = False
 cPkg = ''
+where = ''
+net = ''
 insList = ''
 label = ''
 bp = ''
@@ -192,6 +207,7 @@ rew = ''
 uriDict = {}
 state = ''
 vers = ''
+stop = False
 gentoo = ''
 rmE = ''
 quit = ''
@@ -217,7 +233,8 @@ print("Detected distro: %s" % distro)
 print('Updated? : %s' % v)
 
 if v != version and v != '':
-    os.system('zenity --info --text="HSuite has been updated to %s.\nFor changelog visit https://swanux.github.io/hsuite/" --ellipsize' % version)
+    uptxt = _("HSuite has been updated to %s.\nFor changelog visit https://swanux.github.io/hsuite/" % version)
+    os.system('zenity --info --text=%s --ellipsize' % uptxt)
     os.system('rm %s' % confP)
 
 
@@ -262,6 +279,7 @@ class GUI:
         # Prepare to use builder
         self.builder = Gtk.Builder()
         self.win = Gtk.Window()                                     # The main window
+        self.builder.set_translation_domain(APP)
         # Import the glade file
         self.builder.add_from_file(UI_FILE)
         global browserholder
@@ -350,13 +368,14 @@ class GUI:
 
     # This happens when close button is clicked
     def on_window_delete_event(self, window, e):
+        global stop
         # Getting the window position
         x, y = window.get_position()
         # Get the size of the window
         sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text='Do you really would like to exit now?')
+        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=_('Do you really would like to exit now?'))
         # set the title
-        dialogWindow.set_title("Prompt")
+        dialogWindow.set_title(_("Prompt"))
         dsx, dsy = dialogWindow.get_size()                          # get the dialogs size
         # Move it to the center of the main window
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
@@ -369,12 +388,13 @@ class GUI:
             dialogWindow.destroy()
             code = 'force'
             if osLayer.alive:
-                text = "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % cPkg
+                text = _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually.") % cPkg
                 code = self.abort('install', text)
             if quit == False:
-                text = "Do you really would like to abort now? Download is currently in progress for %s." % namDict[Tdownl]
+                text = _("Do you really would like to abort now? Download is currently in progress for %s.") % namDict[Tdownl]
                 code = self.abort('download', text)
             if code == 'force':
+                stop = True
                 raise SystemExit
             else:
                 dialogWindow.destroy()
@@ -475,7 +495,7 @@ class GUI:
         x, y = window.get_position()
         sx, sy = window.get_size()
         dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=text)
-        dialogWindow.set_title("Attention!")
+        dialogWindow.set_title(_("Attention!"))
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dx, dy = dialogWindow.get_position()
@@ -558,7 +578,7 @@ class GUI:
                 self.button_clicked(button)
                 if not window.is_active():
                     notify2.init('HSuite')
-                    n = notify2.Notification('HSuite', 'Finished processing %s!' % cPkg)
+                    n = notify2.Notification('HSuite', _('Finished processing %s!') % cPkg)
                     n.show()
                 cPkg = ''
                 return False                                                        # end
@@ -583,7 +603,7 @@ class GUI:
         if osLayer.alive:
             print('Operation already running, which is %s' % cPkg)
         if name == cPkg:
-            text = "Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually." % cPkg
+            text = _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually.") % cPkg
             self.abort('install', text)
         else:
             comm2 = archDict[comm1]
@@ -599,7 +619,7 @@ class GUI:
                     x, y = window.get_position()
                     sx, sy = window.get_size()
                     dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text=lehete)
-                    dialogWindow.set_title("Note!")
+                    dialogWindow.set_title(_("Note!"))
                     dsx, dsy = dialogWindow.get_size()
                     dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
                     dialogWindow.show_all()
@@ -626,7 +646,7 @@ class GUI:
                 cBut = self.builder.get_object(dlist[i])
                 t = cBut.get_label()
                 # print(t)
-                if t == "Server error":
+                if t == _("Server error"):
                     print('Skipping due to server error')
                 else:
                     GLib.idle_add(cBut.set_sensitive, state)
@@ -670,7 +690,7 @@ class GUI:
             os.system('rm /home/%s/Downloads/%s' % (user, file_name))
         else:
             # Set label to ready
-            GLib.idle_add(downl.set_label, "Ready in ~/Downloads/")
+            GLib.idle_add(downl.set_label, _("Ready in ~/Downloads/"))
             # Disable button
             GLib.idle_add(downl.set_sensitive, False)
             # Set the state to permanent false
@@ -678,7 +698,7 @@ class GUI:
             print("done with it")
             if not window.is_active():
                 notify2.init('HSuite')
-                n = notify2.Notification('HSuite', 'Finished downloading %s!' % namDict[Tdownl])
+                n = notify2.Notification('HSuite', _('Finished downloading %s!') % namDict[Tdownl])
                 n.show()
         quit = True
 
@@ -868,7 +888,8 @@ class GUI:
         global tC2
         if not net:
             button = 0
-            os.system('zenity --warning --text="You have no internet connection!" --ellipsize')
+            offtxt = _("You have no internet connection!")
+            os.system('zenity --warning --text=%s --ellipsize' % offtxt)
             if where == 'fb':
                 self.home_clicked(button)
             else:
@@ -876,7 +897,7 @@ class GUI:
                 for i in range(dlistLen):
                     # dlist is distro list (contains all distro names), cbut is current button
                     cBut = self.builder.get_object(dlist[i])
-                    cBut.set_label('No internet')
+                    cBut.set_label(_('No internet'))
         else:
             if where == 'gs':
                 tS = futures.ThreadPoolExecutor(max_workers=2)
@@ -903,8 +924,8 @@ class GUI:
             print('invalid email!!')
             x, y = window.get_position()
             sx, sy = window.get_size()
-            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text='Invalid email address!')
-            dialogWindow.set_title("Attention!")
+            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text=_('Invalid email address!'))
+            dialogWindow.set_title(_("Attention!"))
             dsx, dsy = dialogWindow.get_size()
             dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
             dialogWindow.show_all()
@@ -915,8 +936,8 @@ class GUI:
         elif text == '' or title == '':
             x, y = window.get_position()
             sx, sy = window.get_size()
-            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text='You need to fill out all the fields!')
-            dialogWindow.set_title("Attention!")
+            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text=_('You need to fill out all the fields!'))
+            dialogWindow.set_title(_("Attention!"))
             dsx, dsy = dialogWindow.get_size()
             dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
             dialogWindow.show_all()
@@ -926,11 +947,11 @@ class GUI:
             return
         text = text+"\n\n---------------------------------\n\nEmail: %s" % email
         repo = g.get_repo('swanux/hsuite_feedbacks')
-        if category == 'Enhancement':
+        if category == _('Enhancement'):
             lab = ['enhancement']
-        elif category == 'Question':
+        elif category == _('Question'):
             lab = ['question']
-        elif category == 'Bug':
+        elif category == _('Bug'):
             lab = ['bug']
         else:
             print('Feedback Error')
@@ -939,8 +960,8 @@ class GUI:
         print('Uploaded')
         x, y = window.get_position()
         sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text='Feedback submitted succesfully!')
-        dialogWindow.set_title("Information")
+        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=_('Feedback submitted succesfully!'))
+        dialogWindow.set_title(_("Information"))
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dialogWindow.show_all()
@@ -958,8 +979,8 @@ class GUI:
     def on_htools_but_clicked(self, button):
         x, y = window.get_position()
         sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text='Coming in future Beta releases...')
-        dialogWindow.set_title("Coming soon")
+        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=_('Coming in future Beta releases...'))
+        dialogWindow.set_title(_("Coming soon"))
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dialogWindow.show_all()
@@ -1092,7 +1113,7 @@ class GUI:
                 cache.append(round(file_size, 1))
             except:
                 print('URL ERROR!')
-                GLib.idle_add(cBut.set_label, "Server error")
+                GLib.idle_add(cBut.set_label, _("Server error"))
                 cache.append(round(0, 1))
 
     def on_db_but_clicked(self, button):
@@ -1118,7 +1139,7 @@ class GUI:
             for i in range(dlistLen):
                 cBut = self.builder.get_object(dlist[i])        # if loaded
                 # load from cache
-                cBut.set_label("Download (%s MB)" % cache[i])
+                cBut.set_label(_("Download (%s MB)") % cache[i])
                 # print(i)
         stack.set_visible_child(distro_box)
 
@@ -1142,7 +1163,7 @@ class GUI:
         web_link = self.builder.get_object('web_link')
         web_link.hide()
         # if yes, show. bp indicates the current page, regarding its meaning I have no idea
-        if bp == "Distro Boutique":
+        if bp == _("Distro Boutique"):
             rew_link.show()
             web_link.show()
         text.set_text(label)
@@ -1151,9 +1172,9 @@ class GUI:
 
     # when going back but not to home
     def on_back_button_clicked(self, button):
-        if bp == "App Spotlight":                                 # go back to app spotlight or distro boutique
+        if bp == _("App Spotlight"):                                 # go back to app spotlight or distro boutique
             self.button_clicked(button)
-        elif bp == "Distro Boutique":
+        elif bp == _("Distro Boutique"):
             distro_box = self.builder.get_object('distro_box')
             stack.set_visible_child(distro_box)
         else:
@@ -1307,7 +1328,7 @@ class GUI:
         global bp
         label = d.descList[x]
         bp = d.descDict[label]
-        if bp == 'Distro Boutique':
+        if bp == _('Distro Boutique'):
             global web
             global rew
             web = d.webDict[label]

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=HSuite
 Comment=Simple, Small, Useful
-Exec=/usr/share/hsuite/HSuite
+Exec=/usr/share/hsuite/HSuite.py
 Icon=/usr/share/hsuite/icons/hsuite.png
 Terminal=false
 Type=Application

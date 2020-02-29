@@ -790,7 +790,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             <property name="column_homogeneous">True</property>
                             <child>
                               <object class="GtkButton" id="opera">
-                                <property name="label" translatable="yes">Opera</property>
+                                <property name="label">Opera</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -810,7 +810,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="chrome">
-                                <property name="label" translatable="yes">Chrome</property>
+                                <property name="label">Chrome</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -830,7 +830,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="web">
-                                <property name="label" translatable="yes">Web</property>
+                                <property name="label">Web</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -850,7 +850,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="firefox">
-                                <property name="label" translatable="yes">Firefox</property>
+                                <property name="label">Firefox</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -870,7 +870,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="vivaldi">
-                                <property name="label" translatable="yes">Vivaldi</property>
+                                <property name="label">Vivaldi</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -890,7 +890,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="edge">
-                                <property name="label" translatable="yes">Edge</property>
+                                <property name="label">Edge</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1157,7 +1157,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="woffice">
-                                <property name="label" translatable="yes">WPS Office</property>
+                                <property name="label">WPS Office</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1177,7 +1177,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="loffice">
-                                <property name="label" translatable="yes">Libreoffice</property>
+                                <property name="label">Libreoffice</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1197,7 +1197,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="ooffice">
-                                <property name="label" translatable="yes">Only Office</property>
+                                <property name="label">Only Office</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1217,7 +1217,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="msoffice">
-                                <property name="label" translatable="yes">Office Online</property>
+                                <property name="label">Office Online</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1237,7 +1237,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="goffice">
-                                <property name="label" translatable="yes">G Suite</property>
+                                <property name="label">G Suite</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1257,7 +1257,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="foffice">
-                                <property name="label" translatable="yes">Free Office</property>
+                                <property name="label">Free Office</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1319,7 +1319,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             <property name="column_homogeneous">True</property>
                             <child>
                               <object class="GtkButton" id="gedit">
-                                <property name="label" translatable="yes">Gedit</property>
+                                <property name="label">Gedit</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1339,7 +1339,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="gnu">
-                                <property name="label" translatable="yes">GNU Emacs</property>
+                                <property name="label">GNU Emacs</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1359,7 +1359,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="vscode">
-                                <property name="label" translatable="yes">Visual Studio Code</property>
+                                <property name="label">Visual Studio Code</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1379,7 +1379,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="atom">
-                                <property name="label" translatable="yes">Atom</property>
+                                <property name="label">Atom</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1399,7 +1399,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="stedit">
-                                <property name="label" translatable="yes">Sublime Text Editor</property>
+                                <property name="label">Sublime Text Editor</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1419,7 +1419,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="geany">
-                                <property name="label" translatable="yes">Geany</property>
+                                <property name="label">Geany</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1583,7 +1583,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             <property name="column_homogeneous">True</property>
                             <child>
                               <object class="GtkButton" id="skype">
-                                <property name="label" translatable="yes">Skype</property>
+                                <property name="label">Skype</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1603,7 +1603,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="discord">
-                                <property name="label" translatable="yes">Discord</property>
+                                <property name="label">Discord</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1623,7 +1623,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="telegram">
-                                <property name="label" translatable="yes">Telegram</property>
+                                <property name="label">Telegram</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1643,7 +1643,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="signal">
-                                <property name="label" translatable="yes">Signal</property>
+                                <property name="label">Signal</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1663,7 +1663,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="hex">
-                                <property name="label" translatable="yes">HexChat (IRC)</property>
+                                <property name="label">HexChat (IRC)</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1683,7 +1683,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="franz">
-                                <property name="label" translatable="yes">Franz</property>
+                                <property name="label">Franz</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1847,7 +1847,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             <property name="column_homogeneous">True</property>
                             <child>
                               <object class="GtkButton" id="0ad">
-                                <property name="label" translatable="yes">0 A.D.</property>
+                                <property name="label">0 A.D.</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1867,7 +1867,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="tux">
-                                <property name="label" translatable="yes">SuperTux</property>
+                                <property name="label">SuperTux</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1887,7 +1887,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="lutris">
-                                <property name="label" translatable="yes">Lutris</property>
+                                <property name="label">Lutris</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1907,7 +1907,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="pol">
-                                <property name="label" translatable="yes">Play On Linux</property>
+                                <property name="label">Play On Linux</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1927,7 +1927,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="steam">
-                                <property name="label" translatable="yes">Steam</property>
+                                <property name="label">Steam</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1947,7 +1947,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="mc">
-                                <property name="label" translatable="yes">Minecraft</property>
+                                <property name="label">Minecraft</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2069,7 +2069,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="skart">
-                                <property name="label" translatable="yes">SuperTuxKart</property>
+                                <property name="label">SuperTuxKart</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2160,7 +2160,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             <property name="column_homogeneous">True</property>
                             <child>
                               <object class="GtkButton" id="pops">
-                                <property name="label" translatable="yes">Popsicle</property>
+                                <property name="label">Popsicle</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2180,7 +2180,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="woe">
-                                <property name="label" translatable="yes">WoeUSB</property>
+                                <property name="label">WoeUSB</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2200,7 +2200,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="wine">
-                                <property name="label" translatable="yes">Wine</property>
+                                <property name="label">Wine</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2220,7 +2220,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="vbox">
-                                <property name="label" translatable="yes">Virtualbox</property>
+                                <property name="label">Virtualbox</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2240,7 +2240,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="gparted">
-                                <property name="label" translatable="yes">GParted</property>
+                                <property name="label">GParted</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2260,7 +2260,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="gest">
-                                <property name="label" translatable="yes">Gestures</property>
+                                <property name="label">Gestures</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2280,7 +2280,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="auda">
-                                <property name="label" translatable="yes">Audacity</property>
+                                <property name="label">Audacity</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2300,7 +2300,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="deja">
-                                <property name="label" translatable="yes">Déja-Dup</property>
+                                <property name="label">Déja-Dup</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2320,7 +2320,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="tims">
-                                <property name="label" translatable="yes">Timeshift</property>
+                                <property name="label">Timeshift</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2493,7 +2493,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="tw">
-                                <property name="label" translatable="yes">TeamViewer</property>
+                                <property name="label">TeamViewer</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2530,7 +2530,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="box">
-                                <property name="label" translatable="yes">Gnome Boxes</property>
+                                <property name="label">Gnome Boxes</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2567,7 +2567,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="barr">
-                                <property name="label" translatable="yes">Barrier by debauchee</property>
+                                <property name="label">Barrier by debauchee</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -4058,7 +4058,7 @@ To view recent changes visit the link below.</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <property name="label" translatable="yes">Swanux</property>
+                                <property name="label">Swanux</property>
                                 <attributes>
                                   <attribute name="weight" value="medium"/>
                                   <attribute name="scale" value="1.1000000000000001"/>
@@ -4075,7 +4075,7 @@ To view recent changes visit the link below.</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <property name="label" translatable="yes">Seh</property>
+                                <property name="label">Seh</property>
                                 <attributes>
                                   <attribute name="weight" value="medium"/>
                                   <attribute name="scale" value="1.1000000000000001"/>
@@ -4092,7 +4092,7 @@ To view recent changes visit the link below.</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <property name="label" translatable="yes">Swanux</property>
+                                <property name="label">Swanux</property>
                                 <attributes>
                                   <attribute name="weight" value="medium"/>
                                   <attribute name="scale" value="1.1000000000000001"/>
@@ -4109,7 +4109,7 @@ To view recent changes visit the link below.</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <property name="label" translatable="yes">Swanux</property>
+                                <property name="label">Swanux</property>
                                 <attributes>
                                   <attribute name="weight" value="medium"/>
                                   <attribute name="scale" value="1.1000000000000001"/>
@@ -4143,7 +4143,7 @@ To view recent changes visit the link below.</property>
                           <object class="GtkLabel" id="lic_lab">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">HSuite is free software; you can redistribute
+                            <property name="label">HSuite is free software; you can redistribute
 it and/or modify it under the terms of the GNU General Public License as
 published by the Free Software Foundation; either version 3 of the License,
 or any later version.
@@ -4280,6 +4280,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <property name="can_focus">True</property>
                                 <property name="hexpand">True</property>
                                 <property name="placeholder_text" translatable="yes">For contacting you if needed</property>
+                                <property name="input_purpose">email</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>

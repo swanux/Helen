@@ -7,6 +7,16 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from aptdaemon.gtk3widgets import AptProgressDialog
+import gettext
+import locale
+APP = "hsuite"
+WHERE_AM_I = os.path.abspath(os.path.dirname(__file__))
+LOCALE_DIR = os.path.join(WHERE_AM_I, 'translations/mo')
+locale.setlocale(locale.LC_ALL, locale.getlocale())
+locale.bindtextdomain(APP, LOCALE_DIR)
+gettext.bindtextdomain(APP, LOCALE_DIR)
+gettext.textdomain(APP)
+_ = gettext.gettext
 alive = False
 user = ''
 scanner = True
@@ -35,7 +45,8 @@ def asroot(asr):            # The function to display prompt for root acces.
 
 # Search deps
 def aurer(fold, extra, runDep, buildDep):                                    # The builder for AUR
-    os.system('zenity --info --text="Note, that installing from AUR can require\npassword up to 3 times and can last longer (~5-10 mins).\nAlso note, that these packages may fail to build\ndue to problems in the PKGBUILD file from AUR." --ellipsize')
+    aurtxt = _("Note, that installing from AUR can require\npassword up to 3 times and can last longer (~5-10 mins).\nAlso note, that these packages may fail to build\ndue to problems in the PKGBUILD file from AUR.")
+    os.system('zenity --info --text=%s --ellipsize' % aurtxt)
     asroot('pacman -Sq --noconfirm %s %s' % (runDep, buildDep))
     if extra == '':
         print('no extras')
