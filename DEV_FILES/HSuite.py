@@ -207,10 +207,10 @@ rew = ''
 uriDict = {}
 state = ''
 vers = ''
-stop = False
 gentoo = ''
 rmE = ''
 quit = ''
+stop = False
 orig = ''
 m = ''
 tempInd = ''
@@ -369,6 +369,7 @@ class GUI:
     # This happens when close button is clicked
     def on_window_delete_event(self, window, e):
         global stop
+        global tS
         # Getting the window position
         x, y = window.get_position()
         # Get the size of the window
@@ -395,6 +396,10 @@ class GUI:
                 code = self.abort('download', text)
             if code == 'force':
                 stop = True
+                try:
+                    tS.shutdown()
+                except:
+                    pass
                 raise SystemExit
             else:
                 dialogWindow.destroy()
@@ -886,6 +891,7 @@ class GUI:
         global net
         global state
         global tC2
+        global tS
         if not net:
             button = 0
             offtxt = _("You have no internet connection!")
@@ -980,7 +986,7 @@ class GUI:
         x, y = window.get_position()
         sx, sy = window.get_size()
         dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=_('Coming in future Beta releases...'))
-        dialogWindow.set_title(_("Coming soon"))
+        dialogWindow.set_title(_("Coming Soon"))
         dsx, dsy = dialogWindow.get_size()
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dialogWindow.show_all()
@@ -994,9 +1000,13 @@ class GUI:
 
     # fetch download sizes
     def getSize(self):
+        global stop
         print('Getting Links...')
 
         def findNew(urii, perPat, perVer):
+            if stop:
+                print('Aborted by user.')
+                raise SystemExit
             global vers
             global gentoo
             reponse = urlopen(urii)
@@ -1089,7 +1099,7 @@ class GUI:
         global uriDict
         global cache
         uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_zorin': zorinosLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
-                   'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink}
+                'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink}
         print('Updated linklist!!')
         print("Getting size...")
         # dlistlen is the length of dlist
@@ -1115,6 +1125,7 @@ class GUI:
                 print('URL ERROR!')
                 GLib.idle_add(cBut.set_label, _("Server error"))
                 cache.append(round(0, 1))
+            stop = True
 
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')

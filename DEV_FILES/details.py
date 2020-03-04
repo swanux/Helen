@@ -22,27 +22,20 @@ opera = _("""Opera
 Fast, secure, easy-to-use browser
 Try the Opera browser - now with a built-in ad blocker, battery saver and free VPN.
 
-Opera is one of the most underrated browsers out yet. However, it's one of the bests, if not the best.
-It's based on Chromium, so it's basicly Chrome on steroids. It's faster, lighter, more secure and more productive.
-The Opera Sync is the best on the market, and the sidebar with integrated messengers is really productive.
+Opera is one of the most underrated browsers out yet. However, it's one of the bests, if not the best. It's based on Chromium, so it's basicly Chrome on steroids. It's faster, lighter, more secure and more productive. The Opera Sync is the best on the market, and the sidebar with integrated messengers is really productive.
 
 Give the web browser of the future a try!
 """)
 chrome = _("""Google Chrome
 
-Google Chrome is the most popular browser nowadays for Android and PC also.
-It's reliable, stable and fast, however, you know, Google doesn't respect your privacy sometimes...
+Google Chrome is the most popular browser nowadays for Android and PC also. It's reliable, stable and fast, however, you know, Google doesn't respect your privacy sometimes...
 
 But at the end of the day, Chrome is still one of the best choices
 if you'd like to use a well-known, cross platform browser.
 """)
 web = _("""Gnome Web
 
-Gnome Web is a simple and lightweight yet powerful browser.
-It only supports Linux, so it isn't the best for you
-if you would like to have your settings and pages synced on the go.
-It is the best for old hardware and laptops (bacause it is very battery friendly).
-It could be a good choice if you are coming from mac, because its user interface is similar to Safari.
+Gnome Web is a simple and lightweight yet powerful browser. It only supports Linux, so it isn't the best for you if you would like to have your settings and pages synced on the go. It is the best for old hardware and laptops (bacause it is very battery friendly). It could be a good choice if you are coming from mac, because its user interface is similar to Safari.
 
 Note: It also the only browser that supports touchpad gestures for Linux out of the box.
 """)
@@ -63,12 +56,9 @@ vivaldi = _("""Vivaldi
 
 A browser should adapt to you, not the other way around.
 
-We believe that many people want to customize and tweak every square inch of their browser to make it their own.
-They want access to advanced tools without sacrificing performance or security.
-And they want to be heard.
+We believe that many people want to customize and tweak every square inch of their browser to make it their own. They want access to advanced tools without sacrificing performance or security. And they want to be heard.
 
-"We’re building a browser that is powerful, personal and flexible.
-A browser that adapts to you, not the other way around."
+"We’re building a browser that is powerful, personal and flexible. A browser that adapts to you, not the other way around."
 
 This is the philosophy of the Vivaldi team. The CEO was also the founder of Opera.
 
@@ -76,11 +66,9 @@ I recommend you to try this browser out. (Android version is in beta stage, avil
 """)
 edge = _("""Microsoft Edge
 
-Microsoft Edge was originally announced as a replacement for Internet Explorer, which had been the default browser in Windows operating systems since 1995.
-However, both Edge and Internet Explorer are included with Windows 10, with Edge simply acting as the default browser.
+Microsoft Edge was originally announced as a replacement for Internet Explorer, which had been the default browser in Windows operating systems since 1995. However, both Edge and Internet Explorer are included with Windows 10, with Edge simply acting as the default browser.
 
-Microsoft Edge requires at least 1 gigabyte of memory.
-The browser offers better security and better organization than Internet Explorer, as well as a reading list which is similar to (but separate from) bookmarks.
+Microsoft Edge requires at least 1 gigabyte of memory. The browser offers better security and better organization than Internet Explorer, as well as a reading list which is similar to (but separate from) bookmarks.
 
 Now Chromium based Edge browser is on the way, and hopefully it is arriving to Linux between 2020 and 2021.
 """)
@@ -366,7 +354,7 @@ Deepin is the beautiful, minimalist, well supported, regularly updated and perfe
 """)
 elementary = _("""Elementary OS
 
-Elementary is the macOS of the Linux world. Not because it is expensive or closed source, but because of its simplicity and user friendliness. If you are a beginner, then maybe this is the perfect distro for you. It is nothing special, no bloatware, based on Ubuntu, simple interface, stability and performance. But what else do you need? Regarding its pretty old-school look, trust me, you will get used to it after around a week, and after that you will just love it.
+Elementary is the macOS of the Linux world. Not because it is expensive or closed source, but because of its simplicity and user friendliness. If you are a beginner, then maybe this is the perfect distro for you. It is nothing special, no bloatware, based on Ubuntu, simple interface, stability and performance. What else do you need? Regarding its pretty old-school look, trust me, you will get used to it after around a week, and after that you will just love it.
 """)
 zorin = _("""Zorin OS
 

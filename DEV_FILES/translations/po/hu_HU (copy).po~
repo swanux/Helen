@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HSuite 0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-04 21:15+0100\n"
+"POT-Creation-Date: 2020-02-29 20:56+0100\n"
 "PO-Revision-Date: 2020-02-29 20:56+0100\n"
 "Last-Translator: Dániel Kolozsi <dani@kolozsi.net>\n"
 "Language-Team: Hungarian\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:205
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:217
 msgid ""
 "0 A.D.\n"
 "\n"
@@ -35,35 +35,21 @@ msgid ""
 "mods to the game and if you would like to take part in the development you "
 "can do that also.\n"
 msgstr ""
-"0. A.D.\n"
-"\n"
-"Véleményem szerint a legjobb stratégiai játék Linuxra\n"
-"\n"
-"A 0 A.D. egy ingyenes, nyílt forráskódú és platformfüggetlen valós idejű "
-"stratégiai (RTS) játék.Összefoglalva: ez egy történelmi alapokra épülő "
-"háborús/gazdasági játék ami lehetővé teszi a játékosok számára a nyugati "
-"civilizációk történelmének átélését vagy átírását kiemelve a Kr.e. 500-tól a "
-"Kr.u. 500-ig terjedő időszakot.Ez egy ambíciózus projekt, magas szintű és "
-"részletes 3D grafika, kiváló hanghatások és egy rugalmas és hatékony saját "
-"fejlesztésű game engine használatával.\n"
-"A játék részét képezi az online vagy LAN többjátékos mód, valamint lehetőség "
-"nyílik saját térképek készítésére és modok hozzáadására. Ezen kívül, ha "
-"szeretne, akár Ön is részt vehet a játék fejlesztésében.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:625
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3973
 msgid "About"
 msgstr "A programról"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1183
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:407
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1175
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:585
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:719
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2658
 msgid "App Spotlight"
 msgstr "Program börze"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:379
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
 msgid ""
 "Arch Linux\n"
 "\n"
@@ -79,24 +65,10 @@ msgid ""
 "package manager written specifically for Arch Linux, pacman, is used to "
 "install, remove and update software packages.\n"
 msgstr ""
-"Arch Linux\n"
-"\n"
-"Az Arch Linux x86-64 arhitektúrájú számítógépekre érhető el.Az Arch "
-"repository-k nyílt forráskódú és zárt forráskódú szoftvereket is tartalmaz, "
-"az alapértelmezett Arch kenrelben is vannak zárt forráskódú részek, mivel a "
-"disztribúció nem része a GNU projektnek.\n"
-"\n"
-"A fejlesztők a KISS (\"keep it simple, stupid\" ~ maradjon nevetségesen "
-"egyszerű) elveket követik.A fő cél az elegancia, a kód helyesség, a "
-"minimalizmus és az egyszerűség. A fejlesztők elképzelése szerint ugyanakkor "
-"aki Archot használ, az hajlandó erőfeszítéseket tenni annak érdekében, hogy "
-"megismerje a rendszer működését.A szoftverek telepítésében és "
-"eltávolításában egy kifejezetten Arch Linuxra fejlesztett szoftverkezelő áll "
-"a felhasználó rendelkezésére.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4010
 msgid "Artwork by :"
-msgstr "Logó tervezője : "
+msgstr "Logó tervezése : "
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3614
 msgid ""
@@ -104,12 +76,8 @@ msgid ""
 "possible and understand what's going under the hood as good as possible. "
 "These distros will probably fit your needs."
 msgstr ""
-"Hozzáértő felhasználóként minden bizonnyal szeretné megkapni a legújabb "
-"frissítéseket amilyen gyorsan csak lehet, és szeretné érteni hogyan működik "
-"a számítógépe a háttérben olyan jól amilyen jól csak lehet.Ezek a disztrók "
-"minden bizonnyal fedezik ezeket a szükségleteket."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:135
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:147
 msgid ""
 "Atom Editor\n"
 "\n"
@@ -122,25 +90,14 @@ msgid ""
 "platform desktop applications using Chromium and Node.js. It is written in "
 "CoffeeScript and Less.\n"
 msgstr ""
-"Atom Editor\n"
-"\n"
-"Az Atom egy ingyenes és nyílt forráskódú szöveg- és kódszerkesztő macOS-re, "
-"Linuxra és Windowsra. A szerkesztő Node.js-ben írt bővítményeket és "
-"beépített Git Control támogatást is kínál, ezen kívül a GitHub által "
-"fejlesztett szerkesztő.Az Atom egy asztali alkalmazás web technológiákkal "
-"létrehozva. A legtöbb bővítőcsomagnak szabad szoftver liszensze van és a "
-"közösség által fenntartottak. A szerkesztő az Electronra (régebben Atom "
-"Shellre) épül, egy keretrendszerre ami lehetővé teszi a platformfüggetlen "
-"alkalmazások írását Chromium és Node.js használatával. A program CoffeScript-"
-"ben és Less-ben íródott.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:500
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:931
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:943
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:498
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:928
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:940
 msgid "Attention!"
-msgstr "Figyelem!"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:290
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:302
 msgid ""
 "Audacity\n"
 "\n"
@@ -158,24 +115,12 @@ msgid ""
 "products or sell or distribute copies of Audacity under the GNU General "
 "Public License (GPL).\n"
 msgstr ""
-"Audacity\n"
-"\n"
-"Az ingyenes és nyílt forráskódú hangszerkesztő\n"
-"\n"
-"Az Audacity egy népszerű, nyílt forráskódú és többnyelvű szerkesztő és "
-"felvevő szoftver hanganyagok szerkesztéséhez.Ingyenes és működik macOS-en, "
-"Windowson és Linuxon.\n"
-"\n"
-"A program használható egy csomó hangszerkesztő és felvevő feladat "
-"elvégzésére, mint például csengőhangok készítése, sztereo számok keverése, "
-"kazetták vagy szalagok digitalizálása, felvétel feldarabolása és még több.Az "
-"Audacity Wiki részletes oktatóanyagokkal szolgál a program használatáról.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3158
 msgid "Avilable from website only"
-msgstr "Csak a weboldalról elérhető"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:332
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:344
 msgid ""
 "Barrier by debauchee\n"
 "\n"
@@ -187,25 +132,15 @@ msgid ""
 "maintain that simplicity. Barrier will let you use your keyboard and mouse "
 "from machine A to control machine B (or more). It's that simple.\n"
 msgstr ""
-"Barrier by debauchee\n"
-"\n"
-"A Barrier egy KVM szoftver a Symless's energy 1.9 kódja alapján írva.A "
-"Synergy egy újraírása az eredeti CosmoSynergynek Chris Schoenmantól.\n"
-"\n"
-"Annak ellenére, hogy a Synergy megváltoztatta céljait az 1.x-es korszak "
-"után, a Barrier célja hogy továbbra is fenntartsa azt az egyszerűséget.A "
-"program lehetővé teszi az Ön számára, hogy ,,A'' számítógép egerével és "
-"billentyűzetével irányítsa ,,B'' számítógépet (vagy többet). Ilyen "
-"egyszerű!\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1029
 msgid "Browsers"
-msgstr "Böngészők"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:957
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:954
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4360
 msgid "Bug"
-msgstr "Hiba"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2967
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2999
@@ -220,7 +155,7 @@ msgstr "Hiba"
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3672
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3704
 msgid "Calculating size..."
-msgstr "Méret számolása..."
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:121
 msgid ""
@@ -229,29 +164,28 @@ msgid ""
 "Arch, Ubuntu (bionic, eoan),\n"
 "Debian (buster). Aborting now."
 msgstr ""
-"Nem sikerült azonosítani a disztrót.\n"
-"Jelenleg ezeken a disztrókon lett tesztelve:\n"
-"Arch, Ubuntu (bionic, eoan),\n"
-"Debian (buster). Megszakítás most."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:986
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:998
 msgid "Coming Soon"
-msgstr "Hamarosan elérhető"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:985
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:982
 msgid "Coming in future Beta releases..."
-msgstr "Elérhető a jövőbeni Béta verziókban..."
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:983
+msgid "Coming soon"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1821
 msgid "Communication"
-msgstr "Kommunikáció"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4134
 msgid "Credits"
-msgstr "A program készítői"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:367
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:379
 msgid ""
 "Debian\n"
 "\n"
@@ -263,16 +197,8 @@ msgid ""
 "edition for personal computers and servers, and is the basis for many other "
 "distributions.\n"
 msgstr ""
-"Debian\n"
-"\n"
-"A Debian GNU/Linux egy Linux disztribúció amely ingyenes és nyílt forráskódú "
-"szoftverekből áll, a Debian Projekt nevű közösségi projekt fejlesztette amit "
-"Ian Murdock hozott létre 1993 Augusztus 16-án. Az első verzió, a Debian "
-"0.01, 1993 Szeptember 15-én jelent meg, majd az első stabil verzió 1996 "
-"Június 17-én. A Debian Stabil verziója a legnépszerűbb kiadás otthonra és "
-"szerverekre, és ez az alapja sok más disztribúciónak is.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:351
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:363
 msgid ""
 "Deepin Linux\n"
 "\n"
@@ -285,27 +211,16 @@ msgid ""
 "nearly every case), and you do not want to learn anything about computers "
 "and Linux, then this is the perfect choice for you.\n"
 msgstr ""
-"Deepin Linux\n"
-"\n"
-"A Deepin egy gyönyörű, minimalista, jól támogatott, rendszeresen frissített "
-"és tökéletesen optimalizált disztró Kínából, rengeteg remek funkcióval és "
-"egy kissé különös névvel. Debian instabil verziót vesz alapul, rolling "
-"release frissítési módszert használ (egy verziót frissít megállás nélkül) és "
-"rengeteg saját fejlesztésű programot tartalmaz (DDE, DWM, Deepin Boot Maker, "
-"Deepin Telepítő/Zene/Film/Mentés/Klónozás/Helyreállítás/Nyomtatás/"
-"Csatlakozás és így tovább...). Ha szeretne valami olyat ami egyből "
-"működőképes (majdnem minden esetben), és nem szeretne azzal bajlódni hogyan "
-"működnek a Linux rendszerek, akkor ez a megfelelő választás Önnek.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2700
 msgid "Demo/Review (YouTube)"
-msgstr "Demó/Bemutató (YouTube)"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3993
 msgid "Developed by :"
-msgstr "Fejlesztette : "
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:157
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:169
 msgid ""
 "Discord\n"
 "\n"
@@ -316,55 +231,42 @@ msgid ""
 "browsers. As of 21 July 2019, there are over 250 million unique users of the "
 "software.\n"
 msgstr ""
-"Discord\n"
-"\n"
-"A Discord egy ingyenes, zárt forráskódú VoIP alkalmazás és digitális "
-"megosztási platform eredetileg a videójátékos közösség számára tervezve, ami "
-"előnyben részesíti a szöveg, kép, videó és audió kommunikációt a "
-"felhasználók között. A program elérhető Windowsra, macOS-re, Androidra, iOS-"
-"re, Linuxra és böngészőn keresztül. 2019 Július 21-én több mint 250 millió "
-"felhasználóval rendelkezik.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1174
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1185
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1339
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:407
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1166
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1177
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1331
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:511
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2802
 msgid "Distro Boutique"
-msgstr "Disztró kereső"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:394
 #, python-format
 msgid ""
 "Do you really would like to abort now? Download is currently in progress for "
 "%s."
 msgstr ""
-"Biztos benne, hogy ki akar lépni? Egy letöltés folyamatban van a(z) %s nevű "
-"programhoz."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:392
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:608
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:391
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:606
 #, python-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
 "program. If you decide to abort, then it is recommended to remove %s "
 "manually."
 msgstr ""
-"Biztos benne, hogy ki szeretne lépni? A végeredmény egy működésképtelen "
-"program lehet. Ha úgy dönt, hogy kilép, ajánlott manuálisan eltávolítani "
-"a(z) %s nevű programot."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:377
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:376
 msgid "Do you really would like to exit now?"
-msgstr "Biztosan ki szeretne lépni?"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1150
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1142
 #, python-format
 msgid "Download (%s MB)"
-msgstr "Letöltés (%s MB)"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:298
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:310
 msgid ""
 "Déja-Dup\n"
 "\n"
@@ -378,24 +280,12 @@ msgid ""
 "You can do full system backups, Home folder backup or even settings backup "
 "in Ubuntu. You can backup to your GDrive storage also.\n"
 msgstr ""
-"Déja-Dup\n"
-"\n"
-"Az egyik leghatékonyabb biztonsági mentés készítő Linuxra\n"
-"\n"
-"A Déja-dup egy egyszerű de hatékony mentés készítő program amely a Ubuntu "
-"Linux része.A program rsyncet használ pillanatképek készítéséhez a "
-"rendszerről, támogat titkosítást, ütemezést és távoli elérést is (pl Google "
-"Drive backup)A Déja-duppal könnyen visszaállíthat fájlokat régebbi verzióra "
-"egyenesen a fájlkezelőből, vagy helyreállíthat törölt fájlokat.\n"
-"Készíthet mentést a teljes rendszerről, a Saját Mappáról vagy akár a "
-"beállításokról.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1557
 msgid "Editors"
-msgstr "Szerkesztők"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:355
-#, fuzzy
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:367
 msgid ""
 "Elementary OS\n"
 "\n"
@@ -403,41 +293,33 @@ msgid ""
 "closed source, but because of its simplicity and user friendliness. If you "
 "are a beginner, then maybe this is the perfect distro for you. It is nothing "
 "special, no bloatware, based on Ubuntu, simple interface, stability and "
-"performance. What else do you need? Regarding its pretty old-school look, "
-"trust me, you will get used to it after around a week, and after that you "
-"will just love it.\n"
+"performance. But what else do you need? Regarding its pretty old-school "
+"look, trust me, you will get used to it after around a week, and after that "
+"you will just love it.\n"
 msgstr ""
-"Elementary OS\n"
-"\n"
-"Az Elemantary a macOS a Linuxok közt. Nem azért mert drága vagy zárt "
-"rendszer, hanem mert egyszerű és felhasználóbarát.Ha Ön még új a Linux "
-"világban, ez egy remek választás lehet. Semmi fölösleges extra nincs benne, "
-"Ubuntu alapú, egyszerű, stabil és gyors.Mi kellhet még ezen kívül? A "
-"viszonylag régies/szokatlan kinézetre vonatkozóan, higgye el, egy-két hét "
-"alatt meg fogja szeretni.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4308
 msgid "Email address :"
-msgstr "Email cím : "
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:953
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:950
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4362
 msgid "Enhancement"
-msgstr "Fejlesztés"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2620
 msgid "Extras"
-msgstr "Extrák"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:605
 msgid "FOSS Collection"
-msgstr "FOSS Kollekció"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4044
 msgid "Features by :"
-msgstr "Funkciókat fejlesztette : "
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:371
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:383
 msgid ""
 "Fedora\n"
 "\n"
@@ -448,64 +330,57 @@ msgid ""
 "such technologies. Fedora is the upstream source of the commercial Red Hat "
 "Enterprise Linux distribution.\n"
 msgstr ""
-"Fedora\n"
-"\n"
-"A Fedora Linux a független, közösség által támogatott Fedora Projekt által "
-"fejlesztett rendszer, amit a Red Hat és egyéb cégek is támogatnak.A rendszer "
-"rengeteg szabad és nyílt forráskódú szoftvert kínál, és a legfőbb támogatója "
-"sok ilyen projektnek. A Fedora a Red Hat Vállalati Linux instabil kódját "
-"használja.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:551
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4258
 msgid "Feedback"
-msgstr "Visszajelzés"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4333
 msgid "Feedback Description :"
-msgstr "Leírás : "
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:966
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:963
 msgid "Feedback submitted succesfully!"
-msgstr "Visszajelzés sikeresen jóváhagyva!"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4320
 msgid "Feedback titile :"
-msgstr "Cím : "
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4345
 msgid "Feedback type :"
-msgstr "Típus : "
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:703
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:701
 #, python-format
 msgid "Finished downloading %s!"
-msgstr "%s sikeresen letöltve!"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:583
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:581
 #, python-format
 msgid "Finished processing %s!"
-msgstr "%s feldolgozása befejeződött!"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3229
 msgid "For Beginners"
-msgstr "Kezdőknek"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3583
 msgid "For Developers"
-msgstr "Fejlesztőknek"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3354
 msgid "For Gamers"
-msgstr "Játékosoknak"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3812
 msgid "For Powerusers"
-msgstr "Hozzáértő felhasznáóknak"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4282
 msgid "For contacting you if needed"
-msgstr "Kapcsolatfelvételre, amennyiben szükséges"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3385
 msgid ""
@@ -513,11 +388,8 @@ msgid ""
 "here are the best ones in this category. (Of course, you can use Solus, or "
 "Ubuntu for example)"
 msgstr ""
-"A fejlesztők számára a fő követelmény a stabilitás és a megbízhatóság. Ezek "
-"alapján íme a legjobbak a kategóriában. (Természetesen használhatja például "
-"a Solus-t vagy a Ubuntu-t is)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:179
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:191
 msgid ""
 "Franz\n"
 "\n"
@@ -551,37 +423,8 @@ msgid ""
 "single dashboard. What this means is, you could add / manage five different "
 "Facebook Messenger accounts all at once.\n"
 msgstr ""
-"Franz\n"
-"\n"
-"A Franz Üzenő alkalmazás az egyik legjobb a maga nemében Linuxra.Ingyenes és "
-"egyszerű program ami ötvöz több másik üzenő alkalmazást egyetlen ígéretes "
-"programba.\n"
-"\n"
-"Jelenleg támogatja\n"
-"    ~ Slack\n"
-"    ~ WhatsApp\n"
-"    ~ WeChat\n"
-"    ~ HipChat\n"
-"    ~ Facebook Messenger\n"
-"    ~ Telegram\n"
-"    ~ Google Hangouts\n"
-"    ~ GroupMe\n"
-"    ~ Skype\n"
-"    ~ Gmail\n"
-"    ~ Google Messages\n"
-"    ~ Google Calendar\n"
-"    ~ Discord\n"
-"    ~ Linkedin\n"
-"    ~ Outlook\n"
-"    ~ and many more.\n"
-"\n"
-"Pillanatnyilag az alkalmazás Windows, Linux és Mac rendszerekre érhető el.\n"
-"\n"
-"Ha Önnek több magán és céges fiókja van, a program lehetővé teszi, hogy "
-"mindet hozzáadja és könnnyedén kezelje őket egy irányítópultról.Például öt "
-"különböző Facebook fiókot használhat egyszerre.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:123
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:135
 msgid ""
 "GNU Emacs\n"
 "\n"
@@ -599,24 +442,8 @@ msgid ""
 "to manage email, files, outlines, and RSS feeds, as well as clones of ELIZA, "
 "Pong, Conway's Life, Snake and Tetris.\n"
 msgstr ""
-"GNU Emacs\n"
-"\n"
-"Az EMACS (Editor MACros) egy szövegszerkesztő család amikre jellemző a "
-"bővíthetőség.A legnépszerűbb változat, a GNU Emacs leírása így említi: a "
-"bővíthető, személyreszabható, magátólértetődő, valós idejű szerkesztő.Az "
-"első Emacs fejlesztése az 1970-es évek közepén kezdődött, és napjainkig "
-"dolgoznak rajta.\n"
-"\n"
-"A programnak több mint 10.000 beépített utasítása van, és a felhasználói "
-"felülete lehetővé teszi a felhasználónak, hogy kombinálja ezeket a "
-"parancsokat makrókká, ezzel automatizálva a munkáját.Az Emacs implementációk "
-"jellemzően egy Lisp dialektust használnak ami széles bővítési lehetőségeket "
-"biztosít, lehetővé téve a felhasználóknak és fejlesztőknek, hogy úl "
-"utasításokat írjanak az alkalmazáshoz.Jelenleg rendelkezésre állnak "
-"bővítmények email kezelésre, fájlokhoz, kiemeléshez és RSS hírcsatornákhoz "
-"valamint ELIZA, Pong, Conway's Life, Snake és Tetris másolatokhoz.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:274
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:286
 msgid ""
 "GParted\n"
 "\n"
@@ -634,27 +461,12 @@ msgid ""
 "- Perform actions with partitions such as create, delete, resize, move, "
 "check, label, copy, and paste.\n"
 msgstr ""
-"GParted\n"
-"\n"
-"A sokoldalú partíció kezelő Linuxra\n"
-"\n"
-"A gparted a GNOME partíció szerkesztő partíciók létrehozására, átrendezésére "
-"és törlésére.\n"
-"Egy diszk több alpartícióra lehet osztva. A program lehetővé teszi Önnek, "
-"hogy megváltoztassa, átrendezze ezeket a partíciókat miközben nem cesznek el "
-"adatok.\n"
-"\n"
-"Az alkalmazással az alábbi feladatok hajthatók végre:\n"
-"- Partíciós tábla készítése\n"
-"- Partíció flag-ek kezelése\n"
-"- Partíciók létrehozása, átméretezése, törlése, mozgatása, ellenőrzése, "
-"megjelölése, másolása és beillesztése.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2134
 msgid "Games"
-msgstr "Játékok"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:143
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:155
 msgid ""
 "Geany\n"
 "\n"
@@ -669,17 +481,8 @@ msgid ""
 "JavaScript, PHP, HTML, LaTeX, CSS, Python, Perl, Ruby, Pascal, Haskell, "
 "Erlang, Vala and many others.\n"
 msgstr ""
-"Geany\n"
-"\n"
-"A Geany egy könnyű grafikus szövegszerkesztő amely Scintilla-t és GTK+-t "
-"használ és alapvető IDE funkciókkal is rendelkezik.Jól optimalizált, kevés "
-"függősége van külső programokon vagy könyvtárakon Linuxon.Som rendszert "
-"támogat, mint például: BSD, Linux, macOS, Solaris és Windows. A Windows port "
-"kissé hiányos, sok Unix alatt meglévő funkció nem működik.Támogatott "
-"nyelvek: C, C++, C#, Java, JavaScript, PHP, HTML, LaTeX, CSS, Python, Perl, "
-"Ruby, Pascal, Haskell, Erlang, Vala és még sok más.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:113
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:125
 msgid ""
 "Gedit\n"
 "\n"
@@ -697,24 +500,8 @@ msgid ""
 "Personally, I use gedit with extensions for programming, HSuite has been "
 "also written in gedit until v0.4.\n"
 msgstr ""
-"Gedit\n"
-"\n"
-"Ez az alapértelmezett szövegszerkesztő GNOME asztali környezet esetén, "
-"valamint része a GNOME Core alkalmazásoknak.Mint egy általános célú "
-"szövegszerkesztő, a Gedit egyszerű és könnyen kezelhető egy egyszerű, "
-"letisztult felülettel a GNOME projekt elveinek megfelelően.Tartalmaz "
-"eszközöket forráskód és formázott szöveg szerkesztésére, mint például markup "
-"nyelvek.\n"
-"\n"
-"A program ingyenes és nyílt forráskódú, a GNU General Public License 2-es "
-"vagy újabb verziója alatt.\n"
-"\n"
-"A Gedit elérhető Windowsra és macOS-re is.\n"
-"\n"
-"Személy szerint, ezt a programot használtam bővítményekkel programozáshoz, "
-"az HSuite is ebben íródott a 0.4-es verzióig.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:385
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:397
 msgid ""
 "Gentoo\n"
 "\n"
@@ -724,15 +511,8 @@ msgid ""
 "for the specific type of computer. Precompiled binaries are available for "
 "some larger packages or those with no available source code.\n"
 msgstr ""
-"Gentoo\n"
-"\n"
-"A Gentoo Linux egy Linux disztribúció amely a Portage csomagkezelő rendszer "
-"segítségével működik.A bináris szoftverkezelőkkel szemben, a forráskód "
-"helyben épül fel a felhasználó szükségletei szerint, gyakran optimalizálva "
-"az adott gépre.Előkészített verziók elérhetőek néhány nagyobb csomaghoz, "
-"vagy azokhoz amelyeknek nem elérhető a forráskódja.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:324
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:336
 msgid ""
 "Gnome Boxes\n"
 "\n"
@@ -745,62 +525,36 @@ msgid ""
 "GNOME Boxes requires the CPU to support some kind of Hardware-assisted "
 "virtualization (Intel VT-x, for example).\n"
 msgstr ""
-"Gnome Boxes\n"
-"\n"
-"A legegyszerűbb módja virtuális gépek futtatásának átlag felhasználóként.\n"
-"\n"
-"A GNOME Boxes része a GNOME asztali környezetnek, távoli vagy virtuális "
-"rendszerek elérésére alkalmas.A program QUEMU-t, KVM-et és libvirt-et "
-"használ virtualizációhoz.\n"
-"\n"
-"Az alkalmazás használatához a CPU-nak támogatnia kell valamiféle hardveres "
-"virtualizációs technológiát (Intel VT-x, például).\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:36
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:39
 msgid ""
 "Gnome Web\n"
 "\n"
-"Gnome Web is a simple and lightweight yet powerful browser. It only supports "
-"Linux, so it isn't the best for you if you would like to have your settings "
-"and pages synced on the go. It is the best for old hardware and laptops "
-"(bacause it is very battery friendly). It could be a good choice if you are "
-"coming from mac, because its user interface is similar to Safari.\n"
+"Gnome Web is a simple and lightweight yet powerful browser.\n"
+"It only supports Linux, so it isn't the best for you\n"
+"if you would like to have your settings and pages synced on the go.\n"
+"It is the best for old hardware and laptops (bacause it is very battery "
+"friendly).\n"
+"It could be a good choice if you are coming from mac, because its user "
+"interface is similar to Safari.\n"
 "\n"
 "Note: It also the only browser that supports touchpad gestures for Linux out "
 "of the box.\n"
 msgstr ""
-"Gnome Web\n"
-"\n"
-"A Gnome Web egy egyszerű  és könnyű mindmellet hatékony böngésző.Kizárólag "
-"Linuxra elérhető, szóval ha platformfüggetlen lehetőséget keres akkor "
-"valószínűleg nem ez lesz Önnek a legmegfelelőbb.Remekül működik régebbi "
-"hardveren és rendkívül energiahatékony.Kiváló választás lehet amennyiben mac-"
-"ről tér át Linuxra, mivel a felhasználói felülete hasonlít a Safari-éra.\n"
-"\n"
-"Megjegyzés: Ez az egyetlen böngésző Linuxon amelyik alapból támogatja a "
-"gesztusvezérlést laptopon.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:29
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:31
 msgid ""
 "Google Chrome\n"
 "\n"
-"Google Chrome is the most popular browser nowadays for Android and PC also. "
+"Google Chrome is the most popular browser nowadays for Android and PC also.\n"
 "It's reliable, stable and fast, however, you know, Google doesn't respect "
 "your privacy sometimes...\n"
 "\n"
 "But at the end of the day, Chrome is still one of the best choices\n"
 "if you'd like to use a well-known, cross platform browser.\n"
 msgstr ""
-"Google Chrome\n"
-"\n"
-"A Google Chrome a legnépszerűbb böngésző napjainkban Androidra és PC-re "
-"egyaránt.Megbízhatő, stabil és gyors, azonban, mint tudja, a Google nem "
-"mindíg tartja tiszteletben a magánéletet...\n"
-"\n"
-"De, végül is, a Chrome még mindig az egyik legjobb választás, ha szeretne "
-"egy ismert, platformfüggetlen böngészőt.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:103
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:115
 msgid ""
 "Google G Suite\n"
 "\n"
@@ -810,13 +564,10 @@ msgid ""
 "nonprofits. Included with every subscription you get access to custom Gmail "
 "addresses, Docs, Sheets, Slides, Calendar, Drive, Sites, and so much more.\n"
 msgstr ""
-"Google G Suite\n"
-"\n"
-"A G Suite - eredetileg Google Alkalmazások Munkához - egy szoftver mint "
-"szolgáltatás (SaaS) termék ami csoportosítja a felhőalapú Google "
-"szolgáltatásokat.Minden feliratkozással egyedi Gmail címeket, Dokumentumok, "
-"Táblázatok, Naptár, Drive, Oldalak és még sok más szolgáltatáshoz jut "
-"hozzá.\n"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3896
+msgid "HSuite Beta"
+msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:236
 #, python-format
@@ -824,14 +575,12 @@ msgid ""
 "HSuite has been updated to %s.\n"
 "For changelog visit https://swanux.github.io/hsuite/"
 msgstr ""
-"Az HSuite frissítve lett a(z) %s verzióra.\n"
-"Az újdonságokért keresse fel a https://swanux.github.io/hsuite/ weboldalt.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:531
 msgid "HSwitcher"
-msgstr "HKöltöztető"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:175
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:187
 msgid ""
 "HexChat\n"
 "\n"
@@ -846,19 +595,19 @@ msgstr ""
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3849
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4210
 msgid "Home"
-msgstr "Főmenü"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:967
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:964
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:765
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2851
 msgid "Information"
-msgstr "Információ"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:930
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:927
 msgid "Invalid email address!"
-msgstr "Érvénytelen email cím!"
+msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:389
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:401
 msgid ""
 "LFS\n"
 "\n"
@@ -867,7 +616,7 @@ msgid ""
 "code.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:83
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:95
 msgid ""
 "Libreoffice\n"
 "\n"
@@ -887,7 +636,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:338
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:350
 msgid ""
 "Linux Mint\n"
 "\n"
@@ -904,7 +653,7 @@ msgid ""
 "beginner.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:219
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:231
 msgid ""
 "Lutris\n"
 "\n"
@@ -914,24 +663,26 @@ msgid ""
 "sources running on any Linux powered gaming machine.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:67
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:77
 msgid ""
 "Microsoft Edge\n"
 "\n"
 "Microsoft Edge was originally announced as a replacement for Internet "
 "Explorer, which had been the default browser in Windows operating systems "
-"since 1995. However, both Edge and Internet Explorer are included with "
-"Windows 10, with Edge simply acting as the default browser.\n"
+"since 1995.\n"
+"However, both Edge and Internet Explorer are included with Windows 10, with "
+"Edge simply acting as the default browser.\n"
 "\n"
-"Microsoft Edge requires at least 1 gigabyte of memory. The browser offers "
-"better security and better organization than Internet Explorer, as well as a "
-"reading list which is similar to (but separate from) bookmarks.\n"
+"Microsoft Edge requires at least 1 gigabyte of memory.\n"
+"The browser offers better security and better organization than Internet "
+"Explorer, as well as a reading list which is similar to (but separate from) "
+"bookmarks.\n"
 "\n"
 "Now Chromium based Edge browser is on the way, and hopefully it is arriving "
 "to Linux between 2020 and 2021.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:97
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:109
 msgid ""
 "Microsoft Office Online\n"
 "\n"
@@ -943,7 +694,7 @@ msgid ""
 "browser and saved online so you can access the files from anywhere.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:236
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:248
 msgid ""
 "Minecraft\n"
 "\n"
@@ -964,7 +715,7 @@ msgid ""
 "completed two months later.'\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:42
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:49
 msgid ""
 "Mozilla Firefox\n"
 "\n"
@@ -982,11 +733,11 @@ msgid ""
 "the internet healthier.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:903
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:900
 msgid "No internet"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:624
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:622
 msgid "Note!"
 msgstr ""
 
@@ -1002,7 +753,7 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:89
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:101
 msgid ""
 "Only Office\n"
 "\n"
@@ -1037,15 +788,16 @@ msgid ""
 "free VPN.\n"
 "\n"
 "Opera is one of the most underrated browsers out yet. However, it's one of "
-"the bests, if not the best. It's based on Chromium, so it's basicly Chrome "
-"on steroids. It's faster, lighter, more secure and more productive. The "
-"Opera Sync is the best on the market, and the sidebar with integrated "
+"the bests, if not the best.\n"
+"It's based on Chromium, so it's basicly Chrome on steroids. It's faster, "
+"lighter, more secure and more productive.\n"
+"The Opera Sync is the best on the market, and the sidebar with integrated "
 "messengers is really productive.\n"
 "\n"
 "Give the web browser of the future a try!\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:266
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:278
 msgid ""
 "Oracle Virtualbox\n"
 "\n"
@@ -1064,7 +816,7 @@ msgid ""
 "titles it Oracle VM VirtualBox.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:223
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:235
 msgid ""
 "Play On Linux\n"
 "\n"
@@ -1077,7 +829,7 @@ msgid ""
 "free, accessible and efficient solution to this problem.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:248
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:260
 msgid ""
 "Popsicle\n"
 "\n"
@@ -1086,16 +838,16 @@ msgid ""
 "Laptops and the heavy customized Ubuntu based distro, Pop!_OS.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:379
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:378
 msgid "Prompt"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:955
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:952
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4361
 msgid "Question"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:695
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:693
 msgid "Ready in ~/Downloads/"
 msgstr ""
 
@@ -1146,8 +898,8 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:651
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1123
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:649
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1116
 msgid "Server error"
 msgstr ""
 
@@ -1155,7 +907,7 @@ msgstr ""
 msgid "Short, meaningful title (Max 35 character)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:167
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:179
 msgid ""
 "Signal\n"
 "\n"
@@ -1176,7 +928,7 @@ msgid ""
 "an initial funding of $50 million.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:147
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:159
 msgid ""
 "Skype\n"
 "\n"
@@ -1201,7 +953,7 @@ msgid ""
 "Skype to do all sorts of things together.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:107
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:119
 msgid ""
 "Softmaker Free Office\n"
 "\n"
@@ -1216,7 +968,7 @@ msgid ""
 "released as freeware after originally being available for purchase.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:347
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:359
 msgid ""
 "Solus Linux\n"
 "\n"
@@ -1232,7 +984,7 @@ msgid ""
 "to make everything work.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:230
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:242
 msgid ""
 "Steam\n"
 "\n"
@@ -1246,7 +998,7 @@ msgid ""
 "Linux without problems.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:363
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:375
 msgid ""
 "Steam OS\n"
 "\n"
@@ -1256,7 +1008,7 @@ msgid ""
 "2013.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:139
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:151
 msgid ""
 "Sublime Text Editor\n"
 "\n"
@@ -1267,7 +1019,7 @@ msgid ""
 "software licenses.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:213
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:225
 msgid ""
 "SuperTux\n"
 "\n"
@@ -1279,7 +1031,7 @@ msgid ""
 "in the game is Tux, the official mascot of the Linux kernel.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:242
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:254
 msgid ""
 "SuperTuxKart\n"
 "\n"
@@ -1296,7 +1048,7 @@ msgid ""
 "other players all over the world.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:318
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:330
 msgid ""
 "TeamViewer\n"
 "\n"
@@ -1312,7 +1064,7 @@ msgid ""
 "devices. TeamViewer 6 is free for all non-commercial users.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:161
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:173
 msgid ""
 "Telegram\n"
 "\n"
@@ -1338,7 +1090,7 @@ msgid ""
 "pretty stable and good/familiar looking."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:306
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:318
 msgid ""
 "Timeshift\n"
 "\n"
@@ -1365,7 +1117,7 @@ msgid ""
 "your system to an earlier date.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:286
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:298
 msgid ""
 "Touchpad Gestures (with fusuma)\n"
 "\n"
@@ -1379,7 +1131,7 @@ msgstr ""
 msgid "Translation by :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:343
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:355
 msgid ""
 "Ubuntu\n"
 "\n"
@@ -1393,7 +1145,7 @@ msgid ""
 "and straightforward.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:129
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:141
 msgid ""
 "Visual Studio Code\n"
 "\n"
@@ -1411,18 +1163,20 @@ msgid ""
 "IDE.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:55
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:62
 msgid ""
 "Vivaldi\n"
 "\n"
 "A browser should adapt to you, not the other way around.\n"
 "\n"
 "We believe that many people want to customize and tweak every square inch of "
-"their browser to make it their own. They want access to advanced tools "
-"without sacrificing performance or security. And they want to be heard.\n"
+"their browser to make it their own.\n"
+"They want access to advanced tools without sacrificing performance or "
+"security.\n"
+"And they want to be heard.\n"
 "\n"
-"\"We’re building a browser that is powerful, personal and flexible. A "
-"browser that adapts to you, not the other way around.\"\n"
+"\"We’re building a browser that is powerful, personal and flexible.\n"
+"A browser that adapts to you, not the other way around.\"\n"
 "\n"
 "This is the philosophy of the Vivaldi team. The CEO was also the founder of "
 "Opera.\n"
@@ -1431,7 +1185,7 @@ msgid ""
 "avilable from the Play store)\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:75
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:87
 msgid ""
 "WPS Office\n"
 "\n"
@@ -1494,7 +1248,7 @@ msgid ""
 "But yet still Windows is the best for this usecase."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:260
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:272
 msgid ""
 "Wine\n"
 "\n"
@@ -1509,7 +1263,7 @@ msgid ""
 "cleanly integrate Windows applications into your desktop.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:252
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:264
 msgid ""
 "WoeUSB\n"
 "\n"
@@ -1526,11 +1280,11 @@ msgid ""
 "based on WxWidgets.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:894
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:891
 msgid "You have no internet connection!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:942
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:939
 msgid "You need to fill out all the fields!"
 msgstr ""
 
@@ -1567,7 +1321,7 @@ msgid ""
 "on distros: Arch, Ubuntu (bionic, eoan), Debian (buster)."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:359
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:371
 msgid ""
 "Zorin OS\n"
 "\n"
@@ -1579,7 +1333,7 @@ msgid ""
 "great Ubuntu based distro.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:375
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:387
 msgid ""
 "openSUSE\n"
 "\n"

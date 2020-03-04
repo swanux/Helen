@@ -2900,7 +2900,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <object class="GtkButton" id="mint">
-                                    <property name="label" translatable="yes">Linux Mint</property>
+                                    <property name="label">Linux Mint</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -2920,7 +2920,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="ubuntu">
-                                    <property name="label" translatable="yes">Ubuntu</property>
+                                    <property name="label">Ubuntu</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -2940,7 +2940,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="solus">
-                                    <property name="label" translatable="yes">Solus Linux</property>
+                                    <property name="label">Solus Linux</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3056,7 +3056,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="deepin">
-                                    <property name="label" translatable="yes">Deepin Linux</property>
+                                    <property name="label">Deepin Linux</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3076,7 +3076,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="elementary">
-                                    <property name="label" translatable="yes">Elementary OS</property>
+                                    <property name="label">Elementary OS</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3096,7 +3096,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="zorin">
-                                    <property name="label" translatable="yes">Zorin OS</property>
+                                    <property name="label">Zorin OS</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3311,7 +3311,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="steamos">
-                                    <property name="label" translatable="yes">Steam OS Beta</property>
+                                    <property name="label">Steam OS Beta</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3500,7 +3500,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="deb">
-                                    <property name="label" translatable="yes">Debian Stable</property>
+                                    <property name="label">Debian Stable</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3520,7 +3520,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="fedora">
-                                    <property name="label" translatable="yes">Fedora</property>
+                                    <property name="label">Fedora</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3540,7 +3540,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="opsu">
-                                    <property name="label" translatable="yes">openSUSE Tumbleweed</property>
+                                    <property name="label">openSUSE Tumbleweed</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3729,7 +3729,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="arch">
-                                    <property name="label" translatable="yes">Arch Linux</property>
+                                    <property name="label">Arch Linux</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3749,7 +3749,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="gentoo">
-                                    <property name="label" translatable="yes">Gentoo</property>
+                                    <property name="label">Gentoo</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -3769,7 +3769,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="lfs">
-                                    <property name="label" translatable="yes">Linux from Scratch (LFS)</property>
+                                    <property name="label">Linux from Scratch (LFS)</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
