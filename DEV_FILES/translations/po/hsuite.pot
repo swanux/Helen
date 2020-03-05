@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-04 21:15+0100\n"
+"POT-Creation-Date: 2020-03-05 19:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid "About"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1183
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1186
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:585
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:719
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2658
@@ -91,9 +91,9 @@ msgid ""
 "CoffeeScript and Less.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:500
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:931
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:943
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:503
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:934
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:946
 msgid "Attention!"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Browsers"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:957
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:960
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4360
 msgid "Bug"
 msgstr ""
@@ -165,12 +165,12 @@ msgid ""
 "Debian (buster). Aborting now."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:986
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:989
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:998
 msgid "Coming Soon"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:985
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:988
 msgid "Coming in future Beta releases..."
 msgstr ""
 
@@ -230,9 +230,9 @@ msgid ""
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1174
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1185
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1339
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1177
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1188
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1342
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:511
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2802
 msgid "Distro Boutique"
@@ -246,7 +246,7 @@ msgid ""
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:392
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:608
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:611
 #, python-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
@@ -258,7 +258,7 @@ msgstr ""
 msgid "Do you really would like to exit now?"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1150
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1153
 #, python-format
 msgid "Download (%s MB)"
 msgstr ""
@@ -299,7 +299,7 @@ msgstr ""
 msgid "Email address :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:953
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:956
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4362
 msgid "Enhancement"
 msgstr ""
@@ -337,7 +337,7 @@ msgstr ""
 msgid "Feedback Description :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:966
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:969
 msgid "Feedback submitted succesfully!"
 msgstr ""
 
@@ -349,12 +349,12 @@ msgstr ""
 msgid "Feedback type :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:703
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:706
 #, python-format
 msgid "Finished downloading %s!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:583
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:586
 #, python-format
 msgid "Finished processing %s!"
 msgstr ""
@@ -588,13 +588,13 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:967
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:970
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:765
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2851
 msgid "Information"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:930
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:933
 msgid "Invalid email address!"
 msgstr ""
 
@@ -687,7 +687,7 @@ msgstr ""
 msgid ""
 "Minecraft\n"
 "\n"
-"Everyone knows this game... But if you don't, here's a short descriptio.\n"
+"Everyone knows this game... But if you don't, here's a short description.\n"
 "\n"
 "Minecraft is a sandbox video game created by Swedish game developer Markus "
 "Persson and released by Mojang in 2011. The game allows players to build "
@@ -722,11 +722,11 @@ msgid ""
 "the internet healthier.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:903
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:906
 msgid "No internet"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:624
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:627
 msgid "Note!"
 msgstr ""
 
@@ -830,12 +830,12 @@ msgstr ""
 msgid "Prompt"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:955
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:958
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4361
 msgid "Question"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:695
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:698
 msgid "Ready in ~/Downloads/"
 msgstr ""
 
@@ -886,8 +886,8 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:651
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1123
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:654
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1126
 msgid "Server error"
 msgstr ""
 
@@ -1266,11 +1266,11 @@ msgid ""
 "based on WxWidgets.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:894
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:897
 msgid "You have no internet connection!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:942
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:945
 msgid "You need to fill out all the fields!"
 msgstr ""
 
@@ -1319,6 +1319,58 @@ msgid ""
 "great Ubuntu based distro.\n"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "http://www.linuxfromscratch.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://elementary.io"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://getfedora.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://getsol.us/home/"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://store.steampowered.com/steamos/"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://ubuntu.com"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://www.archlinux.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://www.debian.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://www.deepin.org/en/"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://www.gentoo.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://www.linuxmint.com"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://www.opensuse.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+msgid "https://zorinos.com"
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:375
 msgid ""
 "openSUSE\n"
@@ -1328,30 +1380,6 @@ msgid ""
 "used throughout the world. The focus of its development is creating usable "
 "open-source tools for software developers and system administrators, while "
 "providing a user-friendly desktop and feature-rich server environment.\n"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:663
-msgid "page0"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2637
-msgid "page1"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2745
-msgid "page2"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3829
-msgid "page3"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4192
-msgid "page4"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4439
-msgid "page5"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3912
@@ -1364,16 +1392,4 @@ msgid ""
 "easy installation of the best quality programs, choosing Linux distribution, "
 "helping in everyday tasks and more features are coming.\n"
 "To view recent changes visit the link below."
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:399
-msgid "window"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:483
-msgid "~ Be SSU ~ @Swanux"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3957
-msgid "© 2018 - 2020 Dániel Kolozsi (@Swanux)"
 msgstr ""

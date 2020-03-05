@@ -235,7 +235,7 @@ Steam is the ultimate game platform, also for Linux. It offers Steam Play featur
 """)
 minecraft = _("""Minecraft
 
-Everyone knows this game... But if you don't, here's a short descriptio.
+Everyone knows this game... But if you don't, here's a short description.
 
 Minecraft is a sandbox video game created by Swedish game developer Markus Persson and released by Mojang in 2011. The game allows players to build with a variety of different blocks in a 3D procedurally generated world, requiring creativity from players. Other activities in the game include exploration, resource gathering, crafting, and combat. Multiple game modes that change gameplay are available, including—but not limited to—a survival mode, in which players must acquire resources to build the world and maintain health, and a creative mode, where players have unlimited resources to build with. The Java Edition of the game allows players to modify the game with mods to create new gameplay mechanics, items, textures and assets. In September 2014, Microsoft announced a deal to buy Mojang and the Minecraft intellectual property for US$2.5 billion, with the acquisition completed two months later.'
 """)
@@ -396,8 +396,8 @@ descDict = {opera : _('App Spotlight'), chrome : _('App Spotlight'), web : _('Ap
 
 descList = [opera, chrome, web, firefox, vivaldi, edge, wps, libreoffice, onlyoffice, officeonline, gsuite, freeoffice, gedit, emacs, code, atom, stext, geany, skype, discord, telegram, signal, hexchat, franz, ad, tux, lutris, pol, steam, minecraft, tuxkart, popsicle, woeusb, wine, vbox, gparted, gestures, audacity, deja, timeshift, teamv, box, barrier, mint, ubuntu, solus, deepin, elementary, zorin, steamos, debian, fedora, opensuse, arch, gentoo, lfs]
 
-webDict = {mint : 'https://www.linuxmint.com', ubuntu : 'https://ubuntu.com', solus : 'https://getsol.us/home/', deepin : 'https://www.deepin.org/en/', elementary : 'https://elementary.io', zorin : 'https://zorinos.com', steamos : 'https://store.steampowered.com/steamos/', debian : 'https://www.debian.org', fedora : 'https://getfedora.org', opensuse : 'https://www.opensuse.org', arch : 'https://www.archlinux.org', gentoo : 'https://www.gentoo.org', lfs : 'http://www.linuxfromscratch.org'}
+webDict = {mint : _('https://www.linuxmint.com'), ubuntu : _('https://ubuntu.com'), solus : _('https://getsol.us/home/'), deepin : _('https://www.deepin.org/en/'), elementary : _('https://elementary.io'), zorin : _('https://zorinos.com'), steamos : _('https://store.steampowered.com/steamos/'), debian : _('https://www.debian.org'), fedora : _('https://getfedora.org'), opensuse : _('https://www.opensuse.org'), arch : _('https://www.archlinux.org'), gentoo : _('https://www.gentoo.org'), lfs : _('http://www.linuxfromscratch.org')}
 
-vidDict = {mint : 'https://youtu.be/fm7d2mM0cqQ', ubuntu : 'https://youtu.be/lzFcjW70xZ4', solus : 'https://youtu.be/ZJE28tnPkRE', deepin : 'https://youtu.be/Uq_IbFNueTE', elementary : 'https://youtu.be/9qO_Ft_wRqs', zorin : 'https://youtu.be/30BKvLCEdkQ', steamos : 'https://youtu.be/1saebgKGLuY', debian : 'https://youtu.be/fUcvL4fbtPo', fedora : 'https://youtu.be/DO2acx2W2i8', opensuse : 'https://youtu.be/9oonm2GCCMo', arch : 'https://youtu.be/8RqFL92IEYs', gentoo : 'https://youtu.be/6D5X78XsLi8', lfs : 'https://youtu.be/qZJzbI6ZJ34'}
+vidDict = {mint : 'https://youtu.be/fm7d2mM0cqQ', ubuntu : 'https://youtu.be/lzFcjW70xZ4', solus : 'https://youtu.be/ZJE28tnPkRE', deepin : 'https://youtu.be/Uq_IbFNueTE', elementary : 'https://youtu.be/9qO_Ft_wRqs', zorin : 'https://youtu.be/30BKvLCEdkQ', steamos : 'https://youtu.be/1saebgKGLuY', debian : 'https://youtu.be/fUcvL4fbtPo', fedora : 'https://youtu.be/DO2acx2W2i8', opensuse : 'https://youtu.be/9oonm2GCCMo', arch : 'https://youtu.be/8RqFL92IEYs', gentoo : 'https://youtu.be/6D5X78XsLi8', lfs : 'https://youtu.be/qZJzbI6ZJ34'} # Own reviews here would be better..
 
 descLen = len(descList)
