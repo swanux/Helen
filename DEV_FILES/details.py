@@ -346,7 +346,7 @@ Ubuntu is one of the oldest and most popular consumer Linux distos. Because of t
 """)
 solus = _("""Solus Linux
 
-Solus is a pretty fresh Linux distro built from scratch by a small (but growing) group of talented developers and users. The story behind the project is also very special. The community is rather small, but very helpful. The OS is extremely stable and well optimized, and its own DE, Budgie is also very modern and useful. The only drawback is that because of it is based on nothing, not every package is avilable. However, probablyy you will find everything right in the official repos without the need of any 3rd party repo. If not, then you can request new packages on the official site. I recommend it for those who are not afraid of a littlebit of learning to make everything work.
+Solus is a pretty fresh Linux distro built from scratch by a small (but growing) group of talented developers and users. The story behind the project is also very special. The community is rather small, but very helpful. The OS is extremely stable and well optimized, and its own DE, Budgie is also very modern and usable. The only drawback is that because of it is based on nothing, not every package is avilable. However, probablyy you will find everything right in the official repos without the need of any 3rd party repo. If not, then you can request new packages on the official site. I recommend it for those who are not afraid of a littlebit of learning to make everything work.
 """)
 deepin = _("""Deepin Linux
 
