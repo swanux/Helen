@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 11:05+0100\n"
+"POT-Creation-Date: 2020-03-07 11:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -594,6 +594,15 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:466
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:473
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:481
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:489
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:492
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:622
+msgid "Install"
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:933
 msgid "Invalid email address!"
 msgstr ""
@@ -826,6 +835,10 @@ msgid ""
 "Laptops and the heavy customized Ubuntu based distro, Pop!_OS.\n"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:562
+msgid "Processing "
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:379
 msgid "Prompt"
 msgstr ""
@@ -837,6 +850,15 @@ msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:698
 msgid "Ready in ~/Downloads/"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:425
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:464
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:471
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:478
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:486
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:638
+msgid "Remove"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:913
@@ -1034,6 +1056,11 @@ msgid ""
 "time in Time Trial mode. You can also race or battle with up to eight "
 "friends on a single computer, play on a local network or play online with "
 "other players all over the world.\n"
+msgstr ""
+
+#. The name of translator (you)
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4095
+msgid "Swanux"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:318

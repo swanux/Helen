@@ -422,7 +422,7 @@ class GUI:
         GLib.idle_add(gbut.set_label, status)
         gbut.get_style_context().remove_class("red-background")
         gbut.get_style_context().remove_class("green-background")
-        if "Remove" in status:
+        if _("Remove") in status:
             gbut.get_style_context().add_class('red-background')
         else:
             gbut.get_style_context().add_class('green-background')
@@ -461,35 +461,35 @@ class GUI:
             vane = os.popen('gem list --local').read()
             vfil = os.popen('ls /usr/lib/ruby/gems/2.6.0/cache/').read()
             if name in vane or name in vfil:
-                status = 'Remove'
+                status = _('Remove')
             else:
-                status = 'Install'
+                status = _('Install')
         elif 'TeamViewer' in name:
             vane = os.path.exists("/opt/teamviewer")
             print('tw check = %s' % vane)
             if vane:
-                status = 'Remove'
+                status = _('Remove')
             else:
-                status = 'Install'
+                status = _('Install')
         else:
             if distro == 'Arch':
                 if name in insList:
                     print('Found %s' % name)
-                    status = 'Remove'
+                    status = _('Remove')
                 else:
                     print('Not found %s' % name)
-                    status = 'Install'
+                    status = _('Install')
             elif distro == 'Debian' or distro == 'Ubuntu':
                 try:
                     if insList[name].is_installed:
                         print('Found %s' % name)
-                        status = 'Remove'
+                        status = _('Remove')
                     else:
                         print('Not found %s' % name)
-                        status = 'Install'
+                        status = _('Install')
                 except:
                     print('Auto error handling --> Falling back to default (Not found)')
-                    status = 'Install'
+                    status = _('Install')
         if self.spece(name):
             status = '%s (AUR)' % status
         return status
@@ -559,7 +559,7 @@ class GUI:
             s = timer.count+1
             # counter is equal to s
             timer.count = s
-            sTxt.set_label('Processing '+name+' '+str(m) +
+            sTxt.set_label(_('Processing ')+name+' '+str(m) +
                            ':'+str(s))
             if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
@@ -619,7 +619,7 @@ class GUI:
                 comm2 = comm2.replace(' ', '')
             elif 'e 1' in comm2:
                 comm2 = comm2.replace('e 1', 'e')
-            if 'Install' in statDict[name]:
+            if _('Install') in statDict[name]:
                 if name == 'fusuma':
                     x, y = window.get_position()
                     sx, sy = window.get_size()
@@ -635,7 +635,7 @@ class GUI:
                     dialogWindow.destroy()
                 print(name)
                 self.OnNeed(cInB, name, 'install', comm1, comm2, self.spece(origCom2), extra, runDep, buildDep)
-            elif 'Remove' in statDict[name]:
+            elif _('Remove') in statDict[name]:
                 print(name)
                 self.OnNeed(cInB, name, 'remove', comm1, comm2, self.spece(origCom2), extra, runDep, buildDep)
 

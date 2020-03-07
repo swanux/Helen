@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HSuite 0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 11:05+0100\n"
+"POT-Creation-Date: 2020-03-07 11:26+0100\n"
 "PO-Revision-Date: 2020-02-29 20:56+0100\n"
 "Last-Translator: Dániel Kolozsi <dani@kolozsi.net>\n"
 "Language-Team: Hungarian\n"
@@ -860,6 +860,15 @@ msgstr "Főmenü"
 msgid "Information"
 msgstr "Információ"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:466
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:473
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:481
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:489
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:492
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:622
+msgid "Install"
+msgstr "Telepítés"
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:933
 msgid "Invalid email address!"
 msgstr "Érvénytelen email cím!"
@@ -1238,6 +1247,10 @@ msgstr ""
 "a System76 által, a cég által ami rengeteg remek Linux számítógép mögött "
 "áll, valamint az igen átdolgozott Ubuntu variánst, a Pop!_OS-t fejleszti.\n"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:562
+msgid "Processing "
+msgstr "Feldolgozás alatt a(z) "
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:379
 msgid "Prompt"
 msgstr "Figyelmeztetés"
@@ -1250,6 +1263,15 @@ msgstr "Kérdés"
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:698
 msgid "Ready in ~/Downloads/"
 msgstr "Készen áll a ~/Downloads/ mappában"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:425
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:464
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:471
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:478
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:486
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:638
+msgid "Remove"
+msgstr "Eltávolítás"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:913
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:930
@@ -1543,6 +1565,11 @@ msgstr ""
 "kipróbálva magát több Grand Prix kupán. vagy megpróbálhatja felülmúlni "
 "korábbi rekordját a Time Trial módban.Emellett akár 8 baráttal is "
 "versenyezhet egy gépen, LAN-on vagy online bárkivel a világon.\n"
+
+#. The name of translator (you)
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4095
+msgid "Swanux"
+msgstr "Swanux"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:318
 msgid ""
