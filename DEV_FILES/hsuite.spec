@@ -3,10 +3,10 @@
 block_cipher = None
 
 
-a = Analysis(['/home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.py'],
+a = Analysis(['/home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py'],
              pathex=['/home/daniel/GitRepos'],
              binaries=[],
-             datas=[ ('osLayer.py', '.'), ('details.py', '.'), ('colors.css', '.'), ('misc/pacman.conf', '.'), ('misc/config.yml', '.'), ('hsuite.glade', '.'), ('icons', 'icons'), ('misc/fusuma.desktop', '.'), ('misc/hsuite.desktop', '.') ],
+             datas=[ ('osLayer.py', '.'), ('details.py', '.'), ('colors.css', '.'), ('pacman.conf', '.'), ('config.yml', '.'), ('hsuite.glade', '.'), ('icons', 'icons'), ('fusuma.desktop', '.'), ('hsuite.desktop', '.'), ('hsuite', '.'), ('translations', 'translations') ],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
