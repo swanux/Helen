@@ -37,9 +37,8 @@ _ = gettext.gettext
 # Import GUI modules
 import gi
 gi.require_version('Gtk', '3.0')
-gi.require_version('WebKit2', '4.0')
 from aptdaemon import client
-from gi.repository import Gtk, GLib, WebKit2, Gdk, GObject, Gio
+from gi.repository import Gtk, GLib, Gdk, GObject, Gio
 import re
 from github import Github
 token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
@@ -282,10 +281,6 @@ class GUI:
         self.builder.set_translation_domain(APP)
         # Import the glade file
         self.builder.add_from_file(UI_FILE)
-        global browserholder
-        browserholder = WebKit2.WebView()                         # Prepare webview
-        # Disable user interraction
-        browserholder.set_editable(False)
         # Connect all signals
         self.builder.connect_signals(self)
         # Get the main stack object

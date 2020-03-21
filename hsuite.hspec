@@ -29,7 +29,7 @@ pretty_name = HSuite
 # gpl3
 licensev = gpl3
 
-version = 0.6
+version = 0.6.1
 
 # example sections https://packages.debian.org/unstable/
 section = utils

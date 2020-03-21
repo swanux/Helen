@@ -1,4 +1,4 @@
-hsuite (0.6-1) tricia; urgency=medium
+hsuite (0.6.1-1) tricia; urgency=medium
 
   * Resolved a LOTS of bugs with Apt Spotlight, Distro Boutique, hrepo, etc...
   * New modern UI redesign with CSS, better text placement
@@ -15,4 +15,4 @@ hsuite (0.6-1) tricia; urgency=medium
   * Now using custom packaging and build system
   * Updated hrepo, demos, readme and added description for developers
 
- -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 21 Mar 2020 11:58:27 +0200
+ -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 21 Mar 2020 14:53:32 +0200
