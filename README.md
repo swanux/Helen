@@ -55,9 +55,9 @@ And to remove, execute:
 
 To install:
 
-    wget https://github.com/swanux/hsuite/raw/master/PKGS/hsuite-0.6-1-x86_64.pkg.tar.xz \
-    sudo pacman -U hsuite-0.6-1-x86_64.pkg.tar.xz \
-    rm hsuite-0.6-1-x86_64.pkg.tar.xz && sudo pacman -Sy
+    wget https://github.com/swanux/hsuite/raw/master/PKGS/hsuite-0.6.1-1-x86_64.pkg.tar.xz \
+    sudo pacman -U hsuite-0.6.1-1-x86_64.pkg.tar.xz \
+    rm hsuite-0.6.1-1-x86_64.pkg.tar.xz && sudo pacman -Sy
     
 And to remove:
 
