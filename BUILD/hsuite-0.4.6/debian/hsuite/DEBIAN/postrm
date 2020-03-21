@@ -1,4 +1,0 @@
-#!/bin/sh
-
-rm /etc/sources.list.d/hsources.list && rm /etc/sources.list.d/vscode.list && rm /etc/sources.list.d/vivaldi.list && rm /etc/sources.list.d/teamviewer.list && rm /etc/sources.list.d/system76-ubuntu-pop-disco.list && rm /etc/sources.list.d/skype-stable.list && rm /etc/sources.list.d/opera-stable.list && rm /etc/sources.list.d/megasync.list && rm /etc/sources.list.d/google-chrome.list
-apt update

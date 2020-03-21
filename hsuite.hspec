@@ -1,0 +1,94 @@
+############################################################################################################################
+
+[platform]
+
+# debian (for every os using .deb pkgs), arch (for .pkg), fedora (for .rpm) NOT READY YET!!
+os = debian
+
+# amd64, i386, any (arch), all (deb), etc
+arch = amd64
+
+############################################################################################################################
+
+[packager]
+
+githubname = swanux
+
+name = Dániel Kolozsi
+
+email = dani@kolozsi.net
+
+############################################################################################################################
+
+[general_details]
+
+pkgname = hsuite
+
+pretty_name = HSuite
+
+# gpl3
+licensev = gpl3
+
+version = 0.6
+
+# example sections https://packages.debian.org/unstable/
+section = utils
+
+# check this out https://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities
+priority = optional
+
+depends = ${misc:Depends}\ ${python3:Depends}\ software-properties-common\ util-linux (>= 2.25.2-6)\ bash (>= 4.4-5)\ wget\ unzip\ coreutils (>= 8.26-3)\ python3-gi\ xdg-utils\ psmisc\ zenity\ python3-notify2\ python3-aptdaemon.gtk3widgets\ python3-aptdaemon\ python3-apt\ python3-github
+
+build_deps = debhelper (>= 11)\ dh-python\ python3
+
+homepage = https://github.com/swanux/hsuite
+
+############################################################################################################################
+
+[description]
+
+short = HSuite Beta v0.6 | Apollo
+
+longue = HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
+
+############################################################################################################################
+
+[misc]
+
+# it can be None if it's not a python package
+min_pyver = 3.2
+
+# dh $@ --with=python3 if it's a python program, otherwise dh $@
+rules = dh $@ --with=python3
+
+# None or script
+postinst = dpkg --add-architecture i386
+    ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite
+
+# None or script
+postrm = rm /usr/bin/hsuite
+
+############################################################################################################################
+
+[changelog]
+
+target = tricia
+
+# low, medium, high, emergency, or critical
+urgency = medium
+
+changes = Resolved a LOTS of bugs with Apt Spotlight, Distro Boutique, hrepo, etc...\ New modern UI redesign with CSS, better text placement\ Dropped support for flashplayer\ Rewritten Apt Spotlight backend with aptdaemon\ Built in basic error handling\ Added notifications when window is in background and task completed\ Added proper description to the installer package\ Added native feedback page\ Added internet connection checking and offline mode\ Added config file to store distro name, and notify when updated\ Dropped support for Ubuntu 19.04 (disco)\ Added Hungarian translation, prepared for more translations\ Now using custom packaging and build system\ Updated hrepo, demos, readme and added description for developers
+
+############################################################################################################################
+
+[data]
+
+root = /home/daniel/GitRepos/hsuite/DEV_FILES
+
+# The files in /usr/share/PROGRAMNAME/
+program = hsuite.glade\ HSuite.py\ osLayer.py\ details.py\ colors.css\ icons/\ pacman.conf\ config.yml\ fusuma.desktop\ hsuite.sh
+
+# The files in /usr/share/applications
+entry = hsuite.desktop
+
+############################################################################################################################

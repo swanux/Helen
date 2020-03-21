@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=HSuite
-Comment=Simple, Small, Useful
-Exec=/usr/share/hsuite/hsuite.py
-Icon=/usr/share/hsuite/icons/hsuite.png
-Terminal=false
-Type=Application
-Categories=PackageManager;GTK;Utility;Development

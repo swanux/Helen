@@ -1,5 +1,0 @@
-/hsuite /usr/share
-/extras/hsuite.desktop /usr/share/applications
-/extras/hsuite /usr/bin
-/extras/pacman.conf /usr/share/hsuite
-/extras/libinput-gestures.conf /usr/share/hsuite/confs
