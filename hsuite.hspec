@@ -12,8 +12,6 @@ arch = amd64
 
 [packager]
 
-githubname = swanux
-
 name = Dániel Kolozsi
 
 email = dani@kolozsi.net
@@ -29,7 +27,7 @@ pretty_name = HSuite
 # gpl3
 licensev = gpl3
 
-version = 0.6.1
+version = 0.6.2
 
 # example sections https://packages.debian.org/unstable/
 section = utils
@@ -63,10 +61,10 @@ rules = dh $@ --with=python3
 
 # None or script
 postinst = dpkg --add-architecture i386
-    ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite
+    ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite || echo "No need for it"
 
 # None or script
-postrm = rm /usr/bin/hsuite
+postrm = rm /usr/bin/hsuite || "No need for it2"
 
 ############################################################################################################################
 
