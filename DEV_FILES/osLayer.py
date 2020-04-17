@@ -6,7 +6,6 @@ from aptdaemon import client, enums
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
-from aptdaemon.gtk3widgets import AptProgressDialog
 import gettext
 import locale
 APP = "hsuite"
@@ -22,9 +21,6 @@ user = ''
 scanner = True
 apt_client = client.AptClient()
 trans = ""
-# apt_trans = client.AptTransaction()
-# waitState = False
-# havPass = False
 
 #________________________________________________________________ BEGIN OF THREADS ___________________________________________________________________#
 
@@ -33,15 +29,6 @@ trans = ""
 def asroot(asr):            # The function to display prompt for root acces.
         print(asr)
         os.system('pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash -c "%s"' % asr)
-
-# def show_progress(transaction):    
-#     # client = client.AptClient()
-#     # trans = client.upgrade_system(safe_mode=True)
-#     dia = AptProgressDialog(transaction)
-#     dia.connect("finished", on_fin)
-#     dia.run()
-#     Gtk.main()
-#     return trans.exit == enums.EXIT_SUCCESS
 
 # Search deps
 def aurer(fold, extra, runDep, buildDep):                                    # The builder for AUR
@@ -70,23 +57,6 @@ def aurer(fold, extra, runDep, buildDep):                                    # T
 def fusConfs():
     os.system('mkdir -p /home/$USER/.config/autostart && mkdir -p /home/$USER/.config/fusuma && cp /usr/share/hsuite/config.yml /home/$USER/.config/fusuma/ && cp /usr/share/hsuite/fusuma.desktop /home/$USER/.config/autostart/')
 
-def on_fin(transaction, exit_state):
-    global alive
-    alive = False
-    print('Trans : %s' % transaction)
-    print('Code : %s' % exit_state)
-    print("FIN")
-    # Gtk.main_quit
-
-# def on_fin2(transaction, exit_state):
-#     print('REMOVEING OBSOLETED DEPS...')
-#     transaction = apt_trans.remove_obsoleted_depends
-#     transaction.connect("finished", on_fin)
-#     transaction.run()
-#     print('Trans : %s' % transaction)
-#     print('Code : %s' % exit_state)
-#     print("FIN")
-
 def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     print(status+' '+distro)
     print('faur: %s' % faur)
@@ -95,9 +65,6 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     alive = True
     if status == 'install':
         if distro == 'Ubuntu' or distro == 'Debian':
-            # if faur:
-            #     asroot('wget -o ~/Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && dpkg -i --force-all Minecraft.deb && apt install -f -y && rm Minecraft.deb')
-            # else:
             if comm1 == 'firefox' and distro == 'Debian':
                 comm1 = 'firefox-esr'
             if extra == 'popsicle-cli-git':
@@ -117,9 +84,7 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                     pkgs = [comm1, extra]
                     print(*pkgs)
                 trans = apt_client.install_packages(pkgs)
-                # show_progress(trans)
-                trans.connect("finished", on_fin)
-                trans.run()
+                return True, trans
         elif distro == 'Arch':
             if extra == 'popsicle-gtk':
                 extra = ''
@@ -160,8 +125,7 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
                     pkgs = [comm1, extra]
                     print(*pkgs)
                 trans = apt_client.remove_packages(pkgs)
-                trans.connect("finished", on_fin)
-                trans.run()
+                return True, trans
         elif distro == 'Arch':
             if extra == 'popsicle-gtk':
                 extra = ''

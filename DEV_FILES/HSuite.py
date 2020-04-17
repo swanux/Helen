@@ -37,14 +37,14 @@ _ = gettext.gettext
 # Import GUI modules
 import gi
 gi.require_version('Gtk', '3.0')
-from aptdaemon import client
+gi.require_version('Gdk', '3.0')
+from aptdaemon import client, enums
+from aptdaemon.gtk3widgets import AptProgressBar
 from gi.repository import Gtk, GLib, Gdk, GObject, Gio
 import re
 from github import Github
 token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
-print(token)
 token = token.replace('@', '')
-print(token)
 g = Github(token)
 import apt
 # Config
@@ -171,7 +171,7 @@ appListLen = len(appList)                           # Number of apps
 statDict = {'Opera': '', 'Chrome': '', 'Web': '', 'Firefox': '', 'Vivaldi': '', 'Edge': '', 'WPS Office': '', 'Libreoffice': '', 'Only Office': '', 'Free Office': '', 'Gedit': '', 'GNU Emacs': '', 'VS Code': '', 'Atom Editor': '', 'Sublime Text Editor': '', 'Geany': '', 'Skype': '', 'Discord': '', 'Telegram': '', 'Signal': '', 'HexChat': '', 'Franz': '',
             '0 A.D.': '', 'SuperTuxKart': '', 'SuperTux': '', 'Lutris': '', 'Barrier': '', 'Play On Linux': '', 'Steam': '', 'Minecraft': '', 'Popsicle': '', 'WoeUSB': '', 'Wine': '', 'Virtualbox-6.1': '', 'GParted': '', 'fusuma': '', 'Audacity': '', 'Déja-Dup': '', 'Timeshift': '', 'TeamViewer': '', 'Gnome Boxes': ''}  # store the status (installed or not)
 layDict = {'opera-stable': 'Opera', 'google-chrome-stable': 'Chrome', 'epiphany-browser': 'Web', 'firefox': 'Firefox', 'vivaldi-stable': 'Vivaldi', 'dikk': 'Edge', 'wps-office': 'WPS Office', 'libreoffice': 'Libreoffice', 'onlyoffice-desktopeditors': 'Only Office', 'softmaker-freeoffice-2018': 'Free Office', 'gedit': 'Gedit', 'emacs': 'GNU Emacs', 'code': 'VS Code', 'atom': 'Atom Editor', 'sublime-text': 'Sublime Text Editor', 'geany': 'Geany', 'skypeforlinux': 'Skype', 'discord': 'Discord', 'telegram-desktop': 'Telegram', 'signal-desktop': 'Signal', 'hexchat': 'HexChat',
-           'franz': 'Franz', '0ad': '0 A.D.', 'supertux': 'SuperTuxKart', 'supertuxkart': 'SuperTux', 'lutris': 'Lutris', 'barrier': 'Barrier', 'playonlinux': 'Play On Linux', 'steam': 'Steam', 'minecraft-launcher': 'Minecraft', 'popsicle': 'Popsicle', 'woeusb': 'WoeUSB', 'winehq-stable': 'Wine', 'virtualbox-6.1': 'Virtualbox', 'gparted': 'GParted', 'fusuma': 'fusuma', 'audacity': 'Audacity', 'deja-dup': 'Déja-Dup', 'timeshift': 'Timeshift', 'teamviewer': 'TeamViewer', 'gnome-boxes': 'Gnome Boxes'}                                          # debname:displayName
+           'franz': 'Franz', '0ad': '0 A.D.', 'supertux': 'SuperTux', 'supertuxkart': 'SuperTuxKart', 'lutris': 'Lutris', 'barrier': 'Barrier', 'playonlinux': 'Play On Linux', 'steam': 'Steam', 'minecraft-launcher': 'Minecraft', 'popsicle': 'Popsicle', 'woeusb': 'WoeUSB', 'winehq-stable': 'Wine', 'virtualbox-6.1': 'Virtualbox', 'gparted': 'GParted', 'fusuma': 'fusuma', 'audacity': 'Audacity', 'deja-dup': 'Déja-Dup', 'timeshift': 'Timeshift', 'teamviewer': 'TeamViewer', 'gnome-boxes': 'Gnome Boxes'}                                          # debname:displayName
 aurList = ['google-chrome', 'vivaldi', 'wps-office', 'onlyoffice-bin', 'freeoffice', 'signal-desktop', 'franz', 'minecraft-launcher', 'popsicle-git', 'woeusb', 'timeshift', 'skypeforlinux-stable-bin', 'barrier']
 specDList = ['']
 
@@ -297,7 +297,11 @@ class GUI:
         else:
             window.set_title(version)
         # Display the program
+        self.progBox = self.builder.get_object('progBox')
+        self.dia = AptProgressBar()
+        self.progBox.pack_start(self.dia, True, True, 0)
         window.show_all()
+        GLib.idle_add(self.dia.hide)
     
     # def on_resize(self, e):
     #     time.sleep(0.01)
@@ -526,6 +530,14 @@ class GUI:
             dialogWindow.destroy()
             return True
 
+    def on_fin(self, transaction, exit_state):
+        GLib.idle_add(self.dia.hide)
+        osLayer.alive = False
+        print('Trans : %s' % transaction)
+        print('Code : %s' % exit_state)
+        print("FIN")
+        # return trans.exit == enums.EXIT_SUCCESS
+
     # This is executed when an app is being installed/removed
     def OnNeed(self, cInB, name, status, comm1, comm2, faur, extra, runDep, buildDep):
         global cPkg
@@ -534,7 +546,14 @@ class GUI:
         sTxt = cInB
         # Current pkg name
         cPkg = name
-        my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
+        progr, trans = my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
+        if progr == True:
+            self.dia.set_transaction(trans)
+            GLib.idle_add(self.dia.show)
+            trans.connect("finished", self.on_fin)
+            trans.run()
+        else:
+            print('Nah, Arch...')
         m = 0
         
         wt = False
@@ -570,8 +589,6 @@ class GUI:
                 wt = True
                 print(self, wt)
                 for i in range(appListLen):
-                    # print("Toggle %s" % i)
-                    # print(appList[i], butDict[appList[i]], tempInd)
                     cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
                     GLib.idle_add(cBut.set_sensitive, wt)
                 scanner = True
@@ -581,7 +598,7 @@ class GUI:
                     n = notify2.Notification('HSuite', _('Finished processing %s!') % cPkg)
                     n.show()
                 cPkg = ''
-                return False                                                        # end
+                return False                                                      # end
         self.source_id = GLib.timeout_add(1000, counter, self)
 
     def spece(self, name):
@@ -640,12 +657,9 @@ class GUI:
     def toggle(self, fn):
         print(self, fn, state)
         for i in range(dlistLen):
-            # print("Toggle %s" % i)
             if dlist[i] != Tdownl and shDict[dlist[i]] != "PFalse":
-                # print(dlist[i], shDict[dlist[i]], Tdownl)
                 cBut = self.builder.get_object(dlist[i])
                 t = cBut.get_label()
-                # print(t)
                 if t == _("Server error"):
                     print('Skipping due to server error')
                 else:
@@ -1101,15 +1115,12 @@ class GUI:
         for i in range(dlistLen):
             # dlist is distro list (contains all distro names), cbut is current button
             cBut = self.builder.get_object(dlist[i])
-            # print("rundownl")
-            # print(dlist[i])
             # get url from dictionary
             url = uriDict[dlist[i]]
             try:
                 u = urlopen(url)
                 time.sleep(0.1)
                 file_size = int(u.getheader('Content-Length'))
-                # print("runned")
                 # convert to MB
                 file_size = Decimal(int(file_size) / 1024 / 1024)
                 GLib.idle_add(cBut.set_label, "Download (%s MB)" %
@@ -1146,7 +1157,6 @@ class GUI:
                 cBut = self.builder.get_object(dlist[i])        # if loaded
                 # load from cache
                 cBut.set_label(_("Download (%s MB)") % cache[i])
-                # print(i)
         stack.set_visible_child(distro_box)
 
     # on about ...

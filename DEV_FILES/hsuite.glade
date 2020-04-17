@@ -669,18 +669,34 @@ Author: Dániel Kolozsi (@swanux)
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkButton" id="home_button">
-                <property name="label" translatable="yes">Home</property>
+              <object class="GtkBox" id="progBox">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_left">15</property>
-                <property name="margin_right">15</property>
-                <property name="margin_top">10</property>
-                <property name="margin_bottom">10</property>
-                <property name="image">image1</property>
-                <property name="always_show_image">True</property>
-                <signal name="clicked" handler="home_clicked" swapped="no"/>
+                <property name="can_focus">False</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkButton" id="home_button">
+                    <property name="label" translatable="yes">Home</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
+                    <property name="image">image1</property>
+                    <property name="always_show_image">True</property>
+                    <signal name="clicked" handler="home_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -732,8 +748,6 @@ Author: Dániel Kolozsi (@swanux)
                               <object class="GtkLabel" id="info_txt">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="margin_left">15</property>
-                                <property name="margin_right">15</property>
                                 <property name="margin_top">30</property>
                                 <property name="label" translatable="yes">Welcome to App Spotlight! Here are lots of high qualitiy programs sorted by category. You can easly switch between browsers, find the best office suite or install a good game. 
 
@@ -781,8 +795,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="browser_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -794,8 +806,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">opera_img</property>
@@ -814,8 +824,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">chrome_img</property>
@@ -834,8 +842,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">web_img</property>
@@ -854,8 +860,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">firefox_img</property>
@@ -874,8 +878,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">vivaldi_img</property>
@@ -894,8 +896,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">edge_img</property>
@@ -914,8 +914,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_opera_but_clicked" swapped="no"/>
@@ -931,8 +929,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_chrome_but_clicked" swapped="no"/>
@@ -948,8 +944,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_web_but_clicked" swapped="no"/>
@@ -965,8 +959,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_firefox_but_clicked" swapped="no"/>
@@ -982,8 +974,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_vivaldi_but_clicked" swapped="no"/>
@@ -1000,8 +990,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="sensitive">False</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_edge_but_clicked" swapped="no"/>
@@ -1046,8 +1034,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="office_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1059,8 +1045,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_woffice_but_clicked" swapped="no"/>
@@ -1076,8 +1060,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_loffice_but_clicked" swapped="no"/>
@@ -1093,8 +1075,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_ooffice_but_clicked" swapped="no"/>
@@ -1110,8 +1090,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_msoffice_but_clicked" swapped="no"/>
@@ -1127,8 +1105,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_goffice_but_clicked" swapped="no"/>
@@ -1144,8 +1120,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_foffice_but_clicked" swapped="no"/>
@@ -1161,8 +1135,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">wps_img</property>
@@ -1181,8 +1153,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">loffice_img</property>
@@ -1201,8 +1171,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">ooffice_img</property>
@@ -1221,8 +1189,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">msoffice_img</property>
@@ -1241,8 +1207,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">goffice_img</property>
@@ -1261,8 +1225,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">foffice_img</property>
@@ -1310,8 +1272,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="editor_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1323,8 +1283,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">gedit_img</property>
@@ -1343,8 +1301,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">gnu_img</property>
@@ -1363,8 +1319,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">vscode_img</property>
@@ -1383,8 +1337,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">atom_img</property>
@@ -1403,8 +1355,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">stedit_img</property>
@@ -1423,8 +1373,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">geany_img</property>
@@ -1443,8 +1391,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gedit_but_clicked" swapped="no"/>
@@ -1460,8 +1406,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gnu_but_clicked" swapped="no"/>
@@ -1477,8 +1421,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_vscode_but_clicked" swapped="no"/>
@@ -1494,8 +1436,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_atom_but_clicked" swapped="no"/>
@@ -1511,8 +1451,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_stedit_but_clicked" swapped="no"/>
@@ -1528,8 +1466,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_geany_but_clicked" swapped="no"/>
@@ -1574,8 +1510,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="comm_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1587,8 +1521,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">skype_img</property>
@@ -1607,8 +1539,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">discord_img</property>
@@ -1627,8 +1557,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">telegram_img</property>
@@ -1647,8 +1575,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">signal_img</property>
@@ -1667,8 +1593,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">hex_img</property>
@@ -1687,8 +1611,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">franz_img</property>
@@ -1707,8 +1629,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_skype_but_clicked" swapped="no"/>
@@ -1724,8 +1644,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_discord_but_clicked" swapped="no"/>
@@ -1741,8 +1659,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_telegram_but_clicked" swapped="no"/>
@@ -1758,8 +1674,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_signal_but_clicked" swapped="no"/>
@@ -1775,8 +1689,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_hex_but_clicked" swapped="no"/>
@@ -1792,8 +1704,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_franz_but_clicked" swapped="no"/>
@@ -1838,8 +1748,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="games_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1851,8 +1759,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">0ad_img</property>
@@ -1871,8 +1777,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">tux_img</property>
@@ -1891,8 +1795,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">lutris_img</property>
@@ -1911,8 +1813,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">pol_img</property>
@@ -1931,8 +1831,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">steam_img</property>
@@ -1951,8 +1849,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">mc_img</property>
@@ -1971,8 +1867,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_0ad_but_clicked" swapped="no"/>
@@ -1988,8 +1882,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_tux_but_clicked" swapped="no"/>
@@ -2005,8 +1897,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_lutris_but_clicked" swapped="no"/>
@@ -2022,8 +1912,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_pol_but_clicked" swapped="no"/>
@@ -2039,8 +1927,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_steam_but_clicked" swapped="no"/>
@@ -2056,8 +1942,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_mc_but_clicked" swapped="no"/>
@@ -2073,8 +1957,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">skart_img</property>
@@ -2093,8 +1975,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_skart_but_clicked" swapped="no"/>
@@ -2151,8 +2031,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="extras_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -2164,8 +2042,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">pops_img</property>
@@ -2184,8 +2060,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">woe_img</property>
@@ -2204,8 +2078,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">wine_img</property>
@@ -2224,8 +2096,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">vbox_img</property>
@@ -2244,8 +2114,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">gparted_img</property>
@@ -2264,8 +2132,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">gestures_img</property>
@@ -2284,8 +2150,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">auda_img</property>
@@ -2304,8 +2168,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">deja_img</property>
@@ -2324,8 +2186,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">tims_img</property>
@@ -2344,8 +2204,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_pops_but_clicked" swapped="no"/>
@@ -2361,8 +2219,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_woe_but_clicked" swapped="no"/>
@@ -2378,8 +2234,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_wine_but_clicked" swapped="no"/>
@@ -2395,8 +2249,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_vbox_but_clicked" swapped="no"/>
@@ -2412,8 +2264,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gparted_but_clicked" swapped="no"/>
@@ -2429,8 +2279,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_gest_but_clicked" swapped="no"/>
@@ -2446,8 +2294,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_auda_but_clicked" swapped="no"/>
@@ -2463,8 +2309,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_deja_but_clicked" swapped="no"/>
@@ -2480,8 +2324,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_tims_but_clicked" swapped="no"/>
@@ -2497,8 +2339,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">tw_img</property>
@@ -2517,8 +2357,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_tw_but_clicked" swapped="no"/>
@@ -2534,8 +2372,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">box_img</property>
@@ -2554,8 +2390,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_box_but_clicked" swapped="no"/>
@@ -2571,8 +2405,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="image">barrier_img</property>
@@ -2591,8 +2423,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">5</property>
-                                <property name="margin_right">5</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <signal name="clicked" handler="on_barr_but_clicked" swapped="no"/>
