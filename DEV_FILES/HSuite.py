@@ -38,15 +38,12 @@ _ = gettext.gettext
 import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
-from aptdaemon import client, enums
-from aptdaemon.gtk3widgets import AptProgressBar
 from gi.repository import Gtk, GLib, Gdk, GObject, Gio
 import re
 from github import Github
 token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
 token = token.replace('@', '')
 g = Github(token)
-import apt
 # Config
 from configparser import ConfigParser
 # Module for opening webbrowser
@@ -63,10 +60,6 @@ from urllib.request import urlopen
 from decimal import Decimal
 # Own module for descriptions
 import details as d
-# Own module for root prompt and background installation
-from osLayer import asroot
-from osLayer import my_thread
-import osLayer
 
 
 ### Declare global variables ###
@@ -82,7 +75,6 @@ year = today.strftime("%Y")
 user = os.popen("who|awk '{print $1}'r").read()
 # Edit to only contain the name itself
 user = user.rstrip()
-osLayer.user = user
 
 ## Config section ##
 
@@ -129,7 +121,15 @@ else:
     parser.write(file)
     file.close()
 
+if distro == 'Ubuntu' or distro == 'Debian':
+    import apt
+    from aptdaemon import client, enums
+    from aptdaemon.gtk3widgets import AptProgressBar
 
+# Own module for root prompt and background installation
+import osLayer
+osLayer.init(distro)
+osLayer.user = user
 
 ## Colors (button)
 provider = Gtk.CssProvider()
@@ -298,7 +298,10 @@ class GUI:
             window.set_title(version)
         # Display the program
         self.progBox = self.builder.get_object('progBox')
-        self.dia = AptProgressBar()
+        if distro == 'Ubuntu' or distro == 'Debian':
+            self.dia = AptProgressBar()
+        else:
+            self.dia = Gtk.ProgressBar()
         self.progBox.pack_start(self.dia, True, True, 0)
         window.show_all()
         GLib.idle_add(self.dia.hide)
@@ -537,6 +540,9 @@ class GUI:
         print('Code : %s' % exit_state)
         print("FIN")
         # return trans.exit == enums.EXIT_SUCCESS
+    
+    def on_done(self, sth):
+        osLayer.alive = False
 
     # This is executed when an app is being installed/removed
     def OnNeed(self, cInB, name, status, comm1, comm2, faur, extra, runDep, buildDep):
@@ -546,14 +552,21 @@ class GUI:
         sTxt = cInB
         # Current pkg name
         cPkg = name
-        progr, trans = my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
-        if progr == True:
-            self.dia.set_transaction(trans)
-            GLib.idle_add(self.dia.show)
-            trans.connect("finished", self.on_fin)
-            trans.run()
+        if distro == 'Ubuntu' or distro == 'Debian':
+            progr, trans = osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
+            if progr == True:
+                self.dia.set_transaction(trans)
+                GLib.idle_add(self.dia.show)
+                trans.connect("finished", self.on_fin)
+                trans.run()
+            else:
+                print('E: osLayer error')
         else:
-            print('Nah, Arch...')
+            print('Future')
+            #ta = futures.ThreadPoolExecutor(max_workers=4)
+            #f = ta.submit(osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep))
+            #f.add_done_callback(self.on_done)
+            osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
         m = 0
         
         wt = False

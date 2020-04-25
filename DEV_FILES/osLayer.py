@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from aptdaemon import client, enums
 import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
 import gettext
 import locale
 APP = "hsuite"
@@ -19,8 +16,11 @@ _ = gettext.gettext
 alive = False
 user = ''
 scanner = True
-apt_client = client.AptClient()
-trans = ""
+
+def init(distro):
+    if distro == 'Ubuntu' or distro == 'Debian':
+        from aptdaemon import client
+        apt_client = client.AptClient()
 
 #________________________________________________________________ BEGIN OF THREADS ___________________________________________________________________#
 
@@ -62,6 +62,7 @@ def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
     print('faur: %s' % faur)
     global alive
     global trans
+    trans = ""
     alive = True
     if status == 'install':
         if distro == 'Ubuntu' or distro == 'Debian':
