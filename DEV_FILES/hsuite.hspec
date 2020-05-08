@@ -30,6 +30,10 @@ depends = ${misc:Depends}
 	python3-aptdaemon
 	python3-apt
 	python3-github
+	dh-make
+	devscripts
+	dconf-gsettings-backend
+	dconf-cli
 build_deps = debhelper (>= 11)
 	dh-python
 	python3

@@ -11,7 +11,7 @@ v = ''
 ### Import modules ###
 
 # Set program root location
-import os
+import os, subprocess, gettext, locale, gi, re, webbrowser, time, notify2
 pathCheck = os.popen('ls /usr/share/hsuite/').read()
 if 'hsuite' in pathCheck:
     fdir = "/usr/share/hsuite/"
@@ -24,8 +24,6 @@ else:
     os.chdir(fdir)
     print('Running in development mode.')
 # Translation
-import gettext
-import locale
 APP = "hsuite"
 WHERE_AM_I = os.path.abspath(os.path.dirname(__file__))
 LOCALE_DIR = os.path.join(WHERE_AM_I, 'translations/mo')
@@ -35,11 +33,9 @@ gettext.bindtextdomain(APP, LOCALE_DIR)
 gettext.textdomain(APP)
 _ = gettext.gettext
 # Import GUI modules
-import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
 from gi.repository import Gtk, GLib, Gdk, GObject, Gio
-import re
 from github import Github
 token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
 token = token.replace('@', '')
@@ -47,19 +43,17 @@ g = Github(token)
 # Config
 from configparser import ConfigParser
 # Module for opening webbrowser
-import webbrowser
 # Running background processes
 from threading import Thread
 from concurrent import futures
 # Using time
-import time
-import notify2
 from datetime import date
 # URL handling
 from urllib.request import urlopen
 from decimal import Decimal
 # Own module for descriptions
 import details as d
+import htransfer
 
 
 ### Declare global variables ###
@@ -73,8 +67,12 @@ year = today.strftime("%Y")
 
 # Getting the name of the non-root user
 user = os.popen("who|awk '{print $1}'r").read()
+machine = os.popen("hostname").read()
 # Edit to only contain the name itself
 user = user.rstrip()
+user = user.split('\n')[0]
+machine = machine.rstrip()
+machine = machine.split('\n')[0]
 
 ## Config section ##
 
@@ -93,23 +91,23 @@ else:
     dist = os.popen('uname -a').read()          # Get distro name
     if 'Ubuntu' in dist:
         distro = 'Ubuntu'
-    elif 'arch' in dist:
-        distro = 'Arch'
+    elif 'solus' in dist:
+        distro = 'Solus'
     elif 'Debian' in dist:
         distro = 'Debian'
-    elif 'MANJARO' in dist:
-        distro = 'Arch'
-        print('W: Not fully compatible with Manjaro!')
-        mantxt = _("Your distro is detected as Manjaro.\nThis distro is not fully tested,\nyou may encounter some problems\nwith the program. Currently tested\non distros: Arch, Ubuntu (bionic, eoan), Debian (buster).")
-        os.system('zenity --warning --text=%s --ellipsize' % mantxt)
+    # elif 'MANJARO' in dist:
+    #     distro = 'Arch'
+    #     print('W: Not fully compatible with Manjaro!')
+    #     mantxt = _("Your distro is detected as Manjaro.\nThis distro is not fully tested,\nyou may encounter some problems\nwith the program. Currently tested\non distros: Arch, Ubuntu (bionic, eoan), Debian (buster).")
+    #     os.system('zenity --warning --text=%s --ellipsize' % mantxt)
     elif 'deepin' in dist:
         distro = 'Debian'
         print('W: Not fully compatible with Deepin!')
-        deptxt = _("Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Arch, Ubuntu (bionic, eoan), Debian (buster).")
+        deptxt = _("Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Solus, Ubuntu (bionic, eoan), Debian (buster).")
         os.system('zenity --warning --text=%s --ellipsize' % deptxt)
     else:
         print('E: Complete incompatibility!')
-        kiltxt = _("Can not detect your distro.\nCurrently tested on distros:\nArch, Ubuntu (bionic, eoan),\nDebian (buster). Aborting now.")
+        kiltxt = _("Can not detect your distro.\nCurrently tested on distros:\nSolus, Ubuntu (bionic, eoan),\nDebian (buster). Aborting now.")
         os.system('zenity --error --text=%s --ellipsize' % kiltxt)
         raise SystemExit
     parser.add_section('system')
@@ -243,24 +241,59 @@ if v != version and v != '':
 
 # This class handles everything releated to the GUI and some background tasks connected to the program
 class myThread (Thread):
-    def __init__(self, threadID, name, status, comm1, comm2, faur, extra, runDep, buildDep):
+    def __init__(self, threadID, name, extra=0, ds=0, post=0):
         Thread.__init__(self)
         self.threadID = threadID
         self.name = name
-        self.comm1 = comm1
-        self.comm2 = comm2
-        self.faur = faur
         self.extra = extra
-        self.runDep = runDep
-        self.buildDep = buildDep
-        self.status = status
+        self.ds = ds
+        self.post = post
         global _stop_event
         _stop_event = False
 
     def run(self):
         print("Starting " + self.name)
         # Calls the function
-        my_thread(self.status, distro, self.comm1, self.comm2, self.faur, self.extra, self.runDep, self.buildDep)
+        if self.name == "Data":
+            c = htransfer.Transser()
+            lists = ""
+            t = 0
+            for i in self.extra:
+                if t == 0:
+                    lists = lists + '/home/%s/%s' % (user, i)
+                else:
+                    lists = lists + ', /home/%s/%s' % (user, i)
+                t = t+1
+            print('Lets do this')
+            c.modPre(lists, '/home/%s/hswitcher/BUILD/backup-1.0/backups/' % user)
+        else:
+            os.system("mkdir -p /home/%s/hswitcher/BUILD/backup-1.0/" % user)
+            os.system("cd /home/%s/hswitcher/BUILD/backup-1.0/ && dh_make -s -n -y && cd debian/ && rm -fr *.ex *.EX docs source RE* *.docs copyright" % user)
+            changelog = "backup (1.0-1) unstable; urgency=medium\n\n  * Initial Release\n\n -- %s <%s@%s>  %s" % (user, user, machine, time.strftime("%a, %d %b %Y %H:%M:%S +0200"))
+            change_file = open("/home/%s/hswitcher/BUILD/backup-1.0/debian/changelog" % user, "w")
+            change_file.write(changelog)
+            change_file.close()
+            compat_file = open("/home/%s/hswitcher/BUILD/backup-1.0/debian/compat" % user, "w")
+            compat_file.write("11")
+            compat_file.close()
+            bds = "debhelper (>= 11)"
+            print('DS_HERE')
+            control = "Source: backup\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: backup\nArchitecture: amd64\nDepends: %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, machine, bds, self.ds)
+            print('Mem control')
+            control_file = open("/home/%s/hswitcher/BUILD/backup-1.0/debian/control" % user, "w")
+            control_file.write(control)
+            control_file.close()
+            install = "backups /usr/share/\n"
+            install_file = open("/home/%s/hswitcher/BUILD/backup-1.0/debian/install" % user, "w")
+            install_file.write(install)
+            install_file.close()
+            print('MAN')
+            print("SUP")
+            postins_file = open("/home/%s/hswitcher/BUILD/backup-1.0/debian/postinst" % user, "w")
+            postins_file.write("#!/bin/bash +e\n\n"+self.post+"\n\n#DEBHELPER#")
+            postins_file.close()
+            os.system("chmod +x /home/%s/hswitcher/BUILD/backup-1.0/debian/postinst" % user)
+            os.system("cd /home/%s/hswitcher/BUILD/backup-1.0/ && debuild -i -us -uc -b && cd .. && cd .. && cp BUILD/*.deb . && rm -rf BUILD/ tmp/" % user)
         print("Exiting " + self.name)
 
     def stop(self):
@@ -275,14 +308,26 @@ class GUI:
 
     def __init__(self):                                             # Init the main gui
 
+        self.b_cron = False
+        self.b_progs = False
+        self.b_settings = False
+        self.b_theme = False
+        self.b_data = False
+        self.b_desk = False
+        self.b_dl = False
+        self.b_doc = False
+        self.b_ms = False
+        self.b_pic = False
+        self.b_vid = False
+        self.hsdir = '/home/%s/hswitcher/BUILD/backup-1.0/backups' % user
         # Prepare to use builder
         self.builder = Gtk.Builder()
-        self.win = Gtk.Window()                                     # The main window
         self.builder.set_translation_domain(APP)
         # Import the glade file
         self.builder.add_from_file(UI_FILE)
         # Connect all signals
         self.builder.connect_signals(self)
+        self.switch_stack = self.builder.get_object('switch_stack')
         # Get the main stack object
         global stack
         stack = self.builder.get_object('stack')
@@ -522,7 +567,7 @@ class GUI:
                     except:
                         print('Cant cancel')
                 elif distro == 'Arch':
-                    asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
+                    osLayer.asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
                 else:
                     print('ERROR IN DIST AB')
             print('OK pressed')
@@ -563,9 +608,6 @@ class GUI:
                 print('E: osLayer error')
         else:
             print('Future')
-            #ta = futures.ThreadPoolExecutor(max_workers=4)
-            #f = ta.submit(osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep))
-            #f.add_done_callback(self.on_done)
             osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
         m = 0
         
@@ -863,7 +905,6 @@ class GUI:
 
     # Button is the name of the app spotlight button
     def button_clicked(self, button):
-
         # If already in memory don't waste resources
         if scanner == False:
             print('VALUE_FOUND')
@@ -1003,7 +1044,230 @@ class GUI:
         # open project page in browser
         webbrowser.open_new("https://swanux.github.io/hsuite/")
 
-    # htools clicked
+######################################################################################################################
+
+    def on_prog_chk_toggled(self, widget):
+        if widget.get_active():
+            print('Active')
+            self.b_progs = True
+        else:
+            print('Inactive')
+            self.b_progs = False
+
+    def on_usr_chk_toggled(self, widget):
+        if widget.get_active():
+            print('Active')
+            self.b_data = True
+        else:
+            print('Inactive')
+            self.b_data = False
+    
+    # def on_set_chk_toggled(self, widget):
+    #     if widget.get_active():
+    #         print('Active')
+    #         self.b_settings = True
+    #     else:
+    #         print('Inactive')
+    #         self.b_settings = False
+    
+    def on_cron_chk_toggled(self, widget):
+        if widget.get_active():
+            print('Active')
+            self.b_cron = True
+        else:
+            print('Inactive')
+            self.b_cron = False
+    
+    def on_them_chk_toggled(self, widget):
+        if widget.get_active():
+            print('Active')
+            self.b_theme = True
+            self.b_settings = True
+        else:
+            print('Inactive')
+            self.b_theme = False
+            self.b_settings = False
+    
+    def on_prog_tog(self, widget, name):
+        if widget.get_active():
+            print('Active')
+            self.appsToSave.append(name)
+        else:
+            print('Inactive')
+            self.appsToSave.remove(name)
+        print(self.appsToSave)
+
+    def on_dat_toggle(self, widget):
+        name = widget.get_label()
+        if widget.get_active():
+            print('Active')
+            self.datToSave.append(name)
+        else:
+            print('Inactive')
+            self.datToSave.remove(name)
+        print(self.datToSave)
+
+    def on_dat_proc_but_clicked(self, button):
+        barcur = self.builder.get_object('current')
+        bartot = self.builder.get_object('total')
+        barcur.set_fraction(0.00)
+        bartot.set_fraction(0.00)
+        self.builder.get_object('back_button1').set_sensitive(False)
+        GLib.idle_add(self.switch_stack.set_visible_child, self.builder.get_object('data_box'))
+        self.datT = myThread(3, "Data", self.datToSave)
+        self.datT.start()
+        def counter(timer):
+            if self.datT.isAlive():
+                GLib.idle_add(barcur.set_fraction, htransfer.filePer/100)
+                GLib.idle_add(barcur.set_text, htransfer.yetFil)
+                GLib.idle_add(bartot.set_fraction, htransfer.currPer/100)
+                return True
+            else:
+                self.b_data = False
+                self.on_prog_proc_but_clicked(0)
+                return False
+        self.source_id = GLib.timeout_add(200, counter, None)
+
+    def crTask(self):
+        self.builder.get_object('back_button1').set_sensitive(False)
+        spinner = self.builder.get_object('create_spin')
+        spinner.start()
+        self.switch_stack.set_visible_child(self.builder.get_object('create_box'))
+        ds = ""
+        l = 0
+        for i in self.appsToSave:
+            if l == 0:
+                ds = ds+"%s" % i
+            else:
+                ds = ds+", %s" % i
+            l = l+1
+        postinst = ""
+        for i in self.datToSave:
+            postinst = postinst + "cp -R /usr/share/backups/%s/* /home/%s/%s/\nchown -R %s /home/%s/%s\n" % (i, user, i, user, user, i)
+        for i in self.appsToSave:
+            postinst = postinst + "apt-mark manual %s\n" % i
+        print('DS: %s' % ds)
+        t1 = myThread(5, "Builder", 0, ds, postinst)
+        t1.start()
+        def counter(timer):
+            if t1.isAlive():
+                return True
+            else:
+                spinner.stop()
+                self.builder.get_object('back_button1').set_sensitive(True)
+                self.switch_stack.set_visible_child(self.builder.get_object('done_txt'))
+                return False
+        self.source_id = GLib.timeout_add(1000, counter, None)
+
+    def on_prog_proc_but_clicked(self, button):
+        if self.b_data:
+            self.switch_stack.set_visible_child(self.builder.get_object('scroll_dat'))
+        else:
+            self.crTask()
+
+    def on_proc_but_clicked(self, button):
+        os.system("mkdir -p %s/" % self.hsdir)
+        self.appsToSave = []
+        self.datToSave = []
+        if self.b_settings and self.b_theme:
+            os.system("mkdir -p %s/background" % self.hsdir)
+            os.system("mkdir -p %s/screensaver" % self.hsdir)
+            print('Desktop True')
+            os.system('tar -cpf %s/icons.tar.gz /home/%s/.icons && tar -cpf %s/themes.tar.gz /home/%s/.themes' % (self.hsdir, user, self.hsdir, user))
+            osLayer.asroot('tar -cpf %s/sysicons.tar.gz /usr/share/icons && tar -cpf %s/systhemes.tar.gz /usr/share/themes' % (self.hsdir, self.hsdir))
+            os.system('dconf dump /org/gnome/ > %s/gnome' % self.hsdir)
+            os.system('tar -cpf %s/extensions.tar.gz /home/%s/.local/share/gnome-shell/extensions' % (self.hsdir, user))
+            locparse = ConfigParser()
+            locparse.read('%s/gnome' % self.hsdir)
+            screensaver = locparse.get('desktop/screensaver', 'picture-uri').replace('file://', '')
+            fname = screensaver.split('/')[-1].replace("'", '')
+            os.system('cp %s %s/screensaver/%s' % (screensaver, self.hsdir, fname))
+            print(fname)
+            background = locparse.get('desktop/background', 'picture-uri').replace('file://', '')
+            fname = background.split('/')[-1].replace("'", '')
+            os.system('cp %s %s/background/%s' % (background, self.hsdir, fname))
+            print(fname)
+        if self.b_progs:
+            x, y = window.get_position()
+            sx, sy = window.get_size()
+            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text='Would you like to view a simplified list of applications? (some less common programs may miss from the list)')
+            dialogWindow.set_title(_("Ask"))
+            dsx, dsy = dialogWindow.get_size()
+            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
+            dx, dy = dialogWindow.get_position()
+            print(dx, dy)
+            dialogWindow.show_all()
+            res = dialogWindow.run()
+            if res == Gtk.ResponseType.YES:
+                b_simple = True
+                print('OK pressed')
+                dialogWindow.destroy()
+            elif res == Gtk.ResponseType.NO:
+                print('No pressed')
+                dialogWindow.destroy()
+                b_simple = False
+            else:
+                b_simple = False
+            print('Programs true')
+            extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash')
+            extendedApps = extendedApps.decode()
+            extendedApps = extendedApps.split('\n')
+            if b_simple:
+                minimalApps = []
+                for i in extendedApps:
+                    if "acpi" in i or "avahi" in i or "alsa" in i or "bluez" in i or "cups" in i or "theme" in i or "fonts" in i or "gdm" in i or "gir1" in i or "grub" in i or "gstreamer" in i or "ubuntu" in i or "ibus" in i or "kernel" in i or "linux-headers-generic" in i or "linux-signed-generic" in i or "network-manager" in i:
+                        pass
+                    else:
+                        minimalApps.append(i)
+            self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5)
+            self.builder.get_object('progs_box').pack_start(self.box, True, True, 0)
+            if b_simple:
+                for program in minimalApps:
+                    if program == "" or program == None:
+                        break
+                    chker = Gtk.CheckButton(program)
+                    chker.connect("toggled", self.on_prog_tog, program)
+                    self.box.pack_start(chker, True, True, 0)
+            else:
+                for program in extendedApps:
+                    if program == "" or program == None:
+                        break
+                    chker = Gtk.CheckButton(program)
+                    chker.connect("toggled", self.on_prog_tog, program)
+                    self.box.pack_start(chker, True, True, 0)
+            self.box.show_all()
+        if self.b_cron:
+            print('Cron true')
+            os.system('crontab -l > %s/crontab' % self.hsdir)
+        if self.b_progs:
+            if self.b_data == False:
+                self.builder.get_object('prog_proc_but').set_label('Start backup')
+            else:
+                self.builder.get_object('prog_proc_but').set_label('Continue')
+            self.switch_stack.set_visible_child(self.builder.get_object('scroll_progs'))
+        elif self.b_data:
+            self.switch_stack.set_visible_child(self.builder.get_object('scroll_dat'))
+        else:
+            self.crTask()
+
+    # hswitcher clicked
+    def on_ac_but_clicked(self, button):
+        self.switch_stack.set_visible_child(self.builder.get_object('r_box'))
+        stack.set_visible_child(self.builder.get_object('scroll_switcher'))
+
+
+
+
+
+
+
+
+
+
+######################################################################################################################
+
+
+    # foss collection (?)
     def on_htools_but_clicked(self, button):
         x, y = window.get_position()
         sx, sy = window.get_size()
@@ -1015,10 +1279,6 @@ class GUI:
         res = dialogWindow.run()
         print(res)
         dialogWindow.destroy()
-
-    # previously android corner (ac) is same as htools
-    def on_ac_but_clicked(self, button):
-        self.on_htools_but_clicked(button)
 
     # fetch download sizes
     def getSize(self):
