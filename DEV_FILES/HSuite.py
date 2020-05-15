@@ -103,11 +103,11 @@ else:
     elif 'deepin' in dist:
         distro = 'Debian'
         print('W: Not fully compatible with Deepin!')
-        deptxt = _("Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Solus, Ubuntu (bionic, eoan), Debian (buster).")
+        deptxt = _("Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Ubuntu (bionic, eoan), Debian (buster).")
         os.system('zenity --warning --text=%s --ellipsize' % deptxt)
     else:
         print('E: Complete incompatibility!')
-        kiltxt = _("Can not detect your distro.\nCurrently tested on distros:\nSolus, Ubuntu (bionic, eoan),\nDebian (buster). Aborting now.")
+        kiltxt = _("Can not detect your distro.\nCurrently compatible with distros:\nUbuntu (bionic, eoan), Debian (buster)\n and everything based on them. Aborting now.")
         os.system('zenity --error --text=%s --ellipsize' % kiltxt)
         raise SystemExit
     parser.add_section('system')
@@ -161,8 +161,8 @@ pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
 scanner = True
 appList = ['opera-stable', 'barrier', 'google-chrome-stable', 'epiphany-browser', 'firefox', 'vivaldi-stable', 'wps-office', 'libreoffice', 'onlyoffice-desktopeditors', 'softmaker-freeoffice-2018', 'gedit', 'emacs', 'code', 'atom', 'sublime-text', 'geany', 'skypeforlinux', 'discord', 'telegram-desktop', 'signal-desktop', 'hexchat',
            'franz', '0ad', 'supertux', 'lutris', 'playonlinux', 'steam', 'minecraft-launcher', 'popsicle', 'woeusb', 'winehq-stable', 'virtualbox-6.1', 'gparted', 'fusuma', 'audacity', 'deja-dup', 'timeshift', 'teamviewer', 'gnome-boxes', 'supertuxkart']                                                                        # The list with the debian app names
-archDict = {'opera-stable': 'opera', 'barrier': 'barrier', 'google-chrome-stable': 'google-chrome', 'epiphany-browser': 'epiphany ', 'firefox': 'firefox', 'vivaldi-stable': 'vivaldi', 'wps-office': 'wps-office', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs': 'emacs ', 'code': 'code 1', 'atom': 'atom ', 'sublime-text': 'sublime-text', 'geany': 'geany', 'skypeforlinux': 'skypeforlinux-stable-bin', 'discord': 'discord', 'telegram-desktop': 'telegram-desktop', 'signal-desktop': 'signal-desktop',
-            'hexchat': 'hexchat', 'franz': 'franz', '0ad': '0ad', 'supertux': 'supertux', 'lutris': 'lutris', 'playonlinux': 'playonlinux', 'steam': 'steam', 'minecraft-launcher': 'minecraft-launcher', 'popsicle': 'popsicle-git', 'woeusb': 'woeusb', 'winehq-stable': 'wine', 'virtualbox-6.1': 'virtualbox', 'gparted': 'gparted', 'fusuma': 'fusuma', 'audacity': 'audacity', 'deja-dup': 'deja-dup', 'timeshift': 'timeshift', 'teamviewer': 'TeamViewer', 'gnome-boxes': 'gnome-boxes', 'supertuxkart': 'supertuxkart'}                             # The dictionary with the context of debname:archname
+# archDict = {'opera-stable': 'opera', 'barrier': 'barrier', 'google-chrome-stable': 'google-chrome', 'epiphany-browser': 'epiphany ', 'firefox': 'firefox', 'vivaldi-stable': 'vivaldi', 'wps-office': 'wps-office', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs': 'emacs ', 'code': 'code 1', 'atom': 'atom ', 'sublime-text': 'sublime-text', 'geany': 'geany', 'skypeforlinux': 'skypeforlinux-stable-bin', 'discord': 'discord', 'telegram-desktop': 'telegram-desktop', 'signal-desktop': 'signal-desktop',
+#             'hexchat': 'hexchat', 'franz': 'franz', '0ad': '0ad', 'supertux': 'supertux', 'lutris': 'lutris', 'playonlinux': 'playonlinux', 'steam': 'steam', 'minecraft-launcher': 'minecraft-launcher', 'popsicle': 'popsicle-git', 'woeusb': 'woeusb', 'winehq-stable': 'wine', 'virtualbox-6.1': 'virtualbox', 'gparted': 'gparted', 'fusuma': 'fusuma', 'audacity': 'audacity', 'deja-dup': 'deja-dup', 'timeshift': 'timeshift', 'teamviewer': 'TeamViewer', 'gnome-boxes': 'gnome-boxes', 'supertuxkart': 'supertuxkart'}                             # The dictionary with the context of debname:archname
 butDict = {'opera-stable': 'opera', 'barrier': 'barr', 'google-chrome-stable': 'chrome', 'epiphany-browser': 'web', 'firefox': 'firefox', 'vivaldi-stable': 'vivaldi', 'wps-office': 'woffice', 'libreoffice': 'loffice', 'onlyoffice-desktopeditors': 'ooffice', 'softmaker-freeoffice-2018': 'foffice', 'gedit': 'gedit', 'emacs': 'gnu', 'code': 'vscode', 'atom': 'atom', 'sublime-text': 'stedit', 'geany': 'geany', 'skypeforlinux': 'skype', 'discord': 'discord', 'telegram-desktop': 'telegram',
            'signal-desktop': 'signal', 'hexchat': 'hex', 'franz': 'franz', '0ad': 'ad', 'supertux': 'tux', 'lutris': 'lutris', 'playonlinux': 'pol', 'steam': 'steam', 'minecraft-launcher': 'mc', 'popsicle': 'pops', 'woeusb': 'woe', 'winehq-stable': 'wine', 'virtualbox-6.1': 'vbox', 'gparted': 'gparted', 'fusuma': 'gest', 'audacity': 'auda', 'deja-dup': 'deja', 'timeshift': 'tims', 'teamviewer': 'tw', 'gnome-boxes': 'box', 'supertuxkart': 'skart'}                                # Dictionary with the context of debname:humanName
 appListLen = len(appList)                           # Number of apps
@@ -241,7 +241,7 @@ if v != version and v != '':
 
 # This class handles everything releated to the GUI and some background tasks connected to the program
 class myThread (Thread):
-    def __init__(self, threadID, name, extra=0, ds=0, post=0):
+    def __init__(self, threadID, name, ds=0, extra=0, post=0):
         Thread.__init__(self)
         self.threadID = threadID
         self.name = name
@@ -278,7 +278,7 @@ class myThread (Thread):
             compat_file.close()
             bds = "debhelper (>= 11)"
             print('DS_HERE')
-            control = "Source: backup\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: backup\nArchitecture: amd64\nDepends: %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, machine, bds, self.ds)
+            control = "Source: backup\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: backup\nArchitecture: amd64\nDepends: tar, %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, machine, bds, self.ds)
             print('Mem control')
             control_file = open("/home/%s/hswitcher/BUILD/backup-1.0/debian/control" % user, "w")
             control_file.write(control)
@@ -303,11 +303,8 @@ class myThread (Thread):
 
 
 class GUI:
-
     count = 0
-
     def __init__(self):                                             # Init the main gui
-
         self.b_cron = False
         self.b_progs = False
         self.b_settings = False
@@ -411,6 +408,7 @@ class GUI:
     #     css = css % num2
     #     css = str.encode(css)
     #     provider.load_from_data(css)
+        # GLib.idle_add(provider.load_from_data, css)
 
 
     # This happens when close button is clicked
@@ -478,15 +476,15 @@ class GUI:
     def scanner(self):                                         # Scans the OS for programs
         global scanner
         global insList
-        if distro == 'Arch':
-            insList = os.popen('pacman -Q').read()
-        else:
-            insList = apt.Cache()
+        # if distro == 'Arch':
+            # insList = os.popen('pacman -Q').read()
+        # else:
+        insList = apt.Cache()
         # Check for every program in the list
         for i in range(appListLen):
-            if distro == 'Arch':
-                name = archDict[appList[i]]
-            elif distro == 'Ubuntu' or distro == 'Debian':
+            # if distro == 'Arch':
+            #     name = archDict[appList[i]]
+            if distro == 'Ubuntu' or distro == 'Debian':
                 # the name to check for
                 name = appList[i]
             else:
@@ -519,14 +517,14 @@ class GUI:
             else:
                 status = _('Install')
         else:
-            if distro == 'Arch':
-                if name in insList:
-                    print('Found %s' % name)
-                    status = _('Remove')
-                else:
-                    print('Not found %s' % name)
-                    status = _('Install')
-            elif distro == 'Debian' or distro == 'Ubuntu':
+            # if distro == 'Arch':
+            #     if name in insList:
+            #         print('Found %s' % name)
+            #         status = _('Remove')
+            #     else:
+            #         print('Not found %s' % name)
+            #         status = _('Install')
+            if distro == 'Debian' or distro == 'Ubuntu':
                 try:
                     if insList[name].is_installed:
                         print('Found %s' % name)
@@ -566,8 +564,8 @@ class GUI:
                         osLayer.trans.cancel()
                     except:
                         print('Cant cancel')
-                elif distro == 'Arch':
-                    osLayer.asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
+                # elif distro == 'Arch':
+                #     osLayer.asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
                 else:
                     print('ERROR IN DIST AB')
             print('OK pressed')
@@ -606,9 +604,9 @@ class GUI:
                 trans.run()
             else:
                 print('E: osLayer error')
-        else:
-            print('Future')
-            osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
+        # else:
+        #     print('Future')
+        #     osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
         m = 0
         
         wt = False
@@ -662,11 +660,11 @@ class GUI:
                 return True
             else:
                 return False
-        elif distro == 'Arch':
-            if name in aurList:
-                return True
-            else:
-                return False
+        # elif distro == 'Arch':
+        #     if name in aurList:
+        #         return True
+        #     else:
+        #         return False
         else:
             print('SpecERROR!')
 
@@ -675,17 +673,18 @@ class GUI:
         if osLayer.alive:
             print('Operation already running, which is %s' % cPkg)
         if name == cPkg:
-            text = _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually.") % cPkg
+            text = _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is you may need to remove %s manually.") % cPkg
             self.abort('install', text)
         else:
-            comm2 = archDict[comm1]
+            # comm2 = archDict[comm1]
+            comm2 = ''
             cInB = self.builder.get_object("%s_but" % butDict[comm1])
             tempInd = comm1
-            origCom2 = comm2
-            if ' ' in comm2:
-                comm2 = comm2.replace(' ', '')
-            elif 'e 1' in comm2:
-                comm2 = comm2.replace('e 1', 'e')
+            # origCom2 = comm2
+            # if ' ' in comm2:
+            #     comm2 = comm2.replace(' ', '')
+            # elif 'e 1' in comm2:
+            #     comm2 = comm2.replace('e 1', 'e')
             if _('Install') in statDict[name]:
                 if name == 'fusuma':
                     x, y = window.get_position()
@@ -701,10 +700,10 @@ class GUI:
                     print('OK pressed')
                     dialogWindow.destroy()
                 print(name)
-                self.OnNeed(cInB, name, 'install', comm1, comm2, self.spece(origCom2), extra, runDep, buildDep)
+                self.OnNeed(cInB, name, 'install', comm1, comm2, self.spece(comm2), extra, runDep, buildDep)
             elif _('Remove') in statDict[name]:
                 print(name)
-                self.OnNeed(cInB, name, 'remove', comm1, comm2, self.spece(origCom2), extra, runDep, buildDep)
+                self.OnNeed(cInB, name, 'remove', comm1, comm2, self.spece(comm2), extra, runDep, buildDep)
 
 # Download methods
 
@@ -1062,14 +1061,6 @@ class GUI:
             print('Inactive')
             self.b_data = False
     
-    # def on_set_chk_toggled(self, widget):
-    #     if widget.get_active():
-    #         print('Active')
-    #         self.b_settings = True
-    #     else:
-    #         print('Inactive')
-    #         self.b_settings = False
-    
     def on_cron_chk_toggled(self, widget):
         if widget.get_active():
             print('Active')
@@ -1114,7 +1105,7 @@ class GUI:
         bartot.set_fraction(0.00)
         self.builder.get_object('back_button1').set_sensitive(False)
         GLib.idle_add(self.switch_stack.set_visible_child, self.builder.get_object('data_box'))
-        self.datT = myThread(3, "Data", self.datToSave)
+        self.datT = myThread(3, "Data", extra=self.datToSave)
         self.datT.start()
         def counter(timer):
             if self.datT.isAlive():
@@ -1133,21 +1124,39 @@ class GUI:
         spinner = self.builder.get_object('create_spin')
         spinner.start()
         self.switch_stack.set_visible_child(self.builder.get_object('create_box'))
-        ds = ""
-        l = 0
-        for i in self.appsToSave:
-            if l == 0:
-                ds = ds+"%s" % i
-            else:
-                ds = ds+", %s" % i
-            l = l+1
         postinst = ""
-        for i in self.datToSave:
-            postinst = postinst + "cp -R /usr/share/backups/%s/* /home/%s/%s/\nchown -R %s /home/%s/%s\n" % (i, user, i, user, user, i)
-        for i in self.appsToSave:
-            postinst = postinst + "apt-mark manual %s\n" % i
-        print('DS: %s' % ds)
-        t1 = myThread(5, "Builder", 0, ds, postinst)
+        try:
+            for i in self.datToSave:
+                postinst = postinst + "cp -R /usr/share/backups/%s/* /home/%s/%s/\nchown -R %s /home/%s/%s\n" % (i, user, i, user, user, i)
+        except:
+            pass
+        ds = ""
+        if self.b_progs:
+            l = 0
+            for i in self.appsToSave:
+                if l == 0:
+                    ds = ds+"%s" % i
+                else:
+                    ds = ds+", %s" % i
+                l = l+1
+            for i in self.appsToSave:
+                postinst = postinst + "apt-mark manual %s\n" % i
+        if self.b_theme:
+            postinst = postinst + 'cp /usr/share/backups/background/* /usr/share/backgrounds/\n'
+            postinst = postinst + 'cp /usr/share/backups/screensaver/* /usr/share/backgrounds/\n'
+            postinst = postinst + 'tar -pxvzf /usr/share/backups/shellTheme.tar.gz -C /usr/share/themes/\n'
+            postinst = postinst + 'tar -pxvzf /usr/share/backups/deskTheme.tar.gz -C /usr/share/themes/\n'
+            postinst = postinst + 'tar -pxvzf /usr/share/backups/cursorTheme.tar.gz -C /usr/share/themes/\n'
+            postinst = postinst + 'tar -pxvzf /usr/share/backups/iconTheme.tar.gz -C /usr/share/icons/\n'
+            postinst = postinst + "user=$(who|awk '{print $1}'r)"
+            postinst = postinst + 'tar -pxvzf /usr/share/backups/extensions.tar.gz -C /home/$user/.local/share/gnome-shell/\n'
+            postinst = postinst + 'dconf load /org/gnome/ < /usr/share/backups/gnome\n'
+        if self.b_cron:
+            postinst = postinst + "user=$(who|awk '{print $1}'r)"
+            postinst = postinst + 'crontab -u $user /usr/share/backups/crontab'
+        postinst += 'chown -R %s /home/%s/\n' % (user, user)
+        # print('DS: %s' % ds)
+        t1 = myThread(5, "Builder", ds=ds, post=postinst)
         t1.start()
         def counter(timer):
             if t1.isAlive():
@@ -1173,24 +1182,47 @@ class GUI:
             os.system("mkdir -p %s/background" % self.hsdir)
             os.system("mkdir -p %s/screensaver" % self.hsdir)
             print('Desktop True')
-            os.system('tar -cpf %s/icons.tar.gz /home/%s/.icons && tar -cpf %s/themes.tar.gz /home/%s/.themes' % (self.hsdir, user, self.hsdir, user))
-            osLayer.asroot('tar -cpf %s/sysicons.tar.gz /usr/share/icons && tar -cpf %s/systhemes.tar.gz /usr/share/themes' % (self.hsdir, self.hsdir))
             os.system('dconf dump /org/gnome/ > %s/gnome' % self.hsdir)
-            os.system('tar -cpf %s/extensions.tar.gz /home/%s/.local/share/gnome-shell/extensions' % (self.hsdir, user))
+            os.system('cd /home/%s/.local/share/gnome-shell/ && tar -pcvzf %s/extensions.tar.gz extensions' % (user, self.hsdir))
             locparse = ConfigParser()
             locparse.read('%s/gnome' % self.hsdir)
             screensaver = locparse.get('desktop/screensaver', 'picture-uri').replace('file://', '')
-            fname = screensaver.split('/')[-1].replace("'", '')
-            os.system('cp %s %s/screensaver/%s' % (screensaver, self.hsdir, fname))
-            print(fname)
+            sname = screensaver.split('/')[-1].replace("'", '')
+            os.system('cp %s %s/screensaver/%s' % (screensaver, self.hsdir, sname))
+            print(sname)
             background = locparse.get('desktop/background', 'picture-uri').replace('file://', '')
             fname = background.split('/')[-1].replace("'", '')
             os.system('cp %s %s/background/%s' % (background, self.hsdir, fname))
             print(fname)
+            locparse.set('desktop/screensaver', 'picture-uri', 'file:///usr/share/backgrounds/%s' % sname)
+            locparse.set('desktop/background', 'picture-uri', 'file:///usr/share/backgrounds/%s' % fname)
+            shellTheme = locparse.get('shell/extensions/user-theme', 'name')
+            if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
+                os.system('cd /home/%s/.themes/ && tar -pcvzf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
+            else:
+                os.system('cd /usr/share/themes/ && tar -pcvzf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
+            deskTheme = locparse.get('desktop/interface', 'gtk-theme')
+            iconTheme = locparse.get('desktop/interface', 'icon-theme')
+            cursorTheme = locparse.get('desktop/interface', 'cursor-theme')
+            if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme)):
+                os.system('cd /home/%s/.themes/ && tar -pcvzf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
+            else:
+                os.system('cd /usr/share/themes/ && tar -pcvzf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
+            if os.path.exists('/home/%s/.themes/%s' % (user, cursorTheme)):
+                os.system('cd /home/%s/.icons/ && tar -pcvzf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
+            else:
+                os.system('cd /usr/share/icons/ && tar -pcvzf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
+            if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme)):
+                os.system('cd /home/%s/.icons/ && tar -pcvzf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
+            else:
+                os.system('cd /usr/share/icons/ && tar -pcvzf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
+            tconf = open('%s/gnome' % self.hsdir, 'w+')
+            locparse.write(tconf)
+            tconf.close()
         if self.b_progs:
             x, y = window.get_position()
             sx, sy = window.get_size()
-            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text='Would you like to view a simplified list of applications? (some less common programs may miss from the list)')
+            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=_('Would you like to view a simplified list of applications? (some less common programs may miss from the list)'))
             dialogWindow.set_title(_("Ask"))
             dsx, dsy = dialogWindow.get_size()
             dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))

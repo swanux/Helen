@@ -4387,7 +4387,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 </child>
                                 <child>
                                   <object class="GtkCheckButton" id="them_chk">
-                                    <property name="label" translatable="yes">Gnome theme</property>
+                                    <property name="label" translatable="yes">Gnome desktop</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
@@ -4426,26 +4426,6 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkCheckButton" id="set_chk">
-                                    <property name="label" translatable="yes">Gnome settings</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="margin_left">5</property>
-                                    <property name="margin_right">5</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <property name="draw_indicator">True</property>
-                                    <signal name="toggled" handler="on_set_chk_toggled" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
-                                    <property name="top_attach">0</property>
-                                  </packing>
-                                </child>
-                                <child>
                                   <object class="GtkButton" id="proc_but">
                                     <property name="label" translatable="yes">Proceed</property>
                                     <property name="visible">True</property>
@@ -4465,6 +4445,9 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                     <property name="top_attach">1</property>
                                   </packing>
                                 </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -4475,7 +4458,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page1</property>
-                            <property name="title" translatable="yes">page1</property>
+                            <property name="title">page1</property>
                           </packing>
                         </child>
                         <child>
@@ -4550,7 +4533,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page2</property>
-                            <property name="title" translatable="yes">page2</property>
+                            <property name="title">page2</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
@@ -4697,7 +4680,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page3</property>
-                            <property name="title" translatable="yes">page3</property>
+                            <property name="title">page3</property>
                             <property name="position">2</property>
                           </packing>
                         </child>
@@ -4757,7 +4740,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page4</property>
-                            <property name="title" translatable="yes">page4</property>
+                            <property name="title">page4</property>
                             <property name="position">3</property>
                           </packing>
                         </child>
@@ -4798,7 +4781,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page5</property>
-                            <property name="title" translatable="yes">page5</property>
+                            <property name="title">page5</property>
                             <property name="position">4</property>
                           </packing>
                         </child>
@@ -4810,7 +4793,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                             <property name="margin_bottom">5</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
-                            <property name="label" translatable="yes">Backup ready. You can restore it on your target system by installing it (usually just double-clicking on it), as it's packed into the distribution's native package format.
+                            <property name="label">Backup ready. You can restore it on your target system by installing it (usually just double-clicking on it), as it's packed into the distribution's native package format.
 
 You can find it in your home folder under hswitcher (like ~/hswitcher/backup.xy)
 
@@ -4825,7 +4808,7 @@ Don't forget to REMOVE the package named "backup" with the default package manag
                           </object>
                           <packing>
                             <property name="name">page6</property>
-                            <property name="title" translatable="yes">page6</property>
+                            <property name="title">page6</property>
                             <property name="position">5</property>
                           </packing>
                         </child>
@@ -4843,7 +4826,7 @@ Don't forget to REMOVE the package named "backup" with the default package manag
           </object>
           <packing>
             <property name="name">page6</property>
-            <property name="title" translatable="yes">page6</property>
+            <property name="title">page6</property>
             <property name="position">6</property>
           </packing>
         </child>

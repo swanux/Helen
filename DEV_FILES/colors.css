@@ -1,27 +1,27 @@
 button {
     border-radius: 15px;
-    color:whitesmoke;
-    background-color: dimgray;
-    background-image:none;
-    border-right-width: 3px; 
-    border-left-width: 3px;
+    /* color:whitesmoke; */
+    /* background-color: dimgray; */
+    /* background-image:none; */
+    /* border-right-width: 3px;  */
+    /* border-left-width: 3px; */
 }
-notebook > header.top > tabs > tab {
+/* notebook > header.top > tabs > tab {
     color: whitesmoke;
-}
-notebook > header.bottom > tabs > tab {
+} */
+/* notebook > header.bottom > tabs > tab {
     color: whitesmoke;
-}
-notebook > header > tabs > tab:hover {
+} */
+/* notebook > header > tabs > tab:hover {
     background: rgb(0, 153, 255);
     color: whitesmoke;
     border-image: none;
-}
-notebook > header > tabs > tab:checked {
+} */
+/* notebook > header > tabs > tab:checked {
     background: rgb(0, 91, 175);
     color: whitesmoke;
     border-image: none;
-}
+} */
 button:hover {
     background-color: rgb(0, 153, 255);
     color:whitesmoke;

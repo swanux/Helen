@@ -4458,7 +4458,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page1</property>
-                            <property name="title" translatable="yes">page1</property>
+                            <property name="title">page1</property>
                           </packing>
                         </child>
                         <child>
@@ -4533,7 +4533,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page2</property>
-                            <property name="title" translatable="yes">page2</property>
+                            <property name="title">page2</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
@@ -4680,7 +4680,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page3</property>
-                            <property name="title" translatable="yes">page3</property>
+                            <property name="title">page3</property>
                             <property name="position">2</property>
                           </packing>
                         </child>
@@ -4740,7 +4740,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page4</property>
-                            <property name="title" translatable="yes">page4</property>
+                            <property name="title">page4</property>
                             <property name="position">3</property>
                           </packing>
                         </child>
@@ -4781,7 +4781,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           </object>
                           <packing>
                             <property name="name">page5</property>
-                            <property name="title" translatable="yes">page5</property>
+                            <property name="title">page5</property>
                             <property name="position">4</property>
                           </packing>
                         </child>
@@ -4808,7 +4808,7 @@ Don't forget to REMOVE the package named "backup" with the default package manag
                           </object>
                           <packing>
                             <property name="name">page6</property>
-                            <property name="title" translatable="yes">page6</property>
+                            <property name="title">page6</property>
                             <property name="position">5</property>
                           </packing>
                         </child>
@@ -4826,7 +4826,7 @@ Don't forget to REMOVE the package named "backup" with the default package manag
           </object>
           <packing>
             <property name="name">page6</property>
-            <property name="title" translatable="yes">page6</property>
+            <property name="title">page6</property>
             <property name="position">6</property>
           </packing>
         </child>
