@@ -6,7 +6,7 @@ Here is the changelog of every update. For further details you can always check 
 
     * Rebuilt hrepo
     * Dropped Arch support
-    * Added compatibility wiht Ubuntu 20.04 Focal Fossa
+    * Added compatibility with Ubuntu 20.04 Focal Fossa
     * Added progressbar to Apt Spotlight
     * Added Lutris to hrepo & updated hrepo
     * Optimized build file
