@@ -1,4 +1,4 @@
-hsuite (0.6.5.1-1) bionic; urgency=medium
+hsuite (0.6.5.2-1) bionic; urgency=medium
 
   * Fixed lots of issues (aptdaemon, postrm, wine, etc)
   * Rebuilt hrepo
@@ -11,4 +11,4 @@ hsuite (0.6.5.1-1) bionic; urgency=medium
   * Modified CSS to respect system theme
   * Added HSwitcher (experimental version)
 
- -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 16 May 2020 14:32:01 +0100
+ -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 16 May 2020 14:41:09 +0100
