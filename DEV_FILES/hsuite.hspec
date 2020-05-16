@@ -10,7 +10,7 @@ email = dani@kolozsi.net
 pkgname = hsuite
 pretty_name = HSuite
 licensev = 0
-version = 0.7
+version = 0.6.5
 section = 0
 priority = 0
 depends = ${misc:Depends}
@@ -22,7 +22,6 @@ depends = ${misc:Depends}
 	unzip
 	coreutils (>= 8.26-3)
 	python3-gi
-	xdg-utils
 	psmisc
 	zenity
 	python3-notify2
@@ -32,7 +31,6 @@ depends = ${misc:Depends}
 	python3-github
 	dh-make
 	devscripts
-	dconf-gsettings-backend
 	dconf-cli
 build_deps = debhelper (>= 11)
 	dh-python
@@ -40,7 +38,7 @@ build_deps = debhelper (>= 11)
 homepage = https://github.com/swanux/hsuite
 
 [description]
-short = HSuite Beta v0.6 | Apollo
+short = HSuite Beta v0.6.5 | Emerald
 longue = HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
 
 [misc]
@@ -53,20 +51,16 @@ postrm = rm /usr/bin/hsuite || "No need for it2"
 [changelog]
 target = bionic
 urgency = 1
-changes = Resolved a LOTS of bugs with Apt Spotlight, Distro Boutique, hrepo, etc...
-	New modern UI redesign with CSS, better text placement
-	Dropped support for flashplayer
-	Rewritten Apt Spotlight backend with aptdaemon
-	Built in basic error handling
-	Added notifications when window is in background and task completed
-	Added proper description to the installer package
-	Added native feedback page
-	Added internet connection checking and offline mode
-	Added config file to store distro name, and notify when updated
-	Dropped support for Ubuntu 19.04 (disco)
-	Added Hungarian translation, prepared for more translations
-	Now using custom packaging and build system
-	Updated hrepo, demos, readme and added description for developers
+changes = Fixed lots of issues (aptdaemon, postrm, wine, etc)
+	Rebuilt hrepo
+	Dropped Arch support
+	Added compatibility wiht Ubuntu 20.04 Focal Fossa
+	Added progressbar to Apt Spotlight
+	Added Lutris to hrepo & updated hrepo
+	Optimized build file
+	Updated Hungarian translation
+	Modified CSS to respect system theme
+	Added HSwitcher (experimental version)
 
 [data]
 root = /home/daniel/GitRepos/hsuite/DEV_FILES

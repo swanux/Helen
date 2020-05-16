@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HSuite 0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 11:10+0200\n"
+"POT-Creation-Date: 2020-05-16 12:58+0200\n"
 "PO-Revision-Date: 2020-02-29 20:56+0100\n"
 "Last-Translator: Dániel Kolozsi <dani@kolozsi.net>\n"
 "Language-Team: Hungarian\n"
@@ -56,7 +56,7 @@ msgid "About"
 msgstr "A programról"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1496
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1495
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:590
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:740
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2493
@@ -109,7 +109,7 @@ msgstr ""
 "a számítógépe a háttérben olyan jól amilyen jól csak lehet.Ezek a disztrók "
 "minden bizonnyal fedezik ezeket a szükségleteket."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1226
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1225
 msgid "Ask"
 msgstr "Kérdés"
 
@@ -179,33 +179,31 @@ msgstr ""
 msgid "Avilable from website only"
 msgstr "Csak a weboldalról elérhető"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4699
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4716
 msgid "Backing up user data..."
 msgstr "Személyes adatok mentése..."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4796
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4813
 msgid ""
 "Backup ready. You can restore it on your target system by installing it "
 "(usually just double-clicking on it), as it's packed into the distribution's "
 "native package format.\n"
 "\n"
-"You can find it in your home folder under hswitcher (like ~/hswitcher/backup."
-"xy)\n"
+"You can find it in your home folder  (like ~/restore.xy)\n"
 "\n"
 "Just install it to restore. (it may take a while)\n"
 "\n"
-"Don't forget to REMOVE the package named \"backup\" with the default package "
-"manager after installation done."
+"Don't forget to REMOVE the package named \"restore\" with the default "
+"package manager after installation done."
 msgstr ""
 "Mentés sikeres. A célrendszeren csak telepítenie (általában egyszerűen dupla-"
 "klikk) kell, mivel a disztribúció saját formátumába van csomagolva.\n"
 "\n"
-"A saját mappájában találja az hswitcher nevű mappában (úgy mint ~/hswitcher/"
-"backup.xy)\n"
+"A saját mappájában találja (úgy mint ~/restore.xy)\n"
 "\n"
 "Csak telepítse a visszaállításhoz. (ez eltarthat egy darabig)\n"
 "\n"
-"Ne felejtse el ELTÁVOLÍTANI a \"backup\" nevű programot az alapértelmezett "
+"Ne felejtse el ELTÁVOLÍTANI a \"restore\" nevű programot az alapértelmezett "
 "programkezelő segítségével miután a telepítés befejeződött."
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:332
@@ -267,12 +265,12 @@ msgstr ""
 "Arch, Ubuntu (bionic, eoan), Debian (buster).\n"
 "és minden derivatívájukkal. Megszakítás most."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1307
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1306
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:993
 msgid "Coming Soon"
 msgstr "Hamarosan elérhető"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1306
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1305
 msgid "Coming in future Beta releases..."
 msgstr "Elérhető a jövőbeni Béta verziókban..."
 
@@ -284,7 +282,7 @@ msgstr "Kommunikáció"
 msgid "Continue"
 msgstr "Tovább"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4757
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4774
 msgid "Creating backup. Please wait..."
 msgstr "Mentés folyamatban. Kérem várjon..."
 
@@ -375,9 +373,9 @@ msgstr ""
 "felhasználóval rendelkezik.\n"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1487
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1498
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1652
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1486
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1497
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1651
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:516
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2637
 msgid "Distro Boutique"
@@ -404,15 +402,14 @@ msgstr ""
 "a(z) %s nevű programot."
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:676
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
-"program. If you decide to abort, then it is you may need to remove %s "
-"manually."
+"program. If you decide to abort, then you may need to remove %s manually."
 msgstr ""
 "Biztos benne, hogy ki szeretne lépni? A végeredmény egy működésképtelen "
-"program lehet. Ha úgy dönt, hogy kilép, ajánlott manuálisan eltávolítani "
-"a(z) %s nevű programot."
+"program lehet. Ha úgy dönt, hogy kilép, lehetséges, hogy manuálisan "
+"kell eltávolítania a(z) %s nevű programot."
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:422
 msgid "Do you really would like to exit now?"
@@ -422,7 +419,7 @@ msgstr "Biztosan ki szeretne lépni?"
 msgid "Documents"
 msgstr "Dokumentumok"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1464
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1463
 #, python-format
 msgid "Download (%s MB)"
 msgstr "Letöltés (%s MB)"
@@ -1406,7 +1403,7 @@ msgid "Send"
 msgstr "Küldés"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:717
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1437
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1436
 msgid "Server error"
 msgstr "Szerver hiba"
 
@@ -1549,7 +1546,7 @@ msgstr ""
 "egészen keveset trükközni kell az elején, hogy minden a lehető legjobban "
 "működjön.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4664
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4681
 msgid "Start backup"
 msgstr "Mentés indítása"
 
@@ -1715,6 +1712,10 @@ msgstr ""
 "koncentrál, illetve a libertárius közösség egyik ünnepelt fenegyerekeként "
 "utazza körbe a földet.\n"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4664
+msgid "Templates"
+msgstr "Sablonok"
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2519
 msgid "Text Here"
 msgstr "Szöveg ide"
@@ -1774,7 +1775,7 @@ msgstr ""
 "nem kerülnek mentésre. Ez biztosítja, hogy a fájlok változatlanok maradjanak "
 "a rendszer egy korábbi dátumra való visszaállítása során\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4731
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4748
 msgid "Total progress:"
 msgstr "Összesített haladás:"
 
@@ -2058,7 +2059,7 @@ msgstr ""
 "woeusbgui (ahogy a név alapján sejteni lehet) egy GUI a woeusb-hez amely "
 "WxWidget-eket használ.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1225
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1224
 msgid ""
 "Would you like to view a simplified list of applications? (some less common "
 "programs may miss from the list)"
@@ -2097,7 +2098,6 @@ msgstr ""
 "a ~/.config/fusuma/config.yml fájlban található."
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:106
-#, fuzzy
 msgid ""
 "Your distro is detected as Deepin.\n"
 "This distro is not fully\n"
@@ -2105,7 +2105,7 @@ msgid ""
 "problems with the program. Currently tested\n"
 "on distros: Ubuntu (bionic, eoan), Debian (buster)."
 msgstr ""
-"Az Ön rendzerét Deepin-ként azonosítottuk.\n"
+"Az Ön rendszerét Deepin-ként azonosítottuk.\n"
 "Ez a disztró nincs teljesen letesztelve,\n"
 "lehetséges, hogy problémák merülnek fel\n"
 "a programmal. Jelenleg sikeresen tesztelve\n"
@@ -2132,7 +2132,7 @@ msgstr ""
 "(khm Windows 10...). Ha ez Önnek megfelelő, akkor ez egy remek Ubuntu alapú "
 "disztró.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4716
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4733
 msgid "current"
 msgstr "jelenlegi"
 

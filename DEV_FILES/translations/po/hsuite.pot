@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 11:10+0200\n"
+"POT-Creation-Date: 2020-05-16 12:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid "About"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1496
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1495
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:590
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:740
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2493
@@ -77,7 +77,7 @@ msgid ""
 "These distros will probably fit your needs."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1226
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1225
 msgid "Ask"
 msgstr ""
 
@@ -124,23 +124,22 @@ msgstr ""
 msgid "Avilable from website only"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4699
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4716
 msgid "Backing up user data..."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4796
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4813
 msgid ""
 "Backup ready. You can restore it on your target system by installing it "
 "(usually just double-clicking on it), as it's packed into the distribution's "
 "native package format.\n"
 "\n"
-"You can find it in your home folder under hswitcher (like ~/hswitcher/backup."
-"xy)\n"
+"You can find it in your home folder  (like ~/restore.xy)\n"
 "\n"
 "Just install it to restore. (it may take a while)\n"
 "\n"
-"Don't forget to REMOVE the package named \"backup\" with the default package "
-"manager after installation done."
+"Don't forget to REMOVE the package named \"restore\" with the default "
+"package manager after installation done."
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:332
@@ -188,12 +187,12 @@ msgid ""
 " and everything based on them. Aborting now."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1307
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1306
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:993
 msgid "Coming Soon"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1306
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1305
 msgid "Coming in future Beta releases..."
 msgstr ""
 
@@ -205,7 +204,7 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4757
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4774
 msgid "Creating backup. Please wait..."
 msgstr ""
 
@@ -269,9 +268,9 @@ msgid ""
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1487
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1498
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1652
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1486
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1497
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1651
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:516
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2637
 msgid "Distro Boutique"
@@ -296,8 +295,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
-"program. If you decide to abort, then it is you may need to remove %s "
-"manually."
+"program. If you decide to abort, then you may need to remove %s manually."
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:422
@@ -308,7 +306,7 @@ msgstr ""
 msgid "Documents"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1464
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1463
 #, python-format
 msgid "Download (%s MB)"
 msgstr ""
@@ -978,7 +976,7 @@ msgid "Send"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:717
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1437
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1436
 msgid "Server error"
 msgstr ""
 
@@ -1063,7 +1061,7 @@ msgid ""
 "to make everything work.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4664
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4681
 msgid "Start backup"
 msgstr ""
 
@@ -1168,6 +1166,10 @@ msgid ""
 "million monthly active users.\n"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4664
+msgid "Templates"
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2519
 msgid "Text Here"
 msgstr ""
@@ -1205,7 +1207,7 @@ msgid ""
 "your system to an earlier date.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4731
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4748
 msgid "Total progress:"
 msgstr ""
 
@@ -1378,7 +1380,7 @@ msgid ""
 "based on WxWidgets.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1225
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1224
 msgid ""
 "Would you like to view a simplified list of applications? (some less common "
 "programs may miss from the list)"
@@ -1428,7 +1430,7 @@ msgid ""
 "great Ubuntu based distro.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4716
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4733
 msgid "current"
 msgstr ""
 

@@ -1,23 +1,18 @@
 # Changelog
 Here is the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
 
-**v0.6 | Apollo**
-*Note: This version targets stability and performance improvements, alongside with tweaks on user experience.*
+**v0.6.5 | Emerald**
+*Note: This is a point release, featuring fixes and improvements, together with some new features*
 
-    * Resolved a LOTS of bugs with Apt Spotlight, Distro Boutique, hrepo, etc...
-    * New modern UI redesign with CSS, better text placement
-    * Dropped support for flashplayer
-    * Rewritten Apt Spotlight backend with aptdaemon
-    * Built in basic error handling
-    * Added notifications when window is in background and task completed
-    * Added proper description to the installer package
-    * Added native feedback page
-    * Added internet connection checking and offline mode
-    * Added config file to store distro name, and notify when updated
-    * Dropped support for Ubuntu 19.04 (disco)
-    * Added Hungarian translation, prepared for more translations
-    * Now using custom packaging and build system
-    * Updated hrepo, demos, readme and added description for developers
+    * Rebuilt hrepo
+    * Dropped Arch support
+    * Added compatibility wiht Ubuntu 20.04 Focal Fossa
+    * Added progressbar to Apt Spotlight
+    * Added Lutris to hrepo & updated hrepo
+    * Optimized build file
+    * Updated Hungarian translation
+    * Modified CSS to respect system theme
+    * Added HSwitcher (experimental version)
 
 
 # Get things working
@@ -28,40 +23,28 @@ Here is the changelog of every update. For further details you can always check 
 
     Debian 10 (buster)
     Ubuntu 18.04 (bionic)
-    ABANDONED: Ubuntu 19.04 (disco)
-    -> Use *eoan* or *bionic* instead
     Ubuntu 19.10 (eoan)
+    Ubuntu 20.04 (focal)
 
 To find out your codename on Ubuntu just run:
 
     source /etc/lsb-release \
     echo $DISTRIB_CODENAME
 
-**Tipp:** If you are using a distro that's not in the list but it is based on Debian/Ubuntu, then use the oldest codename.
-E.g.: Use bionic for Ubuntu derivatives and buster for Debian derivatives.
+**Tipp:** If you are using a distro that's not in the list but it is based on Debian/Ubuntu, then use the version of Ubuntu/Debian which is the base of it.
+E.g.: Use bionic for Linux Mint 19 and buster for Deepin.
 
 To install run:
 
     CODENAME=YOURDISTNAME
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D0E48B8490DC4A21
-    echo "deb https://gitlab.com/swanux/hrepo/raw/master $CODENAME main" | sudo tee -a /etc/apt/sources.list
-    sudo apt update && sudo apt install hsuite
+    echo "deb https://sourceforge.net/projects/hrepo/files $CODENAME main" | sudo tee -a /etc/apt/sources.list
+    sudo apt update
+    sudo apt install hsuite
 
 And to remove, execute:
 
     sudo apt purge hsuite && sudo apt autoremove
-
-**For Arch:**
-
-To install:
-
-    wget https://github.com/swanux/hsuite/raw/master/PKGS/hsuite-0.6.2-1-x86_64.pkg.tar.xz \
-    sudo pacman -U hsuite-0.6.2-1-x86_64.pkg.tar.xz \
-    rm hsuite-0.6.2-1-x86_64.pkg.tar.xz && sudo pacman -Sy
-    
-And to remove:
-
-    sudo pacman -Runs hsuite
 
 **Debugging and updating**
 
@@ -109,13 +92,14 @@ Here's the file hierarchy of the program with explanations:
     │                   ├── config.yml      # for fusuma
     │                   ├── details.py      # extra module
     │                   ├── fusuma.desktop
+    │                   ├── hsuite.hspec    # build file for own automated build system
     │                   ├── hsuite.glade    # the UI file
     │                   ├── HSuite.py       # the main file
     │                   ├── hsuite.sh       # the file to run hsuite from terminal
     │                   ├── icons           # all the icons
     │                   │   └── ...
     │                   ├── osLayer.py      # extra module
-    │                   └── pacman.conf     # for Arch
+    │                   └── htransfer.py     # own file transfer backend
     ├── _config.yml     # just for the theme of the github page
     ├── DEV_FILES       # development folder
     │   ├── colors.css

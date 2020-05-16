@@ -1,0 +1,208 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.0
+Source: hsuite
+Binary: hsuite
+Architecture: amd64 source
+Version: 0.6.5-1
+Checksums-Md5:
+ 0eaa9e63354862f1a01a25013daad019 1697 hsuite_0.6.5-1.dsc
+ 8f55665b8ad752abc08cdc92961205d2 199984 hsuite_0.6.5-1_amd64.deb
+Checksums-Sha1:
+ 89ccad803c433354d498fe5697cc8c831b3b6c7f 1697 hsuite_0.6.5-1.dsc
+ 2b7dc788b33118ddea6a445b95e085d3354d80ba 199984 hsuite_0.6.5-1_amd64.deb
+Checksums-Sha256:
+ 517c43071b5924ddb75ed1b51968abd1f7a95cb53efcb41c46a8d4244e729a50 1697 hsuite_0.6.5-1.dsc
+ f2fc52c5182d240779b2f2b4e77a861b38c96b0fae9a09a95bfe980c1c9b74bc 199984 hsuite_0.6.5-1_amd64.deb
+Build-Origin: Ubuntu
+Build-Architecture: amd64
+Build-Date: Sat, 16 May 2020 13:16:46 +0200
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.15.1-3ubuntu2),
+ autopoint (= 0.19.8.1-6ubuntu0.3),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1ubuntu2.8),
+ base-passwd (= 3.5.44),
+ bash (= 4.4.18-2ubuntu1.2),
+ binutils (= 2.30-21ubuntu1~18.04.3),
+ binutils-common (= 2.30-21ubuntu1~18.04.3),
+ binutils-x86-64-linux-gnu (= 2.30-21ubuntu1~18.04.3),
+ bsdmainutils (= 11.1.2ubuntu1),
+ bsdutils (= 1:2.31.1-0.4ubuntu3.6),
+ build-essential (= 12.4ubuntu1),
+ bzip2 (= 1.0.6-8.1ubuntu0.2),
+ coreutils (= 8.28-1ubuntu1),
+ cpp (= 4:7.4.0-1ubuntu2.3),
+ cpp-7 (= 7.5.0-3ubuntu1~18.04),
+ dash (= 0.5.8-2.10),
+ debconf (= 1.5.66ubuntu1),
+ debhelper (= 11.1.6ubuntu2),
+ debianutils (= 4.8.4),
+ dh-autoreconf (= 17),
+ dh-python (= 3.20180325ubuntu2),
+ dh-strip-nondeterminism (= 0.040-1.1~build1),
+ diffutils (= 1:3.6-1),
+ dpkg (= 1.19.0.5ubuntu2.3),
+ dpkg-dev (= 1.19.0.5ubuntu2.3),
+ e2fsprogs (= 1.44.1-1ubuntu1.3),
+ fdisk (= 2.31.1-0.4ubuntu3.6),
+ file (= 1:5.32-2ubuntu0.4),
+ findutils (= 4.6.0+git+20170828-2),
+ g++ (= 4:7.4.0-1ubuntu2.3),
+ g++-7 (= 7.5.0-3ubuntu1~18.04),
+ gcc (= 4:7.4.0-1ubuntu2.3),
+ gcc-7 (= 7.5.0-3ubuntu1~18.04),
+ gcc-7-base (= 7.5.0-3ubuntu1~18.04),
+ gcc-8-base (= 8.4.0-1ubuntu1~18.04),
+ gettext (= 0.19.8.1-6ubuntu0.3),
+ gettext-base (= 0.19.8.1-6ubuntu0.3),
+ grep (= 3.1-2build1),
+ groff-base (= 1.22.3-10),
+ gzip (= 1.6-5ubuntu1),
+ hostname (= 3.20),
+ init-system-helpers (= 1.51),
+ install-info (= 6.5.0.dfsg.1-2),
+ intltool-debian (= 0.35.0+20060710.4),
+ libacl1 (= 2.2.52-3build1),
+ libarchive-zip-perl (= 1.60-1ubuntu0.1),
+ libasan4 (= 7.5.0-3ubuntu1~18.04),
+ libatomic1 (= 8.4.0-1ubuntu1~18.04),
+ libattr1 (= 1:2.4.47-2build1),
+ libaudit-common (= 1:2.8.2-1ubuntu1),
+ libaudit1 (= 1:2.8.2-1ubuntu1),
+ libbinutils (= 2.30-21ubuntu1~18.04.3),
+ libblkid1 (= 2.31.1-0.4ubuntu3.6),
+ libbsd0 (= 0.8.7-1ubuntu0.1),
+ libbz2-1.0 (= 1.0.6-8.1ubuntu0.2),
+ libc-bin (= 2.27-3ubuntu1),
+ libc-dev-bin (= 2.27-3ubuntu1),
+ libc6 (= 2.27-3ubuntu1),
+ libc6-dev (= 2.27-3ubuntu1),
+ libcap-ng0 (= 0.7.7-3.1),
+ libcc1-0 (= 8.4.0-1ubuntu1~18.04),
+ libcilkrts5 (= 7.5.0-3ubuntu1~18.04),
+ libcom-err2 (= 1.44.1-1ubuntu1.3),
+ libcroco3 (= 0.6.12-2),
+ libdb5.3 (= 5.3.28-13.1ubuntu1.1),
+ libdebconfclient0 (= 0.213ubuntu1),
+ libdpkg-perl (= 1.19.0.5ubuntu2.3),
+ libexpat1 (= 2.2.5-3ubuntu0.2),
+ libext2fs2 (= 1.44.1-1ubuntu1.3),
+ libfdisk1 (= 2.31.1-0.4ubuntu3.6),
+ libffi6 (= 3.2.1-8),
+ libfile-stripnondeterminism-perl (= 0.040-1.1~build1),
+ libgcc-7-dev (= 7.5.0-3ubuntu1~18.04),
+ libgcc1 (= 1:8.4.0-1ubuntu1~18.04),
+ libgcrypt20 (= 1.8.1-4ubuntu1.2),
+ libgdbm-compat4 (= 1.14.1-6),
+ libgdbm5 (= 1.14.1-6),
+ libglib2.0-0 (= 2.56.4-0ubuntu0.18.04.6),
+ libgmp10 (= 2:6.1.2+dfsg-2),
+ libgomp1 (= 8.4.0-1ubuntu1~18.04),
+ libgpg-error0 (= 1.27-6),
+ libicu60 (= 60.2-3ubuntu3.1),
+ libisl19 (= 0.19-1),
+ libitm1 (= 8.4.0-1ubuntu1~18.04),
+ liblsan0 (= 8.4.0-1ubuntu1~18.04),
+ liblz4-1 (= 0.0~r131-2ubuntu3),
+ liblzma5 (= 5.2.2-1.3),
+ libmagic-mgc (= 1:5.32-2ubuntu0.4),
+ libmagic1 (= 1:5.32-2ubuntu0.4),
+ libmount1 (= 2.31.1-0.4ubuntu3.6),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-1ubuntu1),
+ libmpfr6 (= 4.0.1-1),
+ libmpx2 (= 8.4.0-1ubuntu1~18.04),
+ libncursesw5 (= 6.1-1ubuntu1.18.04),
+ libpam-modules (= 1.1.8-3.6ubuntu2.18.04.1),
+ libpam-modules-bin (= 1.1.8-3.6ubuntu2.18.04.1),
+ libpam-runtime (= 1.1.8-3.6ubuntu2.18.04.1),
+ libpam0g (= 1.1.8-3.6ubuntu2.18.04.1),
+ libpcre3 (= 2:8.39-9),
+ libperl5.26 (= 5.26.1-6ubuntu0.3),
+ libpipeline1 (= 1.5.0-1),
+ libpython3-stdlib (= 3.6.7-1~18.04),
+ libpython3.6-minimal (= 3.6.9-1~18.04ubuntu1),
+ libpython3.6-stdlib (= 3.6.9-1~18.04ubuntu1),
+ libquadmath0 (= 8.4.0-1ubuntu1~18.04),
+ libreadline7 (= 7.0-3),
+ libseccomp2 (= 2.4.1-0ubuntu0.18.04.2),
+ libselinux1 (= 2.7-2build2),
+ libsigsegv2 (= 2.12-1),
+ libsmartcols1 (= 2.31.1-0.4ubuntu3.6),
+ libsqlite3-0 (= 3.22.0-1ubuntu0.3),
+ libss2 (= 1.44.1-1ubuntu1.3),
+ libssl1.1 (= 1.1.1-1ubuntu2.1~18.04.5),
+ libstdc++-7-dev (= 7.5.0-3ubuntu1~18.04),
+ libstdc++6 (= 8.4.0-1ubuntu1~18.04),
+ libsystemd0 (= 237-3ubuntu10.40),
+ libtimedate-perl (= 2.3000-2),
+ libtinfo5 (= 6.1-1ubuntu1.18.04),
+ libtool (= 2.4.6-2),
+ libtsan0 (= 8.4.0-1ubuntu1~18.04),
+ libubsan0 (= 7.5.0-3ubuntu1~18.04),
+ libudev1 (= 237-3ubuntu10.40),
+ libunistring2 (= 0.9.9-0ubuntu2),
+ libuuid1 (= 2.31.1-0.4ubuntu3.6),
+ libxml2 (= 2.9.4+dfsg1-6.1ubuntu1.3),
+ libzstd1 (= 1.3.3+dfsg-2ubuntu1.1),
+ linux-libc-dev (= 4.15.0-99.100),
+ login (= 1:4.5-1ubuntu2),
+ m4 (= 1.4.18-1),
+ make (= 4.1-9.1ubuntu1),
+ man-db (= 2.8.3-2ubuntu0.1),
+ mawk (= 1.3.3-17ubuntu3),
+ mime-support (= 3.60ubuntu1),
+ ncurses-base (= 6.1-1ubuntu1.18.04),
+ ncurses-bin (= 6.1-1ubuntu1.18.04),
+ patch (= 2.7.6-2ubuntu1.1),
+ perl (= 5.26.1-6ubuntu0.3),
+ perl-base (= 5.26.1-6ubuntu0.3),
+ perl-modules-5.26 (= 5.26.1-6ubuntu0.3),
+ po-debconf (= 1.0.20),
+ python3 (= 3.6.7-1~18.04),
+ python3-distutils (= 3.6.9-1~18.04),
+ python3-lib2to3 (= 3.6.9-1~18.04),
+ python3-minimal (= 3.6.7-1~18.04),
+ python3.6 (= 3.6.9-1~18.04ubuntu1),
+ python3.6-minimal (= 3.6.9-1~18.04ubuntu1),
+ readline-common (= 7.0-3),
+ sed (= 4.4-2),
+ sysvinit-utils (= 2.88dsf-59.10ubuntu1),
+ tar (= 1.29b-2ubuntu0.1),
+ util-linux (= 2.31.1-0.4ubuntu3.6),
+ xz-utils (= 5.2.2-1.3),
+ zlib1g (= 1:1.2.11.dfsg-0ubuntu2)
+Environment:
+ DEB_BUILD_OPTIONS="parallel=4"
+ LANG="en_US.UTF-8"
+ LC_ADDRESS="hu_HU.UTF-8"
+ LC_IDENTIFICATION="hu_HU.UTF-8"
+ LC_MEASUREMENT="hu_HU.UTF-8"
+ LC_MONETARY="hu_HU.UTF-8"
+ LC_NAME="hu_HU.UTF-8"
+ LC_NUMERIC="hu_HU.UTF-8"
+ LC_PAPER="hu_HU.UTF-8"
+ LC_TELEPHONE="hu_HU.UTF-8"
+ LC_TIME="hu_HU.UTF-8"
+ SOURCE_DATE_EPOCH="1589631403"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJFBAEBCgAvFiEE87vM8eWm7byhzddf0OSLhJDcSiEFAl6/y6QRHGRhbmlAa29s
+b3pzaS5uZXQACgkQ0OSLhJDcSiH+lQ//b4UhNw73UDXEJfs445V+fjXT25As7A8C
+AzBFRf2mXoAEh+ZgzGvtzGouHHJxjl4m3DJwOWFVTOgrbcBNrmIz6JWV+fwyShCL
+hxS8MnGbrpmtoakGfPfl8Un6d5AT5iq3LvJ7Xg3RBKfQ0j9aLNs4Q3laOzgR0yxr
+4xw0pN2w0LxRz9GgaFA4TitTVbISnC5if2a+ZkQVRXJayTy/83LXmyEismWPAjyD
+FogOV5SouSoMXcxmd2gBHC0eo1p4EdQtdHM7Fjn7FaZytkFj0Zs6+IhHwenfHua+
+W6MYm+LlXJOjdZK0NKArgsqOxHinZ/ba8wY2eXcFM8LlmqK6kF6BDCvQ2XJ31mom
+q3dcuzvo2xKaDySRcmz+9N7+stRT18Tbq3EckV6X8QVF9oU+kvwxycrNaodGA2vy
+HmaPM9NHDQbAxu9AbeJ9eI1ouRVUfYFTVhQac9BngsS8Ipc0KNOwY5K18DiBnBGK
+ds4mlJaaPXCzv1hq/aDFP9r+VGM6NQKq/Sny0h4UxN3SSUrk0X+JQOrG4+fW2q4c
+M0n7cOKYB3WR4rRVqLy2tUvlfpW99yDx6K1qLT/SzoxSMxTpoQmkAw7etvJx6goz
+8lXsUz8X48ToFOLz5Djmqjuox+nT24NFOnWFfHveArYAKLXTMWoCX4XjSJKHVGKO
+lnery8edwdo=
+=a6pi
+-----END PGP SIGNATURE-----
