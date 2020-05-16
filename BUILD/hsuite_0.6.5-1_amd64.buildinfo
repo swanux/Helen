@@ -7,17 +7,17 @@ Binary: hsuite
 Architecture: amd64 source
 Version: 0.6.5-1
 Checksums-Md5:
- 0eaa9e63354862f1a01a25013daad019 1697 hsuite_0.6.5-1.dsc
- 8f55665b8ad752abc08cdc92961205d2 199984 hsuite_0.6.5-1_amd64.deb
+ c0a1c896f7e95eb0140a1e8af5e3e699 1697 hsuite_0.6.5-1.dsc
+ 1ad06423fd4e026e8d3c7e7c5c38780e 199952 hsuite_0.6.5-1_amd64.deb
 Checksums-Sha1:
- 89ccad803c433354d498fe5697cc8c831b3b6c7f 1697 hsuite_0.6.5-1.dsc
- 2b7dc788b33118ddea6a445b95e085d3354d80ba 199984 hsuite_0.6.5-1_amd64.deb
+ c89a102420ecb03bff49bf1f10e2196ce5ff218f 1697 hsuite_0.6.5-1.dsc
+ 45b4d7e1d0a7786a31ef8fdb7854dc64d75264f9 199952 hsuite_0.6.5-1_amd64.deb
 Checksums-Sha256:
- 517c43071b5924ddb75ed1b51968abd1f7a95cb53efcb41c46a8d4244e729a50 1697 hsuite_0.6.5-1.dsc
- f2fc52c5182d240779b2f2b4e77a861b38c96b0fae9a09a95bfe980c1c9b74bc 199984 hsuite_0.6.5-1_amd64.deb
+ 013379b54f6a2c6dd111a4b7b9d13d75f202e682781808cd017d3c068c11fbee 1697 hsuite_0.6.5-1.dsc
+ f18dcd09a8ccfa2e0c17da1a7fd82dfe7d0cfca06fb427add4d4a1794037b30a 199952 hsuite_0.6.5-1_amd64.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Sat, 16 May 2020 13:16:46 +0200
+Build-Date: Sat, 16 May 2020 13:39:33 +0200
 Installed-Build-Depends:
  autoconf (= 2.69-11),
  automake (= 1:1.15.1-3ubuntu2),
@@ -187,22 +187,22 @@ Environment:
  LC_PAPER="hu_HU.UTF-8"
  LC_TELEPHONE="hu_HU.UTF-8"
  LC_TIME="hu_HU.UTF-8"
- SOURCE_DATE_EPOCH="1589631403"
+ SOURCE_DATE_EPOCH="1589632771"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJFBAEBCgAvFiEE87vM8eWm7byhzddf0OSLhJDcSiEFAl6/y6QRHGRhbmlAa29s
-b3pzaS5uZXQACgkQ0OSLhJDcSiH+lQ//b4UhNw73UDXEJfs445V+fjXT25As7A8C
-AzBFRf2mXoAEh+ZgzGvtzGouHHJxjl4m3DJwOWFVTOgrbcBNrmIz6JWV+fwyShCL
-hxS8MnGbrpmtoakGfPfl8Un6d5AT5iq3LvJ7Xg3RBKfQ0j9aLNs4Q3laOzgR0yxr
-4xw0pN2w0LxRz9GgaFA4TitTVbISnC5if2a+ZkQVRXJayTy/83LXmyEismWPAjyD
-FogOV5SouSoMXcxmd2gBHC0eo1p4EdQtdHM7Fjn7FaZytkFj0Zs6+IhHwenfHua+
-W6MYm+LlXJOjdZK0NKArgsqOxHinZ/ba8wY2eXcFM8LlmqK6kF6BDCvQ2XJ31mom
-q3dcuzvo2xKaDySRcmz+9N7+stRT18Tbq3EckV6X8QVF9oU+kvwxycrNaodGA2vy
-HmaPM9NHDQbAxu9AbeJ9eI1ouRVUfYFTVhQac9BngsS8Ipc0KNOwY5K18DiBnBGK
-ds4mlJaaPXCzv1hq/aDFP9r+VGM6NQKq/Sny0h4UxN3SSUrk0X+JQOrG4+fW2q4c
-M0n7cOKYB3WR4rRVqLy2tUvlfpW99yDx6K1qLT/SzoxSMxTpoQmkAw7etvJx6goz
-8lXsUz8X48ToFOLz5Djmqjuox+nT24NFOnWFfHveArYAKLXTMWoCX4XjSJKHVGKO
-lnery8edwdo=
-=a6pi
+iQJFBAEBCgAvFiEE87vM8eWm7byhzddf0OSLhJDcSiEFAl6/0PwRHGRhbmlAa29s
+b3pzaS5uZXQACgkQ0OSLhJDcSiGVTQ//b/F0fA+HuwqIm1LBBLQmf7xYpPubbQnw
+Vz1BCIQvGrxtxyUaerYz190PPnFK0SRgZ49r3RmS1cHAdYY4FKcydKxj/1JpQXko
+IZsCiLHa0vnX60fipSTwHXYf9i5Cf6tgrfrIcD3xhAbQ121L+4X5lPq72ZDNm3nW
+paLiatPpYB84HwnkLJQYsBCgSmRDMMvSk3UCq/dn+LRRwcmEuzwpMwkSqNWoj1PA
+FhcawXoLosddlrN1M5LpsUwgBY98gPOQls4UN+tlHT58g1oWzVFD++lH8aQc+Sh2
+Y7YDLwSYYWlMs5A7N0gMTU3EKnXsurfmhLEzbSGAOgVopnMopEln/5iQk+pqQ22D
+jsmQr4pnUNe9u+15F0aQqPfAIPg+Wat19I1p3MA+pXdR2Tsw+vjpV2hatBHr3cfC
+rJKOwulDIduZMEB8QEfAQ9CIs1Z9WFvl5TibObC7H4v2tIoKdHXEWWUDXlNcSyl1
+/5+bb6xkGqJQHM73b2OFChrYQ8aLKHY6+XFYUEn9BUIGOrxCkgWvmovho5QxyQ86
+TbqQE4eHdUJurVoPxC0Z3CPflm+dNGIPFLF5ODEQY8PUNUB85ooww9OTFIc2RQHS
+vWV8ysd8w4glsog87P/1QUc2QnlvpQ1KAwNyv3Bo63UOijSi56lpcGdBIBBQK+Ph
+g332SJIYeog=
+=0kIZ
 -----END PGP SIGNATURE-----

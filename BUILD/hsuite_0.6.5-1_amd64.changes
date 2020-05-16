@@ -2,7 +2,7 @@
 Hash: SHA512
 
 Format: 1.8
-Date: Sat, 16 May 2020 13:16:43 +0100
+Date: Sat, 16 May 2020 13:39:31 +0100
 Source: hsuite
 Binary: hsuite
 Architecture: source amd64
@@ -27,38 +27,38 @@ Changes:
    * Modified CSS to respect system theme
    * Added HSwitcher (experimental version)
 Checksums-Sha1:
- 89ccad803c433354d498fe5697cc8c831b3b6c7f 1697 hsuite_0.6.5-1.dsc
- cb8c25615c3d03d1f5003d8550ca322983f71bdf 197016 hsuite_0.6.5.orig.tar.xz
- 3bc70cba5b66954bbf02a9a46813f9daeb40042a 2084 hsuite_0.6.5-1.debian.tar.xz
- 8249f318911d15cd62783a3804653ff74f81887e 7151 hsuite_0.6.5-1_amd64.buildinfo
- 2b7dc788b33118ddea6a445b95e085d3354d80ba 199984 hsuite_0.6.5-1_amd64.deb
+ c89a102420ecb03bff49bf1f10e2196ce5ff218f 1697 hsuite_0.6.5-1.dsc
+ e70677e9330bf22ab31f4feac4ad717a37a639e6 197024 hsuite_0.6.5.orig.tar.xz
+ 1e8ece809c47064127057a97d60e47b1db475445 2084 hsuite_0.6.5-1.debian.tar.xz
+ 75899a15873db68fdaf6bc11e27d4ed75f46033a 7151 hsuite_0.6.5-1_amd64.buildinfo
+ 45b4d7e1d0a7786a31ef8fdb7854dc64d75264f9 199952 hsuite_0.6.5-1_amd64.deb
 Checksums-Sha256:
- 517c43071b5924ddb75ed1b51968abd1f7a95cb53efcb41c46a8d4244e729a50 1697 hsuite_0.6.5-1.dsc
- 3ad40127e1c8d243e3bc40601a87657485fd8f1c86169b7c3690aae2aa9381f1 197016 hsuite_0.6.5.orig.tar.xz
- 80df949c2158c10ece036ac15ca36f133958c0efa2921588a99466b8ac192f24 2084 hsuite_0.6.5-1.debian.tar.xz
- 770d6fab9634ce4a563067a05e9931fbc9e10dfe1f4e14dbe76ff697aefc0f16 7151 hsuite_0.6.5-1_amd64.buildinfo
- f2fc52c5182d240779b2f2b4e77a861b38c96b0fae9a09a95bfe980c1c9b74bc 199984 hsuite_0.6.5-1_amd64.deb
+ 013379b54f6a2c6dd111a4b7b9d13d75f202e682781808cd017d3c068c11fbee 1697 hsuite_0.6.5-1.dsc
+ f4dc8a35df23f735a3f4b0b5acff67b7b5ed9453fa5e9ae251ee32c8e30524c6 197024 hsuite_0.6.5.orig.tar.xz
+ f2f3a62a6a7325b32762f5387894a3bbb946a3dc2c1f5adba5d10bd347c35664 2084 hsuite_0.6.5-1.debian.tar.xz
+ 25622415b7bf4c00600f5c482117f05b10f24f765d14fcd58e271b5641204e6f 7151 hsuite_0.6.5-1_amd64.buildinfo
+ f18dcd09a8ccfa2e0c17da1a7fd82dfe7d0cfca06fb427add4d4a1794037b30a 199952 hsuite_0.6.5-1_amd64.deb
 Files:
- 0eaa9e63354862f1a01a25013daad019 1697 utils optional hsuite_0.6.5-1.dsc
- e3ff50bf8bda822eb0ecbff5ce621c82 197016 utils optional hsuite_0.6.5.orig.tar.xz
- ee99c04efd1b2a8e5555de960fd64d52 2084 utils optional hsuite_0.6.5-1.debian.tar.xz
- 2e6c7f24c2d70010a65677ef26c9482c 7151 utils optional hsuite_0.6.5-1_amd64.buildinfo
- 8f55665b8ad752abc08cdc92961205d2 199984 utils optional hsuite_0.6.5-1_amd64.deb
+ c0a1c896f7e95eb0140a1e8af5e3e699 1697 utils optional hsuite_0.6.5-1.dsc
+ bf2b5a19c92c60fbb9a82e5534383469 197024 utils optional hsuite_0.6.5.orig.tar.xz
+ d13a2b38990de3ad97989830385172cf 2084 utils optional hsuite_0.6.5-1.debian.tar.xz
+ b31d582f85de5e824dc630c9fea4ce5b 7151 utils optional hsuite_0.6.5-1_amd64.buildinfo
+ 1ad06423fd4e026e8d3c7e7c5c38780e 199952 utils optional hsuite_0.6.5-1_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJFBAEBCgAvFiEE87vM8eWm7byhzddf0OSLhJDcSiEFAl6/y6URHGRhbmlAa29s
-b3pzaS5uZXQACgkQ0OSLhJDcSiEcSxAAzKaryuj2RJb3+ipT652XflUZU4oqid4u
-aDpgpsUzxt8u/pV4g/qcl4SeuGFnxTyszbUrakGd8Qsag/A3QpLJnjmyCScTvVF3
-QYjTOR1670AQ5jqH13BVQPDyAOePDTdCjvMxTBcMrbW2jYWqb2RuiKJ9Tol8dVj6
-FBKm+du34+bGFD1stu4D6Mmaxu9QdwtqSpUJmgFvVGQ7ZzfdDNplJb84Jmo87pbx
-gsIaIdNyvg3MfWDEcFGEhrM3+Rl7S4pNZbNfUV5+SRXcotAMjCi4oQYR4kfgxGMP
-NORuFN4cP46n/PjnMQEXfWGsrHxzFiZqHuzsflTdTNdvaqC02c4THSwm3OUtmu1+
-iAAVLpmLAfcpw1FYCjpof0bg7cYXKx1hr+mWWrDXiP/Qq3RbbkOAb6ZoNFIY0SFD
-N+KWlXMNyaYmV3RlhOfwOi7AuVk9+uQA0bqur03DAoChU8rmSlkBkbBXov7qwzo3
-Tv2Pk9Oyb1FkQw5uJDqQ62eDrQTnUAeJ9kfDSQO4DVjlrOzVQuCIH3AHPj8Zgi8N
-Jn/B1RSTK/Zvw8Z4cnzjuosSIfF9QK/tc1Bqxh+x2aM1uhJFSnk2ZIykAP383oKz
-QOuIf4+WkDOuGkucthhkCX8HPV4jRD6Fyzg6ll2Zy8DOf+IYsR4wNt51EluogsSC
-SpHh2bd4FoE=
-=LCGU
+iQJFBAEBCgAvFiEE87vM8eWm7byhzddf0OSLhJDcSiEFAl6/0PwRHGRhbmlAa29s
+b3pzaS5uZXQACgkQ0OSLhJDcSiHg+BAAnbXAkzhnEZSVLer1BYxbAge7lv/nT1Hs
+ewnVoCPrOqSC44HgL+qHsGF+PSJ22SR8jS0qARGq+jB345RfKaqb8zAQ7dzEuGkh
+pPidfxsdjzb5qTEAp2rGYuFgXuIfW3nekiJV7kPWS+lRrgpv+AaPJilts0R1cQXM
+LvMfFok2aNXldTpvKrFyYo3Utj0tBoKtM7iomskVPu2vB5+WpfhjexCLjF/ohDQh
+ZmD2nj0hEzlPoiY8RK/CR38V/TFGAhC5QeuWDNUjLviGwIrWX+dgAIqdy8qMiw0X
+BLSxbvZgW9Q8VCNao+MsPTEuwZ5E7ppFeoKed/0JJW/EgcJoMcKXBzBSD34HaPkI
+kCK9hmpjn0MGlMSEbxH6Sxq5YF9vmUvrb84DGNEWPLy9DR396XM467BXg76Z3LpY
+ejvJyZlrO9pR7d3y6W8al4T8rv/iTqAXinMuyL/TrjHUGsMxlekBzGr1BPdWxYCq
+3VMr4BaE9tCgfLHOYVClxJkiet/s9tDub6hSm6m2XT1nuD+Il1YpIFyEMamkM3jB
+owpHuIq7gAflO9Rd1piopi4N5Du+tvjcr00IWlOSkdzZua2+TsCQ4pYfijtIHDf9
+yioCqDmNY7710t+dMH2YpKFx+BNirM8gota9GvTvEFLW4nHUXO2tbG8OFN2mXY/D
+LVxo4T6woxk=
+=+rTb
 -----END PGP SIGNATURE-----

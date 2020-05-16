@@ -4668,7 +4668,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                         <property name="hexpand">True</property>
                                         <property name="vexpand">True</property>
                                         <property name="draw_indicator">True</property>
-                                        <signal name="toggled" handler="on_temps_chk_toggled" swapped="no"/>
+                                        <signal name="toggled" handler="on_dat_toggle" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

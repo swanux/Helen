@@ -5,7 +5,7 @@
 
 
 # Version of the program
-version = 'HSuite v0.6 | Apollo'
+version = 'HSuite v0.6.5 | Emerald'
 v = ''
 
 ### Import modules ###

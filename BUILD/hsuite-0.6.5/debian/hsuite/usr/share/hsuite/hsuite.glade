@@ -3744,7 +3744,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               <object class="GtkLabel" id="ab_txt">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">v0.6 | Apollo
+                                <property name="label" translatable="yes">v0.6 .5| Emerald
 
 HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools,
 easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.

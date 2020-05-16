@@ -11,4 +11,4 @@ hsuite (0.6.5-1) bionic; urgency=medium
   * Modified CSS to respect system theme
   * Added HSwitcher (experimental version)
 
- -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 16 May 2020 13:16:43 +0100
+ -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 16 May 2020 13:39:31 +0100
