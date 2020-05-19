@@ -14,6 +14,14 @@ Here is the changelog of every update. For further details you can always check 
     * Modified CSS to respect system theme
     * Added HSwitcher (experimental version)
 
+# Screenshots
+
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/1.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/2.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/3.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/4.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/5.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/6.png)
 
 # Get things working
 
@@ -57,12 +65,6 @@ To debug the program, open the terminal and type:
     hsuite
 
 You will see the logs in the terminal then.
-
-# Development process
-
-Here are some small demos of the beta versions. Lots of work in progress...
-
-https://www.youtube.com/playlist?list=PL1e4zYtM_xvf_R4ggIu64BUf33XSHkTzz
 
 # For developers
 
@@ -148,4 +150,10 @@ Here's the file hierarchy of the program with explanations:
 
 *Be SSU (Simple, Small, Useful)*
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.5). **NOTE:** Currently works on Debian/Ubuntu and Arch based distros.
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.6.5). **NOTE:** Currently works on Debian/Ubuntu based distros.
+
+# Development process
+
+Here are some small demos of the beta versions. Lots of work in progress...
+
+https://www.youtube.com/playlist?list=PL1e4zYtM_xvf_R4ggIu64BUf33XSHkTzz
