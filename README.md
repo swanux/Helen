@@ -14,15 +14,6 @@ Here is the changelog of every update. For further details you can always check 
     * Modified CSS to respect system theme
     * Added HSwitcher (experimental version)
 
-# Screenshots
-
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/1.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/2.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/3.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/4.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/5.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/6.png)
-
 # Get things working
 
 **For Ubuntu/Debian:**
@@ -65,6 +56,15 @@ To debug the program, open the terminal and type:
     hsuite
 
 You will see the logs in the terminal then.
+
+# Screenshots
+
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/1.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/2.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/3.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/4.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/5.png)
+![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/6.png)
 
 # For developers
 
