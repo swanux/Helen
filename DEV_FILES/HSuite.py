@@ -3,26 +3,24 @@
 
 #________________________________________________________________________________ BEGINNING OF INIT ____________________________________________________________#
 
-
 # Version of the program
-version = 'HSuite v0.6.5 | Emerald'
+version = 'HSuite v0.7 | Sinara'
 v = ''
 
 ### Import modules ###
 
 # Set program root location
-import os, subprocess, gettext, locale, gi, re, webbrowser, time, notify2
-pathCheck = os.popen('ls /usr/share/hsuite/').read()
-if 'hsuite' in pathCheck:
-    fdir = "/usr/share/hsuite/"
-    print(fdir)
-    os.chdir(fdir)
-    print('Running in production mode.')
-else:
+import os, subprocess, gettext, locale, gi, re, webbrowser, time, notify2, platform
+if os.path.exists('/home/daniel/GitRepos/hsuite'):
     fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
     print(fdir)
     os.chdir(fdir)
     print('Running in development mode.')
+else:
+    fdir = "/usr/share/hsuite/"
+    print(fdir)
+    os.chdir(fdir)
+    print('Running in production mode.')
 # Translation
 APP = "hsuite"
 WHERE_AM_I = os.path.abspath(os.path.dirname(__file__))
@@ -42,7 +40,6 @@ token = token.replace('@', '')
 g = Github(token)
 # Config
 from configparser import ConfigParser
-# Module for opening webbrowser
 # Running background processes
 from threading import Thread
 from concurrent import futures
@@ -54,10 +51,11 @@ from decimal import Decimal
 # Own module for descriptions
 import details as d
 import htransfer
-
+import apt
+from aptdaemon import client, enums
+from aptdaemon.gtk3widgets import AptProgressBar
 
 ### Declare global variables ###
-
 
 # Date
 today = date.today()
@@ -74,95 +72,36 @@ user = user.split('\n')[0]
 machine = machine.rstrip()
 machine = machine.split('\n')[0]
 
-## Config section ##
-
-parser = ConfigParser()
-
-confP = '/home/%s/.config/hsuite.conf' % user
-if os.path.exists(confP):
-    print('Configured already')
-    parser.read(confP)
-    distro = parser.get('system', 'distro')
-    v = parser.get('hsuite', 'v')
-    dist = parser.get('system', 'dist')
-else:
-    print('Config not found')
-    # Detect distro
-    dist = os.popen('uname -a').read()          # Get distro name
-    if 'Ubuntu' in dist:
-        distro = 'Ubuntu'
-    elif 'solus' in dist:
-        distro = 'Solus'
-    elif 'Debian' in dist:
-        distro = 'Debian'
-    # elif 'MANJARO' in dist:
-    #     distro = 'Arch'
-    #     print('W: Not fully compatible with Manjaro!')
-    #     mantxt = _("Your distro is detected as Manjaro.\nThis distro is not fully tested,\nyou may encounter some problems\nwith the program. Currently tested\non distros: Arch, Ubuntu (bionic, eoan), Debian (buster).")
-    #     os.system('zenity --warning --text=%s --ellipsize' % mantxt)
-    elif 'deepin' in dist:
-        distro = 'Debian'
-        print('W: Not fully compatible with Deepin!')
-        deptxt = _("Your distro is detected as Deepin.\nThis distro is not fully\ntested, you may encounter some\nproblems with the program. Currently tested\non distros: Ubuntu (bionic, eoan), Debian (buster).")
-        os.system('zenity --warning --text=%s --ellipsize' % deptxt)
-    else:
-        print('E: Complete incompatibility!')
-        kiltxt = _("Can not detect your distro.\nCurrently compatible with distros:\nUbuntu (bionic, eoan), Debian (buster)\n and everything based on them. Aborting now.")
-        os.system('zenity --error --text=%s --ellipsize' % kiltxt)
-        raise SystemExit
-    parser.add_section('system')
-    parser.add_section('hsuite')
-    parser.set('system', 'distro',  distro)
-    parser.set('hsuite', 'v', version)
-    parser.set('system', 'dist', dist)
-    file = open(confP, "w+")
-    parser.write(file)
-    file.close()
-
-if distro == 'Ubuntu' or distro == 'Debian':
-    import apt
-    from aptdaemon import client, enums
-    from aptdaemon.gtk3widgets import AptProgressBar
-
-# Own module for root prompt and background installation
-import osLayer
-osLayer.init(distro)
-osLayer.user = user
-
-## Colors (button)
-provider = Gtk.CssProvider()
-colors = Gio.File.new_for_path('colors.css')
-provider.load_from_file(colors)
-Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-
-
 # Used with Distro Boutique
-# To check if a download is already in progress or not
-runE = False
 # It's declared because of some functions which ones are called from concurrent future
 fn = 'sth'
 # The name of the currently in progress download
-Tdownl = ''
-# Array that contains the fetched sizes of the ISOs
-cache = []
-shDict = {'downl_mint': 'True', 'downl_ubuntu': 'True', 'downl_solus': 'True', 'downl_zorin': 'True', 'downl_deepin': 'True', 'downl_steamos': 'True', 'downl_deb': 'True',
+shDict = {'downl_mint': 'True', 'downl_ubuntu': 'True', 'downl_solus': 'True', 'downl_deepin': 'True', 'downl_steamos': 'True', 'downl_deb': 'True',
           'downl_fedora': 'True', 'downl_suse': 'True', 'downl_gentoo': 'True', 'downl_arch': 'True', 'downl_lfs': 'True', }  # Dictionary for current state of download buttons (clickable or not)
-dlist = ['downl_mint', 'downl_ubuntu', 'downl_zorin', 'downl_solus', 'downl_deepin', 'downl_steamos',
+dlist = ['downl_mint', 'downl_ubuntu', 'downl_solus', 'downl_deepin', 'downl_steamos',
          'downl_fedora', 'downl_suse', 'downl_deb', 'downl_arch', 'downl_gentoo', 'downl_lfs']
-namDict = {'downl_mint' : 'Linux Mint', 'downl_ubuntu' : 'Ubuntu', 'downl_zorin' : 'Zorin OS', 'downl_solus' : 'Solus Linux', 'downl_deepin' : 'Deepin Linux', 'downl_steamos' : 'SteamOS',
+namDict = {'downl_mint' : 'Linux Mint', 'downl_ubuntu' : 'Ubuntu', 'downl_solus' : 'Solus Linux', 'downl_deepin' : 'Deepin Linux', 'downl_steamos' : 'SteamOS',
          'downl_fedora' : 'Fedora', 'downl_suse' : 'openSUSE', 'downl_deb' : 'Debian', 'downl_arch' : 'Arch', 'downl_gentoo' : 'Gentoo', 'downl_lfs' : 'Linux from Scratch (LFS)'}
 # List of distros
 dlistLen = len(dlist)                   # The number of distros
+toChoseDir = {
+    'mint_choser' : {'Cinnamon (Default)' : 'cinnamon', 'MATE' : 'mate', 'XFCE' : 'xfce', 'Debian Edition' : 'lmde'},
+
+    'ubuntu_choser' : {'Gnome (Default)' : 'ubuntu', 'Kubuntu (KDE)' : 'kubuntu', 'Lubuntu (LXQt)' : 'lubuntu', 'Budgie' : 'ubuntu-budgie', 'Kylin' : 'ubuntukylin', 'MATE' : 'ubuntu-mate', 'Studio' : 'ubuntustudio', 'Xubuntu (XFCE)' : 'xubuntu'},
+
+    'solus_chose' : {'Budgie (Default)' : 'Budgie', 'Gnome' : 'GNOME', 'MATE' : 'MATE', 'KDE' : 'Plasma'},
+
+    'deb_chose' : {'Cinnamon' : 'cinnamon', 'Gnome' : 'gnome', 'KDE' : 'kde', 'LXDE' : 'lxde', 'LXQt' : 'lxqt', 'MATE' : 'mate', 'XFCE' : 'xfce'},
+
+    'fedora_chose' : {'Gnome (Default)' : 'default', 'KDE' : 'KDE', 'XFCE' : 'Xfce', 'LXQt' : 'LXQt', 'LXDE' : 'LXDE', 'MATE' : 'MATE_Compiz', 'Cinnamon' : 'Cinnamon', 'SOAS' : 'SoaS'},
+
+    'suse_chose' : {'Tumbeweed (Rolling)' : 'roll', 'Leap (Standard)' : 'stay'}
+    }
 
 # Used with App Spotlight
-pkg = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
-       "o", "p"]          # For AUR builds (this will be depracted in the future)
 # Check if PKG cache is already in memory or not
-scanner = True
 appList = ['opera-stable', 'barrier', 'google-chrome-stable', 'epiphany-browser', 'firefox', 'vivaldi-stable', 'wps-office', 'libreoffice', 'onlyoffice-desktopeditors', 'softmaker-freeoffice-2018', 'gedit', 'emacs', 'code', 'atom', 'sublime-text', 'geany', 'skypeforlinux', 'discord', 'telegram-desktop', 'signal-desktop', 'hexchat',
            'franz', '0ad', 'supertux', 'lutris', 'playonlinux', 'steam', 'minecraft-launcher', 'popsicle', 'woeusb', 'winehq-stable', 'virtualbox-6.1', 'gparted', 'fusuma', 'audacity', 'deja-dup', 'timeshift', 'teamviewer', 'gnome-boxes', 'supertuxkart']                                                                        # The list with the debian app names
-# archDict = {'opera-stable': 'opera', 'barrier': 'barrier', 'google-chrome-stable': 'google-chrome', 'epiphany-browser': 'epiphany ', 'firefox': 'firefox', 'vivaldi-stable': 'vivaldi', 'wps-office': 'wps-office', 'libreoffice': 'libreoffice-fresh', 'onlyoffice-desktopeditors': 'onlyoffice-bin', 'softmaker-freeoffice-2018': 'freeoffice', 'gedit': 'gedit', 'emacs': 'emacs ', 'code': 'code 1', 'atom': 'atom ', 'sublime-text': 'sublime-text', 'geany': 'geany', 'skypeforlinux': 'skypeforlinux-stable-bin', 'discord': 'discord', 'telegram-desktop': 'telegram-desktop', 'signal-desktop': 'signal-desktop',
-#             'hexchat': 'hexchat', 'franz': 'franz', '0ad': '0ad', 'supertux': 'supertux', 'lutris': 'lutris', 'playonlinux': 'playonlinux', 'steam': 'steam', 'minecraft-launcher': 'minecraft-launcher', 'popsicle': 'popsicle-git', 'woeusb': 'woeusb', 'winehq-stable': 'wine', 'virtualbox-6.1': 'virtualbox', 'gparted': 'gparted', 'fusuma': 'fusuma', 'audacity': 'audacity', 'deja-dup': 'deja-dup', 'timeshift': 'timeshift', 'teamviewer': 'TeamViewer', 'gnome-boxes': 'gnome-boxes', 'supertuxkart': 'supertuxkart'}                             # The dictionary with the context of debname:archname
 butDict = {'opera-stable': 'opera', 'barrier': 'barr', 'google-chrome-stable': 'chrome', 'epiphany-browser': 'web', 'firefox': 'firefox', 'vivaldi-stable': 'vivaldi', 'wps-office': 'woffice', 'libreoffice': 'loffice', 'onlyoffice-desktopeditors': 'ooffice', 'softmaker-freeoffice-2018': 'foffice', 'gedit': 'gedit', 'emacs': 'gnu', 'code': 'vscode', 'atom': 'atom', 'sublime-text': 'stedit', 'geany': 'geany', 'skypeforlinux': 'skype', 'discord': 'discord', 'telegram-desktop': 'telegram',
            'signal-desktop': 'signal', 'hexchat': 'hex', 'franz': 'franz', '0ad': 'ad', 'supertux': 'tux', 'lutris': 'lutris', 'playonlinux': 'pol', 'steam': 'steam', 'minecraft-launcher': 'mc', 'popsicle': 'pops', 'woeusb': 'woe', 'winehq-stable': 'wine', 'virtualbox-6.1': 'vbox', 'gparted': 'gparted', 'fusuma': 'gest', 'audacity': 'auda', 'deja-dup': 'deja', 'timeshift': 'tims', 'teamviewer': 'tw', 'gnome-boxes': 'box', 'supertuxkart': 'skart'}                                # Dictionary with the context of debname:humanName
 appListLen = len(appList)                           # Number of apps
@@ -172,9 +111,65 @@ layDict = {'opera-stable': 'Opera', 'google-chrome-stable': 'Chrome', 'epiphany-
            'franz': 'Franz', '0ad': '0 A.D.', 'supertux': 'SuperTux', 'supertuxkart': 'SuperTuxKart', 'lutris': 'Lutris', 'barrier': 'Barrier', 'playonlinux': 'Play On Linux', 'steam': 'Steam', 'minecraft-launcher': 'Minecraft', 'popsicle': 'Popsicle', 'woeusb': 'WoeUSB', 'winehq-stable': 'Wine', 'virtualbox-6.1': 'Virtualbox', 'gparted': 'GParted', 'fusuma': 'fusuma', 'audacity': 'Audacity', 'deja-dup': 'Déja-Dup', 'timeshift': 'Timeshift', 'teamviewer': 'TeamViewer', 'gnome-boxes': 'Gnome Boxes'}                                          # debname:displayName
 aurList = ['google-chrome', 'vivaldi', 'wps-office', 'onlyoffice-bin', 'freeoffice', 'signal-desktop', 'franz', 'minecraft-launcher', 'popsicle-git', 'woeusb', 'timeshift', 'skypeforlinux-stable-bin', 'barrier']
 specDList = ['']
+liLi = {
+    'opera_but' : ['Opera', 'opera-stable', 'opera-ffmpeg-codecs', '', '', 0],
+    'chrome_but' : ['Chrome', 'google-chrome-stable', '', 'alsa-lib gtk3 libcups libxss libxtst nss', '', 1],
+    'web_but' : ['Web', 'epiphany-browser', '', '', '', 2],
+    'firefox_but' : ['Firefox', 'firefox', '', '', '', 3],
+    'vivaldi_but' : ['Vivaldi', 'vivaldi-stable', '', 'alsa-lib desktop-file-utils gtk3 hicolor-icon-theme libcups libxss nss shared-mime-info libnotify pepper-flash', 'w3m', 4],
+    'edge_but' : ['', '', '', '', '', 5],
+    'woffice_but' : ['WPS Office', 'wps-office', 'ttf-wps-fonts', 'fontconfig xorg-font-utils desktop-file-utils glu gtk2 hicolor-icon-theme libpulse libxrender libxss openssl-1.0 sdl2 shared-mime-info sqlite xdg-utils xorg-mkfontdir', '', 6],
+    'loffice_but' : ['Libreoffice', 'libreoffice', '', '', '', 7],
+    'ooffice_but' : ['Only Office', 'onlyoffice-desktopeditors', '', 'alsa-lib atk cairo curl desktop-file-utils fontconfig freetype2 gcc-libs gconf gdk-pixbuf2 gst-plugins-base-libs gstreamer gtk2 gtk3 gtkglext hicolor-icon-theme libcups libdrm libglvnd libice libpulse libsm libx11 libxcb libxcomposite libxcursor libxdamage libxext libxfixes libxi libxrandr libxrender libxss libxtst nspr nss pango qt5-declarative qt5-multimedia qt5-svg ttf-carlito ttf-dejavu ttf-liberation wget xdg-utils gtkglext libcurl-gnutls qt5-svg qt5-multimedia', '', 8],
+    'foffice_but' : ['Free Office', 'softmaker-freeoffice-2018', '', 'curl desktop-file-utils gtk-update-icon-cache libxrandr xdg-utils libgl', 'chrpath', 11],
+    'gedit_but' : ['Gedit', 'gedit', 'gedit-plugins', '', '', 12],
+    'gnu_but' : ['GNU Emacs', 'emacs', '', '', '', 13],
+    'vscode_but' : ['VS Code', 'code', '', '', '', 14],
+    'atom_but' : ['Atom Editor', 'atom', '', '', '', 15],
+    'stedit_but' : ['Sublime Text Editor', 'sublime-text', '', '', '', 16],
+    'geany_but' : ['Geany', 'geany', '', '', '', 17],
+    'skype_but' : ['Skype', 'skypeforlinux', '', 'alsa-lib gtk3 libsecret libxss libxtst nss glibc', 'asar', 18],
+    'discord_but' : ['Discord', 'discord', '', '', '', 19],
+    'telegram_but' : ['Telegram', 'telegram-desktop', '', '', '', 20],
+    'signal_but' : ['Signal', 'signal-desktop', '', 'electron git npm', 'yarn nodejs', 21],
+    'hex_but' : ['HexChat', 'hexchat', '', '', '', 22],
+    'franz_but' : ['Franz', 'franz', '', 'electron npm git', 'expac', 23],
+    '0ad_but' : ['0 A.D.', '0ad', '', '', '', 24],
+    'skart_but' : ['SuperTuxKart', 'supertuxkart', '', '', '', 30],
+    'tux_but' : ['SuperTux', 'supertux', '', '', '', 25],
+    'lutris_but' : ['Lutris', 'lutris', '', '', '', 26],
+    'barr_but' : ['Barrier', 'barrier', '', 'hicolor-icon-theme qt5-base avahi curl libice libsm libx11 libxext libxi libxinerama libxrandr libxtst openssl xorgproto', 'cmake', 42],
+    'pol_but' : ['Play On Linux', 'playonlinux', '', '', '', 27],
+    'steam_but' : ['Steam', 'steam', '', '', '', 28],
+    'mc_but' : ['Minecraft', 'minecraft-launcher', '', 'alsa-lib gconf gtk2 gtk3 java-runtime libx11 libxcb libxss libxtst nss xorg-xrandr', '', 29],
+    'pops_but' : ['Popsicle', 'popsicle', 'popsicle-gtk', 'git gtk3', 'cargo help2man rust xorgproto', 31],
+    'woe_but' : ['WoeUSB', 'woeusb', '', 'dosfstools grub ntfs-3g parted wget wxgtk2', '', 32],
+    'wine_but' : ['Wine', 'winehq-stable', '', '', '', 33],
+    'vbox_but' : ['Virtualbox', 'virtualbox-6.1', '', '', '', 34],
+    'gparted_but' : ['GParted', 'gparted', 'gpart', '', '', 35],
+    'gest_but' : ['fusuma', 'fusuma', 'wmctrl libinput-tools xdotool', '', '', 36],
+    'auda_but' : ['Audacity', 'audacity', '', '', '', 37],
+    'deja_but' : ['Déja-Dup', 'deja-dup', '', '', '', 38],
+    'tims_but' : ['Timeshift', 'timeshift', '', 'cronie desktop-file-utils gtk3 json-glib libsoup rsync vte3 xapps libgee', 'coreutils diffutils vala vte3', 39],
+    'tw_but' : ['TeamViewer', 'teamviewer', '', '', '', 40],
+    'box_but' : ['Gnome Boxes', 'gnome-boxes', '', '', '', 41]
+    }
+loLa = {
+    'mint' : ['', 43],
+    'ubuntu' : ['', 44],
+    'solus' : ['', 45],
+    'deepin' : ['', 46],
+    'elementary' : ['', 47],
+    'steamos' : ['', 48],
+    'deb' : ['', 49],
+    'fedora' : ['', 50],
+    'opsu' : ['', 51],
+    'arch' : ['', 52],
+    'gentoo' : ['', 53],
+    'lfs' : ['', 54]
+    }
 
 # Used generally
-tC2 = futures.ThreadPoolExecutor(max_workers=2)
 # The glade file
 UI_FILE = "hsuite.glade"
 # Get current session type
@@ -192,48 +187,6 @@ is experimental. You can configure the tool
 through the ~/.config/fusuma/config.yml file.""")
 # Discover the current working dir
 wer = os.popen('ls').read()
-scanningUrl = False
-cPkg = ''
-where = ''
-net = ''
-insList = ''
-label = ''
-bp = ''
-web = ''
-rew = ''
-uriDict = {}
-state = ''
-vers = ''
-gentoo = ''
-rmE = ''
-quit = ''
-stop = False
-orig = ''
-m = ''
-tempInd = ''
-_stop_event = ''
-browserholder = ''
-stack = ''
-window = ''
-
-# Print info to debug
-print("Current date: %s" % today)
-print("Current day: %s" % day)
-print("Current month: %s" % month)
-print("Current year: %s" % year)
-print("Name of non-root user: %s" % user)
-print('---BEGIN---')
-print("Content of working directory: %s" % str(wer))
-print("---END---")
-print("Output of $uname -a$ : %s" % dist)
-print("Detected distro: %s" % distro)
-print('Updated? : %s' % v)
-
-if v != version and v != '':
-    uptxt = _("HSuite has been updated to %s.\nFor changelog visit https://swanux.github.io/hsuite/" % version)
-    os.system('zenity --info --text=%s --ellipsize' % uptxt)
-    os.system('rm %s' % confP)
-
 
 #________________________________________________________________________ END OF INIT ____________________________________________________________#
 
@@ -248,8 +201,7 @@ class myThread (Thread):
         self.extra = extra
         self.ds = ds
         self.post = post
-        global _stop_event
-        _stop_event = False
+        self._stop_event = False
 
     def run(self):
         print("Starting " + self.name)
@@ -297,14 +249,21 @@ class myThread (Thread):
         print("Exiting " + self.name)
 
     def stop(self):
-        global _stop_event
-        _stop_event = True
+        self._stop_event = True
         print("stop func")
-
 
 class GUI:
     count = 0
-    def __init__(self):                                             # Init the main gui
+    def __init__(self):
+        # if distro == 'Ubuntu' or distro == 'Debian':
+        self.scanner = True
+        self.cPkg = ''
+        self.runE = False
+        self.tC2 = futures.ThreadPoolExecutor(max_workers=2)
+        self.cache = {}
+        self.stop = False
+        self.Tdownl = ""
+        self.quit = True
         self.b_cron = False
         self.b_progs = False
         self.b_settings = False
@@ -326,18 +285,16 @@ class GUI:
         self.builder.connect_signals(self)
         self.switch_stack = self.builder.get_object('switch_stack')
         # Get the main stack object
-        global stack
-        stack = self.builder.get_object('stack')
-        global window
-        window = self.builder.get_object(
+        self.stack = self.builder.get_object('stack')
+        self.window = self.builder.get_object(
             'window')                  # Get the main window
         # window.connect('check-resize', self.on_resize)
 
         if os.geteuid() == 0:
             # Indicate if runnung as root or not
-            window.set_title(version+' (as superuser)')
+            self.window.set_title(version+' (as superuser)')
         else:
-            window.set_title(version)
+            self.window.set_title(version)
         # Display the program
         self.progBox = self.builder.get_object('progBox')
         if distro == 'Ubuntu' or distro == 'Debian':
@@ -345,12 +302,12 @@ class GUI:
         else:
             self.dia = Gtk.ProgressBar()
         self.progBox.pack_start(self.dia, True, True, 0)
-        window.show_all()
+        self.window.show_all()
         GLib.idle_add(self.dia.hide)
     
     # def on_resize(self, e):
     #     time.sleep(0.01)
-    #     sx, sy = window.get_size()
+    #     sx, sy = self.window.get_size()
     #     num = sy/4
     #     ssig = "%"
     #     num2 = "%s%s" % (num, ssig)
@@ -410,59 +367,17 @@ class GUI:
     #     provider.load_from_data(css)
         # GLib.idle_add(provider.load_from_data, css)
 
-
     # This happens when close button is clicked
     def on_window_delete_event(self, window, e):
-        global stop
-        global tS
-        # Getting the window position
-        x, y = window.get_position()
-        # Get the size of the window
-        sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=_('Do you really would like to exit now?'))
-        # set the title
-        dialogWindow.set_title(_("Prompt"))
-        dsx, dsy = dialogWindow.get_size()                          # get the dialogs size
-        # Move it to the center of the main window
-        dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-        dx, dy = dialogWindow.get_position()                        # set the position
-        print(dx, dy)
-        dialogWindow.show_all()
-        res = dialogWindow.run()                                    # save the response
-        if res == Gtk.ResponseType.YES:                             # if yes ...
-            print('OK pressed')
-            dialogWindow.destroy()
-            code = 'force'
-            if osLayer.alive:
-                text = _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then it is recommended to remove %s manually.") % cPkg
-                code = self.abort('install', text)
-            if quit == False:
-                text = _("Do you really would like to abort now? Download is currently in progress for %s.") % namDict[Tdownl]
-                code = self.abort('download', text)
-            if code == 'force':
-                stop = True
-                try:
-                    tS.shutdown()
-                except:
-                    pass
-                raise SystemExit
-            else:
-                dialogWindow.destroy()
-                return True
-        elif res == Gtk.ResponseType.NO:                            # if no ...
-            print('No pressed')
-            dialogWindow.destroy()                                  # destroy dialog
-            return True                                             # end function
-        else:
-            dialogWindow.destroy()                                  # destroy dialog
-            return True                                             # end function
+        self.construct_dialog(Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, _('Do you really would like to exit now?'), _("Prompt"), 'exit')
+        return True
 
 ###################################################################################
 
     # Set the button colors
-    def colorer(self, gbut, name):
+    def colorer(self, gbut, name, insList):
         # Call function to check if apps are installed or not
-        status = self.OnCheck(name)
+        status = self.OnCheck(name, insList)
         # set the button label depending on this
         GLib.idle_add(gbut.set_label, status)
         gbut.get_style_context().remove_class("red-background")
@@ -473,17 +388,10 @@ class GUI:
             gbut.get_style_context().add_class('green-background')
         return status
 
-    def scanner(self):                                         # Scans the OS for programs
-        global scanner
-        global insList
-        # if distro == 'Arch':
-            # insList = os.popen('pacman -Q').read()
-        # else:
+    def scannerf(self):                                         # Scans the OS for programs
         insList = apt.Cache()
         # Check for every program in the list
         for i in range(appListLen):
-            # if distro == 'Arch':
-            #     name = archDict[appList[i]]
             if distro == 'Ubuntu' or distro == 'Debian':
                 # the name to check for
                 name = appList[i]
@@ -492,16 +400,16 @@ class GUI:
             # importing the button
             gbut = self.builder.get_object("%s_but" % butDict[appList[i]])
             # Call function for setting label and color
-            status = self.colorer(gbut, name)
+            status = self.colorer(gbut, name, insList)
             # value refers to the state: Install/Remove
             tempNam = layDict[appList[i]]
             statDict[tempNam] = status
 
         # It indicates that the state of every program is now loaded into the memory
-        scanner = False
+        self.scanner = False
 
     # check if program is installed or not
-    def OnCheck(self, name):
+    def OnCheck(self, name, insList):
         if 'fusuma' in name:
             vane = os.popen('gem list --local').read()
             vfil = os.popen('ls /usr/lib/ruby/gems/2.6.0/cache/').read()
@@ -517,13 +425,6 @@ class GUI:
             else:
                 status = _('Install')
         else:
-            # if distro == 'Arch':
-            #     if name in insList:
-            #         print('Found %s' % name)
-            #         status = _('Remove')
-            #     else:
-            #         print('Not found %s' % name)
-            #         status = _('Install')
             if distro == 'Debian' or distro == 'Ubuntu':
                 try:
                     if insList[name].is_installed:
@@ -539,40 +440,84 @@ class GUI:
             status = '%s (AUR)' % status
         return status
 
-    def abort(self, mode, text):
-        global quit
-        global rmE
-        x, y = window.get_position()
-        sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=text)
-        dialogWindow.set_title(_("Attention!"))
-        dsx, dsy = dialogWindow.get_size()
+    def construct_dialog(self, typed, typeb, txt, title, name, mode=''):
+        # Getting the window position
+        x, y = self.window.get_position()
+        # Get the size of the window
+        sx, sy = self.window.get_size()
+        dialogWindow = Gtk.MessageDialog(parent=self.window, modal=True, destroy_with_parent=True, message_type=typed, buttons=typeb, text=txt)
+        # set the title
+        dialogWindow.set_title(title)
+        dsx, dsy = dialogWindow.get_size()                          # get the dialogs size
+        # Move it to the center of the main window
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-        dx, dy = dialogWindow.get_position()
+        dx, dy = dialogWindow.get_position()                        # set the position
         print(dx, dy)
         dialogWindow.show_all()
-        res = dialogWindow.run()
-        if res == Gtk.ResponseType.YES:
-            if mode == 'download':
-                quit = True
-                rmE = True
-                print(quit)
-            elif mode == 'install':
-                print('Installation already running')
-                if distro == 'Ubuntu' or distro == 'Debian':
-                    try:
-                        osLayer.trans.cancel()
-                    except:
-                        print('Cant cancel')
-                # elif distro == 'Arch':
-                #     osLayer.asroot('rm /var/lib/pacman/db.lck ; killall pacman ; pacman -R $(pacman -Qdtq) ; rm -rf /home/%s/.tmp_hsuite' % user)
-                else:
-                    print('ERROR IN DIST AB')
-            print('OK pressed')
-            dialogWindow.destroy()
-            return 'force'
-        elif res == Gtk.ResponseType.NO:
-            print('No pressed')
+        res = dialogWindow.run()                                    # save the response
+        if name != 'general':
+            if res == Gtk.ResponseType.YES:                             # if yes ...
+                print('OK pressed')
+                dialogWindow.destroy()
+                if name == 'exit':
+                    code = 'force'
+                    if osLayer.alive:
+                        code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove %s manually.") % self.cPkg, _("Attention!"), 'abort', 'install')
+                    if self.quit == False:
+                        code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? Download is currently in progress for %s.") % namDict[self.Tdownl], _("Attention!"), 'abort', 'download')
+                    if code == 'force':
+                        self.stop = True
+                        try:
+                            self.tS.shutdown()
+                        except:
+                            pass
+                        raise SystemExit
+                    else:
+                        dialogWindow.destroy()
+                        return True
+                elif name == 'switcher':
+                    if res == Gtk.ResponseType.YES:
+                        print('OK pressed')
+                        dialogWindow.destroy()
+                        return True
+                    elif res == Gtk.ResponseType.NO:
+                        print('No pressed')
+                        dialogWindow.destroy()
+                        return False
+                    else:
+                        return False
+                elif name == 'abort':
+                    if res == Gtk.ResponseType.YES:
+                        if mode == 'download':
+                            self.quit = True
+                            self.rmE = True
+                            print(self.quit)
+                        elif mode == 'install':
+                            print('Installation already running')
+                            if distro == 'Ubuntu' or distro == 'Debian':
+                                try:
+                                    print(self.trans.cancellable)
+                                    self.trans.cancel()
+                                except:
+                                    print('Cant cancel')
+                                    self.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("You can't cancel installation, as it's in a critical state."), _("Safety first!"), 'general')
+                            else:
+                                print('ERROR IN DIST AB')
+                        print('OK pressed')
+                        dialogWindow.destroy()
+                        return 'force'
+                    elif res == Gtk.ResponseType.NO:
+                        print('No pressed')
+                        dialogWindow.destroy()
+                        return True
+            elif res == Gtk.ResponseType.NO:                            # if no ...
+                print('No pressed')
+                dialogWindow.destroy()                                  # destroy dialog
+                return True                                             # end function
+            else:
+                dialogWindow.destroy()                                  # destroy dialog
+                return True                                             # end function
+        else:
             dialogWindow.destroy()
             return True
 
@@ -582,33 +527,25 @@ class GUI:
         print('Trans : %s' % transaction)
         print('Code : %s' % exit_state)
         print("FIN")
-        # return trans.exit == enums.EXIT_SUCCESS
     
     def on_done(self, sth):
         osLayer.alive = False
 
     # This is executed when an app is being installed/removed
-    def OnNeed(self, cInB, name, status, comm1, comm2, faur, extra, runDep, buildDep):
-        global cPkg
-        global m
+    def OnNeed(self, cInB, name, status, comm1, comm2, faur, extra, runDep, buildDep, tempInd=''):
         # removes scan cache from memory because it needs to rescan because one app changed
         sTxt = cInB
         # Current pkg name
-        cPkg = name
+        self.cPkg = name
         if distro == 'Ubuntu' or distro == 'Debian':
-            progr, trans = osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
+            progr, self.trans = osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
             if progr == True:
-                self.dia.set_transaction(trans)
+                self.dia.set_transaction(self.trans)
                 GLib.idle_add(self.dia.show)
-                trans.connect("finished", self.on_fin)
-                trans.run()
+                self.trans.connect("finished", self.on_fin)
+                self.trans.run()
             else:
                 print('E: osLayer error')
-        # else:
-        #     print('Future')
-        #     osLayer.my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep)
-        m = 0
-        
         wt = False
         print(self, wt)
         for i in range(appListLen):
@@ -618,10 +555,7 @@ class GUI:
                 cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
                 GLib.idle_add(cBut.set_sensitive, wt)
         # function for counting time
-        def counter(timer):
-            global m
-            global cPkg
-            global scanner
+        def counter(timer, m):
             # seconds incraseing
             s = timer.count+1
             # counter is equal to s
@@ -644,15 +578,15 @@ class GUI:
                 for i in range(appListLen):
                     cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
                     GLib.idle_add(cBut.set_sensitive, wt)
-                scanner = True
+                self.scanner = True
                 self.button_clicked(button)
-                if not window.is_active():
+                if not self.window.is_active():
                     notify2.init('HSuite')
-                    n = notify2.Notification('HSuite', _('Finished processing %s!') % cPkg)
+                    n = notify2.Notification('HSuite', _('Finished processing %s!') % self.cPkg)
                     n.show()
-                cPkg = ''
+                self.cPkg = ''
                 return False                                                      # end
-        self.source_id = GLib.timeout_add(1000, counter, self)
+        self.source_id = GLib.timeout_add(1000, counter, self, 0)
 
     def spece(self, name):
         if distro == 'Ubuntu' or distro == 'Debian':
@@ -660,47 +594,23 @@ class GUI:
                 return True
             else:
                 return False
-        # elif distro == 'Arch':
-        #     if name in aurList:
-        #         return True
-        #     else:
-        #         return False
         else:
             print('SpecERROR!')
 
     def lilFunc(self, name, comm1, extra, runDep, buildDep):
-        global tempInd
         if osLayer.alive:
-            print('Operation already running, which is %s' % cPkg)
-        if name == cPkg:
-            text = _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove %s manually.") % cPkg
-            self.abort('install', text)
+            print('Operation already running, which is %s' % self.cPkg)
+        if name == self.cPkg:
+            self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now?"), _("Attention!"), 'abort', 'install')
         else:
-            # comm2 = archDict[comm1]
             comm2 = ''
             cInB = self.builder.get_object("%s_but" % butDict[comm1])
             tempInd = comm1
-            # origCom2 = comm2
-            # if ' ' in comm2:
-            #     comm2 = comm2.replace(' ', '')
-            # elif 'e 1' in comm2:
-            #     comm2 = comm2.replace('e 1', 'e')
             if _('Install') in statDict[name]:
                 if name == 'fusuma':
-                    x, y = window.get_position()
-                    sx, sy = window.get_size()
-                    dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text=lehete)
-                    dialogWindow.set_title(_("Note!"))
-                    dsx, dsy = dialogWindow.get_size()
-                    dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-                    dialogWindow.show_all()
-                    res = dialogWindow.run()
-                    print(res)
-                    dialogWindow.destroy()
-                    print('OK pressed')
-                    dialogWindow.destroy()
+                    self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, lehete, _("Note!"), 'general')
                 print(name)
-                self.OnNeed(cInB, name, 'install', comm1, comm2, self.spece(comm2), extra, runDep, buildDep)
+                self.OnNeed(cInB, name, 'install', comm1, comm2, self.spece(comm2), extra, runDep, buildDep, tempInd)
             elif _('Remove') in statDict[name]:
                 print(name)
                 self.OnNeed(cInB, name, 'remove', comm1, comm2, self.spece(comm2), extra, runDep, buildDep)
@@ -709,27 +619,25 @@ class GUI:
 
     # Disable or enable buttons based on a pattern
     def toggle(self, fn):
-        print(self, fn, state)
+        print(self, fn, self.state)
         for i in range(dlistLen):
-            if dlist[i] != Tdownl and shDict[dlist[i]] != "PFalse":
+            if dlist[i] != self.Tdownl and shDict[dlist[i]] != "PFalse":
                 cBut = self.builder.get_object(dlist[i])
                 t = cBut.get_label()
                 if t == _("Server error"):
                     print('Skipping due to server error')
                 else:
-                    GLib.idle_add(cBut.set_sensitive, state)
-                    shDict[dlist[i]] = "%s" % state
-        global scanningUrl
-        if state:
-            scanningUrl = False
+                    GLib.idle_add(cBut.set_sensitive, self.state)
+                    shDict[dlist[i]] = "%s" % self.state
+        if self.state:
+            self.scanningUrl = False
 
     # Starting download in a background thread BUT inside the GUI class, not the thread. This is because of the nature of GTK (and other GUI toolkits) that can't handle GUI changes from outside of the main thread (gui class)
     def ex_target(self, block_sz, downl, file_size, file_name, file_size_dl, u, f):
         print("DLthread...")
         # This variable shows if the thread needs to exit
-        global quit
-        quit = False
-        while not quit:
+        self.quit = False
+        while not self.quit:
             # Reads the downloaded bytes in blocks
             buffer = u.read(block_sz)
             if not buffer:
@@ -745,15 +653,14 @@ class GUI:
             GLib.idle_add(downl.set_label, status)
         print("DLend!!")
         # Shows that no downloads are running
-        global runE
-        runE = False
+        self.runE = False
         # Set back the button label to the original
-        GLib.idle_add(downl.set_label, orig)
-        print('quit: %s' % quit)
-        print(orig)
+        GLib.idle_add(downl.set_label, self.orig)
+        print('quit: %s' % self.quit)
+        print(self.orig)
         print("Label restore")
         # If the download is aborted by the user, remove the already downloaded file
-        if rmE:
+        if self.rmE:
             print('Cleaning up...')
             os.system('rm /home/%s/Downloads/%s' % (user, file_name))
         else:
@@ -762,163 +669,161 @@ class GUI:
             # Disable button
             GLib.idle_add(downl.set_sensitive, False)
             # Set the state to permanent false
-            shDict[Tdownl] = "PFalse"
+            shDict[self.Tdownl] = "PFalse"
             print("done with it")
-            if not window.is_active():
+            if not self.window.is_active():
                 notify2.init('HSuite')
-                n = notify2.Notification('HSuite', _('Finished downloading %s!') % namDict[Tdownl])
+                n = notify2.Notification('HSuite', _('Finished downloading %s!') % namDict[self.Tdownl])
                 n.show()
-        quit = True
+        self.quit = True
 
     def on_downl_begin(self, url, downl):
         # Open the url
-        global runE
-        global state
         u = urlopen(url)
-        if runE == True:                                                  # If download is already running
+        if self.runE == True:                                                  # If download is already running
             # set remove flag to true
-            global rmE
-            rmE = True
+            self.rmE = True
             # tell the thread to stop
-            global quit
-            quit = True
+            self.quit = True
             print("TruTogle")
             # set button state to enabled
-            state = True
+            self.state = True
             # enable every button
             self.toggle(fn)
             return
-        elif runE == False:                                               # If no downloads are running
+        elif self.runE == False:                                               # If no downloads are running
             # toggle that now one is running
-            runE = True
+            self.runE = True
             # we don't need to remove the downloaded file, because it's ready
-            rmE = False
+            self.rmE = False
             # save the original label of the button
-            global orig
-            orig = downl.get_label()
+            self.orig = downl.get_label()
         file_name = url.split('/')[-1]
         f = open('/home/%s/Downloads/%s' %
                  (user, file_name), 'wb')  # set download location
         print('Downloading %s' % file_name)
         print("FalsTogle")
         # disable buttons
-        state = False
+        self.state = False
         # run function to do this
         self.toggle(fn)
         t1 = futures.ThreadPoolExecutor(
             max_workers=4)                    # init thread
         # start it
-        f = t1.submit(self.ex_target, 8192, downl, int(
+        fa = t1.submit(self.ex_target, 8192, downl, int(
             u.getheader('Content-Length')), file_name, 0, u, f)
         # set buttons to active
-        state = True
+        self.state = True
         # after done run this function
-        f.add_done_callback(self.toggle)
+        fa.add_done_callback(self.toggle)
 
-    def on_downl_mint_clicked(self, button):
-        print("mint")
-        # this download
-        global Tdownl
-        Tdownl = 'downl_mint'
-        self.on_downl_begin(uriDict["downl_mint"],
-                            self.builder.get_object('downl_mint'))
+    def generalSizer(self, di, url):
+        print(self.uriDict[di])
+        print('Updated linklist!!')
+        print("Getting size...")
+        cBut = self.builder.get_object(di)
+        try:
+            u = urlopen(url)
+            time.sleep(0.1)
+            file_size = int(u.getheader('Content-Length'))
+            # convert to MB
+            file_size = Decimal(int(file_size) / 1024 / 1024)
+            GLib.idle_add(cBut.set_label, "Download (%s MB)" %
+                        round(file_size, 1))  # set download label
+            # store value in cache
+            self.cache[di] = round(file_size, 1)
+        except:
+            print('URL ERROR!')
+            GLib.idle_add(cBut.set_label, _("Server error"))
+            self.cache[di] = round(0, 1)
 
-    def on_downl_ubuntu_clicked(self, button):
-        print("ubuntu")
-        global Tdownl
-        Tdownl = 'downl_ubuntu'
-        self.on_downl_begin(uriDict["downl_ubuntu"],
-                            self.builder.get_object('downl_ubuntu'))
+    def getSizeOnce(self, forDl, distrol, flav):
+        print('Getting Link...')
+        if 'mint' in distrol:
+            print('mint now')
+            if 'lmde' in forDl:
+                vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/debian/", r'-+[\d]+-', r'[\d]')
+                url = 'http://mirrors.evowise.com/linuxmint/debian/lmde-%s-cinnamon-64bit.iso' % vers[0]
+            else:
+                vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
+                url = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-%s-64bit.iso' % (vers[0], vers[1], vers[2], vers[0], vers[1], vers[2], forDl)
+            self.uriDict['downl_mint'] = url
+            self.generalSizer('downl_mint', url)
+        elif 'ubuntu' in distrol:
+            print('ubuntu now')
+            vers, misc = self.findNew("http://cdimage.ubuntu.com/%s/releases/" % forDl, r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
+            url = 'http://cdimage.ubuntu.com/%s/releases/%s%s.%s%s/release/%s-%s%s.%s%s-desktop-amd64.iso' % (forDl, vers[0], vers[1], vers[2], vers[3], forDl, vers[0], vers[1], vers[2], vers[3])
+            self.uriDict['downl_ubuntu'] = url
+            self.generalSizer('downl_ubuntu', url)
+        elif 'solus' in distrol:
+            print('solus now')
+            vers, misc = self.findNew("https://solus.veatnet.de/iso/images", r'"+[\d]+.[\d]+/', r'[\d]+[\d]')
+            url = 'https://solus.veatnet.de/iso/images/%s.%s/Solus-%s.%s-%s.iso' % (vers[0], vers[1], vers[0], vers[1], forDl)
+            self.uriDict['downl_solus'] = url
+            self.generalSizer('downl_solus', url)
+        elif 'deb' in distrol:
+            print('debian now')
+            vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/", r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
+            url = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-%s+nonfree.iso' % (vers[0], vers[1], vers[2], vers[3], forDl)
+            self.uriDict['downl_deb'] = url
+            self.generalSizer('downl_deb', url)
+        elif 'fedora' in distrol:
+            print('fedora now')
+            if 'default' in forDl:
+                vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
+                versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
+                url = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-%s.%s.iso' % (vers[0], vers[1], vers[0], vers[1], versf[0], versf[2])
+            else:
+                vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
+                versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Spins/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
+                url = 'http://fedora.inode.at/releases/%s%s/Spins/x86_64/iso/Fedora-%s-Live-x86_64-%s%s-%s.%s.iso' % (vers[0], vers[1],forDl , vers[0], vers[1], versf[0], versf[2])
+            self.uriDict['downl_fedora'] = url
+            self.generalSizer('downl_fedora', url)
+        elif 'suse' in distrol:
+            print('opensuse now')
+            if 'roll' in forDl:
+                url = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
+            else:
+                reponse = urlopen("https://download.opensuse.org/distribution/openSUSE-stable/iso")
+                dat = reponse.read()
+                text = dat.decode('utf-8')
+                pattern = re.findall(r'openSUSE-Leap-+[\d]+[\d]+.+[\d]+-DVD-x86_64.iso"><', text)
+                vers = pattern[0].replace('"', '').replace('><', '')
+                url = "https://download.opensuse.org/distribution/openSUSE-stable/iso/%s" % vers
+            self.uriDict['downl_suse'] = url
+            self.generalSizer('downl_suse', url)
+            
 
-    def on_downl_solus_clicked(self, button):
-        print("solus")
-        global Tdownl
-        Tdownl = 'downl_solus'
-        self.on_downl_begin(uriDict["downl_solus"],
-                            self.builder.get_object('downl_solus'))
+    def on_choose(self, widget):
+        distrol = Gtk.Buildable.get_name(widget)
+        flav = widget.get_active_text()
+        linkForIso = toChoseDir[distrol][flav]
+        self.tS = futures.ThreadPoolExecutor(max_workers=2)
+        self.tS.submit(self.getSizeOnce, forDl=linkForIso, distrol=distrol, flav=flav)
 
-    def on_downl_deepin_clicked(self, button):
-        print("deepin")
-        global Tdownl
-        Tdownl = 'downl_deepin'
-        self.on_downl_begin(uriDict["downl_deepin"],
-                            self.builder.get_object('downl_deepin'))
-
-    def on_downl_zorin_clicked(self, button):
-        print("zorin")
-        global Tdownl
-        Tdownl = 'downl_zorin'
-        self.on_downl_begin(uriDict["downl_zorin"],
-                            self.builder.get_object('downl_zorin'))
-
-    def on_downl_steamos_clicked(self, button):
-        print("steamos")
-        global Tdownl
-        Tdownl = 'downl_steamos'
-        self.on_downl_begin(uriDict["downl_steamos"],
-                            self.builder.get_object('downl_steamos'))
-
-    def on_downl_deb_clicked(self, button):
-        print("deb")
-        global Tdownl
-        Tdownl = 'downl_deb'
-        self.on_downl_begin(uriDict["downl_deb"],
-                            self.builder.get_object('downl_deb'))
-
-    def on_downl_fedora_clicked(self, button):
-        print("fedora")
-        global Tdownl
-        Tdownl = 'downl_fedora'
-        self.on_downl_begin(uriDict["downl_fedora"],
-                            self.builder.get_object('downl_fedora'))
-
-    def on_downl_suse_clicked(self, button):
-        print("suse")
-        global Tdownl
-        Tdownl = 'downl_suse'
-        self.on_downl_begin(uriDict["downl_suse"],
-                            self.builder.get_object('downl_suse'))
-
-    def on_downl_arch_clicked(self, button):
-        print("arch")
-        global Tdownl
-        Tdownl = 'downl_arch'
-        self.on_downl_begin(uriDict["downl_arch"],
-                            self.builder.get_object('downl_arch'))
-
-    def on_downl_gentoo_clicked(self, button):
-        print("gentoo")
-        global Tdownl
-        Tdownl = 'downl_gentoo'
-        self.on_downl_begin(uriDict["downl_gentoo"],
-                            self.builder.get_object('downl_gentoo'))
-
-    def on_downl_lfs_clicked(self, button):
-        print("lfs")
-        global Tdownl
-        Tdownl = 'downl_lfs'
-        self.on_downl_begin(uriDict["downl_lfs"],
-                            self.builder.get_object('downl_lfs'))
+    def general_download(self, button):
+        self.Tdownl = Gtk.Buildable.get_name(button)
+        self.on_downl_begin(self.uriDict[self.Tdownl], self.builder.get_object(self.Tdownl))
 
 # End of download section
 
     # Button is the name of the app spotlight button
     def button_clicked(self, button):
         # If already in memory don't waste resources
-        if scanner == False:
+        if self.scanner == False:
             print('VALUE_FOUND')
             # notebook box is the name of the app spotlight page
             notebook_box = self.builder.get_object('notebook_box')
             # set it visible
-            stack.set_visible_child(notebook_box)
+            self.stack.set_visible_child(notebook_box)
         # if not in memory, then scan it now
-        elif scanner:
+        elif self.scanner:
             notebook_box = self.builder.get_object('notebook_box')
-            stack.set_visible_child(notebook_box)
+            self.stack.set_visible_child(notebook_box)
             print('NO_VALUE')
             # start scanning
             aS = futures.ThreadPoolExecutor(max_workers=2)
-            s = aS.submit(app.scanner)
+            s = aS.submit(self.scannerf)
             print('SCANN START')
             print(s)
         else:
@@ -926,52 +831,44 @@ class GUI:
 
     # feedback button
     def on_fb_but_clicked(self, button):
-        global where
         web_box = self.builder.get_object('web_box')
         texV = self.builder.get_object('txt_long')
         titE = self.builder.get_object('tit_entry')
         text = texV.get_buffer()
         text = text.set_text('')
         titE.set_text('')
-        stack.set_visible_child(web_box)
+        self.stack.set_visible_child(web_box)
         tC = futures.ThreadPoolExecutor(max_workers=2)
         f = tC.submit(self.check)
-        where = 'fb'
+        self.where = 'fb'
         f.add_done_callback(self.chk_again)
 
     def check(self):
-        global net
         try:
             urlopen('http://216.58.192.142', timeout=5)
             print('yes, net')
-            net = True
+            self.net = True
         except:
             print('no internet')
-            net = False
+            self.net = False
     def chk_again(self, arg):
-        global where
-        global net
-        global state
-        global tC2
-        global tS
-        if not net:
+        if not self.net:
             button = 0
-            offtxt = _("You have no internet connection!")
-            os.system('zenity --warning --text=%s --ellipsize' % offtxt)
-            if where == 'fb':
+            self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("You have no internet connection!"), _("Attention!"), 'general')
+            if self.where == 'fb':
                 self.home_clicked(button)
             else:
-                tC2 = futures.ThreadPoolExecutor(max_workers=2)
+                self.tC2 = futures.ThreadPoolExecutor(max_workers=2)
                 for i in range(dlistLen):
                     # dlist is distro list (contains all distro names), cbut is current button
                     cBut = self.builder.get_object(dlist[i])
                     cBut.set_label(_('No internet'))
         else:
-            if where == 'gs':
-                tS = futures.ThreadPoolExecutor(max_workers=2)
-                f = tS.submit(self.getSize)
+            if self.where == 'gs':
+                self.tS = futures.ThreadPoolExecutor(max_workers=2)
+                f = self.tS.submit(self.getSize)
                 # toggle everything back when ready
-                state = True
+                self.state = True
                 f.add_done_callback(self.toggle)
 
     def on_send(self, button):
@@ -979,7 +876,6 @@ class GUI:
         emE = self.builder.get_object('email_entry')
         texV = self.builder.get_object('txt_long')
         cat = self.builder.get_object('typ_comb')
-
         title = titE.get_text()
         email = emE.get_text()
         text = texV.get_buffer()
@@ -989,31 +885,17 @@ class GUI:
         category = cat.get_active_text()
         print(title, text, category, email)
         if '@' not in email or '.' not in email:
-            print('invalid email!!')
-            x, y = window.get_position()
-            sx, sy = window.get_size()
-            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text=_('Invalid email address!'))
-            dialogWindow.set_title(_("Attention!"))
-            dsx, dsy = dialogWindow.get_size()
-            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-            dialogWindow.show_all()
-            res = dialogWindow.run()
-            print(res)
-            dialogWindow.destroy()
-            return
+            if email == '' or email == None:
+                print('Optional, of course')
+                email = 'Not provided'
+            else:
+                print('invalid email!!')
+                self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _('Invalid email address!'), _("Attention!"), 'general')
+                return
         elif text == '' or title == '':
-            x, y = window.get_position()
-            sx, sy = window.get_size()
-            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.WARNING, buttons=Gtk.ButtonsType.OK, text=_('You need to fill out all the fields!'))
-            dialogWindow.set_title(_("Attention!"))
-            dsx, dsy = dialogWindow.get_size()
-            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-            dialogWindow.show_all()
-            res = dialogWindow.run()
-            print(res)
-            dialogWindow.destroy()
+            self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _('You need to fill out all the fields!'), _("Attention!"), 'general')
             return
-        text = text+"\n\n---------------------------------\n\nEmail: %s" % email
+        text = text+"\n\n---------------------------------\n\nEmail: %s\nUsername: %s\nComputer name: %s\nOS: %s\nCPU: %s" % (email, user, platform.uname().node, platform.platform(), platform.processor())
         repo = g.get_repo('swanux/hsuite_feedbacks')
         if category == _('Enhancement'):
             lab = ['enhancement']
@@ -1026,16 +908,7 @@ class GUI:
             lab = ['invalid']
         repo.create_issue(title=title, body=text, labels=lab)
         print('Uploaded')
-        x, y = window.get_position()
-        sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=_('Feedback submitted succesfully!'))
-        dialogWindow.set_title(_("Information"))
-        dsx, dsy = dialogWindow.get_size()
-        dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-        dialogWindow.show_all()
-        res = dialogWindow.run()
-        print(res)
-        dialogWindow.destroy()
+        self.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _('Feedback submitted succesfully!'), _("Information"), 'general')
         self.home_clicked(button)
 
     # information button in about section
@@ -1045,39 +918,18 @@ class GUI:
 
 ######################################################################################################################
 
-    def on_prog_chk_toggled(self, widget):
-        if widget.get_active():
-            print('Active')
-            self.b_progs = True
-        else:
-            print('Inactive')
-            self.b_progs = False
-
-    def on_usr_chk_toggled(self, widget):
-        if widget.get_active():
-            print('Active')
-            self.b_data = True
-        else:
-            print('Inactive')
-            self.b_data = False
-    
-    def on_cron_chk_toggled(self, widget):
-        if widget.get_active():
-            print('Active')
-            self.b_cron = True
-        else:
-            print('Inactive')
-            self.b_cron = False
-    
-    def on_them_chk_toggled(self, widget):
-        if widget.get_active():
-            print('Active')
-            self.b_theme = True
-            self.b_settings = True
-        else:
-            print('Inactive')
-            self.b_theme = False
-            self.b_settings = False
+    def on_general_chk(self, widget):
+        which = Gtk.Buildable.get_name(widget)
+        status = widget.get_active()
+        if 'prog' in which:
+            self.b_progs = status
+        elif 'usr' in which:
+            self.b_data = status
+        elif 'cron' in which:
+            self.b_cron = status
+        elif 'them' in which:
+            self.b_theme = status
+            self.b_settings = status
     
     def on_prog_tog(self, widget, name):
         if widget.get_active():
@@ -1219,26 +1071,7 @@ class GUI:
             locparse.write(tconf)
             tconf.close()
         if self.b_progs:
-            x, y = window.get_position()
-            sx, sy = window.get_size()
-            dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO, text=_('Would you like to view a simplified list of applications? (some less common programs may miss from the list)'))
-            dialogWindow.set_title(_("Ask"))
-            dsx, dsy = dialogWindow.get_size()
-            dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-            dx, dy = dialogWindow.get_position()
-            print(dx, dy)
-            dialogWindow.show_all()
-            res = dialogWindow.run()
-            if res == Gtk.ResponseType.YES:
-                b_simple = True
-                print('OK pressed')
-                dialogWindow.destroy()
-            elif res == Gtk.ResponseType.NO:
-                print('No pressed')
-                dialogWindow.destroy()
-                b_simple = False
-            else:
-                b_simple = False
+            b_simple = self.construct_dialog(Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, _('Would you like to view a simplified list of applications? (some less common programs may miss from the list)'), _("Ask"), 'switcher')
             print('Programs true')
             extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash')
             extendedApps = extendedApps.decode()
@@ -1284,95 +1117,74 @@ class GUI:
     # hswitcher clicked
     def on_ac_but_clicked(self, button):
         self.switch_stack.set_visible_child(self.builder.get_object('r_box'))
-        stack.set_visible_child(self.builder.get_object('scroll_switcher'))
-
-
-
-
-
-
-
-
-
+        self.stack.set_visible_child(self.builder.get_object('scroll_switcher'))
 
 ######################################################################################################################
 
-
-    # foss collection (?)
+    # hcontrol
     def on_htools_but_clicked(self, button):
-        x, y = window.get_position()
-        sx, sy = window.get_size()
-        dialogWindow = Gtk.MessageDialog(parent=window, modal=True, destroy_with_parent=True, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=_('Coming in future Beta releases...'))
-        dialogWindow.set_title(_("Coming Soon"))
-        dsx, dsy = dialogWindow.get_size()
-        dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
-        dialogWindow.show_all()
-        res = dialogWindow.run()
-        print(res)
-        dialogWindow.destroy()
+        self.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _('Coming in future Beta releases...'), _("Coming Soon"), 'general')
+
+    def findNew(self, urii, perPat, perVer):
+        if self.stop:
+            print('Aborted by user.')
+            raise SystemExit
+        reponse = urlopen(urii)
+        dat = reponse.read()
+        text = dat.decode('utf-8')
+        pattern = re.findall(perPat, text)
+        gentoo = pattern[0]
+        pattern = ''.join(pattern)
+        pattern = pattern.replace(".", "")
+        pattern = re.findall(perVer, pattern)
+        if 'fedora' in urii and 'iso' in urii:
+            pattern = ''.join(pattern)
+            pattern = pattern.replace('-', '').replace('x', '')
+        pattern = list(map(int, pattern))
+        try:
+            pattern.remove(710)
+            pattern.remove(710)
+        except:
+            pass
+        pattern.sort()
+        vers = pattern[-1]
+        vers = [int(i) for i in str(vers)]
+        if 'fedora' in urii and 'iso' in urii:
+            vers = [str(i) for i in pattern]
+            vers = int("".join(vers))
+            vers = [int(d) for d in str(vers)]
+        return vers, gentoo
 
     # fetch download sizes
     def getSize(self):
-        global stop
         print('Getting Links...')
+        reponse = urlopen("http://mirrors.evowise.com/archlinux/iso/latest")
+        dat = reponse.read()
+        text = dat.decode('utf-8')
+        pattern = re.findall(r'archlinux-+[\d]+[\d]+[\d]+[\d]+.+[\d]+[\d]+.+[\d]+[\d]+-x86_64.iso">', text)
+        print(pattern)
+        vers = pattern[0].replace('"', '').replace('>', '')
+        archLink = 'http://mirrors.evowise.com/archlinux/iso/latest/%s' % vers
 
-        def findNew(urii, perPat, perVer):
-            if stop:
-                print('Aborted by user.')
-                raise SystemExit
-            global vers
-            global gentoo
-            reponse = urlopen(urii)
-            dat = reponse.read()
-            text = dat.decode('utf-8')
-            pattern = re.findall(perPat, text)
-            gentoo = pattern[0]
-            pattern = ''.join(pattern)
-            pattern = pattern.replace(".", "")
-            pattern = re.findall(perVer, pattern)
-            pattern = list(map(int, pattern))
-            try:
-                pattern.remove(710)
-                pattern.remove(710)
-            except:
-                # print("no lfs")
-                pass
-            pattern.sort()
-            vers = pattern[-1]
-            vers = [int(i) for i in str(vers)]
-
-        if day == "01":
-            if month == "01":
-                aMonth = 12
-                aYear = int(year) - 1
-            else:
-                aMonth = int(month) - 1
-                aYear = year
-        else:
-            aMonth = month
-            aYear = year
-        archLink = 'http://mirrors.evowise.com/archlinux/iso/%s.%s.01/archlinux-%s.%s.01-x86_64.iso' % (
-            aYear, aMonth, aYear, aMonth)
-
-        findNew("http://releases.ubuntu.com",
+        vers, misc = self.findNew("http://releases.ubuntu.com",
                 r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
         # global ubuntuLink
         ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (
             vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
 
-        findNew("http://mirrors.evowise.com/linuxmint/stable/",
+        vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/",
                 r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global mintLink
         mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (
             vers[0], vers[1], vers[2], vers[0], vers[1], vers[2])
 
-        findNew("http://mirror.inode.at/data/deepin-cd/",
+        vers, misc = self.findNew("http://mirror.inode.at/data/deepin-cd/",
                 r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global deepinLink
         deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (
             vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
 
-        findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/",
+        vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/",
                 r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
         # global debianLink
         debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (
@@ -1381,46 +1193,43 @@ class GUI:
         # global steamosLink
         steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
 
-        findNew("https://sourceforge.net/projects/zorin-os/files/",
-                r'files/+[\d]+/download', r'[\d]+[\d]')
-        # global zorinosLink
-        zorinosLink = 'https://netcologne.dl.sourceforge.net/project/zorin-os/%s%s/Zorin-OS-%s%s-Core-64-bit-r1.iso' % (
-            vers[0], vers[1], vers[0], vers[1])
-
-        findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
+        vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
+        versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
         # global fedoraLink
-        fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-1.9.iso' % (
-            vers[0], vers[1], vers[0], vers[1])
+        fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-%s.%s.iso' % (
+            vers[0], vers[1], vers[0], vers[1], versf[0], versf[2])
 
         # global opensuseLink
         opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
 
+        vers, misc = self.findNew("https://solus.veatnet.de/iso/images", r'"+[\d]+.[\d]+/', r'[\d]+[\d]')
         # global solusLink
-        solusLink = 'http://solus.veatnet.de/iso/images/4.0/Solus-4.0-Budgie.iso'
+        solusLink = 'https://solus.veatnet.de/iso/images/%s.%s/Solus-%s.%s-Budgie.iso' % (vers[0], vers[1], vers[0], vers[1])
 
-        findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/",
+        vers, misc = self.findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/",
                 r'[\d]+[\d]+[\w]+[\d][\w]', r'[\d]+[\d]')
         # global gentooLink
-        gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-%s.iso' % gentoo
+        gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-%s.iso' % misc
 
-        findNew("http://www.linuxfromscratch.org/lfs/downloads/",
+        vers, misc = self.findNew("http://www.linuxfromscratch.org/lfs/downloads/",
                 r'[\d]+.[\d]+-systemd/', r'[\d]+[\d]')
         # global lfsLink
         lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-%s.%s-systemd.pdf' % (
             vers[0], vers[1], vers[0], vers[1])
 
-        global uriDict
-        global cache
-        uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_zorin': zorinosLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
+        self.uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
                 'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink}
         print('Updated linklist!!')
         print("Getting size...")
         # dlistlen is the length of dlist
         for i in range(dlistLen):
+            if self.stop:
+                print('Aborted by user.')
+                raise SystemExit
             # dlist is distro list (contains all distro names), cbut is current button
             cBut = self.builder.get_object(dlist[i])
             # get url from dictionary
-            url = uriDict[dlist[i]]
+            url = self.uriDict[dlist[i]]
             try:
                 u = urlopen(url)
                 time.sleep(0.1)
@@ -1430,47 +1239,42 @@ class GUI:
                 GLib.idle_add(cBut.set_label, "Download (%s MB)" %
                             round(file_size, 1))  # set download label
                 # store value in cache
-                cache.append(round(file_size, 1))
+                self.cache[dlist[i]] = round(file_size, 1)
             except:
                 print('URL ERROR!')
                 GLib.idle_add(cBut.set_label, _("Server error"))
-                cache.append(round(0, 1))
-            stop = True
+                self.cache[dlist[i]] = round(0, 1)
 
     def on_db_but_clicked(self, button):
         distro_box = self.builder.get_object('distro_box')
-        global cache
-        global tC2
-        global scanningUrl
-        thss = len(tC2._threads)
+        thss = len(self.tC2._threads)
         print(thss)
-        if not cache and thss == 0:                                                             # if not fetched already
+        if not self.cache and thss == 0:                                                             # if not fetched already
             # disable
-            global where
-            global state
-            scanningUrl = True
-            state = False
+            self.scanningUrl = True
+            self.state = False
             self.toggle(fn)  # all buttons
             # init non-normal thread (getting sizes)
-            f = tC2.submit(self.check)
-            where = 'gs'
+            f = self.tC2.submit(self.check)
+            self.where = 'gs'
             f.add_done_callback(self.chk_again)
-        elif not scanningUrl:
-            i = 0
-            for i in range(dlistLen):
-                cBut = self.builder.get_object(dlist[i])        # if loaded
+        elif not self.scanningUrl:
+            r = 0
+            for i in dlist:
+                cBut = self.builder.get_object(dlist[r])        # if loaded
                 # load from cache
-                cBut.set_label(_("Download (%s MB)") % cache[i])
-        stack.set_visible_child(distro_box)
+                cBut.set_label(_("Download (%s MB)") % self.cache[i])
+                r += 1
+        self.stack.set_visible_child(distro_box)
 
     # on about ...
     def on_about_but_clicked(self, button):
         scroll_about = self.builder.get_object('scroll_about')
-        stack.set_visible_child(scroll_about)
+        self.stack.set_visible_child(scroll_about)
 
     def home_clicked(self, button):  # back button
         scroll_home = self.builder.get_object('scroll_home')
-        stack.set_visible_child(scroll_home)
+        self.stack.set_visible_child(scroll_home)
 
     def on_page(self, button):                                      # general descrition page
         text = self.builder.get_object('page_txt')
@@ -1483,57 +1287,33 @@ class GUI:
         web_link = self.builder.get_object('web_link')
         web_link.hide()
         # if yes, show. bp indicates the current page, regarding its meaning I have no idea
-        if bp == _("Distro Boutique"):
+        if self.bp == _("Distro Boutique"):
             rew_link.show()
             web_link.show()
-        text.set_text(label)
-        back_button.set_label(bp)
-        stack.set_visible_child(page)
+        text.set_text(self.label)
+        back_button.set_label(self.bp)
+        self.stack.set_visible_child(page)
 
     # when going back but not to home
     def on_back_button_clicked(self, button):
-        if bp == _("App Spotlight"):                                 # go back to app spotlight or distro boutique
+        if self.bp == _("App Spotlight"):                                 # go back to app spotlight or distro boutique
             self.button_clicked(button)
-        elif bp == _("Distro Boutique"):
+        elif self.bp == _("Distro Boutique"):
             distro_box = self.builder.get_object('distro_box')
-            stack.set_visible_child(distro_box)
+            self.stack.set_visible_child(distro_box)
         else:
             print('ERROR')
 
     def on_rew_link_clicked(self, button):
-        webbrowser.open_new(rew)
+        webbrowser.open_new(self.rew)
 
     def on_web_link_clicked(self, button):
-        webbrowser.open_new(web)
+        webbrowser.open_new(self.web)
 
 # What to do on button clicks
-    def on_opera_but_clicked(self, button):
-        self.lilFunc('Opera', 'opera-stable', 'opera-ffmpeg-codecs', '', '')
-
-    def on_chrome_but_clicked(self, button):
-        self.lilFunc('Chrome', 'google-chrome-stable', '', 'alsa-lib gtk3 libcups libxss libxtst nss', '')
-
-    def on_web_but_clicked(self, button):
-        self.lilFunc('Web', 'epiphany-browser', '', '', '')
-
-    def on_firefox_but_clicked(self, button):
-        self.lilFunc('Firefox', 'firefox', '', '', '')
-
-    def on_vivaldi_but_clicked(self, button):
-        self.lilFunc('Vivaldi', 'vivaldi-stable', '', 'alsa-lib desktop-file-utils gtk3 hicolor-icon-theme libcups libxss nss shared-mime-info libnotify pepper-flash', 'w3m')
-
-    def on_edge_but_clicked(self, button):
-        name = 'Edge'
-        print(name)
-
-    def on_woffice_but_clicked(self, button):
-        self.lilFunc('WPS Office', 'wps-office', 'ttf-wps-fonts', 'fontconfig xorg-font-utils desktop-file-utils glu gtk2 hicolor-icon-theme libpulse libxrender libxss openssl-1.0 sdl2 shared-mime-info sqlite xdg-utils xorg-mkfontdir', '')
-
-    def on_loffice_but_clicked(self, button):
-        self.lilFunc('Libreoffice', 'libreoffice', '', '', '')
-
-    def on_ooffice_but_clicked(self, button):
-        self.lilFunc('Only Office', 'onlyoffice-desktopeditors', '', 'alsa-lib atk cairo curl desktop-file-utils fontconfig freetype2 gcc-libs gconf gdk-pixbuf2 gst-plugins-base-libs gstreamer gtk2 gtk3 gtkglext hicolor-icon-theme libcups libdrm libglvnd libice libpulse libsm libx11 libxcb libxcomposite libxcursor libxdamage libxext libxfixes libxi libxrandr libxrender libxss libxtst nspr nss pango qt5-declarative qt5-multimedia qt5-svg ttf-carlito ttf-dejavu ttf-liberation wget xdg-utils gtkglext libcurl-gnutls qt5-svg qt5-multimedia', '')
+    def general_clicks(self, button):
+        btn = Gtk.Buildable.get_name(button)
+        self.lilFunc(name=liLi[btn][0], comm1=liLi[btn][1], extra=liLi[btn][2], runDep=liLi[btn][3], buildDep=liLi[btn][4])
 
     def on_msoffice_but_clicked(self, button):
         webbrowser.open_new("https://office.com")
@@ -1541,291 +1321,98 @@ class GUI:
     def on_goffice_but_clicked(self, button):
         webbrowser.open_new("https://docs.google.com")
 
-    def on_foffice_but_clicked(self, button):
-        self.lilFunc('Free Office', 'softmaker-freeoffice-2018', '', 'curl desktop-file-utils gtk-update-icon-cache libxrandr xdg-utils libgl', 'chrpath')
-
-    def on_gedit_but_clicked(self, button):
-        self.lilFunc('Gedit', 'gedit', 'gedit-plugins', '', '')
-
-    def on_gnu_but_clicked(self, button):
-        self.lilFunc('GNU Emacs', 'emacs', '', '', '')
-
-    def on_vscode_but_clicked(self, button):
-        self.lilFunc('VS Code', 'code', '', '', '')
-
-    def on_atom_but_clicked(self, button):
-        self.lilFunc('Atom Editor', 'atom', '', '', '')
-
-    def on_stedit_but_clicked(self, button):
-        self.lilFunc('Sublime Text Editor', 'sublime-text', '', '', '')
-
-    def on_geany_but_clicked(self, button):
-        self.lilFunc('Geany', 'geany', '', '', '')
-
-    def on_skype_but_clicked(self, button):
-        self.lilFunc('Skype', 'skypeforlinux', '', 'alsa-lib gtk3 libsecret libxss libxtst nss glibc', 'asar')
-
-    def on_discord_but_clicked(self, button):
-        self.lilFunc('Discord', 'discord', '', '', '')
-
-    def on_telegram_but_clicked(self, button):
-        self.lilFunc('Telegram', 'telegram-desktop', '', '', '')
-
-    def on_signal_but_clicked(self, button):
-        self.lilFunc('Signal', 'signal-desktop', '', 'electron git npm', 'yarn nodejs')
-
-    def on_hex_but_clicked(self, button):
-        self.lilFunc('HexChat', 'hexchat', '', '', '')
-
-    def on_franz_but_clicked(self, button):
-        self.lilFunc('Franz', 'franz', '', 'electron npm git', 'expac')
-
-    def on_0ad_but_clicked(self, button):
-        self.lilFunc('0 A.D.', '0ad', '', '', '')
-
-    def on_skart_but_clicked(self, button):
-        self.lilFunc('SuperTuxKart', 'supertuxkart', '', '', '')
-
-    def on_tux_but_clicked(self, button):
-        self.lilFunc('SuperTux', 'supertux', '', '', '')
-
-    def on_lutris_but_clicked(self, button):
-        self.lilFunc('Lutris', 'lutris', '', '', '')
-
-    def on_barr_but_clicked(self, button):
-        self.lilFunc('Barrier', 'barrier', '', 'hicolor-icon-theme qt5-base avahi curl libice libsm libx11 libxext libxi libxinerama libxrandr libxtst openssl xorgproto', 'cmake ')
-
-    def on_pol_but_clicked(self, button):
-        self.lilFunc('Play On Linux', 'playonlinux', '', '', '')
-
-    def on_steam_but_clicked(self, button):
-        self.lilFunc('Steam', 'steam', '', '', '')
-
-    def on_mc_but_clicked(self, button):
-        self.lilFunc('Minecraft', 'minecraft-launcher', '', 'alsa-lib gconf gtk2 gtk3 java-runtime libx11 libxcb libxss libxtst nss xorg-xrandr', '')
-
-    def on_pops_but_clicked(self, button):
-        self.lilFunc('Popsicle', 'popsicle', 'popsicle-gtk', 'git gtk3', 'cargo help2man rust xorgproto')
-
-    def on_woe_but_clicked(self, button):
-        self.lilFunc('WoeUSB', 'woeusb', '', 'dosfstools grub ntfs-3g parted wget wxgtk2', '')
-
-    def on_wine_but_clicked(self, button):
-        self.lilFunc('Wine', 'winehq-stable', '', '', '')
-
-    def on_vbox_but_clicked(self, button):
-        self.lilFunc('Virtualbox', 'virtualbox-6.1', '', '', '')
-
-    def on_gparted_but_clicked(self, button):
-        self.lilFunc('GParted', 'gparted', 'gpart', '', '')
-
-    def on_gest_but_clicked(self, button):
-        self.lilFunc('fusuma', 'fusuma', 'wmctrl libinput-tools xdotool', '', '')
-
-    def on_auda_but_clicked(self, button):
-        self.lilFunc('Audacity', 'audacity', '', '', '')
-
-    def on_deja_but_clicked(self, button):
-        self.lilFunc('Déja-Dup', 'deja-dup', '', '', '')
-
-    def on_tims_but_clicked(self, button):
-        self.lilFunc('Timeshift', 'timeshift', '', 'cronie desktop-file-utils gtk3 json-glib libsoup rsync vte3 xapps libgee', 'coreutils diffutils vala vte3')
-
-    def on_tw_but_clicked(self, button):
-        self.lilFunc('TeamViewer', 'teamviewer', '', '', '')
-
-    def on_box_but_clicked(self, button):
-        self.lilFunc('Gnome Boxes', 'gnome-boxes', '', '', '')
-
 # End of button clicks
-
 
 # Descriptions
 
-
     def displayDesc(self, x, button):
-        global label
-        global bp
-        label = d.descList[x]
-        bp = d.descDict[label]
-        if bp == _('Distro Boutique'):
-            global web
-            global rew
-            web = d.webDict[label]
-            rew = d.vidDict[label]
+        self.label = d.descList[x]
+        self.bp = d.descDict[self.label]
+        if self.bp == _('Distro Boutique'):
+            self.web = d.webDict[self.label]
+            self.rew = d.vidDict[self.label]
         self.on_page(button)
-
-    def on_opera_clicked(self, button):
-        self.displayDesc(0, button)
-
-    def on_chrome_clicked(self, button):
-        self.displayDesc(1, button)
-
-    def on_skart_clicked(self, button):
-        self.displayDesc(30, button)
-
-    def on_web_clicked(self, button):
-        self.displayDesc(2, button)
-
-    def on_firefox_clicked(self, button):
-        self.displayDesc(3, button)
-
-    def on_vivaldi_clicked(self, button):
-        self.displayDesc(4, button)
-
-    def on_edge_clicked(self, button):
-        self.displayDesc(5, button)
-
-    def on_woffice_clicked(self, button):
-        self.displayDesc(6, button)
-
-    def on_loffice_clicked(self, button):
-        self.displayDesc(7, button)
-
-    def on_ooffice_clicked(self, button):
-        self.displayDesc(8, button)
+    
+    def applay(self, button):
+        fLili = Gtk.Buildable.get_name(button)
+        self.displayDesc(liLi['%s_but' % fLili][5], button)
 
     def on_msoffice_clicked(self, button):
         self.displayDesc(9, button)
 
     def on_goffice_clicked(self, button):
         self.displayDesc(10, button)
-
-    def on_foffice_clicked(self, button):
-        self.displayDesc(11, button)
-
-    def on_gedit_clicked(self, button):
-        self.displayDesc(12, button)
-
-    def on_gnu_clicked(self, button):
-        self.displayDesc(13, button)
-
-    def on_vscode_clicked(self, button):
-        self.displayDesc(14, button)
-
-    def on_atom_clicked(self, button):
-        self.displayDesc(15, button)
-
-    def on_stedit_clicked(self, button):
-        self.displayDesc(16, button)
-
-    def on_geany_clicked(self, button):
-        self.displayDesc(17, button)
-
-    def on_skype_clicked(self, button):
-        self.displayDesc(18, button)
-
-    def on_discord_clicked(self, button):
-        self.displayDesc(19, button)
-
-    def on_telegram_clicked(self, button):
-        self.displayDesc(20, button)
-
-    def on_signal_clicked(self, button):
-        self.displayDesc(21, button)
-
-    def on_hex_clicked(self, button):
-        self.displayDesc(22, button)
-
-    def on_franz_clicked(self, button):
-        self.displayDesc(23, button)
-
-    def on_0ad_clicked(self, button):
-        self.displayDesc(24, button)
-
-    def on_tux_clicked(self, button):
-        self.displayDesc(25, button)
-
-    def on_lutris_clicked(self, button):
-        self.displayDesc(26, button)
-
-    def on_barr_clicked(self, button):
-        self.displayDesc(42, button)
-
-    def on_pol_clicked(self, button):
-        self.displayDesc(27, button)
-
-    def on_steam_clicked(self, button):
-        self.displayDesc(28, button)
-
-    def on_mc_clicked(self, button):
-        self.displayDesc(29, button)
-
-    def on_pops_clicked(self, button):
-        self.displayDesc(31, button)
-
-    def on_woe_clicked(self, button):
-        self.displayDesc(32, button)
-
-    def on_wine_clicked(self, button):
-        self.displayDesc(33, button)
-
-    def on_vbox_clicked(self, button):
-        self.displayDesc(34, button)
-
-    def on_gparted_clicked(self, button):
-        self.displayDesc(35, button)
-
-    def on_gest_clicked(self, button):
-        self.displayDesc(36, button)
-
-    def on_auda_clicked(self, button):
-        self.displayDesc(37, button)
-
-    def on_deja_clicked(self, button):
-        self.displayDesc(38, button)
-
-    def on_tims_clicked(self, button):
-        self.displayDesc(39, button)
-
-    def on_tw_clicked(self, button):
-        self.displayDesc(40, button)
-
-    def on_box_clicked(self, button):
-        self.displayDesc(41, button)
-
-    def on_mint_clicked(self, button):
-        self.displayDesc(43, button)
-
-    def on_ubuntu_clicked(self, button):
-        self.displayDesc(44, button)
-
-    def on_solus_clicked(self, button):
-        self.displayDesc(45, button)
-
-    def on_deepin_clicked(self, button):
-        self.displayDesc(46, button)
-
-    def on_elementary_clicked(self, button):
-        self.displayDesc(47, button)
-
-    def on_zorin_clicked(self, button):
-        self.displayDesc(48, button)
-
-    def on_steamos_clicked(self, button):
-        self.displayDesc(49, button)
-
-    def on_deb_clicked(self, button):
-        self.displayDesc(50, button)
-
-    def on_fedora_clicked(self, button):
-        self.displayDesc(51, button)
-
-    def on_opsu_clicked(self, button):
-        self.displayDesc(52, button)
-
-    def on_arch_clicked(self, button):
-        self.displayDesc(53, button)
-
-    def on_gentoo_clicked(self, button):
-        self.displayDesc(54, button)
-
-    def on_lfs_clicked(self, button):
-        self.displayDesc(55, button)
+    
+    def dissplay(self, button):
+        fLola = Gtk.Buildable.get_name(button)
+        self.displayDesc(loLa[fLola][1], button)
 
 # End of descriptions
 # _____________________________________________________________________ END OF GUI ____________________________________________________________________#
 
 if __name__ == "__main__":
-    app = GUI()  # variable to call GUI class
+    ## Config section ##
+    parser = ConfigParser()
+    confP = '/home/%s/.config/hsuite.conf' % user
+    if os.path.exists(confP):
+        print('Configured already')
+        parser.read(confP)
+        distro = parser.get('system', 'distro')
+        v = parser.get('hsuite', 'v')
+        dist = parser.get('system', 'dist')
+        app = GUI()  # variable to call GUI class
+    else:
+        print('Config not found')
+        # Detect distro
+        dist = os.popen('uname -a').read()          # Get distro name
+        if 'Ubuntu' in dist:
+            distro = 'Ubuntu'
+        elif 'solus' in dist:
+            distro = 'Solus'
+        elif 'Debian' in dist:
+            distro = 'Debian'
+        elif 'deepin' in dist:
+            distro = 'Debian'
+            print('W: Not fully compatible with Deepin!')
+            app = GUI()
+            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, eoan), Debian (buster)."), _("Attention!"), 'general')
+        else:
+            distro = ''
+            app = GUI()
+            print('E: Complete incompatibility!')
+            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, eoan), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
+            raise SystemExit
+        app = GUI()
+        parser.add_section('system')
+        parser.add_section('hsuite')
+        parser.set('system', 'distro',  distro)
+        parser.set('hsuite', 'v', version)
+        parser.set('system', 'dist', dist)
+        file = open(confP, "w+")
+        parser.write(file)
+        file.close()
+    # Own module for root prompt and background installation
+    import osLayer
+    osLayer.init(distro)
+    osLayer.user = user
+    ## Colors (button)
+    provider = Gtk.CssProvider()
+    colors = Gio.File.new_for_path('colors.css')
+    provider.load_from_file(colors)
+    Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+    if v != version and v != '':
+        app.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _("HSuite has been updated to %s. For changelog visit https://swanux.github.io/hsuite/" % version), _("Attention!"), 'general')
+        os.system('rm %s' % confP)
+    # Print info to debug
+    print("Current date: %s" % today)
+    print("Current day: %s" % day)
+    print("Current month: %s" % month)
+    print("Current year: %s" % year)
+    print("Name of non-root user: %s" % user)
+    print('---BEGIN---')
+    print("Content of working directory: %s" % str(wer))
+    print("---END---")
+    print("Output of $uname -a$ : %s" % dist)
+    print("Detected distro: %s" % distro)
+    print('Updated? : %s' % v)
     Gtk.main()  # execute main GTK window

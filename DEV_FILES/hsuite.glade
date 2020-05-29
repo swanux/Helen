@@ -172,6 +172,11 @@ Author: Dániel Kolozsi (@swanux)
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
   </object>
+  <object class="GtkImage" id="image10">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-go-back</property>
+  </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -392,19 +397,13 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/woffice.png</property>
     <property name="pixel_size">50</property>
   </object>
-  <object class="GtkImage" id="zorin_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/zorin.png</property>
-    <property name="pixel_size">50</property>
-  </object>
   <object class="GtkWindow" id="window">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="title">window</property>
     <property name="window_position">center</property>
     <property name="default_width">800</property>
-    <property name="default_height">400</property>
+    <property name="default_height">500</property>
     <property name="icon">icons/hsuite.png</property>
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
@@ -607,7 +606,7 @@ Author: Dániel Kolozsi (@swanux)
                             </child>
                             <child>
                               <object class="GtkButton" id="htools_but">
-                                <property name="label" translatable="yes">FOSS Collection</property>
+                                <property name="label" translatable="yes">HControl</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -816,7 +815,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">opera_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_opera_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -834,7 +833,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">chrome_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_chrome_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -852,7 +851,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">web_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_web_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -870,7 +869,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">firefox_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_firefox_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -888,7 +887,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">vivaldi_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_vivaldi_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -906,7 +905,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">edge_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_edge_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -921,7 +920,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_opera_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -936,7 +935,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_chrome_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -951,7 +950,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_web_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -966,7 +965,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_firefox_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -981,7 +980,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_vivaldi_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -997,7 +996,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_edge_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1052,7 +1051,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_woffice_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1067,7 +1066,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_loffice_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1082,7 +1081,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_ooffice_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1127,7 +1126,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_foffice_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1145,7 +1144,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">wps_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_woffice_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1163,7 +1162,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">loffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_loffice_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1181,7 +1180,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">ooffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_ooffice_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1235,7 +1234,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">foffice_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_foffice_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1293,7 +1292,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">gedit_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_gedit_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1311,7 +1310,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">gnu_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_gnu_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1329,7 +1328,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">vscode_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_vscode_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1347,7 +1346,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">atom_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_atom_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1365,7 +1364,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">stedit_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_stedit_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1383,7 +1382,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">geany_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_geany_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1398,7 +1397,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_gedit_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1413,7 +1412,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_gnu_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1428,7 +1427,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_vscode_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1443,7 +1442,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_atom_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1458,7 +1457,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_stedit_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1473,7 +1472,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_geany_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1531,7 +1530,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">skype_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_skype_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1549,7 +1548,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">discord_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_discord_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1567,7 +1566,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">telegram_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_telegram_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1585,7 +1584,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">signal_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_signal_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1603,7 +1602,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">hex_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_hex_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1621,7 +1620,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">franz_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_franz_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1636,7 +1635,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_skype_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1651,7 +1650,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_discord_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1666,7 +1665,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_telegram_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1681,7 +1680,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_signal_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1696,7 +1695,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_hex_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1711,7 +1710,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_franz_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1769,7 +1768,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">0ad_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_0ad_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1787,7 +1786,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">tux_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_tux_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1805,7 +1804,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">lutris_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_lutris_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1823,7 +1822,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">pol_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_pol_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1841,7 +1840,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">steam_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_steam_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1859,7 +1858,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">mc_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_mc_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1874,7 +1873,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_0ad_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1889,7 +1888,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_tux_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1904,7 +1903,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_lutris_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1919,7 +1918,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_pol_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1934,7 +1933,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_steam_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1949,7 +1948,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_mc_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1967,7 +1966,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">skart_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_skart_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1982,7 +1981,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_skart_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2052,7 +2051,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">pops_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_pops_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2070,7 +2069,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">woe_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_woe_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2088,7 +2087,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">wine_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_wine_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2106,7 +2105,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">vbox_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_vbox_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2124,7 +2123,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">gparted_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_gparted_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2142,7 +2141,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">gestures_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_gest_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2160,7 +2159,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">auda_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_auda_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2178,7 +2177,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">deja_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_deja_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2196,7 +2195,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">tims_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_tims_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2211,7 +2210,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_pops_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2226,7 +2225,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_woe_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2241,7 +2240,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_wine_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2256,7 +2255,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_vbox_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2271,7 +2270,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_gparted_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2286,7 +2285,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_gest_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2301,7 +2300,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_auda_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2316,7 +2315,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_deja_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2331,7 +2330,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_tims_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2349,7 +2348,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">tw_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_tw_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2364,7 +2363,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_tw_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2382,7 +2381,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">box_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_box_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2397,7 +2396,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_box_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -2415,7 +2414,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">barrier_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="on_barr_clicked" swapped="no"/>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2430,7 +2429,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="on_barr_but_clicked" swapped="no"/>
+                                <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2746,7 +2745,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">mint_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_mint_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -2766,30 +2765,10 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">ubuntu_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_ubuntu_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
-                                    <property name="top_attach">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="solus">
-                                    <property name="label">Solus Linux</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_left">5</property>
-                                    <property name="margin_right">5</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="image">solus_img</property>
-                                    <property name="image_position">top</property>
-                                    <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_solus_clicked" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
                                     <property name="top_attach">0</property>
                                   </packing>
                                 </child>
@@ -2808,7 +2787,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_mint_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -2817,7 +2796,25 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <placeholder/>
+                                      <object class="GtkComboBoxText" id="mint_choser">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="active">0</property>
+                                        <items>
+                                          <item id="0" translatable="yes">Cinnamon (Default)</item>
+                                          <item id="1" translatable="yes">MATE</item>
+                                          <item id="2" translatable="yes">XFCE</item>
+                                          <item id="3" translatable="yes">Debian Edition</item>
+                                        </items>
+                                        <signal name="changed" handler="on_choose" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
@@ -2840,7 +2837,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_ubuntu_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -2849,43 +2846,33 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <placeholder/>
+                                      <object class="GtkComboBoxText" id="ubuntu_choser">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="active">0</property>
+                                        <items>
+                                          <item id="0" translatable="yes">Gnome (Default)</item>
+                                          <item id="1" translatable="yes">Kubuntu (KDE)</item>
+                                          <item id="2" translatable="yes">Lubuntu (LXQt)</item>
+                                          <item id="3" translatable="yes">Budgie</item>
+                                          <item id="4" translatable="yes">Kylin</item>
+                                          <item id="5" translatable="yes">MATE</item>
+                                          <item id="6" translatable="yes">Studio</item>
+                                          <item id="7" translatable="yes">Xubuntu (XFCE)</item>
+                                        </items>
+                                        <signal name="changed" handler="on_choose" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
-                                    <property name="top_attach">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkBox" id="buts_box2">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <child>
-                                      <object class="GtkButton" id="downl_solus">
-                                        <property name="label" translatable="yes">Calculating size...</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_left">5</property>
-                                        <property name="margin_right">5</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_solus_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <placeholder/>
-                                    </child>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
                                     <property name="top_attach">1</property>
                                   </packing>
                                 </child>
@@ -2902,7 +2889,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">deepin_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_deepin_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -2922,30 +2909,10 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">elementary_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_elementary_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
-                                    <property name="top_attach">2</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="zorin">
-                                    <property name="label">Zorin OS</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_left">5</property>
-                                    <property name="margin_right">5</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="image">zorin_img</property>
-                                    <property name="image_position">top</property>
-                                    <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_zorin_clicked" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
                                     <property name="top_attach">2</property>
                                   </packing>
                                 </child>
@@ -2964,7 +2931,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_deepin_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3008,21 +2975,37 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkBox" id="buts_box3">
+                                  <object class="GtkButton" id="solus">
+                                    <property name="label">Solus Linux</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">solus_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">4</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box2">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="downl_zorin">
+                                      <object class="GtkButton" id="downl_solus">
                                         <property name="label" translatable="yes">Calculating size...</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_left">5</property>
-                                        <property name="margin_right">5</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_zorin_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3031,13 +3014,37 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <placeholder/>
+                                      <object class="GtkComboBoxText" id="solus_chose">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="active">0</property>
+                                        <items>
+                                          <item id="0" translatable="yes">Budgie (Default)</item>
+                                          <item id="1" translatable="yes">Gnome</item>
+                                          <item id="2" translatable="yes">MATE</item>
+                                          <item id="3" translatable="yes">KDE</item>
+                                        </items>
+                                        <signal name="changed" handler="on_choose" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="left_attach">2</property>
-                                    <property name="top_attach">3</property>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">5</property>
                                   </packing>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
                                 </child>
                               </object>
                               <packing>
@@ -3127,7 +3134,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_steamos_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3157,7 +3164,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">steamos_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_steamos_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -3252,7 +3259,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_deb_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3261,7 +3268,28 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <placeholder/>
+                                      <object class="GtkComboBoxText" id="deb_chose">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="active">0</property>
+                                        <items>
+                                          <item id="0" translatable="yes">Cinnamon</item>
+                                          <item id="1" translatable="yes">Gnome</item>
+                                          <item id="2" translatable="yes">KDE</item>
+                                          <item id="3" translatable="yes">LXDE</item>
+                                          <item id="4" translatable="yes">LXQt</item>
+                                          <item id="5" translatable="yes">MATE</item>
+                                          <item id="6" translatable="yes">XFCE</item>
+                                        </items>
+                                        <signal name="changed" handler="on_choose" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
@@ -3284,7 +3312,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_fedora_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3293,43 +3321,33 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                       </packing>
                                     </child>
                                     <child>
-                                      <placeholder/>
+                                      <object class="GtkComboBoxText" id="fedora_chose">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="active">0</property>
+                                        <items>
+                                          <item id="0" translatable="yes">Gnome (Default)</item>
+                                          <item id="1" translatable="yes">KDE</item>
+                                          <item id="2" translatable="yes">XFCE</item>
+                                          <item id="3" translatable="yes">LXQt</item>
+                                          <item id="4" translatable="yes">MATE</item>
+                                          <item id="5" translatable="yes">Cinnamon</item>
+                                          <item id="6" translatable="yes">LXDE</item>
+                                          <item id="7" translatable="yes">SOAS</item>
+                                        </items>
+                                        <signal name="changed" handler="on_choose" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
-                                    <property name="top_attach">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkBox" id="buts_box11">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <child>
-                                      <object class="GtkButton" id="downl_suse">
-                                        <property name="label" translatable="yes">Calculating size...</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="margin_left">5</property>
-                                        <property name="margin_right">5</property>
-                                        <property name="margin_top">5</property>
-                                        <property name="margin_bottom">5</property>
-                                        <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_suse_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <placeholder/>
-                                    </child>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
                                     <property name="top_attach">1</property>
                                   </packing>
                                 </child>
@@ -3346,7 +3364,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">deb_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_deb_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -3366,7 +3384,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">fedora_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_fedora_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -3379,19 +3397,69 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="margin_left">5</property>
-                                    <property name="margin_right">5</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="image">opsu_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_opsu_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
-                                    <property name="left_attach">2</property>
-                                    <property name="top_attach">0</property>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">2</property>
                                   </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box11">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_suse">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkComboBoxText" id="suse_chose">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="active">0</property>
+                                        <items>
+                                          <item id="0" translatable="yes">Tumbeweed (Rolling)</item>
+                                          <item id="1" translatable="yes">Leap (Standard)</item>
+                                        </items>
+                                        <signal name="changed" handler="on_choose" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
                                 </child>
                               </object>
                               <packing>
@@ -3481,7 +3549,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_arch_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3513,7 +3581,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_gentoo_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3545,7 +3613,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <signal name="clicked" handler="on_downl_lfs_clicked" swapped="no"/>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3575,7 +3643,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">arch_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_arch_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -3595,7 +3663,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">gentoo_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_gentoo_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -3615,7 +3683,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="image">lfs_img</property>
                                     <property name="image_position">top</property>
                                     <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="on_lfs_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">2</property>
@@ -3744,7 +3812,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               <object class="GtkLabel" id="ab_txt">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">v0.6 .5| Emerald
+                                <property name="label" translatable="yes">v0.7 | Sinara
 
 HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools,
 easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
@@ -4115,7 +4183,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <property name="can_focus">True</property>
                                 <property name="hexpand">True</property>
                                 <property name="max_width_chars">35</property>
-                                <property name="placeholder_text" translatable="yes">For contacting you if needed</property>
+                                <property name="placeholder_text" translatable="yes">For contacting you if needed (Optional)</property>
                                 <property name="input_purpose">email</property>
                               </object>
                               <packing>
@@ -4358,7 +4426,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
                                     <property name="draw_indicator">True</property>
-                                    <signal name="toggled" handler="on_prog_chk_toggled" swapped="no"/>
+                                    <signal name="toggled" handler="on_general_chk" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -4378,7 +4446,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
                                     <property name="draw_indicator">True</property>
-                                    <signal name="toggled" handler="on_usr_chk_toggled" swapped="no"/>
+                                    <signal name="toggled" handler="on_general_chk" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -4398,7 +4466,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
                                     <property name="draw_indicator">True</property>
-                                    <signal name="toggled" handler="on_them_chk_toggled" swapped="no"/>
+                                    <signal name="toggled" handler="on_general_chk" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -4418,7 +4486,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
                                     <property name="draw_indicator">True</property>
-                                    <signal name="toggled" handler="on_cron_chk_toggled" swapped="no"/>
+                                    <signal name="toggled" handler="on_general_chk" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -4845,6 +4913,682 @@ Don't forget to REMOVE the package named "restore" with the default package mana
             <property name="name">page6</property>
             <property name="title">page6</property>
             <property name="position">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="control_box">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkButton" id="home_button4">
+                <property name="label" translatable="yes">Home</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">10</property>
+                <property name="image">image10</property>
+                <property name="always_show_image">True</property>
+                <signal name="clicked" handler="home_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkNotebook" id="notebook_db1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="tab_pos">bottom</property>
+                <property name="scrollable">True</property>
+                <child>
+                  <object class="GtkScrolledWindow" id="scroll_info2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport" id="view_info2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkBox" id="info_box2">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkLabel" id="info_lb2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">7</property>
+                                <property name="margin_bottom">7</property>
+                                <property name="label" translatable="yes">HControl</property>
+                                <attributes>
+                                  <attribute name="weight" value="medium"/>
+                                  <attribute name="scale" value="1.1000000000000001"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="info_txt6">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">30</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="label" translatable="yes">Welcome to HControl!
+
+This section gives you a handy GUI for managing system tasks, such as automation with cron jobs, or switching between Windows, MacOS and other predefined desktop layouts / themes.</property>
+                                <property name="justify">center</property>
+                                <property name="wrap">True</property>
+                                <attributes>
+                                  <attribute name="scale" value="1.1000000000000001"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="info_pg2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="label" translatable="yes">Information</property>
+                  </object>
+                  <packing>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scroll_them">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport" id="view_them">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkBox" id="them_box">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkLabel" id="info_txt7">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">20</property>
+                                <property name="margin_bottom">20</property>
+                                <property name="label" translatable="yes">Here are the desktop themes which you can choose from.
+NOTE: It'll overwrite your current settings</property>
+                                <property name="justify">center</property>
+                                <property name="wrap">True</property>
+                                <attributes>
+                                  <attribute name="scale" value="1.1000000000000001"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkGrid">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="row_spacing">5</property>
+                                <property name="column_spacing">5</property>
+                                <property name="column_homogeneous">True</property>
+                                <child>
+                                  <object class="GtkButton" id="mac_but">
+                                    <property name="label" translatable="yes">MacOS mode</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="win_but">
+                                    <property name="label" translatable="yes">Windows 10 mode</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="un_but">
+                                    <property name="label" translatable="yes">Unity mode</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="theme_pg">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="label" translatable="yes">Themes</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scroll_au">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport" id="view_au">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkStack" id="au_stack">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkBox" id="au_box">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="orientation">vertical</property>
+                                <child>
+                                  <object class="GtkLabel" id="info_txt8">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="margin_top">20</property>
+                                    <property name="margin_bottom">20</property>
+                                    <property name="label" translatable="yes">Here you can manage automatic jobs running periodically based on time, reboots, etc</property>
+                                    <property name="justify">center</property>
+                                    <property name="wrap">True</property>
+                                    <attributes>
+                                      <attribute name="scale" value="1.1000000000000001"/>
+                                    </attributes>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="new_box">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                    <child>
+                                      <object class="GtkButton" id="new_but">
+                                        <property name="label" translatable="yes">New</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">page0</property>
+                                <property name="title" translatable="yes">page0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="new_au">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">5</property>
+                                <property name="homogeneous">True</property>
+                                <child>
+                                  <object class="GtkBox" id="exec_time">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkLabel" id="exec_lab">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                        <property name="label" translatable="yes">Execute tasks : </property>
+                                        <property name="justify">center</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkComboBoxText" id="exec_choose">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                        <items>
+                                          <item id="0" translatable="yes">on startup</item>
+                                          <item id="1" translatable="yes">weekly</item>
+                                          <item id="2" translatable="yes">daily</item>
+                                          <item id="3" translatable="yes">hourly</item>
+                                        </items>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="misc_box">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkLabel" id="change_lab">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                        <property name="label" translatable="yes">$VAR configuration : </property>
+                                        <property name="justify">center</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkStack" id="misc_stack">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                        <child>
+                                          <object class="GtkBox" id="on_week">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="spacing">5</property>
+                                            <property name="homogeneous">True</property>
+                                            <child>
+                                              <object class="GtkBox" id="day">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="spacing">5</property>
+                                                <child>
+                                                  <object class="GtkLabel" id="day_lab">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">Day of week</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">0</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkComboBoxText" id="day_choose">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <items>
+                                                      <item id="0" translatable="yes">Monday</item>
+                                                      <item id="1" translatable="yes">Tuesday</item>
+                                                      <item id="2" translatable="yes">Wednesday</item>
+                                                      <item id="3" translatable="yes">Friday</item>
+                                                      <item id="4" translatable="yes">Saturday</item>
+                                                      <item id="5" translatable="yes">Sunday</item>
+                                                    </items>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">1</property>
+                                                  </packing>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">True</property>
+                                                <property name="position">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkBox" id="hour">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="spacing">5</property>
+                                                <child>
+                                                  <object class="GtkLabel" id="hour_lab">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">Hour of day</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">0</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkComboBoxText" id="hour_choose">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <items>
+                                                      <item id="0" translatable="yes">0</item>
+                                                      <item id="1" translatable="yes">1</item>
+                                                      <item id="2" translatable="yes">2</item>
+                                                      <item id="3" translatable="yes">3</item>
+                                                      <item id="4" translatable="yes">4</item>
+                                                      <item id="5" translatable="yes">5</item>
+                                                      <item id="6" translatable="yes">6</item>
+                                                      <item id="7" translatable="yes">7</item>
+                                                      <item id="8" translatable="yes">8</item>
+                                                      <item id="9" translatable="yes">9</item>
+                                                      <item id="10" translatable="yes">10</item>
+                                                      <item id="11" translatable="yes">11</item>
+                                                      <item id="12" translatable="yes">12</item>
+                                                      <item id="13" translatable="yes">13</item>
+                                                      <item id="14" translatable="yes">14</item>
+                                                      <item id="15" translatable="yes">15</item>
+                                                      <item id="16" translatable="yes">16</item>
+                                                      <item id="17" translatable="yes">17</item>
+                                                      <item id="18" translatable="yes">18</item>
+                                                      <item id="19" translatable="yes">19</item>
+                                                      <item id="20" translatable="yes">20</item>
+                                                      <item id="21" translatable="yes">21</item>
+                                                      <item id="22" translatable="yes">22</item>
+                                                      <item id="23" translatable="yes">23</item>
+                                                    </items>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">1</property>
+                                                  </packing>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">True</property>
+                                                <property name="position">1</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                          <packing>
+                                            <property name="name">page0</property>
+                                            <property name="title" translatable="yes">page0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox" id="on_day">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="orientation">vertical</property>
+                                            <property name="spacing">5</property>
+                                            <child>
+                                              <object class="GtkLabel" id="jhour_lab">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">center</property>
+                                                <property name="valign">center</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="vexpand">True</property>
+                                                <property name="label" translatable="yes">Hour of day</property>
+                                                <property name="justify">center</property>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">True</property>
+                                                <property name="position">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkComboBoxText" id="jhour_choose">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="halign">center</property>
+                                                <property name="valign">center</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="vexpand">True</property>
+                                                <items>
+                                                  <item id="0" translatable="yes">0</item>
+                                                  <item id="1" translatable="yes">1</item>
+                                                  <item id="2" translatable="yes">2</item>
+                                                  <item id="3" translatable="yes">3</item>
+                                                  <item id="4" translatable="yes">4</item>
+                                                  <item id="5" translatable="yes">5</item>
+                                                  <item id="6" translatable="yes">6</item>
+                                                  <item id="7" translatable="yes">7</item>
+                                                  <item id="8" translatable="yes">8</item>
+                                                  <item id="9" translatable="yes">9</item>
+                                                  <item id="10" translatable="yes">10</item>
+                                                  <item id="11" translatable="yes">11</item>
+                                                  <item id="12" translatable="yes">12</item>
+                                                  <item id="13" translatable="yes">13</item>
+                                                  <item id="14" translatable="yes">14</item>
+                                                  <item id="15" translatable="yes">15</item>
+                                                  <item id="16" translatable="yes">16</item>
+                                                  <item id="17" translatable="yes">17</item>
+                                                  <item id="18" translatable="yes">18</item>
+                                                  <item id="19" translatable="yes">19</item>
+                                                  <item id="20" translatable="yes">20</item>
+                                                  <item id="21" translatable="yes">21</item>
+                                                  <item id="22" translatable="yes">22</item>
+                                                  <item id="23" translatable="yes">23</item>
+                                                </items>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">True</property>
+                                                <property name="position">1</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                          <packing>
+                                            <property name="name">page1</property>
+                                            <property name="title" translatable="yes">page1</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="done_box">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                    <child>
+                                      <object class="GtkButton" id="done_but">
+                                        <property name="label" translatable="yes">Done</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">2</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">page1</property>
+                                <property name="title" translatable="yes">page1</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="auto_pg">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="label" translatable="yes">Automation</property>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="name">page7</property>
+            <property name="title" translatable="yes">page7</property>
+            <property name="position">7</property>
           </packing>
         </child>
       </object>
