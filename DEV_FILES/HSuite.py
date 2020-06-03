@@ -35,6 +35,7 @@ gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
 from gi.repository import Gtk, GLib, Gdk, GObject, Gio
 from github import Github
+from crontab import CronTab
 token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
 token = token.replace('@', '')
 g = Github(token)
@@ -65,12 +66,10 @@ year = today.strftime("%Y")
 
 # Getting the name of the non-root user
 user = os.popen("who|awk '{print $1}'r").read()
-machine = os.popen("hostname").read()
+dplenv = int(os.popen("echo $DISPLAY").read().rstrip().replace(':', ''))
 # Edit to only contain the name itself
 user = user.rstrip()
 user = user.split('\n')[0]
-machine = machine.rstrip()
-machine = machine.split('\n')[0]
 
 # Used with Distro Boutique
 # It's declared because of some functions which ones are called from concurrent future
@@ -221,7 +220,7 @@ class myThread (Thread):
         else:
             os.system("mkdir -p /home/%s/hswitcher/BUILD/restore-1.0/" % user)
             os.system("cd /home/%s/hswitcher/BUILD/restore-1.0/ && dh_make -s -n -y && cd debian/ && rm -fr *.ex *.EX docs source RE* *.docs copyright" % user)
-            changelog = "restore (1.0-1) unstable; urgency=medium\n\n  * Initial Release\n\n -- %s <%s@%s>  %s" % (user, user, machine, time.strftime("%a, %d %b %Y %H:%M:%S +0200"))
+            changelog = "restore (1.0-1) unstable; urgency=medium\n\n  * Initial Release\n\n -- %s <%s@%s>  %s" % (user, user, platform.uname().node, time.strftime("%a, %d %b %Y %H:%M:%S +0200"))
             change_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/changelog" % user, "w")
             change_file.write(changelog)
             change_file.close()
@@ -230,7 +229,7 @@ class myThread (Thread):
             compat_file.close()
             bds = "debhelper (>= 11)"
             print('DS_HERE')
-            control = "Source: restore\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: restore\nArchitecture: amd64\nDepends: tar, %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, machine, bds, self.ds)
+            control = "Source: restore\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: restore\nArchitecture: amd64\nDepends: tar, %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, platform.uname().node, bds, self.ds)
             print('Mem control')
             control_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/control" % user, "w")
             control_file.write(control)
@@ -257,6 +256,7 @@ class GUI:
     def __init__(self):
         # if distro == 'Ubuntu' or distro == 'Debian':
         self.scanner = True
+        self.changedCron = False
         self.cPkg = ''
         self.runE = False
         self.tC2 = futures.ThreadPoolExecutor(max_workers=2)
@@ -453,73 +453,85 @@ class GUI:
         dialogWindow.move(x+((sx-dsx)/2), y+((sy-dsy)/2))
         dx, dy = dialogWindow.get_position()                        # set the position
         print(dx, dy)
-        dialogWindow.show_all()
-        res = dialogWindow.run()                                    # save the response
-        if name != 'general':
-            if res == Gtk.ResponseType.YES:                             # if yes ...
-                print('OK pressed')
-                dialogWindow.destroy()
-                if name == 'exit':
-                    code = 'force'
-                    if osLayer.alive:
-                        code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove %s manually.") % self.cPkg, _("Attention!"), 'abort', 'install')
-                    if self.quit == False:
-                        code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? Download is currently in progress for %s.") % namDict[self.Tdownl], _("Attention!"), 'abort', 'download')
-                    if code == 'force':
-                        self.stop = True
-                        try:
-                            self.tS.shutdown()
-                        except:
-                            pass
-                        raise SystemExit
-                    else:
-                        dialogWindow.destroy()
-                        return True
-                elif name == 'switcher':
-                    if res == Gtk.ResponseType.YES:
-                        print('OK pressed')
-                        dialogWindow.destroy()
-                        return True
-                    elif res == Gtk.ResponseType.NO:
-                        print('No pressed')
-                        dialogWindow.destroy()
-                        return False
-                    else:
-                        return False
-                elif name == 'abort':
-                    if res == Gtk.ResponseType.YES:
-                        if mode == 'download':
-                            self.quit = True
-                            self.rmE = True
-                            print(self.quit)
-                        elif mode == 'install':
-                            print('Installation already running')
-                            if distro == 'Ubuntu' or distro == 'Debian':
-                                try:
-                                    print(self.trans.cancellable)
-                                    self.trans.cancel()
-                                except:
-                                    print('Cant cancel')
-                                    self.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("You can't cancel installation, as it's in a critical state."), _("Safety first!"), 'general')
-                            else:
-                                print('ERROR IN DIST AB')
-                        print('OK pressed')
-                        dialogWindow.destroy()
-                        return 'force'
-                    elif res == Gtk.ResponseType.NO:
-                        print('No pressed')
-                        dialogWindow.destroy()
-                        return True
-            elif res == Gtk.ResponseType.NO:                            # if no ...
-                print('No pressed')
-                dialogWindow.destroy()                                  # destroy dialog
-                return True                                             # end function
+        if name == 'custom':
+            dialogWindow.add_button("What's new", 55)
+            dialogWindow.show_all()
+            res = dialogWindow.run()
+            print(res)
+            if res == 55:
+                print('Want visit')
+                webbrowser.open_new("https://swanux.github.io/hsuite/")
             else:
-                dialogWindow.destroy()                                  # destroy dialog
-                return True                                             # end function
-        else:
+                print('just ok')
             dialogWindow.destroy()
-            return True
+        else:
+            dialogWindow.show_all()
+            res = dialogWindow.run()
+            if name != 'general':
+                if res == Gtk.ResponseType.YES:                             # if yes ...
+                    print('OK pressed')
+                    dialogWindow.destroy()
+                    if name == 'exit':
+                        code = 'force'
+                        if osLayer.alive:
+                            code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove %s manually.") % self.cPkg, _("Attention!"), 'abort', 'install')
+                        if self.quit == False:
+                            code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? Download is currently in progress for %s.") % namDict[self.Tdownl], _("Attention!"), 'abort', 'download')
+                        if code == 'force':
+                            self.stop = True
+                            try:
+                                self.tS.shutdown()
+                            except:
+                                pass
+                            raise SystemExit
+                        else:
+                            dialogWindow.destroy()
+                            return True
+                    elif name == 'switcher':
+                        if res == Gtk.ResponseType.YES:
+                            print('OK pressed')
+                            dialogWindow.destroy()
+                            return True
+                        elif res == Gtk.ResponseType.NO:
+                            print('No pressed')
+                            dialogWindow.destroy()
+                            return False
+                        else:
+                            return False
+                    elif name == 'abort':
+                        if res == Gtk.ResponseType.YES:
+                            if mode == 'download':
+                                self.quit = True
+                                self.rmE = True
+                                print(self.quit)
+                            elif mode == 'install':
+                                print('Installation already running')
+                                if distro == 'Ubuntu' or distro == 'Debian':
+                                    try:
+                                        print(self.trans.cancellable)
+                                        self.trans.cancel()
+                                    except:
+                                        print('Cant cancel')
+                                        self.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("You can't cancel installation, as it's in a critical state."), _("Safety first!"), 'general')
+                                else:
+                                    print('ERROR IN DIST AB')
+                            print('OK pressed')
+                            dialogWindow.destroy()
+                            return 'force'
+                        elif res == Gtk.ResponseType.NO:
+                            print('No pressed')
+                            dialogWindow.destroy()
+                            return True
+                elif res == Gtk.ResponseType.NO:                            # if no ...
+                    print('No pressed')
+                    dialogWindow.destroy()                                  # destroy dialog
+                    return True                                             # end function
+                else:
+                    dialogWindow.destroy()                                  # destroy dialog
+                    return True                                             # end function
+            else:
+                dialogWindow.destroy()
+                return True
 
     def on_fin(self, transaction, exit_state):
         GLib.idle_add(self.dia.hide)
@@ -1122,8 +1134,79 @@ class GUI:
 ######################################################################################################################
 
     # hcontrol
+    def row_activated(self, widget, row, col):
+        relPos = self.tree.get_selection().get_selected_rows()[1][0][0]
+        print(relPos)
+
+    def mouse_click(self, widget, event):
+        pthinfo = self.tree.get_path_at_pos(event.x, event.y)
+        path,col,cellx,celly = pthinfo
+        self.tree.grab_focus()
+        self.tree.set_cursor(path,col,0)
+        if event.button == 3:
+            menu = Gtk.Menu()
+            menu_item = Gtk.MenuItem('Delete job')
+            menu_item.connect("activate", self.del_cur)
+            menu.add(menu_item)
+            menu.show_all()
+            menu.popup_at_pointer()
+    
+    def del_cur(self, action):
+        this = self.tree.get_selection().get_selected_rows()[1][0][0]
+        print(this)
+
+    def new_but_clicked(self, button):
+        self.builder.get_object('au_stack').set_visible_child(self.builder.get_object('cron_box'))
+    
+    def cancel_but_clicked(self, button):
+        self.builder.get_object('au_stack').set_visible_child(self.builder.get_object('au_box'))
+    
+    def on_cron_book_change_current_page(self, widget, box, page):
+        self.changedCron = True
+        self.minu = ""
+        self.hour = ""
+        self.daym = ""
+        self.cmonth = ""
+        self.dayw = ""
+    
+    def getMeaning(self):
+        print('Getting meaning')
+        if self.minu != "" and self.hour != "" and self.daym != "" and self.cmonth != "" and self.dayw != "":
+            u = urlopen("http://corntab.com/?c=%s_%s_%s_%s_%s" % (self.minu, self.hour, self.daym, self.cmonth, self.dayw))
+        else:
+            cronMean = "Invalid syntax!"
+
     def on_htools_but_clicked(self, button):
-        self.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _('Coming in future Beta releases...'), _("Coming Soon"), 'general')
+        cron  = CronTab(user=True)
+        box = self.builder.get_object('au_box')
+        storeCron = Gtk.ListStore(str, int)
+        self.tree = Gtk.TreeView(storeCron)
+        self.tree.connect("row-activated", self.row_activated)
+        self.tree.connect("button_press_event", self.mouse_click)
+        self.tree.set_reorderable(False)
+        scrollable_treelist = Gtk.ScrolledWindow()
+        scrollable_treelist.set_vexpand(True)
+        scrollable_treelist.add(self.tree)
+        box.pack_start(scrollable_treelist, True, True, 0)
+        l = 0
+        for job in cron:
+            storeCron.append([str(job), l])
+            l += 1
+        print("First time")
+        for i, column_title in enumerate(["Job", "ID"]):
+            renderer = Gtk.CellRendererText(xalign=0)
+            renderer.set_property("ellipsize", True)
+            column = Gtk.TreeViewColumn(column_title, renderer, text=i)
+            if column_title == "Job":
+                column.set_fixed_width(700)
+                column.set_resizable(True)
+            else:
+                column.set_max_width(50)
+                column.set_resizable(False)
+            column.set_sort_column_id(i)
+            self.tree.append_column(column)
+        self.builder.get_object('control_box').show_all()
+        self.stack.set_visible_child(self.builder.get_object('control_box'))
 
     def findNew(self, urii, perPat, perVer):
         if self.stop:
@@ -1401,7 +1484,7 @@ if __name__ == "__main__":
     provider.load_from_file(colors)
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
     if v != version and v != '':
-        app.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _("HSuite has been updated to %s. For changelog visit https://swanux.github.io/hsuite/" % version), _("Attention!"), 'general')
+        app.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _("HSuite has been updated to %s. For changelog click the button below." % version), _("Information"), 'custom')
         os.system('rm %s' % confP)
     # Print info to debug
     print("Current date: %s" % today)

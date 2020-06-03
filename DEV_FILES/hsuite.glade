@@ -5160,6 +5160,8 @@ NOTE: It'll overwrite your current settings</property>
                                     <property name="can_focus">False</property>
                                     <property name="margin_top">20</property>
                                     <property name="margin_bottom">20</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">False</property>
                                     <property name="label" translatable="yes">Here you can manage automatic jobs running periodically based on time, reboots, etc</property>
                                     <property name="justify">center</property>
                                     <property name="wrap">True</property>
@@ -5174,29 +5176,18 @@ NOTE: It'll overwrite your current settings</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkBox" id="new_box">
+                                  <object class="GtkButton" id="new_but">
+                                    <property name="label" translatable="yes">New</property>
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <child>
-                                      <placeholder/>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="new_but">
-                                        <property name="label" translatable="yes">New</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="halign">center</property>
-                                        <property name="valign">center</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="vexpand">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="valign">center</property>
+                                    <property name="margin_left">50</property>
+                                    <property name="margin_right">50</property>
+                                    <property name="margin_bottom">10</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">False</property>
+                                    <signal name="clicked" handler="new_but_clicked" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -5214,109 +5205,106 @@ NOTE: It'll overwrite your current settings</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkBox" id="new_au">
+                              <object class="GtkBox" id="cron_box">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="orientation">vertical</property>
                                 <property name="spacing">5</property>
-                                <property name="homogeneous">True</property>
                                 <child>
-                                  <object class="GtkBox" id="exec_time">
+                                  <object class="GtkNotebook" id="cron_book">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <property name="show_border">False</property>
+                                    <property name="scrollable">True</property>
+                                    <signal name="switch-page" handler="on_cron_book_change_current_page" swapped="no"/>
                                     <child>
-                                      <object class="GtkLabel" id="exec_lab">
+                                      <object class="GtkGrid" id="sim_grid">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="halign">center</property>
-                                        <property name="valign">center</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="vexpand">True</property>
-                                        <property name="label" translatable="yes">Execute tasks : </property>
-                                        <property name="justify">center</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkComboBoxText" id="exec_choose">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="halign">center</property>
-                                        <property name="valign">center</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="vexpand">True</property>
-                                        <items>
-                                          <item id="0" translatable="yes">on startup</item>
-                                          <item id="1" translatable="yes">weekly</item>
-                                          <item id="2" translatable="yes">daily</item>
-                                          <item id="3" translatable="yes">hourly</item>
-                                        </items>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkBox" id="misc_box">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <child>
-                                      <object class="GtkLabel" id="change_lab">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="halign">center</property>
-                                        <property name="valign">center</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="vexpand">True</property>
-                                        <property name="label" translatable="yes">$VAR configuration : </property>
-                                        <property name="justify">center</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkStack" id="misc_stack">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="vexpand">True</property>
+                                        <property name="row_spacing">5</property>
+                                        <property name="column_spacing">5</property>
                                         <child>
-                                          <object class="GtkBox" id="on_week">
+                                          <object class="GtkComboBoxText" id="exec_choose">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="spacing">5</property>
-                                            <property name="homogeneous">True</property>
+                                            <property name="halign">center</property>
+                                            <property name="valign">center</property>
+                                            <property name="hexpand">True</property>
+                                            <property name="vexpand">True</property>
+                                            <items>
+                                              <item id="0" translatable="yes">after reboot</item>
+                                              <item id="1" translatable="yes">hourly</item>
+                                              <item id="2" translatable="yes">daily</item>
+                                              <item id="3" translatable="yes">weekly</item>
+                                              <item id="4" translatable="yes">weekly</item>
+                                              <item id="5" translatable="yes">monthly</item>
+                                              <item id="6" translatable="yes">yearly</item>
+                                            </items>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">1</property>
+                                            <property name="top_attach">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="exec_lab3">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">center</property>
+                                            <property name="valign">center</property>
+                                            <property name="hexpand">True</property>
+                                            <property name="vexpand">True</property>
+                                            <property name="label" translatable="yes">Execution time :</property>
+                                            <property name="justify">center</property>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">0</property>
+                                            <property name="top_attach">0</property>
+                                          </packing>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="tab">
+                                      <object class="GtkLabel" id="sim_page">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Simple</property>
+                                      </object>
+                                      <packing>
+                                        <property name="tab_fill">False</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox" id="new_au2">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5</property>
+                                        <property name="homogeneous">True</property>
+                                        <child>
+                                          <object class="GtkGrid" id="conf_grid2">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="row_spacing">5</property>
+                                            <property name="column_spacing">5</property>
+                                            <property name="row_homogeneous">True</property>
+                                            <property name="column_homogeneous">True</property>
                                             <child>
-                                              <object class="GtkBox" id="day">
+                                              <object class="GtkBox" id="month2">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="orientation">vertical</property>
                                                 <property name="spacing">5</property>
                                                 <child>
-                                                  <object class="GtkLabel" id="day_lab">
+                                                  <object class="GtkLabel" id="label8">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="halign">center</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">Day of week</property>
+                                                    <property name="label" translatable="yes">Every</property>
                                                     <property name="justify">center</property>
                                                   </object>
                                                   <packing>
@@ -5326,21 +5314,15 @@ NOTE: It'll overwrite your current settings</property>
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <object class="GtkComboBoxText" id="day_choose">
+                                                  <object class="GtkEntry" id="min_entr">
                                                     <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
+                                                    <property name="can_focus">True</property>
                                                     <property name="halign">center</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <items>
-                                                      <item id="0" translatable="yes">Monday</item>
-                                                      <item id="1" translatable="yes">Tuesday</item>
-                                                      <item id="2" translatable="yes">Wednesday</item>
-                                                      <item id="3" translatable="yes">Friday</item>
-                                                      <item id="4" translatable="yes">Saturday</item>
-                                                      <item id="5" translatable="yes">Sunday</item>
-                                                    </items>
+                                                    <property name="max_length">2</property>
+                                                    <property name="placeholder_text" translatable="yes">0-59</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -5348,28 +5330,43 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                              </object>
-                                              <packing>
-                                                <property name="expand">False</property>
-                                                <property name="fill">True</property>
-                                                <property name="position">0</property>
-                                              </packing>
-                                            </child>
-                                            <child>
-                                              <object class="GtkBox" id="hour">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">False</property>
-                                                <property name="orientation">vertical</property>
-                                                <property name="spacing">5</property>
                                                 <child>
-                                                  <object class="GtkLabel" id="hour_lab">
+                                                  <object class="GtkLabel" id="label9">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="halign">center</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">Hour of day</property>
+                                                    <property name="label" translatable="yes">minute</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">2</property>
+                                                  </packing>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">0</property>
+                                                <property name="top_attach">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkBox" id="week2">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="spacing">5</property>
+                                                <child>
+                                                  <object class="GtkLabel" id="label10">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">Every</property>
                                                     <property name="justify">center</property>
                                                   </object>
                                                   <packing>
@@ -5379,15 +5376,139 @@ NOTE: It'll overwrite your current settings</property>
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <object class="GtkComboBoxText" id="hour_choose">
+                                                  <object class="GtkEntry" id="hour_entr">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="max_length">2</property>
+                                                    <property name="placeholder_text" translatable="yes">0-23</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="label11">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="halign">center</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">hour</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">2</property>
+                                                  </packing>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="top_attach">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkBox" id="week3">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="spacing">5</property>
+                                                <child>
+                                                  <object class="GtkLabel" id="label1">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">Every</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">0</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkEntry" id="day_entr">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="max_length">2</property>
+                                                    <property name="placeholder_text" translatable="yes">1-31</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="label2">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">day</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">2</property>
+                                                  </packing>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">0</property>
+                                                <property name="top_attach">1</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkBox" id="week4">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="spacing">5</property>
+                                                <child>
+                                                  <object class="GtkLabel" id="label3">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">Every</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">0</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkComboBoxText" id="week_choose4">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="active">1</property>
                                                     <items>
-                                                      <item id="0" translatable="yes">0</item>
                                                       <item id="1" translatable="yes">1</item>
                                                       <item id="2" translatable="yes">2</item>
                                                       <item id="3" translatable="yes">3</item>
@@ -5400,17 +5521,6 @@ NOTE: It'll overwrite your current settings</property>
                                                       <item id="10" translatable="yes">10</item>
                                                       <item id="11" translatable="yes">11</item>
                                                       <item id="12" translatable="yes">12</item>
-                                                      <item id="13" translatable="yes">13</item>
-                                                      <item id="14" translatable="yes">14</item>
-                                                      <item id="15" translatable="yes">15</item>
-                                                      <item id="16" translatable="yes">16</item>
-                                                      <item id="17" translatable="yes">17</item>
-                                                      <item id="18" translatable="yes">18</item>
-                                                      <item id="19" translatable="yes">19</item>
-                                                      <item id="20" translatable="yes">20</item>
-                                                      <item id="21" translatable="yes">21</item>
-                                                      <item id="22" translatable="yes">22</item>
-                                                      <item id="23" translatable="yes">23</item>
                                                     </items>
                                                   </object>
                                                   <packing>
@@ -5419,90 +5529,163 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="label12">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="halign">center</property>
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="vexpand">True</property>
+                                                    <property name="label" translatable="yes">month</property>
+                                                    <property name="justify">center</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">2</property>
+                                                  </packing>
+                                                </child>
                                               </object>
                                               <packing>
-                                                <property name="expand">False</property>
-                                                <property name="fill">True</property>
-                                                <property name="position">1</property>
+                                                <property name="left_attach">1</property>
+                                                <property name="top_attach">1</property>
                                               </packing>
                                             </child>
                                           </object>
                                           <packing>
-                                            <property name="name">page0</property>
-                                            <property name="title" translatable="yes">page0</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="GtkBox" id="on_day">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="orientation">vertical</property>
-                                            <property name="spacing">5</property>
-                                            <child>
-                                              <object class="GtkLabel" id="jhour_lab">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">False</property>
-                                                <property name="halign">center</property>
-                                                <property name="valign">center</property>
-                                                <property name="hexpand">True</property>
-                                                <property name="vexpand">True</property>
-                                                <property name="label" translatable="yes">Hour of day</property>
-                                                <property name="justify">center</property>
-                                              </object>
-                                              <packing>
-                                                <property name="expand">False</property>
-                                                <property name="fill">True</property>
-                                                <property name="position">0</property>
-                                              </packing>
-                                            </child>
-                                            <child>
-                                              <object class="GtkComboBoxText" id="jhour_choose">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">False</property>
-                                                <property name="halign">center</property>
-                                                <property name="valign">center</property>
-                                                <property name="hexpand">True</property>
-                                                <property name="vexpand">True</property>
-                                                <items>
-                                                  <item id="0" translatable="yes">0</item>
-                                                  <item id="1" translatable="yes">1</item>
-                                                  <item id="2" translatable="yes">2</item>
-                                                  <item id="3" translatable="yes">3</item>
-                                                  <item id="4" translatable="yes">4</item>
-                                                  <item id="5" translatable="yes">5</item>
-                                                  <item id="6" translatable="yes">6</item>
-                                                  <item id="7" translatable="yes">7</item>
-                                                  <item id="8" translatable="yes">8</item>
-                                                  <item id="9" translatable="yes">9</item>
-                                                  <item id="10" translatable="yes">10</item>
-                                                  <item id="11" translatable="yes">11</item>
-                                                  <item id="12" translatable="yes">12</item>
-                                                  <item id="13" translatable="yes">13</item>
-                                                  <item id="14" translatable="yes">14</item>
-                                                  <item id="15" translatable="yes">15</item>
-                                                  <item id="16" translatable="yes">16</item>
-                                                  <item id="17" translatable="yes">17</item>
-                                                  <item id="18" translatable="yes">18</item>
-                                                  <item id="19" translatable="yes">19</item>
-                                                  <item id="20" translatable="yes">20</item>
-                                                  <item id="21" translatable="yes">21</item>
-                                                  <item id="22" translatable="yes">22</item>
-                                                  <item id="23" translatable="yes">23</item>
-                                                </items>
-                                              </object>
-                                              <packing>
-                                                <property name="expand">False</property>
-                                                <property name="fill">True</property>
-                                                <property name="position">1</property>
-                                              </packing>
-                                            </child>
-                                          </object>
-                                          <packing>
-                                            <property name="name">page1</property>
-                                            <property name="title" translatable="yes">page1</property>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
                                             <property name="position">1</property>
                                           </packing>
                                         </child>
+                                      </object>
+                                      <packing>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                    <child type="tab">
+                                      <object class="GtkLabel" id="adv_page">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Advanced</property>
+                                      </object>
+                                      <packing>
+                                        <property name="position">1</property>
+                                        <property name="tab_fill">False</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox" id="new_au1">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkEntry" id="cron_entr">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="valign">center</property>
+                                            <property name="margin_left">30</property>
+                                            <property name="margin_right">30</property>
+                                            <property name="margin_top">10</property>
+                                            <property name="margin_bottom">10</property>
+                                            <property name="hexpand">True</property>
+                                            <property name="max_length">11</property>
+                                            <property name="text" translatable="yes">* * * * *</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="tx_lab1">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="margin_top">5</property>
+                                            <property name="margin_bottom">5</property>
+                                            <property name="label" translatable="yes">You need to provide five number separated with space: minute, hour, day-of-month, month and day-of-week.
+
+Note:
+	* = any value
+	, = value list separator, ie. 0,30 would be the 0 AND 30th
+	- = range of values, ie. 19-23 would be 19, 20, 21, 22, and 23
+	/ = step values, ie */5 is every 5
+	0-59 = minute
+	0-23 = hour
+	1-31 = day
+	1-12  or JAN-DEC = month
+	0-6 (0 is SUN) or MON-SUN = weekdays
+
+e.g.: * * * * = At every minute. OR * * * * MON = At every minute on Monday.</property>
+                                            <attributes>
+                                              <attribute name="weight" value="semibold"/>
+                                            </attributes>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="position">2</property>
+                                      </packing>
+                                    </child>
+                                    <child type="tab">
+                                      <object class="GtkLabel" id="manu_page">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Manual</property>
+                                      </object>
+                                      <packing>
+                                        <property name="position">2</property>
+                                        <property name="tab_fill">False</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="command_box">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="spacing">5</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkLabel" id="exec_lab4">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                        <property name="label" translatable="yes">Command :</property>
+                                        <property name="justify">center</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkEntry" id="comm_entr">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="valign">center</property>
+                                        <property name="margin_left">10</property>
+                                        <property name="margin_right">10</property>
+                                        <property name="hexpand">True</property>
+                                        <property name="vexpand">True</property>
+                                        <property name="placeholder_text" translatable="yes">e.g.: bash /path/to/myscript.sh</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -5518,22 +5701,106 @@ NOTE: It'll overwrite your current settings</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkBox" id="done_box">
+                                  <object class="GtkBox" id="don_box">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <placeholder/>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="done_but">
-                                        <property name="label" translatable="yes">Done</property>
+                                      <object class="GtkBox" id="tx_box">
                                         <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="halign">center</property>
-                                        <property name="valign">center</property>
+                                        <property name="can_focus">False</property>
                                         <property name="hexpand">True</property>
                                         <property name="vexpand">True</property>
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkLabel" id="tx_lab">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="margin_top">5</property>
+                                            <property name="margin_bottom">5</property>
+                                            <property name="label" translatable="yes">Execution of job: txtHere</property>
+                                            <attributes>
+                                              <attribute name="weight" value="semibold"/>
+                                            </attributes>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="pow_lab">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="margin_top">5</property>
+                                            <property name="margin_bottom">5</property>
+                                            <property name="label" translatable="yes">Powered by crontab.com</property>
+                                            <attributes>
+                                              <attribute name="weight" value="light"/>
+                                              <attribute name="variant" value="small-caps"/>
+                                            </attributes>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox" id="chos_box">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <child>
+                                          <object class="GtkButton" id="cancel_but">
+                                            <property name="label" translatable="yes">Cancel</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">True</property>
+                                            <property name="halign">end</property>
+                                            <property name="valign">center</property>
+                                            <property name="margin_left">10</property>
+                                            <property name="margin_right">10</property>
+                                            <property name="margin_top">5</property>
+                                            <property name="margin_bottom">5</property>
+                                            <property name="hexpand">True</property>
+                                            <property name="vexpand">True</property>
+                                            <signal name="clicked" handler="cancel_but_clicked" swapped="no"/>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkButton" id="done_but">
+                                            <property name="label" translatable="yes">Save</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">True</property>
+                                            <property name="halign">end</property>
+                                            <property name="valign">center</property>
+                                            <property name="margin_left">10</property>
+                                            <property name="margin_right">10</property>
+                                            <property name="margin_top">5</property>
+                                            <property name="margin_bottom">5</property>
+                                            <property name="hexpand">True</property>
+                                            <property name="vexpand">True</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">False</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
