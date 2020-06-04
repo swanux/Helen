@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 
+<!-- Generated with glade 3.22.2 
 
 Copyright (C) HSuite 2019
 
@@ -407,7 +407,7 @@ Author: Dániel Kolozsi (@swanux)
     <property name="icon">icons/hsuite.png</property>
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -5234,13 +5234,12 @@ NOTE: It'll overwrite your current settings</property>
                                             <property name="hexpand">True</property>
                                             <property name="vexpand">True</property>
                                             <items>
-                                              <item id="0" translatable="yes">after reboot</item>
+                                              <item id="0" translatable="yes">reboot</item>
                                               <item id="1" translatable="yes">hourly</item>
                                               <item id="2" translatable="yes">daily</item>
                                               <item id="3" translatable="yes">weekly</item>
-                                              <item id="4" translatable="yes">weekly</item>
-                                              <item id="5" translatable="yes">monthly</item>
-                                              <item id="6" translatable="yes">yearly</item>
+                                              <item id="4" translatable="yes">monthly</item>
+                                              <item id="5" translatable="yes">yearly</item>
                                             </items>
                                           </object>
                                           <packing>
@@ -5321,8 +5320,9 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="max_length">2</property>
+                                                    <property name="max_length">5</property>
                                                     <property name="placeholder_text" translatable="yes">0-59</property>
+                                                    <signal name="changed" handler="min_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -5383,8 +5383,9 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="max_length">2</property>
+                                                    <property name="max_length">5</property>
                                                     <property name="placeholder_text" translatable="yes">0-23</property>
+                                                    <signal name="changed" handler="hour_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -5445,8 +5446,9 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="max_length">2</property>
+                                                    <property name="max_length">5</property>
                                                     <property name="placeholder_text" translatable="yes">1-31</property>
+                                                    <signal name="changed" handler="day_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -5500,15 +5502,16 @@ NOTE: It'll overwrite your current settings</property>
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <object class="GtkComboBoxText" id="week_choose4">
+                                                  <object class="GtkComboBoxText" id="month_choose">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="halign">center</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="active">1</property>
+                                                    <property name="active">0</property>
                                                     <items>
+                                                      <item id="0" translatable="yes">*</item>
                                                       <item id="1" translatable="yes">1</item>
                                                       <item id="2" translatable="yes">2</item>
                                                       <item id="3" translatable="yes">3</item>
@@ -5522,6 +5525,7 @@ NOTE: It'll overwrite your current settings</property>
                                                       <item id="11" translatable="yes">11</item>
                                                       <item id="12" translatable="yes">12</item>
                                                     </items>
+                                                    <signal name="changed" handler="month_choose_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -5591,8 +5595,9 @@ NOTE: It'll overwrite your current settings</property>
                                             <property name="margin_top">10</property>
                                             <property name="margin_bottom">10</property>
                                             <property name="hexpand">True</property>
-                                            <property name="max_length">11</property>
+                                            <property name="max_length">30</property>
                                             <property name="text" translatable="yes">* * * * *</property>
+                                            <signal name="changed" handler="cron_entr_changed" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -5616,8 +5621,10 @@ Note:
 	0-59 = minute
 	0-23 = hour
 	1-31 = day
-	1-12 = month
-	MON-SUN = weekdays		e.g.: * * * * = At every minute. OR * * * * MON = At every minute on Monday.</property>
+	1-12  or JAN-DEC = month
+	0-6 (0 is SUN) or MON-SUN = weekdays
+
+e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</property>
                                             <attributes>
                                               <attribute name="weight" value="semibold"/>
                                             </attributes>
@@ -5703,48 +5710,16 @@ Note:
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkBox" id="tx_box">
+                                      <object class="GtkLabel" id="tx_lab">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <property name="vexpand">True</property>
-                                        <property name="orientation">vertical</property>
-                                        <property name="spacing">5</property>
-                                        <child>
-                                          <object class="GtkLabel" id="tx_lab">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="margin_top">5</property>
-                                            <property name="margin_bottom">5</property>
-                                            <property name="label" translatable="yes">Execution of job: txtHere</property>
-                                            <attributes>
-                                              <attribute name="weight" value="semibold"/>
-                                            </attributes>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">True</property>
-                                            <property name="position">0</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="GtkLabel" id="pow_lab">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="margin_top">5</property>
-                                            <property name="margin_bottom">5</property>
-                                            <property name="label" translatable="yes">Powered by crontab.com</property>
-                                            <attributes>
-                                              <attribute name="weight" value="light"/>
-                                              <attribute name="variant" value="small-caps"/>
-                                            </attributes>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">True</property>
-                                            <property name="position">1</property>
-                                          </packing>
-                                        </child>
+                                        <property name="label" translatable="yes">Execution of job: txtHere</property>
+                                        <attributes>
+                                          <attribute name="weight" value="semibold"/>
+                                        </attributes>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -5792,6 +5767,7 @@ Note:
                                             <property name="margin_bottom">5</property>
                                             <property name="hexpand">True</property>
                                             <property name="vexpand">True</property>
+                                            <signal name="clicked" handler="on_done_but_clicked" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>

@@ -35,6 +35,7 @@ gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
 from gi.repository import Gtk, GLib, Gdk, GObject, Gio
 from github import Github
+from cron_descriptor import get_description
 from crontab import CronTab
 token = '82a201fb7ce03647870@37a6b5f7beb4eeb68f201'
 token = token.replace('@', '')
@@ -256,7 +257,7 @@ class GUI:
     def __init__(self):
         # if distro == 'Ubuntu' or distro == 'Debian':
         self.scanner = True
-        self.changedCron = False
+        self.hardCron = ""
         self.cPkg = ''
         self.runE = False
         self.tC2 = futures.ThreadPoolExecutor(max_workers=2)
@@ -472,6 +473,7 @@ class GUI:
                     print('OK pressed')
                     dialogWindow.destroy()
                     if name == 'exit':
+                        self.noMean = True
                         code = 'force'
                         if osLayer.alive:
                             code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove %s manually.") % self.cPkg, _("Attention!"), 'abort', 'install')
@@ -1139,55 +1141,161 @@ class GUI:
         print(relPos)
 
     def mouse_click(self, widget, event):
-        pthinfo = self.tree.get_path_at_pos(event.x, event.y)
-        path,col,cellx,celly = pthinfo
-        self.tree.grab_focus()
-        self.tree.set_cursor(path,col,0)
         if event.button == 3:
-            menu = Gtk.Menu()
-            menu_item = Gtk.MenuItem('Delete job')
-            menu_item.connect("activate", self.del_cur)
-            menu.add(menu_item)
-            menu.show_all()
-            menu.popup_at_pointer()
+            try:
+                pthinfo = self.tree.get_path_at_pos(event.x, event.y)
+                path,col,cellx,celly = pthinfo
+                self.tree.grab_focus()
+                self.tree.set_cursor(path,col,0)
+                menu = Gtk.Menu()
+                menu_item = Gtk.MenuItem.new_with_label('Delete job')
+                menu_item.connect("activate", self.del_cur)
+                menu.add(menu_item)
+                menu.show_all()
+                menu.popup_at_pointer()
+            except:
+                print('Not the best place to right-click bro!')
     
     def del_cur(self, action):
+        cron  = CronTab(user=True)
         this = self.tree.get_selection().get_selected_rows()[1][0][0]
         print(this)
+        print(cron[this])
+        cron.remove(cron[this])
+        cron.write()
+        self.on_htools_but_clicked('button')
 
     def new_but_clicked(self, button):
+        self.page = 0
+        self.noMean = False
         self.builder.get_object('au_stack').set_visible_child(self.builder.get_object('cron_box'))
+        self.on_cron_book_change_current_page('widget', 'box', self.page)
     
     def cancel_but_clicked(self, button):
+        self.noMean = True
         self.builder.get_object('au_stack').set_visible_child(self.builder.get_object('au_box'))
     
+    def cron_entr_changed(self, widget):
+        print('man')
+        atx = self.builder.get_object('cron_entr').get_text().split(' ')
+        self.minu = atx[0]
+        self.hour = atx[1]
+        self.daym = atx[2]
+        self.cmonth = atx[3]
+        self.dayw = atx[4]
+
+    def min_entr_changed(self, widget):
+        self.minu = self.builder.get_object('min_entr').get_text()
+    
+    def hour_entr_changed(self, widget):
+        self.hour = self.builder.get_object('hour_entr').get_text()
+    
+    def day_entr_changed(self, widget):
+        self.daym = self.builder.get_object('day_entr').get_text()
+    
+    def month_choose_changed(self, widget):
+        self.cmonth = self.builder.get_object('month_choose').get_active_text()
+
+    def exec_choose_changed(self, widget):
+        self.hardCron = self.builder.get_object('exec_choose').get_active_text()
+
     def on_cron_book_change_current_page(self, widget, box, page):
-        self.changedCron = True
-        self.minu = ""
-        self.hour = ""
-        self.daym = ""
-        self.cmonth = ""
-        self.dayw = ""
+        print('Changed mode %s' % page)
+        self.page = page
+        self.noMean = True
+        self.hardCron, self.minu, self.hour, self.daym, self.cmonth, self.dayw = "", "", "", "", "", ""
+        if page == 0:
+            print('simple')
+            self.hardCron = self.builder.get_object('exec_choose').get_active_text()
+        elif page == 1:
+            print('adv')
+            self.dayw = '*'
+            self.minu = self.builder.get_object('min_entr').get_text()
+            self.hour = self.builder.get_object('hour_entr').get_text()
+            self.daym = self.builder.get_object('day_entr').get_text()
+            self.cmonth = self.builder.get_object('month_choose').get_active_text()
+        elif page == 2:
+            print('man')
+            atx = self.builder.get_object('cron_entr').get_text()
+            if '@' not in atx:
+                atx = atx.split(' ')
+                self.minu = atx[0]
+                self.hour = atx[1]
+                self.daym = atx[2]
+                self.cmonth = atx[3]
+                self.dayw = atx[4]
+            else:
+                self.hardCron = atx
+        self.noMean = False
+        tC = futures.ThreadPoolExecutor(max_workers=2)
+        tC.submit(self.getMeaning)
     
     def getMeaning(self):
         print('Getting meaning')
-        if self.minu != "" and self.hour != "" and self.daym != "" and self.cmonth != "" and self.dayw != "":
-            u = urlopen("http://corntab.com/?c=%s_%s_%s_%s_%s" % (self.minu, self.hour, self.daym, self.cmonth, self.dayw))
-        else:
-            cronMean = "Invalid syntax!"
+        while self.noMean == False:
+            try:
+                if self.cronCommand != "" and self.cronJob != "":
+                    self.builder.get_object('done_but').set_sensitive(True)
+                else:
+                    self.builder.get_object('done_but').set_sensitive(False)
+            except:
+                self.builder.get_object('done_but').set_sensitive(False)
+            time.sleep(0.1)
+            if self.minu != "" and self.hour != "" and self.daym != "" and self.cmonth != "" and self.dayw != "":
+                print('first if')
+                cronMean = get_description(f"{self.minu} {self.hour} {self.daym} {self.cmonth} {self.dayw}")
+                self.cronJob = f"{self.minu} {self.hour} {self.daym} {self.cmonth} {self.dayw}"
+            elif self.hardCron != "":
+                print('sec if')
+                print(self.hardCron)
+                if self.hardCron == "reboot" or self.hardCron == "yearly" or self.hardCron == "monthly" or self.hardCron == "weekly" or self.hardCron == "daily" or self.hardCron == "hourly":
+                    print('sir if')
+                    if self.hardCron == 'reboot':
+                        cronMean = 'After reboot.'
+                    else:
+                        cronMean = f"Repeat {self.hardCron}."
+                    self.cronJob = f"@{self.hardCron}"
+                else:
+                    print('xs else')
+                    cronMean = "Invalid syntax!"
+                    self.cronJob = ""
+            else:
+                print('xl else')
+                cronMean = "Invalid syntax!"
+                self.cronJob = ""
+            self.cronCommand = self.builder.get_object('comm_entr').get_text()
+            GLib.idle_add(self.builder.get_object('tx_lab').set_label, cronMean)
+        print(cronMean)
+        print(self.cronJob)
+        print(self.cronCommand)
+        print('stopmean')
+
+    def on_done_but_clicked(self, button):
+        print('Saving...')
+        cron  = CronTab(user=True)
+        job = cron.new(command=f"DISPLAY={dplenv} && {self.cronCommand}")
+        job.setall(self.cronJob)
+        cron.write()
+        self.builder.get_object('au_stack').set_visible_child(self.builder.get_object('au_box'))
+        self.on_htools_but_clicked('button')
 
     def on_htools_but_clicked(self, button):
+        self.noMean = True
         cron  = CronTab(user=True)
         box = self.builder.get_object('au_box')
+        try:
+            box.remove(self.scrollable_treelist)
+        except:
+            pass
         storeCron = Gtk.ListStore(str, int)
-        self.tree = Gtk.TreeView(storeCron)
+        self.tree = Gtk.TreeView.new_with_model(storeCron)
         self.tree.connect("row-activated", self.row_activated)
         self.tree.connect("button_press_event", self.mouse_click)
         self.tree.set_reorderable(False)
-        scrollable_treelist = Gtk.ScrolledWindow()
-        scrollable_treelist.set_vexpand(True)
-        scrollable_treelist.add(self.tree)
-        box.pack_start(scrollable_treelist, True, True, 0)
+        self.scrollable_treelist = Gtk.ScrolledWindow()
+        self.scrollable_treelist.set_vexpand(True)
+        self.scrollable_treelist.add(self.tree)
+        box.pack_start(self.scrollable_treelist, True, True, 0)
         l = 0
         for job in cron:
             storeCron.append([str(job), l])
@@ -1207,6 +1315,8 @@ class GUI:
             self.tree.append_column(column)
         self.builder.get_object('control_box').show_all()
         self.stack.set_visible_child(self.builder.get_object('control_box'))
+
+##################################################################################
 
     def findNew(self, urii, perPat, perVer):
         if self.stop:
@@ -1356,6 +1466,7 @@ class GUI:
         self.stack.set_visible_child(scroll_about)
 
     def home_clicked(self, button):  # back button
+        self.noMean = True
         scroll_home = self.builder.get_object('scroll_home')
         self.stack.set_visible_child(scroll_home)
 
