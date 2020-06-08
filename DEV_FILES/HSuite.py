@@ -257,6 +257,7 @@ class GUI:
     def __init__(self):
         # if distro == 'Ubuntu' or distro == 'Debian':
         self.scanner = True
+        self.them_conf = []
         self.hardCron = ""
         self.cPkg = ''
         self.runE = False
@@ -931,6 +932,48 @@ class GUI:
         webbrowser.open_new("https://swanux.github.io/hsuite/")
 
 ######################################################################################################################
+
+    def del_themer(self, twindow, e):
+        twindow.hide()
+        return True
+
+    def all_toggle(self, widget):
+        if widget.get_active():
+            print('Active')
+            self.builder.get_object('desk_them_chk').set_active(True)
+            self.builder.get_object('lay_chk').set_active(True)
+            self.builder.get_object('ico_chk').set_active(True)
+            self.builder.get_object('cur_chk').set_active(True)
+            self.builder.get_object('snd_chk').set_active(True)
+            self.builder.get_object('gdm_chk').set_active(True)
+        else:
+            print('Inactive')
+            self.builder.get_object('desk_them_chk').set_active(False)
+            self.builder.get_object('lay_chk').set_active(False)
+            self.builder.get_object('ico_chk').set_active(False)
+            self.builder.get_object('cur_chk').set_active(False)
+            self.builder.get_object('snd_chk').set_active(False)
+            self.builder.get_object('gdm_chk').set_active(False)
+        print(self.them_conf)
+
+    def them_conf_ch(self, widget):
+        name = widget.get_label()
+        if widget.get_active():
+            print('Active')
+            self.them_conf.append(name)
+        else:
+            print('Inactive')
+            self.them_conf.remove(name)
+        print(self.them_conf)
+
+    def mac_but_clicked(self, button):
+        self.builder.get_object('themer_win').show_all()
+    
+    def win_but_clicked(self, button):
+        self.builder.get_object('themer_win').show_all()
+    
+    def un_but_clicked(self, button):
+        self.builder.get_object('themer_win').show_all()
 
     def on_general_chk(self, widget):
         which = Gtk.Buildable.get_name(widget)
