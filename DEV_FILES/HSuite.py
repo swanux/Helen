@@ -169,12 +169,14 @@ loLa = {
     'lfs' : ['', 54]
     }
 
+# sudo cp $HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml /usr/share/glib-2.0/schemas
+# sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
 themDat = {
-    'Desktop theme' : [],
+    'Desktop theme' : ['wget https://github.com/B00merang-Project/macOS-Dark/archive/5.2-dark.zip && unzip 5.2-dark.zip && mkdir -p ~/.themes && mv macOS-Dark-5.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "macOS-Dark-5.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "macOS-Dark-5.2-dark"'],
     'Layout' : [],
-    'Icons' : [],
-    'Cursor' : [],
-    'Sound' : [],
+    'Icons' : ['mkdir -p ~/.icons && git clone https://github.com/vinceliuice/McMojave-circle.git && cd McMojave-circle && ./install.sh -d ~/.icons && cd .. && rm -rf McMojave-circle && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark"'],
+    'Cursor' : ['wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.gz && tar -xf capitaine-cursors-r3.tar.gz -C capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors'],
     'Login theme' : []
 }
 
