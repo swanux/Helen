@@ -331,6 +331,163 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/telegram.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkWindow" id="themer_win">
+    <property name="can_focus">False</property>
+    <property name="margin_left">10</property>
+    <property name="margin_right">10</property>
+    <property name="title" translatable="yes">Apply them</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="default_width">400</property>
+    <property name="default_height">300</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="skip_pager_hint">True</property>
+    <signal name="delete-event" handler="del_themer" swapped="no"/>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow" id="scroll_the">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="shadow_type">in</property>
+        <child>
+          <object class="GtkViewport" id="view_the">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkBox" id="the_box">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkCheckButton" id="desk_them_chk">
+                    <property name="label" translatable="yes">Desktop theme</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="lay_chk">
+                    <property name="label" translatable="yes">Layout</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="ico_chk">
+                    <property name="label" translatable="yes">Icons</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="cur_chk">
+                    <property name="label" translatable="yes">Cursor</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="gdm_chk">
+                    <property name="label" translatable="yes">Login theme</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="all_chk">
+                    <property name="label" translatable="yes">Everything</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="all_toggle" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">6</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="appl_but">
+                    <property name="label" translatable="yes">Apply</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="appl_but_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">7</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkImage" id="tims_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -418,6 +575,10 @@ Author: Dániel Kolozsi (@swanux)
           <object class="GtkScrolledWindow" id="scroll_home">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_home">
@@ -671,6 +832,8 @@ Author: Dániel Kolozsi (@swanux)
           <object class="GtkBox" id="notebook_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox" id="progBox">
@@ -2476,6 +2639,8 @@ If you click on the icon of the program, you'll see some extra informations abou
           <object class="GtkScrolledWindow" id="scroll_desc">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_desc">
@@ -2584,6 +2749,8 @@ If you click on the icon of the program, you'll see some extra informations abou
           <object class="GtkBox" id="distro_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkButton" id="home_button3">
@@ -3737,6 +3904,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
           <object class="GtkScrolledWindow" id="scroll_about">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_about">
@@ -4100,6 +4269,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
           <object class="GtkBox" id="web_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
@@ -4348,6 +4519,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
           <object class="GtkScrolledWindow" id="scroll_switcher">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_switcher">
@@ -4919,6 +5092,8 @@ Don't forget to REMOVE the package named "restore" with the default package mana
           <object class="GtkBox" id="control_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkButton" id="home_button4">
@@ -5066,7 +5241,7 @@ NOTE: It'll overwrite your current settings</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <signal name="clicked" handler="mac_but_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="general_theme_click" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -5079,7 +5254,7 @@ NOTE: It'll overwrite your current settings</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <signal name="clicked" handler="win_but_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="general_theme_click" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -5092,7 +5267,7 @@ NOTE: It'll overwrite your current settings</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <signal name="clicked" handler="un_but_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="general_theme_click" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">2</property>
@@ -5835,177 +6010,6 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
             <property name="title" translatable="yes">page7</property>
             <property name="position">7</property>
           </packing>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkWindow" id="themer_win">
-    <property name="can_focus">False</property>
-    <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="default_width">400</property>
-    <property name="default_height">300</property>
-    <property name="destroy_with_parent">True</property>
-    <property name="skip_taskbar_hint">True</property>
-    <property name="skip_pager_hint">True</property>
-    <property name="attached_to">window</property>
-    <signal name="delete-event" handler="del_themer" swapped="no"/>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
-    <child>
-      <object class="GtkScrolledWindow" id="scroll_the">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="shadow_type">in</property>
-        <child>
-          <object class="GtkViewport" id="view_the">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkBox" id="the_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkCheckButton" id="desk_them_chk">
-                    <property name="label" translatable="yes">Desktop theme</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="lay_chk">
-                    <property name="label" translatable="yes">Layout</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="ico_chk">
-                    <property name="label" translatable="yes">Icons</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="cur_chk">
-                    <property name="label" translatable="yes">Cursor</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="snd_chk">
-                    <property name="label" translatable="yes">Sound</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="gdm_chk">
-                    <property name="label" translatable="yes">Login theme</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">5</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="all_chk">
-                    <property name="label" translatable="yes">Everything</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="all_toggle" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">6</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="appl_but">
-                    <property name="label" translatable="yes">Apply</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">7</property>
-                  </packing>
-                </child>
-              </object>
-            </child>
-          </object>
         </child>
       </object>
     </child>

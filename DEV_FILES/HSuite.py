@@ -169,6 +169,15 @@ loLa = {
     'lfs' : ['', 54]
     }
 
+themDat = {
+    'Desktop theme' : [],
+    'Layout' : [],
+    'Icons' : [],
+    'Cursor' : [],
+    'Sound' : [],
+    'Login theme' : []
+}
+
 # Used generally
 # The glade file
 UI_FILE = "hsuite.glade"
@@ -931,7 +940,12 @@ class GUI:
         # open project page in browser
         webbrowser.open_new("https://swanux.github.io/hsuite/")
 
-######################################################################################################################
+#######################################################################################
+
+    def appl_but_clicked(self, button):
+        for i in self.them_conf:
+            command = themDat[i][self.themNum]
+            print(i, command)
 
     def del_themer(self, twindow, e):
         twindow.hide()
@@ -966,14 +980,18 @@ class GUI:
             self.them_conf.remove(name)
         print(self.them_conf)
 
-    def mac_but_clicked(self, button):
-        self.builder.get_object('themer_win').show_all()
-    
-    def win_but_clicked(self, button):
-        self.builder.get_object('themer_win').show_all()
-    
-    def un_but_clicked(self, button):
-        self.builder.get_object('themer_win').show_all()
+    def general_theme_click(self, button):
+        name = button.get_label()
+        if 'MacOS' in name:
+            self.themNum = 0
+        elif 'Windows' in name:
+            self.themNum = 1
+        else:
+            self.themNum = 2
+        win = self.builder.get_object('themer_win')
+        win.show_all()
+
+#######################################################################################
 
     def on_general_chk(self, widget):
         which = Gtk.Buildable.get_name(widget)
