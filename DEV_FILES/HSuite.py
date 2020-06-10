@@ -169,15 +169,33 @@ loLa = {
     'lfs' : ['', 54]
     }
 
-# sudo cp $HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml /usr/share/glib-2.0/schemas
-# sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+extDat = [
+    ['dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
+    ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
+    ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu']
+]
 
 themDat = {
-    'Desktop theme' : ['wget https://github.com/B00merang-Project/macOS-Dark/archive/5.2-dark.zip && unzip 5.2-dark.zip && mkdir -p ~/.themes && mv macOS-Dark-5.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "macOS-Dark-5.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "macOS-Dark-5.2-dark"'],
-    'Layout' : [],
-    'Icons' : ['mkdir -p ~/.icons && git clone https://github.com/vinceliuice/McMojave-circle.git && cd McMojave-circle && ./install.sh -d ~/.icons && cd .. && rm -rf McMojave-circle && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark"'],
-    'Cursor' : ['wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.gz && tar -xf capitaine-cursors-r3.tar.gz -C capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors'],
-    'Login theme' : []
+    'Desktop theme' : 
+    [
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark"',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark"',
+    ],
+    'Layout' : 
+    [
+        'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[0],
+        'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu manu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat[1]
+    ],
+    'Icons' : 
+    [
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/01-McMojave-circle.tar.xz && tar -xf 01-McMojave-circle.tar.xz && mv McMojave-circle-dark ~/.icons/ && mv McMojave-circle ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark"',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0"'
+    ],
+    'Cursor' : 
+    [
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.gz && tar -xf capitaine-cursors-r3.tar.xz && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S'
+    ],
 }
 
 # Used generally
@@ -267,6 +285,10 @@ class GUI:
     count = 0
     def __init__(self):
         # if distro == 'Ubuntu' or distro == 'Debian':
+        self.GNOME_SITE = "https://extensions.gnome.org"
+        self.GNOME_VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
+        self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
+        self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         self.scanner = True
         self.them_conf = []
         self.hardCron = ""
@@ -945,9 +967,26 @@ class GUI:
 #######################################################################################
 
     def appl_but_clicked(self, button):
+        os.system('mkdir -p ~/.themes && mkdir -p ~/.icons && mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
         for i in self.them_conf:
             command = themDat[i][self.themNum]
             print(i, command)
+            if i == 'Layout':
+                os.system('gsettings set org.gnome.shell enabled-extensions []')
+                for ext in extDat[self.themNum]:
+                    if ext in self.DIRS:
+                        print('%s is already installed.' % ext)
+                    else:
+                        print('Installing %s...' % ext)
+                        if 'remove-dropdown-arrows' in ext and float(self.GNOME_VERSION) >= 3.36:
+                            JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.GNOME_SITE, ext)
+                        else:
+                            JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
+                        tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
+                        EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
+                        os.system("wget --header='Accept-Encoding:none' -O '~/tmp.zip' '%s'" % EXTENSION_URL)
+                        os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
+            os.system(command)
 
     def del_themer(self, twindow, e):
         twindow.hide()
@@ -960,16 +999,12 @@ class GUI:
             self.builder.get_object('lay_chk').set_active(True)
             self.builder.get_object('ico_chk').set_active(True)
             self.builder.get_object('cur_chk').set_active(True)
-            self.builder.get_object('snd_chk').set_active(True)
-            self.builder.get_object('gdm_chk').set_active(True)
         else:
             print('Inactive')
             self.builder.get_object('desk_them_chk').set_active(False)
             self.builder.get_object('lay_chk').set_active(False)
             self.builder.get_object('ico_chk').set_active(False)
             self.builder.get_object('cur_chk').set_active(False)
-            self.builder.get_object('snd_chk').set_active(False)
-            self.builder.get_object('gdm_chk').set_active(False)
         print(self.them_conf)
 
     def them_conf_ch(self, widget):

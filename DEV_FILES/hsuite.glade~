@@ -333,9 +333,7 @@ Author: Dániel Kolozsi (@swanux)
   </object>
   <object class="GtkWindow" id="themer_win">
     <property name="can_focus">False</property>
-    <property name="margin_left">10</property>
-    <property name="margin_right">10</property>
-    <property name="title" translatable="yes">Apply them</property>
+    <property name="title" translatable="yes">Apply theme</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="default_width">400</property>
@@ -360,8 +358,6 @@ Author: Dániel Kolozsi (@swanux)
               <object class="GtkBox" id="the_box">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
@@ -434,40 +430,6 @@ Author: Dániel Kolozsi (@swanux)
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkCheckButton" id="snd_chk">
-                    <property name="label" translatable="yes">Sound</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="gdm_chk">
-                    <property name="label" translatable="yes">Login theme</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">5</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkCheckButton" id="all_chk">
                     <property name="label" translatable="yes">Everything</property>
                     <property name="visible">True</property>
@@ -490,6 +452,9 @@ Author: Dániel Kolozsi (@swanux)
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">50</property>
+                    <property name="margin_right">50</property>
+                    <property name="margin_bottom">10</property>
                     <signal name="clicked" handler="appl_but_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -592,10 +557,6 @@ Author: Dániel Kolozsi (@swanux)
           <object class="GtkScrolledWindow" id="scroll_home">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
-            <property name="margin_top">5</property>
-            <property name="margin_bottom">5</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_home">
@@ -849,8 +810,6 @@ Author: Dániel Kolozsi (@swanux)
           <object class="GtkBox" id="notebook_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox" id="progBox">
@@ -866,6 +825,8 @@ Author: Dániel Kolozsi (@swanux)
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">20</property>
+                    <property name="margin_right">20</property>
                     <property name="margin_top">10</property>
                     <property name="margin_bottom">10</property>
                     <property name="image">image1</property>
@@ -979,6 +940,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="browser_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1218,6 +1181,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="office_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1456,6 +1421,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="editor_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1694,6 +1661,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="comm_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -1932,6 +1901,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="games_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -2215,6 +2186,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                           <object class="GtkGrid" id="extras_grid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="row_spacing">4</property>
@@ -2656,8 +2629,6 @@ If you click on the icon of the program, you'll see some extra informations abou
           <object class="GtkScrolledWindow" id="scroll_desc">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_desc">
@@ -2675,8 +2646,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">15</property>
-                        <property name="margin_right">15</property>
+                        <property name="margin_left">20</property>
+                        <property name="margin_right">20</property>
                         <property name="margin_top">10</property>
                         <property name="margin_bottom">10</property>
                         <property name="image">image2</property>
@@ -2717,8 +2688,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">15</property>
-                        <property name="margin_right">15</property>
+                        <property name="margin_left">50</property>
+                        <property name="margin_right">50</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="image">image7</property>
@@ -2737,8 +2708,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">15</property>
-                        <property name="margin_right">15</property>
+                        <property name="margin_left">50</property>
+                        <property name="margin_right">50</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="image">image8</property>
@@ -2766,8 +2737,6 @@ If you click on the icon of the program, you'll see some extra informations abou
           <object class="GtkBox" id="distro_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkButton" id="home_button3">
@@ -2775,8 +2744,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">15</property>
-                <property name="margin_right">15</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
                 <property name="margin_top">10</property>
                 <property name="margin_bottom">10</property>
                 <property name="image">image6</property>
@@ -2833,8 +2802,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                               <object class="GtkLabel" id="info_txt1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="margin_left">15</property>
-                                <property name="margin_right">15</property>
+                                <property name="margin_left">20</property>
+                                <property name="margin_right">20</property>
                                 <property name="margin_top">30</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="label" translatable="yes">Welcome to the Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the best distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
@@ -2885,8 +2854,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                           <object class="GtkBox" id="begin_box">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="orientation">vertical</property>
@@ -3272,8 +3241,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                           <object class="GtkBox" id="gam_box">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="orientation">vertical</property>
@@ -3397,8 +3366,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                           <object class="GtkBox" id="dev_box">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="orientation">vertical</property>
@@ -3687,8 +3656,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                           <object class="GtkBox" id="pu_box">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
                             <property name="margin_top">5</property>
                             <property name="margin_bottom">5</property>
                             <property name="orientation">vertical</property>
@@ -3921,8 +3890,6 @@ Click on the buttons to download the chosen distro or click on the logo to get e
           <object class="GtkScrolledWindow" id="scroll_about">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_about">
@@ -3939,8 +3906,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">15</property>
-                        <property name="margin_right">15</property>
+                        <property name="margin_left">20</property>
+                        <property name="margin_right">20</property>
                         <property name="margin_top">10</property>
                         <property name="margin_bottom">10</property>
                         <property name="image">image3</property>
@@ -4022,8 +3989,8 @@ To view recent changes visit the link below.</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="margin_left">15</property>
-                                <property name="margin_right">15</property>
+                                <property name="margin_left">220</property>
+                                <property name="margin_right">220</property>
                                 <property name="margin_top">20</property>
                                 <property name="margin_bottom">10</property>
                                 <property name="relief">none</property>
@@ -4286,8 +4253,6 @@ Suite 330, Boston, MA  02111-1307  USA</property>
           <object class="GtkBox" id="web_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
@@ -4302,8 +4267,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="margin_left">15</property>
-                    <property name="margin_right">15</property>
+                    <property name="margin_left">20</property>
+                    <property name="margin_right">20</property>
                     <property name="margin_top">10</property>
                     <property name="margin_bottom">10</property>
                     <property name="image">image5</property>
@@ -4361,8 +4326,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                           <object class="GtkGrid" id="midgrid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_left">5</property>
-                            <property name="margin_right">5</property>
+                            <property name="margin_right">20</property>
                             <property name="hexpand">True</property>
                             <property name="vexpand">True</property>
                             <child>
@@ -4499,8 +4463,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="margin_left">15</property>
-                            <property name="margin_right">15</property>
+                            <property name="margin_left">50</property>
+                            <property name="margin_right">50</property>
                             <property name="margin_top">10</property>
                             <property name="margin_bottom">10</property>
                             <property name="image">image4</property>
@@ -4536,8 +4500,6 @@ Suite 330, Boston, MA  02111-1307  USA</property>
           <object class="GtkScrolledWindow" id="scroll_switcher">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="shadow_type">in</property>
             <child>
               <object class="GtkViewport" id="view_switcher">
@@ -4555,8 +4517,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="margin_left">5</property>
-                        <property name="margin_right">5</property>
+                        <property name="margin_left">20</property>
+                        <property name="margin_right">20</property>
                         <property name="margin_top">10</property>
                         <property name="margin_bottom">10</property>
                         <property name="image">image9</property>
@@ -4603,6 +4565,9 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                               <object class="GtkGrid" id="chk_grid">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">10</property>
+                                <property name="margin_right">10</property>
+                                <property name="margin_bottom">10</property>
                                 <child>
                                   <object class="GtkCheckButton" id="prog_chk">
                                     <property name="label" translatable="yes">Installed programs</property>
@@ -4732,6 +4697,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                   <object class="GtkBox" id="tmp_box">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">10</property>
+                                    <property name="margin_right">10</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">5</property>
                                     <child>
@@ -4808,8 +4775,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                   <object class="GtkBox" id="dat_box">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="margin_left">5</property>
-                                    <property name="margin_right">5</property>
+                                    <property name="margin_left">10</property>
+                                    <property name="margin_right">10</property>
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
@@ -4940,6 +4907,9 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
+                                        <property name="margin_left">20</property>
+                                        <property name="margin_right">20</property>
+                                        <property name="margin_bottom">10</property>
                                         <signal name="clicked" handler="on_dat_proc_but_clicked" swapped="no"/>
                                       </object>
                                       <packing>
@@ -5109,8 +5079,6 @@ Don't forget to REMOVE the package named "restore" with the default package mana
           <object class="GtkBox" id="control_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkButton" id="home_button4">
@@ -5118,6 +5086,8 @@ Don't forget to REMOVE the package named "restore" with the default package mana
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
                 <property name="margin_top">10</property>
                 <property name="margin_bottom">10</property>
                 <property name="image">image10</property>
@@ -5246,9 +5216,11 @@ NOTE: It'll overwrite your current settings</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkGrid">
+                              <object class="GtkGrid" id="theme_grid">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">10</property>
+                                <property name="margin_right">10</property>
                                 <property name="row_spacing">5</property>
                                 <property name="column_spacing">5</property>
                                 <property name="column_homogeneous">True</property>
@@ -5346,6 +5318,8 @@ NOTE: It'll overwrite your current settings</property>
                               <object class="GtkBox" id="au_box">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">10</property>
+                                <property name="margin_right">10</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="orientation">vertical</property>

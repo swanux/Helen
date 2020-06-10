@@ -25,6 +25,9 @@ depends = ${misc:Depends}
 	psmisc
 	gtk2-engines-murrine
 	gtk2-engines-pixbuf
+	x11-utils
+	gnome-shell-extensions
+	gnome-menus gir1.2-gmenu-3.0
 	python3-notify2
 	python3-aptdaemon.gtk3widgets
 	python3-aptdaemon
