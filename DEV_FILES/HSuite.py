@@ -178,8 +178,8 @@ extDat = [
 themDat = {
     'Desktop theme' : 
     [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark"',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark"',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark"',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark"',
     ],
     'Layout' : 
     [
@@ -188,13 +188,13 @@ themDat = {
     ],
     'Icons' : 
     [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/01-McMojave-circle.tar.xz && tar -xf 01-McMojave-circle.tar.xz && mv McMojave-circle-dark ~/.icons/ && mv McMojave-circle ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark"',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0"'
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/01-McMojave-circle.tar.xz && tar -xf 01-McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle-dark ~/.icons/ && rm -rf ~/.icons/McMojave-circle && mv McMojave-circle ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark"',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0"'
     ],
     'Cursor' : 
     [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.gz && tar -xf capitaine-cursors-r3.tar.xz && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S'
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S'
     ],
 }
 
@@ -970,7 +970,6 @@ class GUI:
         os.system('mkdir -p ~/.themes && mkdir -p ~/.icons && mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
         for i in self.them_conf:
             command = themDat[i][self.themNum]
-            print(i, command)
             if i == 'Layout':
                 os.system('gsettings set org.gnome.shell enabled-extensions []')
                 for ext in extDat[self.themNum]:
@@ -987,6 +986,7 @@ class GUI:
                         os.system("wget --header='Accept-Encoding:none' -O '~/tmp.zip' '%s'" % EXTENSION_URL)
                         os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
             os.system(command)
+        os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz')
 
     def del_themer(self, twindow, e):
         twindow.hide()
