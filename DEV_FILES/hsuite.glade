@@ -4311,6 +4311,35 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <property name="top_attach">2</property>
                               </packing>
                             </child>
+                            <child>
+                              <object class="GtkLabel" id="which_label">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="label" translatable="yes">Providing feedback for :</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBoxText" id="which_comb">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="hexpand">True</property>
+                                <property name="active">0</property>
+                                <items>
+                                  <item id="0" translatable="yes">HSuite</item>
+                                  <item id="1" translatable="yes">HSite</item>
+                                </items>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
                           </object>
                           <packing>
                             <property name="expand">False</property>

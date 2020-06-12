@@ -170,7 +170,7 @@ loLa = {
     }
 
 extDat = [
-    ['dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
+    ['horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
     ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
     ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu'],
     ['user-theme@gnome-shell-extensions.gcampax.github.com']
@@ -268,7 +268,7 @@ class myThread (Thread):
             compat_file.close()
             bds = "debhelper (>= 11)"
             print('DS_HERE')
-            control = "Source: restore\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: restore\nArchitecture: amd64\nDepends: tar, %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, platform.uname().node, bds, self.ds)
+            control = "Source: restore\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: restore\nArchitecture: amd64\nDepends: tar, zenity, %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, platform.uname().node, bds, self.ds)
             print('Mem control')
             control_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/control" % user, "w")
             control_file.write(control)
@@ -504,7 +504,7 @@ class GUI:
             print(res)
             if res == 55:
                 print('Want visit')
-                webbrowser.open_new("https://swanux.github.io/hsuite/")
+                webbrowser.open_new("https://github.com/swanux/hsuite")
             else:
                 print('just ok')
             dialogWindow.destroy()
@@ -536,11 +536,11 @@ class GUI:
                         if res == Gtk.ResponseType.YES:
                             print('OK pressed')
                             dialogWindow.destroy()
-                            return True
+                            return 'True'
                         elif res == Gtk.ResponseType.NO:
                             print('No pressed')
                             dialogWindow.destroy()
-                            return False
+                            return 'False'
                         else:
                             return False
                     elif name == 'abort':
@@ -933,6 +933,7 @@ class GUI:
         emE = self.builder.get_object('email_entry')
         texV = self.builder.get_object('txt_long')
         cat = self.builder.get_object('typ_comb')
+        which = self.builder.get_object('which_comb')
         title = titE.get_text()
         email = emE.get_text()
         text = texV.get_buffer()
@@ -940,6 +941,7 @@ class GUI:
         end = text.get_end_iter()
         text = text.get_text(start, end, True)
         category = cat.get_active_text()
+        program = which.get_active_text()
         print(title, text, category, email)
         if '@' not in email or '.' not in email:
             if email == '' or email == None:
@@ -952,7 +954,7 @@ class GUI:
         elif text == '' or title == '':
             self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _('You need to fill out all the fields!'), _("Attention!"), 'general')
             return
-        text = text+"\n\n---------------------------------\n\nEmail: %s\nUsername: %s\nComputer name: %s\nOS: %s\nCPU: %s" % (email, user, platform.uname().node, platform.platform(), platform.processor())
+        text = text+"\n\n---------------------------------\n\nEmail: %s\nUsername: %s\nComputer name: %s\nOS: %s\nCPU: %s\nProviding feedback for: %s" % (email, user, platform.uname().node, platform.platform(), platform.processor(), program)
         repo = g.get_repo('swanux/hsuite_feedbacks')
         if category == _('Enhancement'):
             lab = ['enhancement']
@@ -971,7 +973,7 @@ class GUI:
     # information button in about section
     def on_git_link_clicked(self, button):
         # open project page in browser
-        webbrowser.open_new("https://swanux.github.io/hsuite/")
+        webbrowser.open_new("https://swanux.github.io")
 
 #######################################################################################
 
@@ -1087,8 +1089,6 @@ class GUI:
                 GLib.idle_add(bartot.set_fraction, htransfer.currPer/100)
                 return True
             else:
-                # self.b_data = False
-                # self.on_prog_proc_but_clicked(0)
                 self.crTask()
                 return False
         self.source_id = GLib.timeout_add(200, counter, None)
@@ -1099,11 +1099,14 @@ class GUI:
         spinner.start()
         self.switch_stack.set_visible_child(self.builder.get_object('create_box'))
         postinst = ""
+        postinst = postinst + "user=$(who|awk '{print $1}'r)\n"
+        postinst += 'zenity --info --text="Welcome ${user}!\nNow we will begin to restore everything for you.\nPlease be patient, it may take a while...\n\nIf you understand press OK to begin." --no-wrap\n'
         if self.b_data:
             for i in self.datToSave:
-                postinst = postinst + "cp -R /usr/share/backups/%s/* /home/%s/%s/\nchown -R %s /home/%s/%s\n" % (i, user, i, user, user, i)
+                postinst = postinst + "cp -R /usr/share/backups/%s/* /home/${user}/%s/\n" % (i, i)
         ds = ""
         if self.b_progs:
+            postinst = postinst + 'apt-key add /usr/share/backups/sources/Repo.keys && cp -R /usr/share/backups/sources/sources.list* /etc/apt/'
             l = 0
             for i in self.appsToSave:
                 if l == 0:
@@ -1120,14 +1123,27 @@ class GUI:
             postinst = postinst + 'tar -pxvzf /usr/share/backups/deskTheme.tar.gz -C /usr/share/themes/\n'
             postinst = postinst + 'tar -pxvzf /usr/share/backups/cursorTheme.tar.gz -C /usr/share/themes/\n'
             postinst = postinst + 'tar -pxvzf /usr/share/backups/iconTheme.tar.gz -C /usr/share/icons/\n'
-            postinst = postinst + "user=$(who|awk '{print $1}'r)\n"
-            postinst = postinst + 'tar -pxvzf /usr/share/backups/extensions.tar.gz -C /home/$user/.local/share/gnome-shell/\n'
-            postinst = postinst + "runuser -l $user -c 'dconf load /org/gnome/ < /usr/share/backups/gnome'\n"
+            # postinst = postinst + 'tar -pxvzf /usr/share/backups/extensions.tar.gz -C /home/$user/.local/share/gnome-shell/\n'
+            postinst = postinst + "runuser -l ${user} -c 'dconf load /org/gnome/ < /usr/share/backups/gnome'\n"
+            postinst = postinst + "extensions=$(echo '%s')\n" % self.DIRS
+            postinst = postinst + "version=$(DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2)\n"
+            postinst = postinst + "declare -a allExt=(`echo $extensions |sed 's/, / /g'`)\n"
+            postinst = postinst + """for var in "${allExt[@]}"
+do
+    if [[ ${var} == "[" || ${var} == "]" || ${var} == "" ]]; then
+        echo pass
+    else
+        json="https://extensions.gnome.org/extension-info/?uuid=${var}&shell_version=${version}"
+        EXTENSION_URL=https://extensions.gnome.org$(curl -s "${json}" | sed -e 's/^.*download_url[\": ]*\([^\"]*\).*$/\\1/')
+        wget --header='Accept-Encoding:none' -O "/home/${user}/tmp.zip" "${EXTENSION_URL}"
+        mkdir -p /home/${user}/.local/share/gnome-shell/extensions/${var}
+        unzip -oq "/home/${user}/tmp.zip" -d "/home/${user}/.local/share/gnome-shell/extensions/${var}"
+        chmod +r /home/${user}/.local/share/gnome-shell/extensions/${var}/* && rm -f /home/${user}/tmp.zip
+    fi
+done\n"""
         if self.b_cron:
-            postinst = postinst + "user=$(who|awk '{print $1}'r)\n"
-            postinst = postinst + 'crontab -u $user /usr/share/backups/crontab\n'
-        postinst += 'chown -R %s /home/%s/\n' % (user, user)
-        # print('DS: %s' % ds)
+            postinst = postinst + 'crontab -u ${user} /usr/share/backups/crontab\n'
+        postinst += 'chown -R ${user} /home/${user}/\n'
         t1 = myThread(5, "Builder", ds=ds, post=postinst)
         t1.start()
         def counter(timer):
@@ -1155,7 +1171,7 @@ class GUI:
             os.system("mkdir -p %s/screensaver" % self.hsdir)
             print('Desktop True')
             os.system('dconf dump /org/gnome/ > %s/gnome' % self.hsdir)
-            os.system('cd /home/%s/.local/share/gnome-shell/ && tar -pcvzf %s/extensions.tar.gz extensions' % (user, self.hsdir))
+            # os.system('cd /home/%s/.local/share/gnome-shell/ && tar -pcvzf %s/extensions.tar.gz extensions' % (user, self.hsdir))
             locparse = ConfigParser()
             locparse.read('%s/gnome' % self.hsdir)
             screensaver = locparse.get('desktop/screensaver', 'picture-uri').replace('file://', '')
@@ -1170,24 +1186,27 @@ class GUI:
             locparse.set('desktop/background', 'picture-uri', "'file:///usr/share/backgrounds/%s'" % fname)
             shellTheme = locparse.get('shell/extensions/user-theme', 'name')
             if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
-                os.system('cd /home/%s/.themes/ && tar -pcvzf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
+                os.system('cd /home/%s/.themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
             else:
-                os.system('cd /usr/share/themes/ && tar -pcvzf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
+                os.system('cd /usr/share/themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
             deskTheme = locparse.get('desktop/interface', 'gtk-theme')
             iconTheme = locparse.get('desktop/interface', 'icon-theme')
             cursorTheme = locparse.get('desktop/interface', 'cursor-theme')
-            if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme)):
-                os.system('cd /home/%s/.themes/ && tar -pcvzf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
+            print('####################')
+            print(shellTheme, deskTheme, iconTheme, cursorTheme)
+            print('####################')
+            if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme.replace("'", ""))):
+                os.system('cd /home/%s/.themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
             else:
-                os.system('cd /usr/share/themes/ && tar -pcvzf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
-            if os.path.exists('/home/%s/.themes/%s' % (user, cursorTheme)):
-                os.system('cd /home/%s/.icons/ && tar -pcvzf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
+                os.system('cd /usr/share/themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
+            if os.path.exists('/home/%s/.icons/%s' % (user, cursorTheme.replace("'", ""))):
+                os.system('cd /home/%s/.icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
             else:
-                os.system('cd /usr/share/icons/ && tar -pcvzf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
-            if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme)):
-                os.system('cd /home/%s/.icons/ && tar -pcvzf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
+                os.system('cd /usr/share/icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
+            if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme.replace("'", ""))):
+                os.system('cd /home/%s/.icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
             else:
-                os.system('cd /usr/share/icons/ && tar -pcvzf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
+                os.system('cd /usr/share/icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
             tconf = open('%s/gnome' % self.hsdir, 'w+')
             locparse.write(tconf)
             tconf.close()
@@ -1197,29 +1216,35 @@ class GUI:
             extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash')
             extendedApps = extendedApps.decode()
             extendedApps = extendedApps.split('\n')
-            if b_simple:
+            if b_simple == 'True':
+                print('Minimal')
+                search_word = ['acpi', 'alsa', 'anacron', 'apache', 'avahi', 'bluez', 'tty', 'certificates', 'cups', 'eog', 'evince', 'festival', 'festvox', 'ffmpeg', 'locale', 'fonts', '-db-', '-mod', 'multilib', 'fwupd', 'gdm', 'gnome', 'gir1.2', '-agent', 'grub', 'gstreamer', 'gtk2', 'gtk3', 'theme-', 'gvfs', 'hplip', 'hostname', 'ibus', '-config', 'jq', 'kernel', 'language-pack', 'lib', '-sensors', 'maim', 'mokutil', 'mpc', 'mpd', 'mysql', 'nautilus-', 'ncurses', 'network-', 'driver', 'openj', '-ppds', 'orca', 'php', 'pcmc', 'packagekit', 'plymouth', 'policykit', 'ppp', '-module-', '-is-', 'rfkill', '-signed', 'snapd', 'printer', 'ubuntu-', 'udev', 'update-', 'upower', 'vorbis', 'wpasupplicant', 'xcursor', 'xdg', 'xkb', 'xorg', 'xul-ext', 'yelp', '-dev', 'flatpak', 'genisoimage', 'germinate', 'ghostscript', 'grep', 'zip', 'init', 'inotify', 'inputattach', 'mousetweaks', 'net-', 'spice-', '-dispatcher', 'whoopsie', 'xmind', 'app-install', 'apport', 'at-spi2', 'dash', 'diffutils', 'dirmngr', 'dmz', '-data']
                 minimalApps = []
                 for i in extendedApps:
-                    if "acpi" in i or "avahi" in i or "alsa" in i or "bluez" in i or "cups" in i or "theme" in i or "fonts" in i or "gdm" in i or "gir1" in i or "grub" in i or "gstreamer" in i or "ubuntu" in i or "ibus" in i or "kernel" in i or "linux-headers-generic" in i or "linux-signed-generic" in i or "network-manager" in i:
-                        pass
-                    else:
+                    bad = False
+                    for xy in search_word:
+                        if xy in i:
+                            bad = True
+                            break
+                    if bad == False:
                         minimalApps.append(i)
             self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5)
             self.builder.get_object('progs_box').pack_start(self.box, True, True, 0)
-            if b_simple:
+            if b_simple == 'True':
                 for program in minimalApps:
                     if program == "" or program == None:
                         break
-                    chker = Gtk.CheckButton(program)
+                    chker = Gtk.CheckButton.new_with_label(program)
                     chker.connect("toggled", self.on_prog_tog, program)
                     self.box.pack_start(chker, True, True, 0)
             else:
                 for program in extendedApps:
                     if program == "" or program == None:
                         break
-                    chker = Gtk.CheckButton(program)
+                    chker = Gtk.CheckButton.new_with_label(program)
                     chker.connect("toggled", self.on_prog_tog, program)
                     self.box.pack_start(chker, True, True, 0)
+            os.system('mkdir -p %s/sources/ && cp -R /etc/apt/sources.list* %s/sources/ && apt-key exportall > %s/sources/Repo.keys' % (self.hsdir, self.hsdir, self.hsdir))
             self.box.show_all()
         if self.b_cron:
             print('Cron true')
@@ -1703,7 +1728,10 @@ if __name__ == "__main__":
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
     if v != version and v != '':
         app.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _("HSuite has been updated to %s. For changelog click the button below." % version), _("Information"), 'custom')
-        os.system('rm %s' % confP)
+        parser.set('hsuite', 'v', version)
+        file = open(confP, "w+")
+        parser.write(file)
+        file.close()
     # Print info to debug
     print("Current date: %s" % today)
     print("Current day: %s" % day)
