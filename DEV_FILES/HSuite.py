@@ -24,8 +24,10 @@ else:
 # Translation
 APP = "hsuite"
 WHERE_AM_I = os.path.abspath(os.path.dirname(__file__))
+print(WHERE_AM_I)
 LOCALE_DIR = os.path.join(WHERE_AM_I, 'translations/mo')
 locale.setlocale(locale.LC_ALL, locale.getlocale())
+print(locale.getlocale())
 locale.bindtextdomain(APP, LOCALE_DIR)
 gettext.bindtextdomain(APP, LOCALE_DIR)
 gettext.textdomain(APP)
@@ -170,7 +172,7 @@ loLa = {
     }
 
 extDat = [
-    ['horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
+    ['places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
     ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
     ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu'],
     ['user-theme@gnome-shell-extensions.gcampax.github.com']
@@ -1701,12 +1703,12 @@ if __name__ == "__main__":
             distro = 'Debian'
             print('W: Not fully compatible with Deepin!')
             app = GUI()
-            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, eoan), Debian (buster)."), _("Attention!"), 'general')
+            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, eoan, focal), Debian (buster)."), _("Attention!"), 'general')
         else:
             distro = ''
             app = GUI()
             print('E: Complete incompatibility!')
-            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, eoan), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
+            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, eoan, focal), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
             raise SystemExit
         app = GUI()
         parser.add_section('system')

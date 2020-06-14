@@ -2818,8 +2818,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Cinnamon (Default)</item>
-                                          <item id="1" translatable="yes">MATE</item>
-                                          <item id="2" translatable="yes">XFCE</item>
+                                          <item id="1" translatable="no">MATE</item>
+                                          <item id="2" translatable="no">XFCE</item>
                                           <item id="3" translatable="yes">Debian Edition</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
@@ -2868,13 +2868,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Gnome (Default)</item>
-                                          <item id="1" translatable="yes">Kubuntu (KDE)</item>
-                                          <item id="2" translatable="yes">Lubuntu (LXQt)</item>
-                                          <item id="3" translatable="yes">Budgie</item>
-                                          <item id="4" translatable="yes">Kylin</item>
-                                          <item id="5" translatable="yes">MATE</item>
-                                          <item id="6" translatable="yes">Studio</item>
-                                          <item id="7" translatable="yes">Xubuntu (XFCE)</item>
+                                          <item id="1" translatable="no">Kubuntu (KDE)</item>
+                                          <item id="2" translatable="no">Lubuntu (LXQt)</item>
+                                          <item id="3" translatable="no">Budgie</item>
+                                          <item id="4" translatable="no">Kylin</item>
+                                          <item id="5" translatable="no">MATE</item>
+                                          <item id="6" translatable="no">Studio</item>
+                                          <item id="7" translatable="no">Xubuntu (XFCE)</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3036,9 +3036,9 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Budgie (Default)</item>
-                                          <item id="1" translatable="yes">Gnome</item>
-                                          <item id="2" translatable="yes">MATE</item>
-                                          <item id="3" translatable="yes">KDE</item>
+                                          <item id="1" translatable="no">Gnome</item>
+                                          <item id="2" translatable="no">MATE</item>
+                                          <item id="3" translatable="no">KDE</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3289,13 +3289,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_bottom">5</property>
                                         <property name="active">0</property>
                                         <items>
-                                          <item id="0" translatable="yes">Cinnamon</item>
-                                          <item id="1" translatable="yes">Gnome</item>
-                                          <item id="2" translatable="yes">KDE</item>
-                                          <item id="3" translatable="yes">LXDE</item>
-                                          <item id="4" translatable="yes">LXQt</item>
-                                          <item id="5" translatable="yes">MATE</item>
-                                          <item id="6" translatable="yes">XFCE</item>
+                                          <item id="0" translatable="no">Cinnamon</item>
+                                          <item id="1" translatable="no">Gnome</item>
+                                          <item id="2" translatable="no">KDE</item>
+                                          <item id="3" translatable="no">LXDE</item>
+                                          <item id="4" translatable="no">LXQt</item>
+                                          <item id="5" translatable="no">MATE</item>
+                                          <item id="6" translatable="no">XFCE</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3343,13 +3343,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Gnome (Default)</item>
-                                          <item id="1" translatable="yes">KDE</item>
-                                          <item id="2" translatable="yes">XFCE</item>
-                                          <item id="3" translatable="yes">LXQt</item>
-                                          <item id="4" translatable="yes">MATE</item>
-                                          <item id="5" translatable="yes">Cinnamon</item>
-                                          <item id="6" translatable="yes">LXDE</item>
-                                          <item id="7" translatable="yes">SOAS</item>
+                                          <item id="1" translatable="no">KDE</item>
+                                          <item id="2" translatable="no">XFCE</item>
+                                          <item id="3" translatable="no">LXQt</item>
+                                          <item id="4" translatable="no">MATE</item>
+                                          <item id="5" translatable="no">Cinnamon</item>
+                                          <item id="6" translatable="no">LXDE</item>
+                                          <item id="7" translatable="no">SOAS</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -4331,8 +4331,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <property name="hexpand">True</property>
                                 <property name="active">0</property>
                                 <items>
-                                  <item id="0" translatable="yes">HSuite</item>
-                                  <item id="1" translatable="yes">HSite</item>
+                                  <item id="0" translatable="no">HSuite</item>
+                                  <item id="1" translatable="no">HSite</item>
                                 </items>
                               </object>
                               <packing>
@@ -5260,7 +5260,7 @@ NOTE: It'll overwrite your current settings</property>
                               </object>
                               <packing>
                                 <property name="name">page0</property>
-                                <property name="title" translatable="yes">page0</property>
+                                <property name="title" translatable="no">page0</property>
                               </packing>
                             </child>
                             <child>
@@ -5381,7 +5381,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="max_length">5</property>
-                                                    <property name="placeholder_text" translatable="yes">0-59</property>
+                                                    <property name="placeholder_text" translatable="no">0-59</property>
                                                     <signal name="changed" handler="min_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
@@ -5444,7 +5444,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="max_length">5</property>
-                                                    <property name="placeholder_text" translatable="yes">0-23</property>
+                                                    <property name="placeholder_text" translatable="no">0-23</property>
                                                     <signal name="changed" handler="hour_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
@@ -5507,7 +5507,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="max_length">5</property>
-                                                    <property name="placeholder_text" translatable="yes">1-31</property>
+                                                    <property name="placeholder_text" translatable="no">1-31</property>
                                                     <signal name="changed" handler="day_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
@@ -5571,19 +5571,19 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="active">0</property>
                                                     <items>
-                                                      <item id="0" translatable="yes">*</item>
-                                                      <item id="1" translatable="yes">1</item>
-                                                      <item id="2" translatable="yes">2</item>
-                                                      <item id="3" translatable="yes">3</item>
-                                                      <item id="4" translatable="yes">4</item>
-                                                      <item id="5" translatable="yes">5</item>
-                                                      <item id="6" translatable="yes">6</item>
-                                                      <item id="7" translatable="yes">7</item>
-                                                      <item id="8" translatable="yes">8</item>
-                                                      <item id="9" translatable="yes">9</item>
-                                                      <item id="10" translatable="yes">10</item>
-                                                      <item id="11" translatable="yes">11</item>
-                                                      <item id="12" translatable="yes">12</item>
+                                                      <item id="0" translatable="no">*</item>
+                                                      <item id="1" translatable="no">1</item>
+                                                      <item id="2" translatable="no">2</item>
+                                                      <item id="3" translatable="no">3</item>
+                                                      <item id="4" translatable="no">4</item>
+                                                      <item id="5" translatable="no">5</item>
+                                                      <item id="6" translatable="no">6</item>
+                                                      <item id="7" translatable="no">7</item>
+                                                      <item id="8" translatable="no">8</item>
+                                                      <item id="9" translatable="no">9</item>
+                                                      <item id="10" translatable="no">10</item>
+                                                      <item id="11" translatable="no">11</item>
+                                                      <item id="12" translatable="no">12</item>
                                                     </items>
                                                     <signal name="changed" handler="month_choose_changed" swapped="no"/>
                                                   </object>
@@ -5656,7 +5656,7 @@ NOTE: It'll overwrite your current settings</property>
                                             <property name="margin_bottom">10</property>
                                             <property name="hexpand">True</property>
                                             <property name="max_length">30</property>
-                                            <property name="text" translatable="yes">* * * * *</property>
+                                            <property name="text" translatable="no">* * * * *</property>
                                             <signal name="changed" handler="cron_entr_changed" swapped="no"/>
                                           </object>
                                           <packing>
@@ -5776,7 +5776,7 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <property name="label" translatable="yes">Execution of job: txtHere</property>
+                                        <property name="label">Execution of job: txtHere</property>
                                         <attributes>
                                           <attribute name="weight" value="semibold"/>
                                         </attributes>
@@ -5852,7 +5852,7 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
                               </object>
                               <packing>
                                 <property name="name">page1</property>
-                                <property name="title" translatable="yes">page1</property>
+                                <property name="title" translatable="no">page1</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -5888,7 +5888,7 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
           </object>
           <packing>
             <property name="name">page7</property>
-            <property name="title" translatable="yes">page7</property>
+            <property name="title" translatable="no">page7</property>
             <property name="position">7</property>
           </packing>
         </child>

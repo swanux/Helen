@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HSuite 0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-16 13:37+0200\n"
+"POT-Creation-Date: 2020-06-14 17:08+0200\n"
 "PO-Revision-Date: 2020-02-29 20:56+0100\n"
 "Last-Translator: Dániel Kolozsi <dani@kolozsi.net>\n"
 "Language-Team: Hungarian\n"
@@ -50,20 +50,32 @@ msgstr ""
 "nyílik saját térképek készítésére és modok hozzáadására. Ezen kívül, ha "
 "szeretne, akár Ön is részt vehet a játék fejlesztésében.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:630
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3808
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:629
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3890
 msgid "About"
 msgstr "A programról"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1495
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:590
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:740
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2493
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5635
+msgid "Advanced"
+msgstr "Haladó"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1627
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:589
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:741
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2506
 msgid "App Spotlight"
 msgstr "Program börze"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:379
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6016
+msgid "Apply"
+msgstr "Alkalmazás"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5900
+msgid "Apply theme"
+msgstr "Téma alkalmazása"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:375
 msgid ""
 "Arch Linux\n"
 "\n"
@@ -94,11 +106,11 @@ msgstr ""
 "eltávolításában egy kifejezetten Arch Linuxra fejlesztett szoftverkezelő áll "
 "a felhasználó rendelkezésére.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3845
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3927
 msgid "Artwork by :"
 msgstr "Logó tervezője : "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3449
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3531
 msgid ""
 "As a poweruser, you probably would like to get new features as fast as "
 "possible and understand what's going under the hood as good as possible. "
@@ -109,7 +121,7 @@ msgstr ""
 "a számítógépe a háttérben olyan jól amilyen jól csak lehet.Ezek a disztrók "
 "minden bizonnyal fedezik ezeket a szükségleteket."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1225
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1216
 msgid "Ask"
 msgstr "Kérdés"
 
@@ -138,9 +150,14 @@ msgstr ""
 "alkalmazások írását Chromium és Node.js használatával. A program CoffeScript-"
 "ben és Less-ben íródott.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:548
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:996
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1008
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:524
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:526
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:663
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:916
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:954
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:957
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1706
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1711
 msgid "Attention!"
 msgstr "Figyelem!"
 
@@ -175,15 +192,19 @@ msgstr ""
 "kazetták vagy szalagok digitalizálása, felvétel feldarabolása és még több.Az "
 "Audacity Wiki részletes oktatóanyagokkal szolgál a program használatáról.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2993
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5874
+msgid "Automation"
+msgstr "Automatizálás"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2974
 msgid "Avilable from website only"
 msgstr "Csak a weboldalról elérhető"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4716
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4834
 msgid "Backing up user data..."
 msgstr "Személyes adatok mentése..."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4813
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4931
 msgid ""
 "Backup ready. You can restore it on your target system by installing it "
 "(usually just double-clicking on it), as it's packed into the distribution's "
@@ -229,72 +250,84 @@ msgstr ""
 "billentyűzetével irányítsa ,,B'' számítógépet (vagy többet). Ilyen "
 "egyszerű!\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1022
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1025
 msgid "Browsers"
 msgstr "Böngészők"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1022
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4196
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3038
+msgid "Budgie (Default)"
+msgstr "Budgie (Alapértelmezett)"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:965
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4277
 msgid "Bug"
 msgstr "Hiba"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2802
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2834
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2866
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2958
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3016
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3121
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3246
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3278
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3310
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3475
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3507
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3539
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2795
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2845
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2939
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3015
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3142
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3267
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3320
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3432
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3557
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3589
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3621
 msgid "Calculating size..."
 msgstr "Méret számolása..."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:110
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1711
 msgid ""
-"Can not detect your distro.\n"
-"Currently compatible with distros:\n"
-"Ubuntu (bionic, eoan), Debian (buster)\n"
-" and everything based on them. Aborting now."
+"Can not detect your distro. Currently compatible with distros: Ubuntu "
+"(bionic, eoan, focal), Debian (buster) and everything based on them. "
+"Aborting now."
 msgstr ""
-"Nem sikerült azonosítani a disztrót.\n"
-"Jelenleg ezekkel a disztrókkal kompatibilis:\n"
-"Arch, Ubuntu (bionic, eoan), Debian (buster).\n"
-"és minden derivatívájukkal. Megszakítás most."
+"Nem sikerült azonosítani a disztrót. Jelenleg ezekkel a disztrókkal "
+"kompatibilis: Ubuntu (bionic, eoan, focal, Debian (buster) és minden "
+"derivatívájukkal. Megszakítás most."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1306
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:993
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5796
+msgid "Cancel"
+msgstr "Mégse"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2820
+msgid "Cinnamon (Default)"
+msgstr "Cinnamon (Alapértelmezett)"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:996
 msgid "Coming Soon"
 msgstr "Hamarosan elérhető"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1305
-msgid "Coming in future Beta releases..."
-msgstr "Elérhető a jövőbeni Béta verziókban..."
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5735
+msgid "Command :"
+msgstr "Parancs :"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1736
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1745
 msgid "Communication"
 msgstr "Kommunikáció"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4513
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4628
 msgid "Continue"
 msgstr "Tovább"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4774
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4892
 msgid "Creating backup. Please wait..."
 msgstr "Mentés folyamatban. Kérem várjon..."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3969
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4051
 msgid "Credits"
 msgstr "A program készítői"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4410
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4523
 msgid "Cron jobs"
-msgstr "Cron munkák"
+msgstr "Cron feladatok"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:367
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5982
+msgid "Cursor"
+msgstr "Kurzor"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:363
 msgid ""
 "Debian\n"
 "\n"
@@ -314,6 +347,10 @@ msgstr ""
 "0.01, 1993 Szeptember 15-én jelent meg, majd az első stabil verzió 1996 "
 "Június 17-én. A Debian Stabil verziója a legnépszerűbb kiadás otthonra és "
 "szerverekre, és ez az alapja sok más disztribúciónak is.\n"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2823
+msgid "Debian Edition"
+msgstr "Debian Kiadás"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:351
 msgid ""
@@ -340,15 +377,19 @@ msgstr ""
 "működőképes (majdnem minden esetben), és nem szeretne azzal bajlódni hogyan "
 "működnek a Linux rendszerek, akkor ez a megfelelő választás Önnek.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2535
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2548
 msgid "Demo/Review (YouTube)"
 msgstr "Demó/Bemutató (YouTube)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4562
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4677
 msgid "Desktop"
 msgstr "Asztal"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3828
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5931
+msgid "Desktop theme"
+msgstr "Asztal témája"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3910
 msgid "Developed by :"
 msgstr "Fejlesztette : "
 
@@ -372,16 +413,20 @@ msgstr ""
 "re, Linuxra és böngészőn keresztül. 2019 Július 21-én több mint 250 millió "
 "felhasználóval rendelkezik.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1486
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1497
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1651
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:516
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2637
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1618
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1629
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1659
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:515
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2650
 msgid "Distro Boutique"
 msgstr "Disztró kereső"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:440
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:663
+msgid "Do you really would like to abort now?"
+msgstr "Biztosan megszakítja a folyamatot?"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:526
 #, python-format
 msgid ""
 "Do you really would like to abort now? Download is currently in progress for "
@@ -390,18 +435,7 @@ msgstr ""
 "Biztos benne, hogy ki akar lépni? Egy letöltés folyamatban van a(z) %s nevű "
 "programhoz."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:437
-#, python-format
-msgid ""
-"Do you really would like to abort now? It could end up with a broken "
-"program. If you decide to abort, then it is recommended to remove %s "
-"manually."
-msgstr ""
-"Biztos benne, hogy ki szeretne lépni? A végeredmény egy működésképtelen "
-"program lehet. Ha úgy dönt, hogy kilép, ajánlott manuálisan eltávolítani "
-"a(z) %s nevű programot."
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:676
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:524
 #, python-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
@@ -411,20 +445,20 @@ msgstr ""
 "program lehet. Ha úgy dönt, hogy kilép, lehetséges, hogy manuálisan kell "
 "eltávolítania a(z) %s nevű programot."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:422
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:418
 msgid "Do you really would like to exit now?"
 msgstr "Biztosan ki szeretne lépni?"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4630
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4745
 msgid "Documents"
 msgstr "Dokumentumok"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1463
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1593
 #, python-format
 msgid "Download (%s MB)"
 msgstr "Letöltés (%s MB)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4596
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4711
 msgid "Downloads"
 msgstr "Letöltések"
 
@@ -454,7 +488,7 @@ msgstr ""
 "Készíthet mentést a teljes rendszerről, a Saját Mappáról vagy akár a "
 "beállításokról.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1498
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1505
 msgid "Editors"
 msgstr "Szerkesztők"
 
@@ -479,28 +513,39 @@ msgstr ""
 "viszonylag régies/szokatlan kinézetre vonatkozóan, higgye el, egy-két hét "
 "alatt meg fogja szeretni.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4144
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4225
 msgid "Email address :"
 msgstr "Email cím : "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1018
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4198
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:961
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4279
 msgid "Enhancement"
 msgstr "Fejlesztés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2455
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5366
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5429
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5492
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5555
+msgid "Every"
+msgstr "Minden"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5999
+msgid "Everything"
+msgstr "Az összes"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5318
+msgid "Execution time :"
+msgstr "Futtatás időpontja :"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2468
 msgid "Extras"
 msgstr "Extrák"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:610
-msgid "FOSS Collection"
-msgstr "FOSS Kollekció"
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3879
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3961
 msgid "Features by :"
 msgstr "Funkciókat fejlesztette : "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:371
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:367
 msgid ""
 "Fedora\n"
 "\n"
@@ -519,58 +564,58 @@ msgstr ""
 "sok ilyen projektnek. A Fedora a Red Hat Vállalati Linux instabil kódját "
 "használja.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:556
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4093
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:555
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4175
 msgid "Feedback"
 msgstr "Visszajelzés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4169
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4250
 msgid "Feedback Description :"
 msgstr "Leírás : "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1031
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:972
 msgid "Feedback submitted succesfully!"
 msgstr "Visszajelzés sikeresen jóváhagyva!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4156
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4237
 msgid "Feedback titile :"
 msgstr "Cím : "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4181
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4262
 msgid "Feedback type :"
 msgstr "Típus : "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:769
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:735
 #, python-format
 msgid "Finished downloading %s!"
 msgstr "%s sikeresen letöltve!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:651
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:644
 #, python-format
 msgid "Finished processing %s!"
 msgstr "%s feldolgozása befejeződött!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3064
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3085
 msgid "For Beginners"
 msgstr "Kezdőknek"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3418
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3500
 msgid "For Developers"
 msgstr "Fejlesztőknek"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3189
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3210
 msgid "For Gamers"
 msgstr "Játékosoknak"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3647
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3729
 msgid "For Powerusers"
 msgstr "Hozzáértő felhasznáóknak"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4118
-msgid "For contacting you if needed"
-msgstr "Kapcsolatfelvételre, amennyiben szükséges"
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4199
+msgid "For contacting you if needed (Optional)"
+msgstr "Kapcsolatfelvételre, amennyiben szükséges (Opcionális)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3220
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3241
 msgid ""
 "For developers, the main goal is stability and reliability. Based on these, "
 "here are the best ones in this category. (Of course, you can use Solus, or "
@@ -713,7 +758,7 @@ msgstr ""
 "- Partíciók létrehozása, átméretezése, törlése, mozgatása, ellenőrzése, "
 "megjelölése, másolása és beillesztése.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2019
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2030
 msgid "Games"
 msgstr "Játékok"
 
@@ -777,7 +822,7 @@ msgstr ""
 "Személy szerint, ezt a programot használtam bővítményekkel programozáshoz, "
 "az HSuite is ebben íródott a 0.4-es verzióig.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:385
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:381
 msgid ""
 "Gentoo\n"
 "\n"
@@ -794,6 +839,11 @@ msgstr ""
 "helyben épül fel a felhasználó szükségletei szerint, gyakran optimalizálva "
 "az adott gépre.Előkészített verziók elérhetőek néhány nagyobb csomaghoz, "
 "vagy azokhoz amelyeknek nem elérhető a forráskódja.\n"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2870
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3345
+msgid "Gnome (Default)"
+msgstr "Gnome (Alapértelmezett)"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:324
 msgid ""
@@ -843,9 +893,9 @@ msgstr ""
 "Megjegyzés: Ez az egyetlen böngésző Linuxon amelyik alapból támogatja a "
 "gesztusvezérlést laptopon.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4390
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4503
 msgid "Gnome desktop"
-msgstr "Gnome asztali környezet"
+msgstr "Gnome asztal"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:29
 msgid ""
@@ -885,18 +935,37 @@ msgstr ""
 "Táblázatok, Naptár, Drive, Oldalak és még sok más szolgáltatáshoz jut "
 "hozzá.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:233
-#, python-format
-msgid ""
-"HSuite has been updated to %s.\n"
-"For changelog visit https://swanux.github.io/hsuite/"
-msgstr ""
-"Az HSuite frissítve lett a(z) %s verzióra.\n"
-"Az újdonságokért keresse fel a https://swanux.github.io/hsuite/ weboldalt."
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:609
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5021
+msgid "HControl"
+msgstr "HVezérlő"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:536
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1732
+#, python-format
+msgid "HSuite has been updated to %s. For changelog click the button below."
+msgstr ""
+"Az HSuite frissítve lett a(z) %s verzióra. Az újdonságokért kattintson az "
+"alábbi gombra."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:535
 msgid "HSwitcher"
 msgstr "HKöltöztető"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5094
+msgid ""
+"Here are the desktop themes which you can choose from.\n"
+"NOTE: It'll overwrite your current settings"
+msgstr ""
+"Ezek közül a témák közül választhat.\n"
+"FIGYELEM: Az új téma felülírja az előzőt."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5224
+msgid ""
+"Here you can manage automatic jobs running periodically based on time, "
+"reboots, etc"
+msgstr ""
+"Itt kezelheti az automatikusan lefutó feladatokat, idő, ujraíndítás, egyebek "
+"alapján."
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:175
 msgid ""
@@ -914,37 +983,44 @@ msgstr ""
 "beállítási lehetőség is elérhető. Terminál és grafikus verzió is van "
 "belőle.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:686
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2591
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3684
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4045
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4296
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:685
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2604
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3766
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4127
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4406
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4975
 msgid "Home"
 msgstr "Főmenü"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1032
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:784
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2686
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5965
+msgid "Icons"
+msgstr "Ikonok"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:972
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1732
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:785
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2699
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5066
 msgid "Information"
 msgstr "Információ"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:511
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:518
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:534
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:537
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:688
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:465
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:472
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:481
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:484
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:668
 msgid "Install"
 msgstr "Telepítés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4350
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4463
 msgid "Installed programs"
 msgstr "Telepített programok"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:995
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:954
 msgid "Invalid email address!"
 msgstr "Érvénytelen email cím!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:389
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:385
 msgid ""
 "LFS\n"
 "\n"
@@ -957,6 +1033,14 @@ msgstr ""
 "A Linux From Scratch (LFS = Linux az alapokból) egy projekt ami lépésről "
 "lépésre bemutatja hogyan építheti fel a saját Linux alapú rendszerét "
 "kizárólag forráskódból.\n"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5948
+msgid "Layout"
+msgstr "Elrendezés"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3456
+msgid "Leap (Standard)"
+msgstr "Leap (Általános)"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:83
 msgid ""
@@ -983,7 +1067,7 @@ msgstr ""
 "támogatását és dokumentálását felhasználók és fejlesztők elkötelezett "
 "közössége végzi. Ehhez a közösséghez bárki csatlakozhat.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4005
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4087
 msgid "License"
 msgstr "Liszensz"
 
@@ -1036,6 +1120,14 @@ msgstr ""
 "és futtat játékokat szóval minden extra beállítás nélkül kezdhesse a játékot."
 "Letölthet játékokat GOG-ról, Steam-ről, Battle.net-ről, Origin-ról, Uplay-"
 "ről és még sok más helyről.\n"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5119
+msgid "MacOS mode"
+msgstr "MacOS mód"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5707
+msgid "Manual"
+msgstr "Manuális"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:67
 msgid ""
@@ -1162,19 +1254,23 @@ msgstr ""
 "mennyisége számos Firefox-felhasználó legfontosabb érve a program használata "
 "mellett.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4613
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4728
 msgid "Music"
 msgstr "Zene"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:968
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5239
+msgid "New"
+msgstr "Új"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:924
 msgid "No internet"
 msgstr "Nincs internetkapcsolat"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:693
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:670
 msgid "Note!"
 msgstr "Megjegyzés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1260
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1265
 msgid "Office"
 msgstr "Iroda"
 
@@ -1213,8 +1309,8 @@ msgstr ""
 "A programcsomag csoportos munkára is alkalmas az online mód használatával "
 "ami kompatibilis a saját felhőjükkel, NextCloud-dal és ownCloud-dal.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1094
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1109
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1099
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1114
 msgid "Open in browser"
 msgstr "Megnyitás böngészőben"
 
@@ -1282,7 +1378,7 @@ msgstr ""
 "Microsystems. Jelenleg az Oracle fejleszti az alkalmazást Oracle VM "
 "VirtualBox néven.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4647
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4762
 msgid "Pictures"
 msgstr "Képek"
 
@@ -1322,92 +1418,105 @@ msgstr ""
 "a System76 által, a cég által ami rengeteg remek Linux számítógép mögött "
 "áll, valamint az igen átdolgozott Ubuntu variánst, a Pop!_OS-t fejleszti.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4430
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4543
 msgid "Proceed"
 msgstr "Kezdés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:629
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:622
 msgid "Processing "
 msgstr "Feldolgozás alatt a(z) "
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:424
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:418
 msgid "Prompt"
 msgstr "Figyelmeztetés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1020
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4197
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4319
+msgid "Providing feedback for :"
+msgstr "Visszajelzés erről a projektről :"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:963
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4278
 msgid "Question"
 msgstr "Kérdés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:761
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:727
 msgid "Ready in ~/Downloads/"
 msgstr "Készen áll a ~/Downloads/ mappában"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:431
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:463
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:470
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:509
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:516
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:531
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:704
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:478
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:673
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:918
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:933
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:948
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:963
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:978
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1049
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1064
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1079
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1124
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1395
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1410
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1425
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1440
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1455
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1470
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1633
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1648
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1663
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1678
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1693
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1708
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1871
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1886
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1901
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1916
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1931
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1946
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1979
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2208
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2223
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2238
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2253
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2268
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2283
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2298
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2313
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2328
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2361
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2394
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2427
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:562
+msgid "Safety first!"
+msgstr "A biztonság az első!"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5818
+msgid "Save"
+msgstr "Mentés"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:921
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:936
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:951
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:966
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:981
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1054
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1069
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1084
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1129
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1402
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1417
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1432
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1447
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1462
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1477
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1642
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1657
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1672
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1687
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1702
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1717
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1882
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1897
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1912
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1927
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1942
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1957
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1990
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2221
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2236
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2251
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2266
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2281
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2296
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2311
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2326
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2341
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2374
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2407
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2440
 msgid "Scanning..."
 msgstr "Keresés..."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4333
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4443
 msgid "Select what to backup."
-msgstr ""
+msgstr "Válassza ki mit mentsünk."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4242
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4352
 msgid "Send"
 msgstr "Küldés"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:717
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1436
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:686
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:796
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1572
 msgid "Server error"
 msgstr "Szerver hiba"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4132
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4213
 msgid "Short, meaningful title (Max 35 character)"
 msgstr "Rövid, beszédes cím (Max 35 karakter("
 
@@ -1448,6 +1557,10 @@ msgstr ""
 "Minden Signal szoftver ingyenes és nyílt forráskódú GPLv3 liszensz alatt, a "
 "szerverek AGPLv3 alatt.A non-profit Signal Foundation 2018 Februárban indult "
 "50 millió dolláros alappal.\n"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5332
+msgid "Simple"
+msgstr "Egyszerű"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:147
 msgid ""
@@ -1546,7 +1659,7 @@ msgstr ""
 "egészen keveset trükközni kell az elején, hogy minden a lehető legjobban "
 "működjön.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4681
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4796
 msgid "Start backup"
 msgstr "Mentés indítása"
 
@@ -1571,7 +1684,7 @@ msgstr ""
 "Steam Proton segítségével rengeteg eredetileg Windowsra írt játék könnyedén "
 "játszható Linuxon is.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:363
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:359
 msgid ""
 "Steam OS\n"
 "\n"
@@ -1653,7 +1766,7 @@ msgstr ""
 "versenyezhet egy gépen, LAN-on vagy online bárkivel a világon.\n"
 
 #. The name of translator (you)
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3930
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4012
 msgid "Swanux"
 msgstr "Swanux"
 
@@ -1712,15 +1825,19 @@ msgstr ""
 "koncentrál, illetve a libertárius közösség egyik ünnepelt fenegyerekeként "
 "utazza körbe a földet.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4664
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4779
 msgid "Templates"
 msgstr "Sablonok"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2519
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2532
 msgid "Text Here"
 msgstr "Szöveg ide"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2716
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5187
+msgid "Themes"
+msgstr "Témák"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2729
 msgid ""
 "These distros are the easiest to set up and use in my opinion. They are also "
 "pretty stable and good/familiar looking."
@@ -1775,7 +1892,7 @@ msgstr ""
 "nem kerülnek mentésre. Ez biztosítja, hogy a fájlok változatlanok maradjanak "
 "a rendszer egy korábbi dátumra való visszaállítása során\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4748
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4866
 msgid "Total progress:"
 msgstr "Összesített haladás:"
 
@@ -1795,9 +1912,13 @@ msgstr ""
 "macOS vagy Chrome OS esetén), de a Fusuma sokkal jobbá teszi a touchpad "
 "használatát Linuxon.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3862
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3944
 msgid "Translation by :"
 msgstr "Fordította : "
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3455
+msgid "Tumbeweed (Rolling)"
+msgstr "Tumbeweed (Folytonos)"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:343
 msgid ""
@@ -1821,11 +1942,15 @@ msgstr ""
 "használható, továbbadható, tanulmányozható és módosítható igényei szerint. "
 "Ingyenesen használhatja üzleti célra is.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4370
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5145
+msgid "Unity mode"
+msgstr "Unity mód"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4483
 msgid "User data"
 msgstr "Személyes adatok"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4579
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4694
 msgid "Videos"
 msgstr "Videók"
 
@@ -1926,11 +2051,11 @@ msgstr ""
 "\n"
 "Szerintem ez a legjobb MS Office alternatíva Linuxra.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2555
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2568
 msgid "Website"
 msgstr "Weboldal"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:757
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:758
 msgid ""
 "Welcome to App Spotlight! Here are lots of high qualitiy programs sorted by "
 "category. You can easly switch between browsers, find the best office suite "
@@ -1948,11 +2073,26 @@ msgstr ""
 "eldöntötte, hogy szeretné telepíteni/eltávolítani az adott alklmazást, csak "
 "kattintson a gombra az ikon alatt."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:440
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5039
+msgid ""
+"Welcome to HControl!\n"
+"\n"
+"This section gives you a handy GUI for managing system tasks, such as "
+"automation with cron jobs, or switching between Windows, MacOS and other "
+"predefined desktop layouts / themes."
+msgstr ""
+"Üdvözöljük az HVezérlőben!\n"
+"\n"
+"Ez a szekció egy könnyen kezelhető grafikus felületet biztosít "
+"rendszerfeladatok kezeléséhez, mint például automatizálás cron munkákkal, "
+"vagy váltás Windows, MacOS és egyéb előre megszerkesztett asztali témák / "
+"elrendezések között."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:439
 msgid "Welcome to HSuite!"
 msgstr "Üdvözöljük az HSuite-ban!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2657
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2670
 msgid ""
 "Welcome to the Distro Boutique! Here you can find the most popular Linux "
 "distros. The purpose of this page is to help newcommers in the Linux world "
@@ -1984,7 +2124,7 @@ msgstr ""
 "Kattintson a gombra, hogy letöltse a kívánt disztrót, vagy kattintson a "
 "logójára, hogy extra információt kapjon róla."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3095
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3116
 msgid ""
 "When it comes to gaming in Linux, I can only think about one specific OS for "
 "this purpose. However, you can use any distro with some tweaks for gaming. "
@@ -1994,6 +2134,10 @@ msgstr ""
 "rendszerre tudok gondolni aemi különlegesebb.Ugyanakkor bármelyik másik "
 "disztró is alkalmas játékra természetesen, de ebben igazából még a Windows "
 "az igazi."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5132
+msgid "Windows 10 mode"
+msgstr "Windows 10 mód"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:260
 msgid ""
@@ -2059,7 +2203,7 @@ msgstr ""
 "woeusbgui (ahogy a név alapján sejteni lehet) egy GUI a woeusb-hez amely "
 "WxWidget-eket használ.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1224
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1216
 msgid ""
 "Would you like to view a simplified list of applications? (some less common "
 "programs may miss from the list)"
@@ -2067,15 +2211,56 @@ msgstr ""
 "Szeretne egy egyszerűsített listát látni a programokról? (néhány program "
 "hiányozhat róla)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:959
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:562
+msgid "You can't cancel installation, as it's in a critical state."
+msgstr ""
+"Már nem szakíthatja meg a telepítést mivel az egy kritikus szakaszban van."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:916
 msgid "You have no internet connection!"
 msgstr "Nincs aktív internetkapcsolat!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1007
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:957
 msgid "You need to fill out all the fields!"
 msgstr "Ki kell töltenie minden mezőt!"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:189
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5674
+msgid ""
+"You need to provide five number separated with space: minute, hour, day-of-"
+"month, month and day-of-week.\n"
+"\n"
+"Note:\n"
+"\t* = any value\n"
+"\t, = value list separator, ie. 0,30 would be the 0 AND 30th\n"
+"\t- = range of values, ie. 19-23 would be 19, 20, 21, 22, and 23\n"
+"\t/ = step values, ie */5 is every 5\n"
+"\t0-59 = minute\n"
+"\t0-23 = hour\n"
+"\t1-31 = day\n"
+"\t1-12  or JAN-DEC = month\n"
+"\t0-6 (0 is SUN) or MON-SUN = weekdays\n"
+"\n"
+"e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on "
+"Monday."
+msgstr ""
+"Öt számot kell megadnia szóközzel elválasztva: perc, óra, hónap x. npaja, "
+"hónap, hét x. napja\n"
+"\n"
+"Jegyzetek:\n"
+"\t* = bármilyen érték\n"
+"\t, = érték lista elválasztó, pl. 0,30 annak felel meg, hogy 0 ÉS 30\n"
+"\t- = értéktartomány, pl. 19-23 annak felel meg, hogy 19, 20, 21, 22, és 23\n"
+"\t/ = értékek léptetése, pl. */5 az minden 5.\n"
+"\t0-59 = perc\n"
+"\t0-23 = óra\n"
+"\t1-31 = nap\n"
+"\t1-12  or JAN-DEC = hónap\n"
+"\t0-6 (0 is SUN) or MON-SUN = hét napjai\n"
+"\n"
+"pl.: * * * * * = Minden percben. VAGY * * * * MON = Hétfőnként minden "
+"percben."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:224
 msgid ""
 "You need to reboot after the install has been completed\n"
 "to apply all changes. However note that support for Wayland\n"
@@ -2087,7 +2272,7 @@ msgstr ""
 "kísérleti jellegű. Az eszköz konfigurációja\n"
 "a ~/.config/fusuma/config.yml fájlban található."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:184
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:219
 msgid ""
 "You need to reboot after the install has been completed\n"
 "to apply all changes. You can configure the tool\n"
@@ -2097,98 +2282,101 @@ msgstr ""
 "hogy minden változást alkalmazzon. Az eszköz konfigurációja\n"
 "a ~/.config/fusuma/config.yml fájlban található."
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:106
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1706
 msgid ""
-"Your distro is detected as Deepin.\n"
-"This distro is not fully\n"
-"tested, you may encounter some\n"
-"problems with the program. Currently tested\n"
-"on distros: Ubuntu (bionic, eoan), Debian (buster)."
+"Your distro is detected as Deepin. This distro is not fully tested, you may "
+"encounter some problems with the program. Currently tested on distros: "
+"Ubuntu (bionic, eoan, focal), Debian (buster)."
 msgstr ""
-"Az Ön rendszerét Deepin-ként azonosítottuk.\n"
-"Ez a disztró nincs teljesen letesztelve,\n"
-"lehetséges, hogy problémák merülnek fel\n"
-"a programmal. Jelenleg sikeresen tesztelve\n"
-"Arch-on, Ubuntu-n (bionic, eoan) és Debian-on (buster)"
+"Az Ön rendszerét Deepin-ként azonosítottuk. Ez a disztró nincs teljesen "
+"letesztelve, lehetséges, hogy problémák merülnek fel a programmal. Jelenleg "
+"sikeresen tesztelve Ubuntu-n (bionic, eoan, focal) és Debian-on (buster)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:359
-msgid ""
-"Zorin OS\n"
-"\n"
-"Personally, I do not like this distro, because of its philosophy. It is a "
-"littlebit like Windows in my eyes. At the other hand it is a well "
-"constructed and complete OS that works out of the box on a PC, Laptop, or "
-"even a Tablet (Intel CPU). It has a simple UI with a start menu, a tablet UI "
-"and a Pro version (khm Windows 10...). If it is okay for you, then it is a "
-"great Ubuntu based distro.\n"
-msgstr ""
-"Zorin OS \n"
-"\n"
-"Személy szetint én nem igazán kedvelem ezt a disztrót a filozófiája miatt. "
-"Kissé olyan számomra mint a Windows.Másfelől viszont egy remekül felépített "
-"és teljes rendszer, ami rögtön alapbeállításokkal remekül működik PC-n, "
-"Laptopon vagy akár Tableten (intel CPU-val).A felülete egyszerű, "
-"megtalűlható a jól ismert Start menü is, egy tablet UI és egy Pro verzió "
-"(khm Windows 10...). Ha ez Önnek megfelelő, akkor ez egy remek Ubuntu alapú "
-"disztró.\n"
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4733
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4851
 msgid "current"
 msgstr "jelenlegi"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5298
+msgid "daily"
+msgstr "naponta"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5527
+msgid "day"
+msgstr "nap"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5753
+msgid "e.g.: bash /path/to/myscript.sh"
+msgstr "pl.: bash /szkriptem/helye/myscript.sh"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5464
+msgid "hour"
+msgstr "óra"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5297
+msgid "hourly"
+msgstr "óránként"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "http://www.linuxfromscratch.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://elementary.io"
 msgstr "https://elementary.io/hu/"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://getfedora.org"
 msgstr "https://getfedora.org/hu/"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://getsol.us/home/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://store.steampowered.com/steamos/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://ubuntu.com"
 msgstr "http://ubuntu.hu"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://www.archlinux.org"
 msgstr "https://wiki.archlinux.org/index.php/Arch_Linux_(Magyar)"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://www.debian.org"
 msgstr "https://www.debian.org/international/Hungarian.hu.html"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://www.deepin.org/en/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://www.gentoo.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://www.linuxmint.com"
 msgstr "https://linuxmint.hu"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
 msgid "https://www.opensuse.org"
 msgstr "https://hu.opensuse.org/Üdvözöljük_az_openSUSE.org_oldalán"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:399
-msgid "https://zorinos.com"
-msgstr ""
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5401
+msgid "minute"
+msgstr "perc"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:375
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5604
+msgid "month"
+msgstr "hónap"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5300
+msgid "monthly"
+msgstr "havonta"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:371
 msgid ""
 "openSUSE\n"
 "\n"
@@ -2207,10 +2395,13 @@ msgstr ""
 "miközben felhasználóbarát asztalt és funkciókban gazdag szerver környezetet "
 "biztosítanak.\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3747
-#, fuzzy
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5296
+msgid "reboot"
+msgstr "újraindítás után"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3829
 msgid ""
-"v0.6 .5| Emerald\n"
+"v0.7 | Sinara\n"
 "\n"
 "HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for "
 "the Linux operating system. Features include powerful built-in custom "
@@ -2219,7 +2410,7 @@ msgid ""
 "helping in everyday tasks and more features are coming.\n"
 "To view recent changes visit the link below."
 msgstr ""
-"v0.6.5 | Emerald\n"
+"v0.7 | Sinara\n"
 "\n"
 "Az HSuite (korábban Helen) az SSU (egyszerű, kicsi, hasznos) svájcibicska "
 "Linux rendszerre. A Funkciók között szerepelnek hatékony beépített saját "
@@ -2228,3 +2419,14 @@ msgstr ""
 "fejlesztés alatt.\n"
 "Hogy megtekinthesse a legutóbbi változásokat keresse fel a weboldalt az "
 "alábbi gombra kattintva."
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5299
+msgid "weekly"
+msgstr "hetente"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5301
+msgid "yearly"
+msgstr "évente"
+
+#~ msgid "Studio"
+#~ msgstr "Stúdió"
