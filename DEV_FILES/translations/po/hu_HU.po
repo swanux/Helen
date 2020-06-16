@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: HSuite 0.6\n"
+"Project-Id-Version: HSuite 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-14 17:08+0200\n"
+"POT-Creation-Date: 2020-06-16 12:13+0200\n"
 "PO-Revision-Date: 2020-02-29 20:56+0100\n"
 "Last-Translator: Dániel Kolozsi <dani@kolozsi.net>\n"
 "Language-Team: Hungarian\n"
@@ -58,6 +58,10 @@ msgstr "A programról"
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5635
 msgid "Advanced"
 msgstr "Haladó"
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1388
+msgid "After reboot."
+msgstr "Újraindítás után."
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1627
@@ -1020,6 +1024,11 @@ msgstr "Telepített programok"
 msgid "Invalid email address!"
 msgstr "Érvénytelen email cím!"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1394
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1398
+msgid "Invalid syntax!"
+msgstr "Érvénytelen beállítás!"
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:385
 msgid ""
 "LFS\n"
@@ -1829,6 +1838,10 @@ msgstr ""
 msgid "Templates"
 msgstr "Sablonok"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:34
+msgid "Temporarly here"
+msgstr "Ideiglenesen itt"
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2532
 msgid "Text Here"
 msgstr "Szöveg ide"
@@ -2296,6 +2309,7 @@ msgstr ""
 msgid "current"
 msgstr "jelenlegi"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5298
 msgid "daily"
 msgstr "naponta"
@@ -2312,6 +2326,7 @@ msgstr "pl.: bash /szkriptem/helye/myscript.sh"
 msgid "hour"
 msgstr "óra"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5297
 msgid "hourly"
 msgstr "óránként"
@@ -2372,6 +2387,7 @@ msgstr "perc"
 msgid "month"
 msgstr "hónap"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5300
 msgid "monthly"
 msgstr "havonta"
@@ -2395,9 +2411,11 @@ msgstr ""
 "miközben felhasználóbarát asztalt és funkciókban gazdag szerver környezetet "
 "biztosítanak.\n"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5296
 msgid "reboot"
-msgstr "újraindítás után"
+msgstr "újraindításnál"
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3829
 msgid ""
@@ -2420,10 +2438,12 @@ msgstr ""
 "Hogy megtekinthesse a legutóbbi változásokat keresse fel a weboldalt az "
 "alábbi gombra kattintva."
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5299
 msgid "weekly"
 msgstr "hetente"
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5301
 msgid "yearly"
 msgstr "évente"

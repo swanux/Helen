@@ -20,151 +20,151 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="0ad_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/0ad.png</property>
+    <property name="pixbuf">../../../icons/0ad.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="arch_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/arch.png</property>
+    <property name="pixbuf">../../../icons/arch.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="atom_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/atom.png</property>
+    <property name="pixbuf">../../../icons/atom.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="auda_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/audacity.png</property>
+    <property name="pixbuf">../../../icons/audacity.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="barrier_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/barrier.png</property>
+    <property name="pixbuf">../../../icons/barrier.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="box_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/box.png</property>
+    <property name="pixbuf">../../../icons/box.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="chrome_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/chrome.png</property>
+    <property name="pixbuf">../../../icons/chrome.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deb_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/debian.png</property>
+    <property name="pixbuf">../../../icons/debian.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deepin_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/deepin.png</property>
+    <property name="pixbuf">../../../icons/deepin.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deja_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/deja.png</property>
+    <property name="pixbuf">../../../icons/deja.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="discord_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/discord.png</property>
+    <property name="pixbuf">../../../icons/discord.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="edge_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/edge.png</property>
+    <property name="pixbuf">../../../icons/edge.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="elementary_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/elementary.png</property>
+    <property name="pixbuf">../../../icons/elementary.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="fedora_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/fedora.png</property>
+    <property name="pixbuf">../../../icons/fedora.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="firefox_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/firefox.png</property>
+    <property name="pixbuf">../../../icons/firefox.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="foffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/foffice.png</property>
+    <property name="pixbuf">../../../icons/foffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="franz_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/franz.png</property>
+    <property name="pixbuf">../../../icons/franz.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="geany_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/geany.png</property>
+    <property name="pixbuf">../../../icons/geany.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gedit_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/gedit.png</property>
+    <property name="pixbuf">../../../icons/gedit.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gentoo_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/gentoo.png</property>
+    <property name="pixbuf">../../../icons/gentoo.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gestures_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/gestures.png</property>
+    <property name="pixbuf">../../../icons/gestures.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gnu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/gnu.png</property>
+    <property name="pixbuf">../../../icons/gnu.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="goffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/goffice.png</property>
+    <property name="pixbuf">../../../icons/goffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gparted_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/gparted.png</property>
+    <property name="pixbuf">../../../icons/gparted.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="hex_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/hex.png</property>
+    <property name="pixbuf">../../../icons/hex.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="image1">
@@ -220,181 +220,181 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="lfs_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/lfs.png</property>
+    <property name="pixbuf">../../../icons/lfs.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="loffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/loffice.png</property>
+    <property name="pixbuf">../../../icons/loffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="lutris_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/lutris.png</property>
+    <property name="pixbuf">../../../icons/lutris.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mc_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/mc.png</property>
+    <property name="pixbuf">../../../icons/mc.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mint_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/mint.png</property>
+    <property name="pixbuf">../../../icons/mint.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="msoffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/msoffice.png</property>
+    <property name="pixbuf">../../../icons/msoffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="ooffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/ooffice.png</property>
+    <property name="pixbuf">../../../icons/ooffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="opera_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/opera.png</property>
+    <property name="pixbuf">../../../icons/opera.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="opsu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/opensuse.png</property>
+    <property name="pixbuf">../../../icons/opensuse.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="pol_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/pol.png</property>
+    <property name="pixbuf">../../../icons/pol.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="pops_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/pops.png</property>
+    <property name="pixbuf">../../../icons/pops.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="signal_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/signal.png</property>
+    <property name="pixbuf">../../../icons/signal.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="skart_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/supertuxkart.png</property>
+    <property name="pixbuf">../../../icons/supertuxkart.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="skype_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/skype.png</property>
+    <property name="pixbuf">../../../icons/skype.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="solus_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/solus.png</property>
+    <property name="pixbuf">../../../icons/solus.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steam_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/steam.png</property>
+    <property name="pixbuf">../../../icons/steam.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steamos_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/steam.png</property>
+    <property name="pixbuf">../../../icons/steam.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="stedit_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/stedit.png</property>
+    <property name="pixbuf">../../../icons/stedit.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="telegram_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/telegram.png</property>
+    <property name="pixbuf">../../../icons/telegram.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tims_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/tims.png</property>
+    <property name="pixbuf">../../../icons/tims.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tux_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/tux.png</property>
+    <property name="pixbuf">../../../icons/tux.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tw_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/tw.png</property>
+    <property name="pixbuf">../../../icons/tw.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="ubuntu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/ubuntu.png</property>
+    <property name="pixbuf">../../../icons/ubuntu.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vbox_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/virtualbox.png</property>
+    <property name="pixbuf">../../../icons/virtualbox.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vivaldi_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/vivaldi.png</property>
+    <property name="pixbuf">../../../icons/vivaldi.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vscode_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/vscode.png</property>
+    <property name="pixbuf">../../../icons/vscode.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="web_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/web.png</property>
+    <property name="pixbuf">../../../icons/web.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wine_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/wine.png</property>
+    <property name="pixbuf">../../../icons/wine.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="woe_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/woeusb.png</property>
+    <property name="pixbuf">../../../icons/woeusb.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wps_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">icons/woffice.png</property>
+    <property name="pixbuf">../../../icons/woffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkWindow" id="window">
@@ -404,7 +404,7 @@ Author: Dániel Kolozsi (@swanux)
     <property name="window_position">center</property>
     <property name="default_width">800</property>
     <property name="default_height">500</property>
-    <property name="icon">icons/hsuite.png</property>
+    <property name="icon">../../../icons/hsuite.png</property>
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
     <child type="titlebar">
@@ -472,7 +472,7 @@ Author: Dániel Kolozsi (@swanux)
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
-                                <property name="pixbuf">icons/hsuite.png</property>
+                                <property name="pixbuf">../../../icons/hsuite.png</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -2818,8 +2818,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Cinnamon (Default)</item>
-                                          <item id="1" translatable="yes">MATE</item>
-                                          <item id="2" translatable="yes">XFCE</item>
+                                          <item id="1">MATE</item>
+                                          <item id="2">XFCE</item>
                                           <item id="3" translatable="yes">Debian Edition</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
@@ -2868,13 +2868,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Gnome (Default)</item>
-                                          <item id="1" translatable="yes">Kubuntu (KDE)</item>
-                                          <item id="2" translatable="yes">Lubuntu (LXQt)</item>
-                                          <item id="3" translatable="yes">Budgie</item>
-                                          <item id="4" translatable="yes">Kylin</item>
-                                          <item id="5" translatable="yes">MATE</item>
-                                          <item id="6" translatable="yes">Studio</item>
-                                          <item id="7" translatable="yes">Xubuntu (XFCE)</item>
+                                          <item id="1">Kubuntu (KDE)</item>
+                                          <item id="2">Lubuntu (LXQt)</item>
+                                          <item id="3">Budgie</item>
+                                          <item id="4">Kylin</item>
+                                          <item id="5">MATE</item>
+                                          <item id="6">Studio</item>
+                                          <item id="7">Xubuntu (XFCE)</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3036,9 +3036,9 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Budgie (Default)</item>
-                                          <item id="1" translatable="yes">Gnome</item>
-                                          <item id="2" translatable="yes">MATE</item>
-                                          <item id="3" translatable="yes">KDE</item>
+                                          <item id="1">Gnome</item>
+                                          <item id="2">MATE</item>
+                                          <item id="3">KDE</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3289,13 +3289,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="margin_bottom">5</property>
                                         <property name="active">0</property>
                                         <items>
-                                          <item id="0" translatable="yes">Cinnamon</item>
-                                          <item id="1" translatable="yes">Gnome</item>
-                                          <item id="2" translatable="yes">KDE</item>
-                                          <item id="3" translatable="yes">LXDE</item>
-                                          <item id="4" translatable="yes">LXQt</item>
-                                          <item id="5" translatable="yes">MATE</item>
-                                          <item id="6" translatable="yes">XFCE</item>
+                                          <item id="0">Cinnamon</item>
+                                          <item id="1">Gnome</item>
+                                          <item id="2">KDE</item>
+                                          <item id="3">LXDE</item>
+                                          <item id="4">LXQt</item>
+                                          <item id="5">MATE</item>
+                                          <item id="6">XFCE</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3343,13 +3343,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="active">0</property>
                                         <items>
                                           <item id="0" translatable="yes">Gnome (Default)</item>
-                                          <item id="1" translatable="yes">KDE</item>
-                                          <item id="2" translatable="yes">XFCE</item>
-                                          <item id="3" translatable="yes">LXQt</item>
-                                          <item id="4" translatable="yes">MATE</item>
-                                          <item id="5" translatable="yes">Cinnamon</item>
-                                          <item id="6" translatable="yes">LXDE</item>
-                                          <item id="7" translatable="yes">SOAS</item>
+                                          <item id="1">KDE</item>
+                                          <item id="2">XFCE</item>
+                                          <item id="3">LXQt</item>
+                                          <item id="4">MATE</item>
+                                          <item id="5">Cinnamon</item>
+                                          <item id="6">LXDE</item>
+                                          <item id="7">SOAS</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3796,7 +3796,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               <object class="GtkImage" id="logo">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="pixbuf">icons/hsuite.png</property>
+                                <property name="pixbuf">../../../icons/hsuite.png</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -4331,8 +4331,8 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <property name="hexpand">True</property>
                                 <property name="active">0</property>
                                 <items>
-                                  <item id="0" translatable="yes">HSuite</item>
-                                  <item id="1" translatable="yes">HSite</item>
+                                  <item id="0">HSuite</item>
+                                  <item id="1">HSite</item>
                                 </items>
                               </object>
                               <packing>
@@ -5260,7 +5260,7 @@ NOTE: It'll overwrite your current settings</property>
                               </object>
                               <packing>
                                 <property name="name">page0</property>
-                                <property name="title" translatable="yes">page0</property>
+                                <property name="title">page0</property>
                               </packing>
                             </child>
                             <child>
@@ -5381,7 +5381,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="max_length">5</property>
-                                                    <property name="placeholder_text" translatable="yes">0-59</property>
+                                                    <property name="placeholder_text">0-59</property>
                                                     <signal name="changed" handler="min_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
@@ -5444,7 +5444,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="max_length">5</property>
-                                                    <property name="placeholder_text" translatable="yes">0-23</property>
+                                                    <property name="placeholder_text">0-23</property>
                                                     <signal name="changed" handler="hour_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
@@ -5507,7 +5507,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="max_length">5</property>
-                                                    <property name="placeholder_text" translatable="yes">1-31</property>
+                                                    <property name="placeholder_text">1-31</property>
                                                     <signal name="changed" handler="day_entr_changed" swapped="no"/>
                                                   </object>
                                                   <packing>
@@ -5571,19 +5571,19 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="vexpand">True</property>
                                                     <property name="active">0</property>
                                                     <items>
-                                                      <item id="0" translatable="yes">*</item>
-                                                      <item id="1" translatable="yes">1</item>
-                                                      <item id="2" translatable="yes">2</item>
-                                                      <item id="3" translatable="yes">3</item>
-                                                      <item id="4" translatable="yes">4</item>
-                                                      <item id="5" translatable="yes">5</item>
-                                                      <item id="6" translatable="yes">6</item>
-                                                      <item id="7" translatable="yes">7</item>
-                                                      <item id="8" translatable="yes">8</item>
-                                                      <item id="9" translatable="yes">9</item>
-                                                      <item id="10" translatable="yes">10</item>
-                                                      <item id="11" translatable="yes">11</item>
-                                                      <item id="12" translatable="yes">12</item>
+                                                      <item id="0">*</item>
+                                                      <item id="1">1</item>
+                                                      <item id="2">2</item>
+                                                      <item id="3">3</item>
+                                                      <item id="4">4</item>
+                                                      <item id="5">5</item>
+                                                      <item id="6">6</item>
+                                                      <item id="7">7</item>
+                                                      <item id="8">8</item>
+                                                      <item id="9">9</item>
+                                                      <item id="10">10</item>
+                                                      <item id="11">11</item>
+                                                      <item id="12">12</item>
                                                     </items>
                                                     <signal name="changed" handler="month_choose_changed" swapped="no"/>
                                                   </object>
@@ -5656,7 +5656,7 @@ NOTE: It'll overwrite your current settings</property>
                                             <property name="margin_bottom">10</property>
                                             <property name="hexpand">True</property>
                                             <property name="max_length">30</property>
-                                            <property name="text" translatable="yes">* * * * *</property>
+                                            <property name="text">* * * * *</property>
                                             <signal name="changed" handler="cron_entr_changed" swapped="no"/>
                                           </object>
                                           <packing>
@@ -5776,7 +5776,7 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
                                         <property name="hexpand">True</property>
-                                        <property name="label" translatable="yes">Execution of job: txtHere</property>
+                                        <property name="label">Execution of job: txtHere</property>
                                         <attributes>
                                           <attribute name="weight" value="semibold"/>
                                         </attributes>
@@ -5852,7 +5852,7 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
                               </object>
                               <packing>
                                 <property name="name">page1</property>
-                                <property name="title" translatable="yes">page1</property>
+                                <property name="title">page1</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -5888,7 +5888,7 @@ e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</
           </object>
           <packing>
             <property name="name">page7</property>
-            <property name="title" translatable="yes">page7</property>
+            <property name="title">page7</property>
             <property name="position">7</property>
           </packing>
         </child>

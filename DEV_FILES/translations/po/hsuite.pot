@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-14 17:08+0200\n"
+"POT-Creation-Date: 2020-06-16 12:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,10 @@ msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5635
 msgid "Advanced"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1388
+msgid "After reboot."
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
@@ -743,6 +747,11 @@ msgstr ""
 msgid "Invalid email address!"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1394
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1398
+msgid "Invalid syntax!"
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:385
 msgid ""
 "LFS\n"
@@ -1283,6 +1292,10 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:34
+msgid "Temporarly here"
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2532
 msgid "Text Here"
 msgstr ""
@@ -1582,6 +1595,7 @@ msgstr ""
 msgid "current"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5298
 msgid "daily"
 msgstr ""
@@ -1598,6 +1612,7 @@ msgstr ""
 msgid "hour"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5297
 msgid "hourly"
 msgstr ""
@@ -1658,6 +1673,7 @@ msgstr ""
 msgid "month"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5300
 msgid "monthly"
 msgstr ""
@@ -1673,6 +1689,8 @@ msgid ""
 "providing a user-friendly desktop and feature-rich server environment.\n"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5296
 msgid "reboot"
 msgstr ""
@@ -1689,10 +1707,12 @@ msgid ""
 "To view recent changes visit the link below."
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5299
 msgid "weekly"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1385
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5301
 msgid "yearly"
 msgstr ""

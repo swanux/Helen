@@ -24,14 +24,14 @@ else:
 # Translation
 APP = "hsuite"
 WHERE_AM_I = os.path.abspath(os.path.dirname(__file__))
-print(WHERE_AM_I)
 LOCALE_DIR = os.path.join(WHERE_AM_I, 'translations/mo')
 locale.setlocale(locale.LC_ALL, locale.getlocale())
-print(locale.getlocale())
 locale.bindtextdomain(APP, LOCALE_DIR)
+# locale.textdomain(APP)
 gettext.bindtextdomain(APP, LOCALE_DIR)
 gettext.textdomain(APP)
 _ = gettext.gettext
+print(_('Temporarly here'))
 # Import GUI modules
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
@@ -295,6 +295,9 @@ class myThread (Thread):
 class GUI:
     count = 0
     def __init__(self):
+        # Prepare to use builder
+        self.builder = Gtk.Builder()
+        self.builder.set_translation_domain(APP)
         # if distro == 'Ubuntu' or distro == 'Debian':
         self.GNOME_SITE = "https://extensions.gnome.org"
         self.GNOME_VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
@@ -322,9 +325,6 @@ class GUI:
         self.b_pic = False
         self.b_vid = False
         self.hsdir = '/home/%s/hswitcher/BUILD/restore-1.0/backups' % user
-        # Prepare to use builder
-        self.builder = Gtk.Builder()
-        self.builder.set_translation_domain(APP)
         # Import the glade file
         self.builder.add_from_file(UI_FILE)
         # Connect all signals
@@ -1382,20 +1382,20 @@ done\n"""
             elif self.hardCron != "":
                 print('sec if')
                 print(self.hardCron)
-                if self.hardCron == "reboot" or self.hardCron == "yearly" or self.hardCron == "monthly" or self.hardCron == "weekly" or self.hardCron == "daily" or self.hardCron == "hourly":
+                if self.hardCron == _("reboot") or self.hardCron == _("yearly") or self.hardCron == _("monthly") or self.hardCron == _("weekly") or self.hardCron == _("daily") or self.hardCron == _("hourly"):
                     print('sir if')
-                    if self.hardCron == 'reboot':
-                        cronMean = 'After reboot.'
+                    if self.hardCron == _('reboot'):
+                        cronMean = _('After reboot.')
                     else:
                         cronMean = f"Repeat {self.hardCron}."
                     self.cronJob = f"@{self.hardCron}"
                 else:
                     print('xs else')
-                    cronMean = "Invalid syntax!"
+                    cronMean = _("Invalid syntax!")
                     self.cronJob = ""
             else:
                 print('xl else')
-                cronMean = "Invalid syntax!"
+                cronMean = _("Invalid syntax!")
                 self.cronJob = ""
             self.cronCommand = self.builder.get_object('comm_entr').get_text()
             GLib.idle_add(self.builder.get_object('tx_lab').set_label, cronMean)
@@ -1734,6 +1734,7 @@ if __name__ == "__main__":
         file = open(confP, "w+")
         parser.write(file)
         file.close()
+        v = parser.get('hsuite', 'v')
     # Print info to debug
     print("Current date: %s" % today)
     print("Current day: %s" % day)
