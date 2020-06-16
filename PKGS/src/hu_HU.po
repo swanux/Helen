@@ -161,7 +161,7 @@ msgstr ", minden {0}. hónapban"
 #: ExpressionDescriptor.py:336 ExpressionDescriptor.py:399
 #, python-brace-format
 msgid ", only in {0}"
-msgstr ", csak ekkor: "
+msgstr ", csak ekkor: {0}"
 
 #: ExpressionDescriptor.py:350
 msgid ", on the last day of the month"
