@@ -1387,7 +1387,7 @@ done\n"""
                     if self.hardCron == _('reboot'):
                         cronMean = _('After reboot.')
                     else:
-                        cronMean = f"Repeat {self.hardCron}."
+                        cronMean = _("Repeat ")+self.hardCron+"."
                     self.cronJob = f"@{self.hardCron}"
                 else:
                     print('xs else')
@@ -1435,11 +1435,11 @@ done\n"""
             storeCron.append([str(job), l])
             l += 1
         print("First time")
-        for i, column_title in enumerate(["Job", "ID"]):
+        for i, column_title in enumerate([_("Job"), "ID"]):
             renderer = Gtk.CellRendererText(xalign=0)
             renderer.set_property("ellipsize", True)
             column = Gtk.TreeViewColumn(column_title, renderer, text=i)
-            if column_title == "Job":
+            if column_title == _("Job"):
                 column.set_fixed_width(700)
                 column.set_resizable(True)
             else:

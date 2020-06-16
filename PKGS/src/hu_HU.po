@@ -1,0 +1,223 @@
+# Translation of cron_descriptor
+# Copyright (C) 2020
+# This file is distributed under the same license as the cron_descriptor package.
+# Adam Schubert <adam.schubert@sg1-game.net>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: adam.schubert@sg1-game.net\n"
+"POT-Creation-Date: 2020-06-16 02:00+0100\n"
+"PO-Revision-Date: 2020-06-16 02:00+0100\n"
+"Last-Translator: Dániel Kolozsi <dani@kolozsi.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+
+#: ExpressionDescriptor.py:145
+msgid ""
+"An error occured when generating the expression description.  Check the cron"
+" expression syntax."
+msgstr ""
+"An error occured when generating the expression description.  Check the cron"
+" expression syntax."
+
+#: ExpressionDescriptor.py:169
+msgid "At "
+msgstr "Ekkor: "
+
+#: ExpressionDescriptor.py:180
+#, python-brace-format
+msgid "Every minute between {0} and {1}"
+msgstr "Minden percben {0} és {1} között"
+
+#: ExpressionDescriptor.py:186
+msgid "At"
+msgstr "Ekkor: "
+
+#: ExpressionDescriptor.py:196
+msgid " and"
+msgstr " és"
+
+#: ExpressionDescriptor.py:226
+msgid "every second"
+msgstr "minden másodpercben"
+
+#: ExpressionDescriptor.py:228
+#, python-brace-format
+msgid "every {0} seconds"
+msgstr "minden {0}. másodpercben"
+
+#: ExpressionDescriptor.py:229
+#, python-brace-format
+msgid "seconds {0} through {1} past the minute"
+msgstr "egész perc utáni {0}. másodperctől a(z) {1}. másodpercig másodpercenként"
+
+#: ExpressionDescriptor.py:230
+#, python-brace-format
+msgid "at {0} seconds past the minute"
+msgstr "az egész perc utáni {0}. másodpercben"
+
+#: ExpressionDescriptor.py:243
+msgid "every minute"
+msgstr "minden percben"
+
+#: ExpressionDescriptor.py:245
+#, python-brace-format
+msgid "every {0} minutes"
+msgstr "minden {0}. percben"
+
+#: ExpressionDescriptor.py:246
+#, python-brace-format
+msgid "minutes {0} through {1} past the hour"
+msgstr "egész óra utáni {0}. perctől a(z) {1}. percig percenként"
+
+#: ExpressionDescriptor.py:247
+#, python-brace-format
+msgid "at {0} minutes past the hour"
+msgstr "az egész perc utáni {0}. percben"
+
+#: ExpressionDescriptor.py:260
+msgid "every hour"
+msgstr "minden órában"
+
+#: ExpressionDescriptor.py:262
+#, python-brace-format
+msgid "every {0} hours"
+msgstr "minden {0}. órában"
+
+#: ExpressionDescriptor.py:263
+#, python-brace-format
+msgid "between {0} and {1}"
+msgstr "{0} és {1} között"
+
+#: ExpressionDescriptor.py:264
+#, python-brace-format
+msgid "at {0}"
+msgstr "{0}-kor"
+
+#: ExpressionDescriptor.py:295
+msgid "first"
+msgstr "első"
+
+#: ExpressionDescriptor.py:296
+msgid "second"
+msgstr "második"
+
+#: ExpressionDescriptor.py:297
+msgid "third"
+msgstr "harmadik"
+
+#: ExpressionDescriptor.py:298
+msgid "forth"
+msgstr "negyedik"
+
+#: ExpressionDescriptor.py:299
+msgid "fifth"
+msgstr "ötödik"
+
+#: ExpressionDescriptor.py:305
+msgid ", on the "
+msgstr ", ekkor: "
+
+#: ExpressionDescriptor.py:306
+#, python-brace-format
+msgid " {0} of the month"
+msgstr " a hónap {0}. napján"
+
+#: ExpressionDescriptor.py:308
+#, python-brace-format
+msgid ", on the last {0} of the month"
+msgstr ", a hónap utolsó {0}-i napján"
+
+#: ExpressionDescriptor.py:310
+#, python-brace-format
+msgid ", only on {0}"
+msgstr ", csak ekkor: {0}"
+
+#: ExpressionDescriptor.py:316 ExpressionDescriptor.py:366
+#: ExpressionDescriptor.py:368 ExpressionDescriptor.py:555
+msgid ", every day"
+msgstr ", minden nap"
+
+#: ExpressionDescriptor.py:318
+#, python-brace-format
+msgid ", every {0} days of the week"
+msgstr ", minden {0}. napján a hétnek"
+
+#: ExpressionDescriptor.py:319 ExpressionDescriptor.py:335
+#: ExpressionDescriptor.py:398 ExpressionDescriptor.py:467
+#, python-brace-format
+msgid ", {0} through {1}"
+msgstr ", {0}-tól/től {1}-ig"
+
+#: ExpressionDescriptor.py:334
+#, python-brace-format
+msgid ", every {0} months"
+msgstr ", minden {0}. hónapban"
+
+#: ExpressionDescriptor.py:336 ExpressionDescriptor.py:399
+#, python-brace-format
+msgid ", only in {0}"
+msgstr ", csak ekkor: "
+
+#: ExpressionDescriptor.py:350
+msgid ", on the last day of the month"
+msgstr ", a hónap utolsó napján"
+
+#: ExpressionDescriptor.py:352
+msgid ", on the last weekday of the month"
+msgstr ", a hónap utolsó hétköznapján"
+
+#: ExpressionDescriptor.py:359
+msgid "first weekday"
+msgstr "az első hétköznapon"
+
+#: ExpressionDescriptor.py:359
+#, python-brace-format
+msgid "weekday nearest day {0}"
+msgstr "a legközelebbi hétköznap ehhez: {0}"
+
+#: ExpressionDescriptor.py:361
+#, python-brace-format
+msgid ", on the {0} of the month"
+msgstr ", a hónap {0}. napján"
+
+#: ExpressionDescriptor.py:368
+#, python-brace-format
+msgid ", every {0} days"
+msgstr ", minden {0}. napon"
+
+#: ExpressionDescriptor.py:369
+#, python-brace-format
+msgid ", between day {0} and {1} of the month"
+msgstr ", a hónap {0}. és {1}. napja között"
+
+#: ExpressionDescriptor.py:370
+#, python-brace-format
+msgid ", on day {0} of the month"
+msgstr ", a hónap {0}. napján"
+
+#: ExpressionDescriptor.py:397
+#, python-brace-format
+msgid ", every {0} years"
+msgstr ", minden {0}. évben"
+
+#: ExpressionDescriptor.py:449
+#, python-brace-format
+msgid ", starting {0}"
+msgstr ", ekkortól kezdve: {0}"
+
+#: ExpressionDescriptor.py:462
+msgid " and "
+msgstr " és "
+
+#: ExpressionDescriptor.py:553
+msgid ", every minute"
+msgstr ", minden percben"
+
+#: ExpressionDescriptor.py:554
+msgid ", every hour"
+msgstr ", minden órában"

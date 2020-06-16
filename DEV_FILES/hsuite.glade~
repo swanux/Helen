@@ -20,151 +20,151 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="0ad_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/0ad.png</property>
+    <property name="pixbuf">icons/0ad.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="arch_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/arch.png</property>
+    <property name="pixbuf">icons/arch.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="atom_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/atom.png</property>
+    <property name="pixbuf">icons/atom.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="auda_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/audacity.png</property>
+    <property name="pixbuf">icons/audacity.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="barrier_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/barrier.png</property>
+    <property name="pixbuf">icons/barrier.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="box_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/box.png</property>
+    <property name="pixbuf">icons/box.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="chrome_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/chrome.png</property>
+    <property name="pixbuf">icons/chrome.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deb_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/debian.png</property>
+    <property name="pixbuf">icons/debian.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deepin_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/deepin.png</property>
+    <property name="pixbuf">icons/deepin.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="deja_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/deja.png</property>
+    <property name="pixbuf">icons/deja.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="discord_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/discord.png</property>
+    <property name="pixbuf">icons/discord.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="edge_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/edge.png</property>
+    <property name="pixbuf">icons/edge.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="elementary_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/elementary.png</property>
+    <property name="pixbuf">icons/elementary.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="fedora_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/fedora.png</property>
+    <property name="pixbuf">icons/fedora.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="firefox_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/firefox.png</property>
+    <property name="pixbuf">icons/firefox.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="foffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/foffice.png</property>
+    <property name="pixbuf">icons/foffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="franz_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/franz.png</property>
+    <property name="pixbuf">icons/franz.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="geany_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/geany.png</property>
+    <property name="pixbuf">icons/geany.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gedit_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/gedit.png</property>
+    <property name="pixbuf">icons/gedit.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gentoo_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/gentoo.png</property>
+    <property name="pixbuf">icons/gentoo.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gestures_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/gestures.png</property>
+    <property name="pixbuf">icons/gestures.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gnu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/gnu.png</property>
+    <property name="pixbuf">icons/gnu.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="goffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/goffice.png</property>
+    <property name="pixbuf">icons/goffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="gparted_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/gparted.png</property>
+    <property name="pixbuf">icons/gparted.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="hex_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/hex.png</property>
+    <property name="pixbuf">icons/hex.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="image1">
@@ -220,191 +220,190 @@ Author: Dániel Kolozsi (@swanux)
   <object class="GtkImage" id="lfs_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/lfs.png</property>
+    <property name="pixbuf">icons/lfs.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="loffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/loffice.png</property>
+    <property name="pixbuf">icons/loffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="lutris_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/lutris.png</property>
+    <property name="pixbuf">icons/lutris.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mc_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/mc.png</property>
+    <property name="pixbuf">icons/mc.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mint_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/mint.png</property>
+    <property name="pixbuf">icons/mint.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="msoffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/msoffice.png</property>
+    <property name="pixbuf">icons/msoffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="ooffice_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/ooffice.png</property>
+    <property name="pixbuf">icons/ooffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="opera_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/opera.png</property>
+    <property name="pixbuf">icons/opera.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="opsu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/opensuse.png</property>
+    <property name="pixbuf">icons/opensuse.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="pol_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/pol.png</property>
+    <property name="pixbuf">icons/pol.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="pops_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/pops.png</property>
+    <property name="pixbuf">icons/pops.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="signal_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/signal.png</property>
+    <property name="pixbuf">icons/signal.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="skart_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/supertuxkart.png</property>
+    <property name="pixbuf">icons/supertuxkart.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="skype_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/skype.png</property>
+    <property name="pixbuf">icons/skype.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="solus_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/solus.png</property>
+    <property name="pixbuf">icons/solus.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steam_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/steam.png</property>
+    <property name="pixbuf">icons/steam.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steamos_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/steam.png</property>
+    <property name="pixbuf">icons/steam.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="stedit_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/stedit.png</property>
+    <property name="pixbuf">icons/stedit.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="telegram_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/telegram.png</property>
+    <property name="pixbuf">icons/telegram.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tims_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/tims.png</property>
+    <property name="pixbuf">icons/tims.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tux_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/tux.png</property>
+    <property name="pixbuf">icons/tux.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tw_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/tw.png</property>
+    <property name="pixbuf">icons/tw.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="ubuntu_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/ubuntu.png</property>
+    <property name="pixbuf">icons/ubuntu.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vbox_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/virtualbox.png</property>
+    <property name="pixbuf">icons/virtualbox.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vivaldi_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/vivaldi.png</property>
+    <property name="pixbuf">icons/vivaldi.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vscode_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/vscode.png</property>
+    <property name="pixbuf">icons/vscode.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="web_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/web.png</property>
+    <property name="pixbuf">icons/web.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wine_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/wine.png</property>
+    <property name="pixbuf">icons/wine.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="woe_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/woeusb.png</property>
+    <property name="pixbuf">icons/woeusb.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="wps_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../icons/woffice.png</property>
+    <property name="pixbuf">icons/woffice.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkWindow" id="window">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="title">window</property>
-    <property name="window_position">center</property>
     <property name="default_width">800</property>
     <property name="default_height">500</property>
-    <property name="icon">../../../icons/hsuite.png</property>
+    <property name="icon">icons/hsuite.png</property>
     <property name="has_resize_grip">True</property>
     <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
     <child type="titlebar">
@@ -472,7 +471,7 @@ Author: Dániel Kolozsi (@swanux)
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
-                                <property name="pixbuf">../../../icons/hsuite.png</property>
+                                <property name="pixbuf">icons/hsuite.png</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -3796,7 +3795,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               <object class="GtkImage" id="logo">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="pixbuf">../../../icons/hsuite.png</property>
+                                <property name="pixbuf">icons/hsuite.png</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -5363,7 +5362,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">Every</property>
+                                                    <property name="label" translatable="yes">Minutes :</property>
                                                     <property name="justify">center</property>
                                                   </object>
                                                   <packing>
@@ -5390,23 +5389,6 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="label9">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="halign">center</property>
-                                                    <property name="valign">center</property>
-                                                    <property name="hexpand">True</property>
-                                                    <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">minute</property>
-                                                    <property name="justify">center</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="left_attach">0</property>
@@ -5426,7 +5408,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">Every</property>
+                                                    <property name="label" translatable="yes">Hours :</property>
                                                     <property name="justify">center</property>
                                                   </object>
                                                   <packing>
@@ -5453,23 +5435,6 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="label11">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="halign">center</property>
-                                                    <property name="valign">center</property>
-                                                    <property name="hexpand">True</property>
-                                                    <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">hour</property>
-                                                    <property name="justify">center</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="left_attach">1</property>
@@ -5489,7 +5454,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">Every</property>
+                                                    <property name="label" translatable="yes">Days :</property>
                                                     <property name="justify">center</property>
                                                   </object>
                                                   <packing>
@@ -5516,23 +5481,6 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="label2">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="halign">center</property>
-                                                    <property name="valign">center</property>
-                                                    <property name="hexpand">True</property>
-                                                    <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">day</property>
-                                                    <property name="justify">center</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="left_attach">0</property>
@@ -5552,7 +5500,7 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="valign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">Every</property>
+                                                    <property name="label" translatable="yes">Months :</property>
                                                     <property name="justify">center</property>
                                                   </object>
                                                   <packing>
@@ -5591,23 +5539,6 @@ NOTE: It'll overwrite your current settings</property>
                                                     <property name="expand">False</property>
                                                     <property name="fill">True</property>
                                                     <property name="position">1</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="label12">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="halign">center</property>
-                                                    <property name="valign">center</property>
-                                                    <property name="hexpand">True</property>
-                                                    <property name="vexpand">True</property>
-                                                    <property name="label" translatable="yes">month</property>
-                                                    <property name="justify">center</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
                                                   </packing>
                                                 </child>
                                               </object>
@@ -5675,16 +5606,16 @@ NOTE: It'll overwrite your current settings</property>
 
 Note:
 	* = any value
-	, = value list separator, ie. 0,30 would be the 0 AND 30th
+	, = value list separator, ie. 0,30 would be the 0AND 30
 	- = range of values, ie. 19-23 would be 19, 20, 21, 22, and 23
 	/ = step values, ie */5 is every 5
 	0-59 = minute
 	0-23 = hour
 	1-31 = day
-	1-12  or JAN-DEC = month
-	0-6 (0 is SUN) or MON-SUN = weekdays
+	1-12  = month
+	0-6 (0 is Sunday) = weekdays
 
-e.g.: * * * * * = At every minute. OR * * * * MON = At every minute on Monday.</property>
+e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</property>
                                             <attributes>
                                               <attribute name="weight" value="semibold"/>
                                             </attributes>
