@@ -195,10 +195,10 @@ themDat = {
     ],
     _('Icons') : 
     [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-CT-Classic.tar.xz && tar -xf Mojave-CT-Classic.tar.xz && rm -rf ~/.icons/Mojave-CT-Classic && mv Mojave-CT-Classic ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Mojave-CT-Classic" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/Mojave-CT-Classic',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/Mojave-CT-Classic ~/.icons/Windows-10-1.0',
-        'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/Mojave-CT-Classic'
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/la-capitaine-icon-theme.tar.xz && tar -xf la-capitaine-icon-theme.tar.xz && rm -rf ~/.icons/la-capitaine-icon-theme && mv la-capitaine-icon-theme ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "la-capitaine-icon-theme" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/la-capitaine-icon-theme',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/la-capitaine-icon-theme ~/.icons/Windows-10-1.0',
+        'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/la-capitaine-icon-theme'
     ],
     _('Cursor') : 
     [
@@ -1002,7 +1002,7 @@ class GUI:
                         os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
             os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
             os.system(command)
-        os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
+        os.system('cd ~/ && rm -rf la-capitaine-icon-theme.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
 
     def sw2(self, sth):
         print('in sw2')
