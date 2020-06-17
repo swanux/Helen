@@ -299,10 +299,11 @@ class GUI:
         self.builder = Gtk.Builder()
         self.builder.set_translation_domain(APP)
         # if distro == 'Ubuntu' or distro == 'Debian':
-        self.GNOME_SITE = "https://extensions.gnome.org"
-        self.GNOME_VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
-        self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
-        self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
+        if desktop == 'Gnome':
+            self.GNOME_SITE = "https://extensions.gnome.org"
+            self.GNOME_VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
+            self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
+            self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         self.scanner = True
         self.them_conf = []
         self.hardCron = ""
@@ -980,26 +981,27 @@ class GUI:
 #######################################################################################
 
     def appl_but_clicked(self, button):
-        os.system('mkdir -p ~/.themes && mkdir -p ~/.icons && mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
-        for i in self.them_conf:
-            command = themDat[i][self.themNum]
-            if i == 'Layout':
-                os.system('gsettings set org.gnome.shell enabled-extensions []')
-                for ext in extDat[self.themNum]:
-                    if ext in self.DIRS:
-                        print('%s is already installed.' % ext)
-                    else:
-                        print('Installing %s...' % ext)
-                        if 'remove-dropdown-arrows' in ext and float(self.GNOME_VERSION) >= 3.36:
-                            JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.GNOME_SITE, ext)
+        if desktop == 'Gnome':
+            os.system('mkdir -p ~/.themes && mkdir -p ~/.icons && mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+            for i in self.them_conf:
+                command = themDat[i][self.themNum]
+                if i == 'Layout':
+                    os.system('gsettings set org.gnome.shell enabled-extensions []')
+                    for ext in extDat[self.themNum]:
+                        if ext in self.DIRS:
+                            print('%s is already installed.' % ext)
                         else:
-                            JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
-                        tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
-                        EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
-                        os.system("wget --header='Accept-Encoding:none' -O '~/tmp.zip' '%s'" % EXTENSION_URL)
-                        os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
-            os.system(command)
-        os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
+                            print('Installing %s...' % ext)
+                            if 'remove-dropdown-arrows' in ext and float(self.GNOME_VERSION) >= 3.36:
+                                JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.GNOME_SITE, ext)
+                            else:
+                                JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
+                            tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
+                            EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
+                            os.system("wget --header='Accept-Encoding:none' -O '~/tmp.zip' '%s'" % EXTENSION_URL)
+                            os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
+                os.system(command)
+            os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
 
     def del_themer(self, twindow, e):
         twindow.hide()
@@ -1118,14 +1120,13 @@ class GUI:
                 l = l+1
             for i in self.appsToSave:
                 postinst = postinst + "apt-mark manual %s\n" % i
-        if self.b_theme:
+        if self.b_theme and desktop == 'Gnome':
             postinst = postinst + 'cp /usr/share/backups/background/* /usr/share/backgrounds/\n'
             postinst = postinst + 'cp /usr/share/backups/screensaver/* /usr/share/backgrounds/\n'
             postinst = postinst + 'tar -pxvzf /usr/share/backups/shellTheme.tar.gz -C /usr/share/themes/\n'
             postinst = postinst + 'tar -pxvzf /usr/share/backups/deskTheme.tar.gz -C /usr/share/themes/\n'
             postinst = postinst + 'tar -pxvzf /usr/share/backups/cursorTheme.tar.gz -C /usr/share/themes/\n'
             postinst = postinst + 'tar -pxvzf /usr/share/backups/iconTheme.tar.gz -C /usr/share/icons/\n'
-            # postinst = postinst + 'tar -pxvzf /usr/share/backups/extensions.tar.gz -C /home/$user/.local/share/gnome-shell/\n'
             postinst = postinst + "runuser -l ${user} -c 'dconf load /org/gnome/ < /usr/share/backups/gnome'\n"
             postinst = postinst + "extensions=$(echo '%s')\n" % self.DIRS
             postinst = postinst + "version=$(DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2)\n"
@@ -1168,12 +1169,11 @@ done\n"""
         os.system("mkdir -p %s/" % self.hsdir)
         self.appsToSave = []
         self.datToSave = []
-        if self.b_settings and self.b_theme:
+        if self.b_settings and self.b_theme and desktop == 'Gnome':
             os.system("mkdir -p %s/background" % self.hsdir)
             os.system("mkdir -p %s/screensaver" % self.hsdir)
             print('Desktop True')
             os.system('dconf dump /org/gnome/ > %s/gnome' % self.hsdir)
-            # os.system('cd /home/%s/.local/share/gnome-shell/ && tar -pcvzf %s/extensions.tar.gz extensions' % (user, self.hsdir))
             locparse = ConfigParser()
             locparse.read('%s/gnome' % self.hsdir)
             screensaver = locparse.get('desktop/screensaver', 'picture-uri').replace('file://', '')
@@ -1719,6 +1719,53 @@ if __name__ == "__main__":
         file = open(confP, "w+")
         parser.write(file)
         file.close()
+    if sys.platform in ["win32", "cygwin"]:
+        DE = "windows"
+    elif sys.platform == "darwin":
+        DE = "mac"
+    else: #Most likely either a POSIX system or something not much common
+        desktop_session = os.environ.get("DESKTOP_SESSION")
+        if desktop_session is not None: #easier to match if we doesn't have  to deal with caracter cases
+            desktop_session = desktop_session.lower()
+            if desktop_session in ["gnome","unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox", 
+                                    "blackbox", "openbox", "icewm", "jwm", "afterstep","trinity", "kde", "ubuntu"]:
+                DE = desktop_session
+            ## Special cases ##
+            elif "xfce" in desktop_session or desktop_session.startswith("xubuntu"):
+                DE = "xfce4"
+            elif desktop_session.startswith("ubuntu"):
+                DE = "unity"       
+            elif desktop_session.startswith("lubuntu"):
+                DE = "lxde" 
+            elif desktop_session.startswith("kubuntu"): 
+                DE = "kde" 
+            elif desktop_session.startswith("razor"): # e.g. razorkwin
+                DE = "razor-qt"
+            elif desktop_session.startswith("wmaker"): # e.g. wmaker-common
+                DE = "windowmaker"
+        if os.environ.get('KDE_FULL_SESSION') == 'true':
+            DE = "kde"
+        elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+            if not "deprecated" in os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+                DE = "gnome2"
+        elif self.is_running("xfce-mcs-manage"):
+            DE = "xfce4"
+        elif self.is_running("ksmserver"):
+            DE = "kde"
+        else:
+            DE = "unknown"
+    if 'gnome' in DE or 'ubuntu' in DE:
+        desktop = 'Gnome'
+    # elif 'kde' in DE or 'qt' in DE:
+    #     desktop = 'KDE'
+    # elif 'cinnamon' in DE:
+    #     desktop = 'Cinnamon'
+    # elif 'mate' in DE:
+    #     desktop = 'MATE'
+    else:
+        desktop = ''
+        app = GUI()
+        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your desktop is detected as %s. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu" % DE.upper()), _("Attention!"), 'general')
     # Own module for root prompt and background installation
     import osLayer
     osLayer.init(distro)
