@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=fusuma
-Exec=fusuma -d
-StartupNotify=true
-Terminal=false
-Name[en_US]=fusuma

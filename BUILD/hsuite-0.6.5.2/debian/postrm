@@ -1,4 +1,0 @@
-#!/bin/bash +e
-
-rm /usr/bin/hsuite || "No need for it2"
-#DEBHELPER#

@@ -55,7 +55,7 @@ min_pyver = 3.2
 rules = 0
 postinst = dpkg --add-architecture i386
 	ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite || echo "No need for it"
-postrm = rm /usr/bin/hsuite || "No need for it2"
+postrm = rm /usr/bin/hsuite || echo "No need for it2"
 
 [changelog]
 target = bionic
