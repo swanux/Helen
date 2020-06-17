@@ -195,10 +195,10 @@ themDat = {
     ],
     _('Icons') : 
     [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/01-McMojave-circle.tar.xz && tar -xf 01-McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle-dark ~/.icons/ && rm -rf ~/.icons/McMojave-circle && mv McMojave-circle ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle-dark ~/.icons/McMojave-circle',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle',
-        'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark'
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Cupertino.tar.xz && tar -xf Cupertino.tar.xz && rm -rf ~/.icons/Cupertino && mv Cupertino ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Cupertino" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/Cupertino',
+        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/Cupertino ~/.icons/Windows-10-1.0',
+        'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/Cupertino'
     ],
     _('Cursor') : 
     [
