@@ -16,4 +16,4 @@ hsuite (0.7-1) bionic; urgency=medium
   * New: Python dependencies now from self built packages
   * Fix: Now completely relying on system theme (only patch for inactive buttons)
 
- -- Dániel Kolozsi <dani@kolozsi.net>  Wed, 17 Jun 2020 09:49:10 +0100
+ -- Dániel Kolozsi <dani@kolozsi.net>  Wed, 17 Jun 2020 10:17:49 +0100
