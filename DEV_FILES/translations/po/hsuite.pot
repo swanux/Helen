@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-17 11:13+0200\n"
+"POT-Creation-Date: 2020-06-17 14:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:762
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:763
 #, python-brace-format
 msgid "/home/{0}/Downloads/{1}"
 msgstr ""
@@ -50,19 +50,19 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1390
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1408
 msgid "After reboot."
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1629
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1647
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:588
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:740
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2505
 msgid "App Spotlight"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5947
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5944
 msgid "Apply"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgid ""
 "These distros will probably fit your needs."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1218
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1236
 msgid "Ask"
 msgstr ""
 
@@ -116,15 +116,15 @@ msgid ""
 "CoffeeScript and Less.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:525
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:527
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:664
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:916
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:954
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:957
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1753
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1758
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1770
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:526
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:528
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:665
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:917
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:955
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:958
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1771
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1776
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1788
 msgid "Attention!"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Budgie (Default)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:965
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:966
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4276
 msgid "Bug"
 msgstr ""
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Calculating size..."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1758
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1776
 msgid ""
 "Can not detect your distro. Currently compatible with distros: Ubuntu "
 "(bionic, eoan, focal), Debian (buster) and everything based on them. "
@@ -258,7 +258,8 @@ msgstr ""
 msgid "Cron jobs"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5913
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:203
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5912
 msgid "Cursor"
 msgstr ""
 
@@ -306,7 +307,8 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5862
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:182
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5864
 msgid "Desktop theme"
 msgstr ""
 
@@ -327,33 +329,33 @@ msgid ""
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1620
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1631
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1661
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1638
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1649
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1679
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:514
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2649
 msgid "Distro Boutique"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:664
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:665
 msgid "Do you really would like to abort now?"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:527
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:528
 #, python-format
 msgid ""
 "Do you really would like to abort now? Download is currently in progress for "
 "%s."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:525
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:526
 #, python-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
 "program. If you decide to abort, then you may need to remove %s manually."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:419
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:420
 msgid "Do you really would like to exit now?"
 msgstr ""
 
@@ -361,7 +363,16 @@ msgstr ""
 msgid "Documents"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1595
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6014
+msgid ""
+"Done!\n"
+"To make sure that every modification works, you may do the following:\n"
+"\n"
+"* Press ALT + F2, then write in r, and press enter\n"
+"* If you've still got problems log out/in or reboot"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1613
 #, python-format
 msgid "Download (%s MB)"
 msgstr ""
@@ -406,16 +417,16 @@ msgstr ""
 msgid "Email address :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:961
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:962
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4278
 msgid "Enhancement"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1169
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1187
 msgid "Error"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5930
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5928
 msgid "Everything"
 msgstr ""
 
@@ -452,7 +463,7 @@ msgstr ""
 msgid "Feedback Description :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:972
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:973
 msgid "Feedback submitted succesfully!"
 msgstr ""
 
@@ -464,12 +475,12 @@ msgstr ""
 msgid "Feedback type :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:736
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:737
 #, python-format
 msgid "Finished downloading %s!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:645
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:646
 #, python-format
 msgid "Finished processing %s!"
 msgstr ""
@@ -691,7 +702,7 @@ msgstr ""
 msgid "HControl"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1781
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1799
 #, python-format
 msgid "HSuite has been updated to %s. For changelog click the button below."
 msgstr ""
@@ -735,23 +746,24 @@ msgstr ""
 msgid "Hours :"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:196
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5896
 msgid "Icons"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:972
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1781
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:973
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1799
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:784
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2698
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5065
 msgid "Information"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:466
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:473
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:482
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:485
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:669
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:467
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:474
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:483
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:486
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:670
 msgid "Install"
 msgstr ""
 
@@ -759,17 +771,17 @@ msgstr ""
 msgid "Installed programs"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:954
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:955
 msgid "Invalid email address!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1396
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1400
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1414
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1418
 msgid "Invalid syntax!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1440
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1444
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1458
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1462
 msgid "Job"
 msgstr ""
 
@@ -782,7 +794,8 @@ msgid ""
 "code.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5879
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:189
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5880
 msgid "Layout"
 msgstr ""
 
@@ -930,11 +943,11 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:924
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:925
 msgid "No internet"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:671
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:672
 msgid "Note!"
 msgstr ""
 
@@ -1021,6 +1034,10 @@ msgid ""
 "free, accessible and efficient solution to this problem.\n"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5978
+msgid "Please wait while applying changes..."
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:248
 msgid ""
 "Popsicle\n"
@@ -1034,11 +1051,11 @@ msgstr ""
 msgid "Proceed"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:623
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:624
 msgid "Processing "
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:419
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:420
 msgid "Prompt"
 msgstr ""
 
@@ -1046,28 +1063,28 @@ msgstr ""
 msgid "Providing feedback for :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:963
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:964
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4277
 msgid "Question"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:728
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:729
 msgid "Ready in ~/Downloads/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:432
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:464
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:471
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:479
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:674
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:433
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:465
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:472
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:480
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:675
 msgid "Remove"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1392
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1410
 msgid "Repeat "
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:563
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:564
 msgid "Safety first!"
 msgstr ""
 
@@ -1126,9 +1143,9 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:687
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:796
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1574
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:688
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:797
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1592
 msgid "Server error"
 msgstr ""
 
@@ -1571,21 +1588,21 @@ msgid ""
 "based on WxWidgets.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1218
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1236
 msgid ""
 "Would you like to view a simplified list of applications? (some less common "
 "programs may miss from the list)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:563
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:564
 msgid "You can't cancel installation, as it's in a critical state."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:916
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:917
 msgid "You have no internet connection!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:957
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:958
 msgid "You need to fill out all the fields!"
 msgstr ""
 
@@ -1623,7 +1640,7 @@ msgid ""
 "through the ~/.config/fusuma/config.yml file."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1770
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1788
 #, python-format
 msgid ""
 "Your desktop is detected as %s. This desktop is not supported yet, you may "
@@ -1631,14 +1648,14 @@ msgid ""
 "supported: Gnome/Ubuntu"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1169
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1187
 msgid ""
 "Your desktop is not supported currently, so we have disabled the desktop "
 "backup function for you. Please uncheck it, and use only the other options. "
 "Thank you for your understanding."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1753
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1771
 msgid ""
 "Your distro is detected as Deepin. This distro is not fully tested, you may "
 "encounter some problems with the program. Currently tested on distros: "
@@ -1649,7 +1666,7 @@ msgstr ""
 msgid "current"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1405
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5297
 msgid "daily"
 msgstr ""
@@ -1658,7 +1675,7 @@ msgstr ""
 msgid "e.g.: bash /path/to/myscript.sh"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1405
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5296
 msgid "hourly"
 msgstr ""
@@ -1711,7 +1728,7 @@ msgstr ""
 msgid "https://www.opensuse.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1405
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5299
 msgid "monthly"
 msgstr ""
@@ -1727,13 +1744,13 @@ msgid ""
 "providing a user-friendly desktop and feature-rich server environment.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1389
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1405
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1407
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5295
 msgid "reboot"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:725
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:726
 #, python-brace-format
 msgid "rm /home/{0}/Downloads/{1}"
 msgstr ""
@@ -1750,12 +1767,12 @@ msgid ""
 "To view recent changes visit the link below."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1405
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5298
 msgid "weekly"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1387
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1405
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5300
 msgid "yearly"
 msgstr ""

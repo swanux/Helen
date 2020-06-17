@@ -179,28 +179,28 @@ extDat = [
 ]
 
 themDat = {
-    'Desktop theme' : 
+    _('Desktop theme') : 
     [
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Mojave-dark',
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Unity-8-2.0" && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
         'gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" && gsettings set org.gnome.shell.extensions.user-theme name "Vanilla" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
     ],
-    'Layout' : 
+    _('Layout') : 
     [
         'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[0],
         'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu manu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat[1],
         'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[2],
         'gsettings set org.gnome.shell enabled-extensions "%s"' % extDat[3]
     ],
-    'Icons' : 
+    _('Icons') : 
     [
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/01-McMojave-circle.tar.xz && tar -xf 01-McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle-dark ~/.icons/ && rm -rf ~/.icons/McMojave-circle && mv McMojave-circle ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle',
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle-dark ~/.icons/McMojave-circle',
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle',
         'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark'
     ],
-    'Cursor' : 
+    _('Cursor') : 
     [
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
         'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
@@ -980,31 +980,47 @@ class GUI:
 
 #######################################################################################
 
+    def sw(self):
+        print('in sw')
+        os.system('mkdir -p ~/.themes && mkdir -p ~/.icons')
+        for i in self.them_conf:
+            command = themDat[i][self.themNum]
+            if i == 'Layout':
+                os.system('gsettings set org.gnome.shell enabled-extensions []')
+                for ext in extDat[self.themNum]:
+                    if ext in self.DIRS:
+                        print('%s is already installed.' % ext)
+                    else:
+                        print('Installing %s...' % ext)
+                        if 'remove-dropdown-arrows' in ext and float(self.GNOME_VERSION) >= 3.36:
+                            JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.GNOME_SITE, ext)
+                        else:
+                            JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
+                        tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
+                        EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
+                        os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
+                        os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
+            os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+            os.system(command)
+        os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
+
+    def sw2(self, sth):
+        print('in sw2')
+        st = self.builder.get_object('them_stack')
+        bx = self.builder.get_object('ready_txt')
+        GLib.idle_add(st.set_visible_child, bx)
+
     def appl_but_clicked(self, button):
         if desktop == 'Gnome':
-            os.system('mkdir -p ~/.themes && mkdir -p ~/.icons')
-            for i in self.them_conf:
-                command = themDat[i][self.themNum]
-                if i == 'Layout':
-                    os.system('gsettings set org.gnome.shell enabled-extensions []')
-                    for ext in extDat[self.themNum]:
-                        if ext in self.DIRS:
-                            print('%s is already installed.' % ext)
-                        else:
-                            print('Installing %s...' % ext)
-                            if 'remove-dropdown-arrows' in ext and float(self.GNOME_VERSION) >= 3.36:
-                                JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.GNOME_SITE, ext)
-                            else:
-                                JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
-                            tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
-                            EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
-                            os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
-                            os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
-                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
-                os.system(command)
-            os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz && killall gnome-shell')
+            sw = futures.ThreadPoolExecutor(max_workers=2)
+            f = sw.submit(self.sw)
+            f.add_done_callback(self.sw2)
+            st = self.builder.get_object('them_stack')
+            bx = self.builder.get_object('wait_box')
+            st.set_visible_child(bx)
 
     def del_themer(self, twindow, e):
+        self.builder.get_object('them_stack').set_visible_child(self.builder.get_object('the_box'))
         twindow.hide()
         return True
 

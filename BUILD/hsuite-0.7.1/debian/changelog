@@ -1,4 +1,4 @@
-hsuite (0.7.2-1) bionic; urgency=medium
+hsuite (0.7.1-1) bionic; urgency=medium
 
   * New: You can now choose flavour for Mint, Ubuntu, Debian, Solus, fedora and opensuse
   * Fix: Distrou Boutique newest version script
@@ -18,4 +18,4 @@ hsuite (0.7.2-1) bionic; urgency=medium
   * Fixed a lots of bugs
   * Fixed UI design
 
- -- Dániel Kolozsi <dani@kolozsi.net>  Wed, 17 Jun 2020 11:56:03 +0100
+ -- Dániel Kolozsi <dani@kolozsi.net>  Wed, 17 Jun 2020 14:57:22 +0100
