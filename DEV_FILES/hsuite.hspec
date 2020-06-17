@@ -10,7 +10,7 @@ email = dani@kolozsi.net
 pkgname = hsuite
 pretty_name = HSuite
 licensev = 0
-version = 0.7
+version = 0.7.1
 section = 0
 priority = 0
 depends = ${misc:Depends}
@@ -74,6 +74,8 @@ changes = New: You can now choose flavour for Mint, Ubuntu, Debian, Solus, fedor
 	Fix: translation compatibility
 	New: Python dependencies now from self built packages
 	Fix: Now completely relying on system theme (only patch for inactive buttons)
+	Fixed a lots of bugs
+	Fixed UI design
 
 [data]
 root = /home/daniel/GitRepos/hsuite/DEV_FILES

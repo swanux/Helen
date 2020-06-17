@@ -5606,7 +5606,7 @@ NOTE: It'll overwrite your current settings</property>
 
 Note:
 	* = any value
-	, = value list separator, ie. 0,30 would be the 0AND 30
+	, = value list separator, ie. 0,30 would be the 0 AND 30
 	- = range of values, ie. 19-23 would be 19, 20, 21, 22, and 23
 	/ = step values, ie */5 is every 5
 	0-59 = minute

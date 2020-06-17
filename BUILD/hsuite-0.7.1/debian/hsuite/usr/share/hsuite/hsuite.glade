@@ -2872,7 +2872,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                           <item id="3">Budgie</item>
                                           <item id="4">Kylin</item>
                                           <item id="5">MATE</item>
-                                          <item id="6">Studio</item>
+                                          <item id="6" translatable="yes">Studio</item>
                                           <item id="7">Xubuntu (XFCE)</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>

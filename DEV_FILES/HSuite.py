@@ -10,7 +10,7 @@ v = ''
 ### Import modules ###
 
 # Set program root location
-import os, subprocess, gettext, locale, gi, re, webbrowser, time, notify2, platform
+import os, subprocess, gettext, locale, gi, re, webbrowser, time, notify2, platform, sys
 if os.path.exists('/home/daniel/GitRepos/hsuite'):
     fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
     print(fdir)
@@ -87,17 +87,17 @@ namDict = {'downl_mint' : 'Linux Mint', 'downl_ubuntu' : 'Ubuntu', 'downl_solus'
 # List of distros
 dlistLen = len(dlist)                   # The number of distros
 toChoseDir = {
-    'mint_choser' : {'Cinnamon (Default)' : 'cinnamon', 'MATE' : 'mate', 'XFCE' : 'xfce', 'Debian Edition' : 'lmde'},
+    'mint_choser' : {_('Cinnamon (Default)') : 'cinnamon', 'MATE' : 'mate', 'XFCE' : 'xfce', _('Debian Edition') : 'lmde'},
 
-    'ubuntu_choser' : {'Gnome (Default)' : 'ubuntu', 'Kubuntu (KDE)' : 'kubuntu', 'Lubuntu (LXQt)' : 'lubuntu', 'Budgie' : 'ubuntu-budgie', 'Kylin' : 'ubuntukylin', 'MATE' : 'ubuntu-mate', 'Studio' : 'ubuntustudio', 'Xubuntu (XFCE)' : 'xubuntu'},
+    'ubuntu_choser' : {_('Gnome (Default)') : 'ubuntu', 'Kubuntu (KDE)' : 'kubuntu', 'Lubuntu (LXQt)' : 'lubuntu', 'Budgie' : 'ubuntu-budgie', 'Kylin' : 'ubuntukylin', 'MATE' : 'ubuntu-mate', _('Studio') : 'ubuntustudio', 'Xubuntu (XFCE)' : 'xubuntu'},
 
-    'solus_chose' : {'Budgie (Default)' : 'Budgie', 'Gnome' : 'GNOME', 'MATE' : 'MATE', 'KDE' : 'Plasma'},
+    'solus_chose' : {_('Budgie (Default)') : 'Budgie', 'Gnome' : 'GNOME', 'MATE' : 'MATE', 'KDE' : 'Plasma'},
 
     'deb_chose' : {'Cinnamon' : 'cinnamon', 'Gnome' : 'gnome', 'KDE' : 'kde', 'LXDE' : 'lxde', 'LXQt' : 'lxqt', 'MATE' : 'mate', 'XFCE' : 'xfce'},
 
-    'fedora_chose' : {'Gnome (Default)' : 'default', 'KDE' : 'KDE', 'XFCE' : 'Xfce', 'LXQt' : 'LXQt', 'LXDE' : 'LXDE', 'MATE' : 'MATE_Compiz', 'Cinnamon' : 'Cinnamon', 'SOAS' : 'SoaS'},
+    'fedora_chose' : {_('Gnome (Default)') : 'default', 'KDE' : 'KDE', 'XFCE' : 'Xfce', 'LXQt' : 'LXQt', 'LXDE' : 'LXDE', 'MATE' : 'MATE_Compiz', 'Cinnamon' : 'Cinnamon', 'SOAS' : 'SoaS'},
 
-    'suse_chose' : {'Tumbeweed (Rolling)' : 'roll', 'Leap (Standard)' : 'stay'}
+    'suse_chose' : {_('Tumbeweed (Rolling)') : 'roll', _('Leap (Standard)') : 'stay'}
     }
 
 # Used with App Spotlight
@@ -722,7 +722,7 @@ class GUI:
         # If the download is aborted by the user, remove the already downloaded file
         if self.rmE:
             print('Cleaning up...')
-            os.system('rm /home/%s/Downloads/%s' % (user, file_name))
+            os.system(_('rm /home/{0}/Downloads/{1}').format(user, file_name))
         else:
             # Set label to ready
             GLib.idle_add(downl.set_label, _("Ready in ~/Downloads/"))
@@ -759,8 +759,7 @@ class GUI:
             # save the original label of the button
             self.orig = downl.get_label()
         file_name = url.split('/')[-1]
-        f = open('/home/%s/Downloads/%s' %
-                 (user, file_name), 'wb')  # set download location
+        f = open(_('/home/{0}/Downloads/{1}').format(user, file_name), 'wb')  # set download location
         print('Downloading %s' % file_name)
         print("FalsTogle")
         # disable buttons
@@ -1166,101 +1165,104 @@ done\n"""
             self.crTask()
 
     def on_proc_but_clicked(self, button):
-        os.system("mkdir -p %s/" % self.hsdir)
-        self.appsToSave = []
-        self.datToSave = []
-        if self.b_settings and self.b_theme and desktop == 'Gnome':
-            os.system("mkdir -p %s/background" % self.hsdir)
-            os.system("mkdir -p %s/screensaver" % self.hsdir)
-            print('Desktop True')
-            os.system('dconf dump /org/gnome/ > %s/gnome' % self.hsdir)
-            locparse = ConfigParser()
-            locparse.read('%s/gnome' % self.hsdir)
-            screensaver = locparse.get('desktop/screensaver', 'picture-uri').replace('file://', '')
-            sname = screensaver.split('/')[-1].replace("'", '')
-            os.system('cp %s %s/screensaver/%s' % (screensaver, self.hsdir, sname))
-            print(sname)
-            background = locparse.get('desktop/background', 'picture-uri').replace('file://', '')
-            fname = background.split('/')[-1].replace("'", '')
-            os.system('cp %s %s/background/%s' % (background, self.hsdir, fname))
-            print(fname)
-            locparse.set('desktop/screensaver', 'picture-uri', "'file:///usr/share/backgrounds/%s'" % sname)
-            locparse.set('desktop/background', 'picture-uri', "'file:///usr/share/backgrounds/%s'" % fname)
-            shellTheme = locparse.get('shell/extensions/user-theme', 'name')
-            if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
-                os.system('cd /home/%s/.themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
-            else:
-                os.system('cd /usr/share/themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
-            deskTheme = locparse.get('desktop/interface', 'gtk-theme')
-            iconTheme = locparse.get('desktop/interface', 'icon-theme')
-            cursorTheme = locparse.get('desktop/interface', 'cursor-theme')
-            print('####################')
-            print(shellTheme, deskTheme, iconTheme, cursorTheme)
-            print('####################')
-            if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme.replace("'", ""))):
-                os.system('cd /home/%s/.themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
-            else:
-                os.system('cd /usr/share/themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
-            if os.path.exists('/home/%s/.icons/%s' % (user, cursorTheme.replace("'", ""))):
-                os.system('cd /home/%s/.icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
-            else:
-                os.system('cd /usr/share/icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
-            if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme.replace("'", ""))):
-                os.system('cd /home/%s/.icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
-            else:
-                os.system('cd /usr/share/icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
-            tconf = open('%s/gnome' % self.hsdir, 'w+')
-            locparse.write(tconf)
-            tconf.close()
-        if self.b_progs:
-            b_simple = self.construct_dialog(Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, _('Would you like to view a simplified list of applications? (some less common programs may miss from the list)'), _("Ask"), 'switcher')
-            print('Programs true')
-            extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash')
-            extendedApps = extendedApps.decode()
-            extendedApps = extendedApps.split('\n')
-            if b_simple == 'True':
-                print('Minimal')
-                search_word = ['acpi', 'alsa', 'anacron', 'apache', 'avahi', 'bluez', 'tty', 'certificates', 'cups', 'eog', 'evince', 'festival', 'festvox', 'ffmpeg', 'locale', 'fonts', '-db-', '-mod', 'multilib', 'fwupd', 'gdm', 'gnome', 'gir1.2', '-agent', 'grub', 'gstreamer', 'gtk2', 'gtk3', 'theme-', 'gvfs', 'hplip', 'hostname', 'ibus', '-config', 'jq', 'kernel', 'language-pack', 'lib', '-sensors', 'maim', 'mokutil', 'mpc', 'mpd', 'mysql', 'nautilus-', 'ncurses', 'network-', 'driver', 'openj', '-ppds', 'orca', 'php', 'pcmc', 'packagekit', 'plymouth', 'policykit', 'ppp', '-module-', '-is-', 'rfkill', '-signed', 'snapd', 'printer', 'ubuntu-', 'udev', 'update-', 'upower', 'vorbis', 'wpasupplicant', 'xcursor', 'xdg', 'xkb', 'xorg', 'xul-ext', 'yelp', '-dev', 'flatpak', 'genisoimage', 'germinate', 'ghostscript', 'grep', 'zip', 'init', 'inotify', 'inputattach', 'mousetweaks', 'net-', 'spice-', '-dispatcher', 'whoopsie', 'xmind', 'app-install', 'apport', 'at-spi2', 'dash', 'diffutils', 'dirmngr', 'dmz', '-data']
-                minimalApps = []
-                for i in extendedApps:
-                    bad = False
-                    for xy in search_word:
-                        if xy in i:
-                            bad = True
-                            break
-                    if bad == False:
-                        minimalApps.append(i)
-            self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5)
-            self.builder.get_object('progs_box').pack_start(self.box, True, True, 0)
-            if b_simple == 'True':
-                for program in minimalApps:
-                    if program == "" or program == None:
-                        break
-                    chker = Gtk.CheckButton.new_with_label(program)
-                    chker.connect("toggled", self.on_prog_tog, program)
-                    self.box.pack_start(chker, True, True, 0)
-            else:
-                for program in extendedApps:
-                    if program == "" or program == None:
-                        break
-                    chker = Gtk.CheckButton.new_with_label(program)
-                    chker.connect("toggled", self.on_prog_tog, program)
-                    self.box.pack_start(chker, True, True, 0)
-            os.system('mkdir -p %s/sources/ && cp -R /etc/apt/sources.list* %s/sources/ && apt-key exportall > %s/sources/Repo.keys' % (self.hsdir, self.hsdir, self.hsdir))
-            self.box.show_all()
-        if self.b_cron:
-            print('Cron true')
-            os.system('crontab -l > %s/crontab' % self.hsdir)
-        if self.b_progs:
-            if self.b_data == False:
-                self.builder.get_object('prog_proc_but').set_label('Start backup')
-            else:
-                self.builder.get_object('prog_proc_but').set_label('Continue')
-            self.switch_stack.set_visible_child(self.builder.get_object('scroll_progs'))
-        elif self.b_data:
-            self.switch_stack.set_visible_child(self.builder.get_object('scroll_dat'))
+        if desktop == '' and self.b_theme == True:
+            self.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _('Your desktop is not supported currently, so we have disabled the desktop backup function for you. Please uncheck it, and use only the other options. Thank you for your understanding.'), _("Error"), 'general')
         else:
-            self.crTask()
+            os.system("mkdir -p %s/" % self.hsdir)
+            self.appsToSave = []
+            self.datToSave = []
+            if self.b_settings and self.b_theme and desktop == 'Gnome':
+                os.system("mkdir -p %s/background" % self.hsdir)
+                os.system("mkdir -p %s/screensaver" % self.hsdir)
+                print('Desktop True')
+                os.system('dconf dump /org/gnome/ > %s/gnome' % self.hsdir)
+                locparse = ConfigParser()
+                locparse.read('%s/gnome' % self.hsdir)
+                screensaver = locparse.get('desktop/screensaver', 'picture-uri').replace('file://', '')
+                sname = screensaver.split('/')[-1].replace("'", '')
+                os.system('cp %s %s/screensaver/%s' % (screensaver, self.hsdir, sname))
+                print(sname)
+                background = locparse.get('desktop/background', 'picture-uri').replace('file://', '')
+                fname = background.split('/')[-1].replace("'", '')
+                os.system('cp %s %s/background/%s' % (background, self.hsdir, fname))
+                print(fname)
+                locparse.set('desktop/screensaver', 'picture-uri', "'file:///usr/share/backgrounds/%s'" % sname)
+                locparse.set('desktop/background', 'picture-uri', "'file:///usr/share/backgrounds/%s'" % fname)
+                shellTheme = locparse.get('shell/extensions/user-theme', 'name')
+                if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
+                    os.system('cd /home/%s/.themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
+                else:
+                    os.system('cd /usr/share/themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
+                deskTheme = locparse.get('desktop/interface', 'gtk-theme')
+                iconTheme = locparse.get('desktop/interface', 'icon-theme')
+                cursorTheme = locparse.get('desktop/interface', 'cursor-theme')
+                print('####################')
+                print(shellTheme, deskTheme, iconTheme, cursorTheme)
+                print('####################')
+                if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme.replace("'", ""))):
+                    os.system('cd /home/%s/.themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
+                else:
+                    os.system('cd /usr/share/themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
+                if os.path.exists('/home/%s/.icons/%s' % (user, cursorTheme.replace("'", ""))):
+                    os.system('cd /home/%s/.icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
+                else:
+                    os.system('cd /usr/share/icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
+                if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme.replace("'", ""))):
+                    os.system('cd /home/%s/.icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
+                else:
+                    os.system('cd /usr/share/icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
+                tconf = open('%s/gnome' % self.hsdir, 'w+')
+                locparse.write(tconf)
+                tconf.close()
+            if self.b_progs:
+                b_simple = self.construct_dialog(Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, _('Would you like to view a simplified list of applications? (some less common programs may miss from the list)'), _("Ask"), 'switcher')
+                print('Programs true')
+                extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash')
+                extendedApps = extendedApps.decode()
+                extendedApps = extendedApps.split('\n')
+                if b_simple == 'True':
+                    print('Minimal')
+                    search_word = ['acpi', 'alsa', 'anacron', 'apache', 'avahi', 'bluez', 'tty', 'certificates', 'cups', 'eog', 'evince', 'festival', 'festvox', 'ffmpeg', 'locale', 'fonts', '-db-', '-mod', 'multilib', 'fwupd', 'gdm', 'gnome', 'gir1.2', '-agent', 'grub', 'gstreamer', 'gtk2', 'gtk3', 'theme-', 'gvfs', 'hplip', 'hostname', 'ibus', '-config', 'jq', 'kernel', 'language-pack', 'lib', '-sensors', 'maim', 'mokutil', 'mpc', 'mpd', 'mysql', 'nautilus-', 'ncurses', 'network-', 'driver', 'openj', '-ppds', 'orca', 'php', 'pcmc', 'packagekit', 'plymouth', 'policykit', 'ppp', '-module-', '-is-', 'rfkill', '-signed', 'snapd', 'printer', 'ubuntu-', 'udev', 'update-', 'upower', 'vorbis', 'wpasupplicant', 'xcursor', 'xdg', 'xkb', 'xorg', 'xul-ext', 'yelp', '-dev', 'flatpak', 'genisoimage', 'germinate', 'ghostscript', 'grep', 'zip', 'init', 'inotify', 'inputattach', 'mousetweaks', 'net-', 'spice-', '-dispatcher', 'whoopsie', 'xmind', 'app-install', 'apport', 'at-spi2', 'dash', 'diffutils', 'dirmngr', 'dmz', '-data']
+                    minimalApps = []
+                    for i in extendedApps:
+                        bad = False
+                        for xy in search_word:
+                            if xy in i:
+                                bad = True
+                                break
+                        if bad == False:
+                            minimalApps.append(i)
+                self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5)
+                self.builder.get_object('progs_box').pack_start(self.box, True, True, 0)
+                if b_simple == 'True':
+                    for program in minimalApps:
+                        if program == "" or program == None:
+                            break
+                        chker = Gtk.CheckButton.new_with_label(program)
+                        chker.connect("toggled", self.on_prog_tog, program)
+                        self.box.pack_start(chker, True, True, 0)
+                else:
+                    for program in extendedApps:
+                        if program == "" or program == None:
+                            break
+                        chker = Gtk.CheckButton.new_with_label(program)
+                        chker.connect("toggled", self.on_prog_tog, program)
+                        self.box.pack_start(chker, True, True, 0)
+                os.system('mkdir -p %s/sources/ && cp -R /etc/apt/sources.list* %s/sources/ && apt-key exportall > %s/sources/Repo.keys' % (self.hsdir, self.hsdir, self.hsdir))
+                self.box.show_all()
+            if self.b_cron:
+                print('Cron true')
+                os.system('crontab -l > %s/crontab' % self.hsdir)
+            if self.b_progs:
+                if self.b_data == False:
+                    self.builder.get_object('prog_proc_but').set_label('Start backup')
+                else:
+                    self.builder.get_object('prog_proc_but').set_label('Continue')
+                self.switch_stack.set_visible_child(self.builder.get_object('scroll_progs'))
+            elif self.b_data:
+                self.switch_stack.set_visible_child(self.builder.get_object('scroll_dat'))
+            else:
+                self.crTask()
 
     # hswitcher clicked
     def on_ac_but_clicked(self, button):
@@ -1679,46 +1681,6 @@ done\n"""
 # _____________________________________________________________________ END OF GUI ____________________________________________________________________#
 
 if __name__ == "__main__":
-    ## Config section ##
-    parser = ConfigParser()
-    confP = '/home/%s/.config/hsuite.conf' % user
-    if os.path.exists(confP):
-        print('Configured already')
-        parser.read(confP)
-        distro = parser.get('system', 'distro')
-        v = parser.get('hsuite', 'v')
-        dist = parser.get('system', 'dist')
-        app = GUI()  # variable to call GUI class
-    else:
-        print('Config not found')
-        # Detect distro
-        dist = os.popen('uname -a').read()          # Get distro name
-        if 'Ubuntu' in dist:
-            distro = 'Ubuntu'
-        elif 'solus' in dist:
-            distro = 'Solus'
-        elif 'Debian' in dist:
-            distro = 'Debian'
-        elif 'deepin' in dist:
-            distro = 'Debian'
-            print('W: Not fully compatible with Deepin!')
-            app = GUI()
-            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, eoan, focal), Debian (buster)."), _("Attention!"), 'general')
-        else:
-            distro = ''
-            app = GUI()
-            print('E: Complete incompatibility!')
-            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, eoan, focal), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
-            raise SystemExit
-        app = GUI()
-        parser.add_section('system')
-        parser.add_section('hsuite')
-        parser.set('system', 'distro',  distro)
-        parser.set('hsuite', 'v', version)
-        parser.set('system', 'dist', dist)
-        file = open(confP, "w+")
-        parser.write(file)
-        file.close()
     if sys.platform in ["win32", "cygwin"]:
         DE = "windows"
     elif sys.platform == "darwin":
@@ -1764,7 +1726,47 @@ if __name__ == "__main__":
     #     desktop = 'MATE'
     else:
         desktop = ''
+    ## Config section ##
+    parser = ConfigParser()
+    confP = '/home/%s/.config/hsuite.conf' % user
+    if os.path.exists(confP):
+        print('Configured already')
+        parser.read(confP)
+        distro = parser.get('system', 'distro')
+        v = parser.get('hsuite', 'v')
+        dist = parser.get('system', 'dist')
+        app = GUI()  # variable to call GUI class
+    else:
+        print('Config not found')
+        # Detect distro
+        dist = os.popen('uname -a').read()          # Get distro name
+        if 'Ubuntu' in dist:
+            distro = 'Ubuntu'
+        elif 'solus' in dist:
+            distro = 'Solus'
+        elif 'Debian' in dist:
+            distro = 'Debian'
+        elif 'deepin' in dist:
+            distro = 'Debian'
+            print('W: Not fully compatible with Deepin!')
+            app = GUI()
+            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, eoan, focal), Debian (buster)."), _("Attention!"), 'general')
+        else:
+            distro = ''
+            app = GUI()
+            print('E: Complete incompatibility!')
+            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, eoan, focal), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
+            raise SystemExit
         app = GUI()
+        parser.add_section('system')
+        parser.add_section('hsuite')
+        parser.set('system', 'distro',  distro)
+        parser.set('hsuite', 'v', version)
+        parser.set('system', 'dist', dist)
+        file = open(confP, "w+")
+        parser.write(file)
+        file.close()
+    if desktop == '':
         app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your desktop is detected as %s. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu" % DE.upper()), _("Attention!"), 'general')
     # Own module for root prompt and background installation
     import osLayer
