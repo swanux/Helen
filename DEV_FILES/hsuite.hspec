@@ -32,7 +32,6 @@ depends = ${misc:Depends}
 	python3-notify2
 	python3-python-crontab
 	python3-cron-descriptor
-	python3-configparser
 	python3-aptdaemon.gtk3widgets
 	python3-aptdaemon
 	python3-apt

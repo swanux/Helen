@@ -1,5 +1,5 @@
 2163fbd99670bff3cfc0c0b2008092d1  usr/share/applications/hsuite.desktop
-872bd4b3f80b49cfcc79dfe67fdcdc15  usr/share/doc/hsuite/changelog.Debian.gz
+be92c99d72de4f57ef2d1e936e465321  usr/share/doc/hsuite/changelog.Debian.gz
 1e9ce739fecf69e6516e4a13dc8a4642  usr/share/doc/hsuite/copyright
 d897a901e41f17d6d282c6f70f8a1a84  usr/share/hsuite/HSuite.py
 f49ce02781452abc05c2b7b532991bc8  usr/share/hsuite/colors.css
@@ -53,7 +53,7 @@ ba66a478fd2bd049097e4db96cabb101  usr/share/hsuite/icons/skype.png
 0266babcb959fd69c7a0229d169f3711  usr/share/hsuite/icons/stedit.png
 ae40d235380cfb5b4e009d44b9c95b08  usr/share/hsuite/icons/supertuxkart.png
 ef2e45bbae757d14e4b4fa2488f70d8b  usr/share/hsuite/icons/telegram.png
-d2b57baecac1f8d6a8e6d145d10511e5  usr/share/hsuite/icons/tims.png
+3437cb0d14cb9f88487779985f5f6c7e  usr/share/hsuite/icons/tims.png
 bd6cffb399b3a5da78724045ea69b641  usr/share/hsuite/icons/tux.png
 a1cf1b017f63d1b9268013f99d9616ab  usr/share/hsuite/icons/tw.png
 903312424711940e1e3db857164fde81  usr/share/hsuite/icons/ubuntu.png
