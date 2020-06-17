@@ -300,6 +300,7 @@ class GUI:
         self.builder.set_translation_domain(APP)
         # if distro == 'Ubuntu' or distro == 'Debian':
         if desktop == 'Gnome':
+            os.system("mkdir -p /home/%s/.local/share/gnome-shell/extensions" % user)
             self.GNOME_SITE = "https://extensions.gnome.org"
             self.GNOME_VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
             self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
@@ -981,7 +982,7 @@ class GUI:
 
     def appl_but_clicked(self, button):
         if desktop == 'Gnome':
-            os.system('mkdir -p ~/.themes && mkdir -p ~/.icons && mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+            os.system('mkdir -p ~/.themes && mkdir -p ~/.icons')
             for i in self.them_conf:
                 command = themDat[i][self.themNum]
                 if i == 'Layout':
@@ -997,10 +998,11 @@ class GUI:
                                 JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
                             tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
                             EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
-                            os.system("wget --header='Accept-Encoding:none' -O '~/tmp.zip' '%s'" % EXTENSION_URL)
+                            os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
                             os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
+                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
                 os.system(command)
-            os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
+            os.system('cd ~/ && rm -rf 01-McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz && killall gnome-shell')
 
     def del_themer(self, twindow, e):
         twindow.hide()
