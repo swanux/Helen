@@ -18,7 +18,7 @@ Here is the changelog of every update. For further details you can always check 
 
 **For Ubuntu/Debian:**
 
-**Note:** Currently supported versions:
+**Note:** Currently supported distributions (and their derivatives):
 
     Debian 10 (buster)
     Ubuntu 18.04 (bionic)
@@ -37,7 +37,7 @@ To install run:
 
     CODENAME=YOURDISTNAME
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D0E48B8490DC4A21
-    echo "deb https://sourceforge.net/projects/hrepo/files $CODENAME main" | sudo tee -a /etc/apt/sources.list
+    echo "deb https://gitlab.com/swanux/hrepo/raw/master $CODENAME main" | sudo tee -a /etc/apt/sources.list
     sudo apt update
     sudo apt install hsuite
 
@@ -56,15 +56,6 @@ To debug the program, open the terminal and type:
     hsuite
 
 You will see the logs in the terminal then.
-
-# Screenshots
-
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/1.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/2.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/3.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/4.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/5.png)
-![hsuite](https://github.com/swanux/hsuite/raw/master/screenshots/6.png)
 
 # For developers
 
@@ -102,7 +93,6 @@ Here's the file hierarchy of the program with explanations:
     │                   │   └── ...
     │                   ├── osLayer.py      # extra module
     │                   └── htransfer.py     # own file transfer backend
-    ├── _config.yml     # just for the theme of the github page
     ├── DEV_FILES       # development folder
     │   ├── colors.css
     │   ├── config.yml

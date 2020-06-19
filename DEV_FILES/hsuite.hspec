@@ -10,7 +10,7 @@ email = dani@kolozsi.net
 pkgname = hsuite
 pretty_name = HSuite
 licensev = 0
-version = 0.7.1
+version = 0.7.1.1
 section = 0
 priority = 0
 depends = ${misc:Depends}
@@ -86,6 +86,7 @@ program = hsuite.glade
 	details.py
 	colors.css
 	icons/
+	translations/
 	config.yml
 	fusuma.desktop
 	hsuite.sh
