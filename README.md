@@ -1,29 +1,47 @@
 # Changelog
 Here is the changelog of every update. For further details you can always check https://github.com/swanux/hsuite/releases
 
-**v0.6.5 | Emerald**
-*Note: This is a point release, featuring fixes and improvements, together with some new features*
+**Website:** https://swanux.github.io/hsuite.html
 
-    * Rebuilt hrepo
-    * Dropped Arch support
-    * Added compatibility with Ubuntu 20.04 Focal Fossa
-    * Added progressbar to Apt Spotlight
-    * Added Lutris to hrepo & updated hrepo
-    * Optimized build file
-    * Updated Hungarian translation
-    * Modified CSS to respect system theme
-    * Added HSwitcher (experimental version)
+**v0.7 | Sinara**
+*Note: First "complete" release without useless buttons and severe bugs*
 
-# Get things working
+    * New: You can now choose flavour for Mint, Ubuntu, Debian, Solus, fedora and opensuse
+    * Fix: Distrou Boutique newest version script
+    * Fix: Global variable hell in python code
+    * New: Email adress is now optional in feedback
+    * New: General dialog constructor, got rid of zenity
+    * Optimized codebase (~500 lines spared)
+    * New: HControl with Cron UI and Theme switcher
+    * New: Finally a proper website for my projects
+    * New: Feedback is now for all of my future projects
+    * Fix: HSwitcher simplified app list
+    * New: HSwitcher now backups keys and sources and restore optimization
+    * New: HSwitcher also pulls proper gnome extensions from official site
+    * Fix: translation compatibility
+    * New: Python dependencies now from self built packages
+    * Fix: Now completely relying on system theme (only patch for inactive buttons)
+    * Fixed a lots of bugs
+    * Fixed UI design
 
-**For Ubuntu/Debian:**
+# Compatibility
 
-**Note:** Currently supported distributions (and their derivatives):
+**Note:** Currently supported distributions (and everything dpkg/apt based):
 
     Debian 10 (buster)
     Ubuntu 18.04 (bionic)
     Ubuntu 19.10 (eoan)
     Ubuntu 20.04 (focal)
+
+**Note:** Currently supported desktop environments:
+
+    Gnome
+    Ubuntu (the ubuntu specifc version of Gnome)
+
+**Note:** These are just the recommended values. You can always extend compatibility on your own.
+**Tipp:** You can use this program on ANY desktop environment, only some desktop agonistic features will be disabled.
+
+# Get things working
 
 To find out your codename on Ubuntu just run:
 
@@ -40,6 +58,8 @@ To install run:
     echo "deb https://gitlab.com/swanux/hrepo/raw/master $CODENAME main" | sudo tee -a /etc/apt/sources.list
     sudo apt update
     sudo apt install hsuite
+
+**Note:** You only need to execute the last line if you already have my repository added to your system.
 
 And to remove, execute:
 
@@ -140,7 +160,7 @@ Here's the file hierarchy of the program with explanations:
 
 *Be SSU (Simple, Small, Useful)*
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.6.5). **NOTE:** Currently works on Debian/Ubuntu based distros.
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.7). **NOTE:** Currently works on Debian/Ubuntu based distros.
 
 # Development process
 
