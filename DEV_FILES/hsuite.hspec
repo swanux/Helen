@@ -10,7 +10,7 @@ email = dani@kolozsi.net
 pkgname = hsuite
 pretty_name = HSuite
 licensev = 0
-version = 0.7.1.1
+version = 0.7.1.2
 section = 0
 priority = 0
 depends = ${misc:Depends}
@@ -30,6 +30,8 @@ depends = ${misc:Depends}
 	gnome-shell-extensions
 	gnome-menus
 	gir1.2-gmenu-3.0
+	appmenu-gtk2-module
+	appmenu-gtk3-module
 	python3-notify2
 	python3-python-crontab
 	python3-cron-descriptor
@@ -60,23 +62,7 @@ postrm = rm /usr/bin/hsuite || echo "No need for it2"
 [changelog]
 target = bionic
 urgency = 1
-changes = New: You can now choose flavour for Mint, Ubuntu, Debian, Solus, fedora and opensuse
-	Fix: Distrou Boutique newest version script
-	Fix: Global variable hell in python code
-	New: Email adress is now optional in feedback
-	New: General dialog constructor, got rid of zenity
-	Optimized codebase (~500 lines spared)
-	New: HControl with Cron UI and Theme switcher
-	New: Finally a proper website for my projects
-	New: Feedback is now for all of my future projects
-	Fix: HSwitcher simplified app list
-	New: HSwitcher now backups keys and sources and restore optimization
-	New: HSwitcher also pulls proper gnome extensions from official site
-	Fix: translation compatibility
-	New: Python dependencies now from self built packages
-	Fix: Now completely relying on system theme (only patch for inactive buttons)
-	Fixed a lots of bugs
-	Fixed UI design
+changes = Fix: PoP_OS DE detection error
 
 [data]
 root = /home/daniel/GitRepos/hsuite/DEV_FILES

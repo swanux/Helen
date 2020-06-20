@@ -1,0 +1,5 @@
+hsuite (0.7.1.2-1) bionic; urgency=medium
+
+  * Fix: PoP_OS DE detection error
+
+ -- Dániel Kolozsi <dani@kolozsi.net>  Sat, 20 Jun 2020 16:34:38 +0100

@@ -1722,6 +1722,8 @@ if __name__ == "__main__":
                 DE = "unity"       
             elif desktop_session.startswith("lubuntu"):
                 DE = "lxde" 
+            elif desktop_session.startswith("pop"):
+                DE = "gnome"
             elif desktop_session.startswith("kubuntu"): 
                 DE = "kde" 
             elif desktop_session.startswith("razor"): # e.g. razorkwin
@@ -1739,6 +1741,7 @@ if __name__ == "__main__":
             DE = "kde"
         else:
             DE = "unknown"
+    print(DE)
     if 'gnome' in DE or 'ubuntu' in DE:
         desktop = 'Gnome'
     # elif 'kde' in DE or 'qt' in DE:
