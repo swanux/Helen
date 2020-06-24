@@ -3825,6 +3825,8 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                               <object class="GtkLabel" id="ab_txt">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">20</property>
+                                <property name="margin_right">20</property>
                                 <property name="label" translatable="yes">v0.7 | Sinara
 
 HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools,
@@ -5033,6 +5035,8 @@ Don't forget to REMOVE the package named "restore" with the default package mana
                               <object class="GtkLabel" id="info_txt6">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">20</property>
+                                <property name="margin_right">20</property>
                                 <property name="margin_top">30</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="label" translatable="yes">Welcome to HControl!
@@ -5858,8 +5862,6 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                   <object class="GtkBox" id="the_box">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkCheckButton" id="desk_them_chk">
@@ -5867,7 +5869,6 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="them_conf_ch" swapped="no"/>
@@ -5884,7 +5885,6 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="them_conf_ch" swapped="no"/>
@@ -5901,7 +5901,6 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="them_conf_ch" swapped="no"/>
@@ -5918,7 +5917,6 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="them_conf_ch" swapped="no"/>
@@ -5935,7 +5933,6 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="all_toggle" swapped="no"/>
@@ -5952,6 +5949,8 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="margin_left">50</property>
+                        <property name="margin_right">50</property>
                         <property name="margin_bottom">10</property>
                         <signal name="clicked" handler="appl_but_clicked" swapped="no"/>
                       </object>
@@ -5964,7 +5963,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                   </object>
                   <packing>
                     <property name="name">page0</property>
-                    <property name="title" translatable="yes">page0</property>
+                    <property name="title">page0</property>
                   </packing>
                 </child>
                 <child>
@@ -6008,7 +6007,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                   </object>
                   <packing>
                     <property name="name">page1</property>
-                    <property name="title" translatable="yes">page1</property>
+                    <property name="title">page1</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -6022,13 +6021,14 @@ To make sure that every modification works, you may do the following:
 * Press ALT + F2, then write in r, and press enter
 * If you've still got problems log out/in or reboot</property>
                     <property name="justify">center</property>
+                    <property name="wrap">True</property>
                     <attributes>
                       <attribute name="weight" value="ultraheavy"/>
                     </attributes>
                   </object>
                   <packing>
                     <property name="name">page2</property>
-                    <property name="title" translatable="yes">page2</property>
+                    <property name="title">page2</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
