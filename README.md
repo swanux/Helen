@@ -16,7 +16,7 @@ Here is the changelog of every update. For further details you can always check 
     * New: Finally a proper website for my projects
     * New: Feedback is now for all of my future projects
     * Fix: HSwitcher simplified app list
-    * New: HSwitcher now backups keys and sources and restore optimization
+    * New: HSwitcher now backups gpg keys and restore optimization
     * New: HSwitcher also pulls proper gnome extensions from official site
     * Fix: translation compatibility
     * New: Python dependencies now from self built packages

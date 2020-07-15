@@ -820,7 +820,7 @@ class GUI:
             vers, misc = self.findNew("http://cdimage.ubuntu.com/%s/releases/" % forDl, r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
             if 'studio' in forDl:
                 print('Studio time!')
-                url = 'http://cdmage.ubuntu.com/%s/releases/%s%s.%s%s/release/%s-%s%s.%s%s-dvd-amd64.iso' % (forDl, vers[0], vers[1], vers[2], vers[3], forDl, vers[0], vers[1], vers[2], vers[3])
+                url = 'http://cdimage.ubuntu.com/%s/releases/%s%s.%s%s/release/%s-%s%s.%s%s-dvd-amd64.iso' % (forDl, vers[0], vers[1], vers[2], vers[3], forDl, vers[0], vers[1], vers[2], vers[3])
             elif forDl == 'ubuntu':
                 print('Basic one')
                 url = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
@@ -1532,51 +1532,61 @@ done\n"""
         vers, misc = self.findNew("http://releases.ubuntu.com",
                 r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
         # global ubuntuLink
+        print('ubuntu')
         ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (
             vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
 
         vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/",
                 r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global mintLink
+        print('mint')
         mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (
             vers[0], vers[1], vers[2], vers[0], vers[1], vers[2])
 
         vers, misc = self.findNew("http://mirror.inode.at/data/deepin-cd/",
                 r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global deepinLink
+        print('deepin')
         deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (
             vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
 
         vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/",
                 r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
         # global debianLink
+        print('deb')
         debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (
             vers[0], vers[1], vers[2], vers[3])
 
         # global steamosLink
+        print('steam')
         steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
 
         vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
         versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
         # global fedoraLink
+        print('fedora')
         fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-%s.%s.iso' % (
             vers[0], vers[1], vers[0], vers[1], versf[0], versf[2])
 
         # global opensuseLink
+        print('suse')
         opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
 
         vers, misc = self.findNew("https://solus.veatnet.de/iso/images", r'"+[\d]+.[\d]+/', r'[\d]+[\d]')
         # global solusLink
+        print('solus')
         solusLink = 'https://solus.veatnet.de/iso/images/%s.%s/Solus-%s.%s-Budgie.iso' % (vers[0], vers[1], vers[0], vers[1])
 
         vers, misc = self.findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/",
                 r'[\d]+[\d]+[\w]+[\d][\w]', r'[\d]+[\d]')
         # global gentooLink
+        print('gentoo')
         gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-%s.iso' % misc
 
         vers, misc = self.findNew("http://www.linuxfromscratch.org/lfs/downloads/",
                 r'[\d]+.[\d]+-systemd/', r'[\d]+[\d]')
         # global lfsLink
+        print('lfs')
         lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-%s.%s-systemd.pdf' % (
             vers[0], vers[1], vers[0], vers[1])
 
@@ -1739,6 +1749,8 @@ if __name__ == "__main__":
                 DE = "lxde" 
             elif desktop_session.startswith("pop"):
                 DE = "gnome"
+            elif desktop_session.startswith("pantheon"):
+                DE = "elementary"
             elif desktop_session.startswith("kubuntu"): 
                 DE = "kde" 
             elif desktop_session.startswith("razor"): # e.g. razorkwin
@@ -1808,7 +1820,7 @@ if __name__ == "__main__":
         parser.write(file)
         file.close()
     if desktop == '':
-        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your desktop is detected as %s. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu" % DE.upper()), _("Attention!"), 'general')
+        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your desktop is detected as %s. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu") % DE.upper(), _("Attention!"), 'general')
     # Own module for root prompt and background installation
     import osLayer
     osLayer.init(distro)

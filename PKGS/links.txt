@@ -1,5 +1,0 @@
-https://pypi.org/project/Deprecated/
-https://pypi.org/project/cron-descriptor/
-(needs translation too)
-https://pypi.org/project/notify2/
-https://pypi.org/project/python-crontab/
