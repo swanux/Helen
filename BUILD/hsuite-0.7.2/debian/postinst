@@ -1,0 +1,5 @@
+#!/bin/bash +e
+
+dpkg --add-architecture i386
+ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite || echo "No need for it"
+#DEBHELPER#

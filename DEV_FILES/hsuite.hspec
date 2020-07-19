@@ -10,7 +10,7 @@ email = dani@kolozsi.net
 pkgname = hsuite
 pretty_name = HSuite
 licensev = 0
-version = 0.7.1.4
+version = 0.7.2
 section = 0
 priority = 0
 depends = ${misc:Depends}
@@ -61,11 +61,7 @@ postrm = rm /usr/bin/hsuite || echo "No need for it2"
 [changelog]
 target = bionic
 urgency = 1
-changes = Fixed a lots of bugs
-	Added minutely option in HControl
-	Stopped preserving PPAs
-	Optimized cli output on restore
-	Corrected translation
+changes = Bugfixes
 
 [data]
 root = /home/daniel/GitRepos/hsuite/DEV_FILES
