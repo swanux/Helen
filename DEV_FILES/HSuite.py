@@ -1803,12 +1803,12 @@ if __name__ == "__main__":
             distro = 'Debian'
             print('W: Not fully compatible with Deepin!')
             app = GUI()
-            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, eoan, focal), Debian (buster)."), _("Attention!"), 'general')
+            app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your distro is detected as Deepin. This distro is not fully tested, you may encounter some problems with the program. Currently tested on distros: Ubuntu (bionic, focal), Debian (buster)."), _("Attention!"), 'general')
         else:
             distro = ''
             app = GUI()
             print('E: Complete incompatibility!')
-            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, eoan, focal), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
+            app.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _("Can not detect your distro. Currently compatible with distros: Ubuntu (bionic, focal), Debian (buster) and everything based on them. Aborting now."), _("Attention!"), 'general')
             raise SystemExit
         app = GUI()
         parser.add_section('system')

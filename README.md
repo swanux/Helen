@@ -28,16 +28,14 @@ Here is the changelog of every update. For further details you can always check 
 
 **Note:** Currently supported distributions (and everything dpkg/apt based):
 
-    Debian 10 (buster)
-    Ubuntu : 18.04 (bionic), 19.10 (eoan), 20.04 (focal)
-    Linux Mint 19.x
-    PoP_OS : 18.04, 19.10, 20.04
+    Debian : 10 (buster)
+    Ubuntu : 18.04 (bionic) and 20.04 (focal)
+    Linux Mint : 19 and 20
+    PoP_OS : 18.04 and 20.04
 
 **Note:** Currently supported desktop environments:
 
-    Gnome
-    Ubuntu (the ubuntu specifc version of Gnome)
-    PoP (the PoP_OS specifc version of Gnome)
+    Gnome (ubuntu and PoP_OS versions included)
 
 **Note:** These are just the recommended values. You can always extend compatibility on your own.
 **Tipp:** You can use this program on ANY desktop environment, only some desktop agonistic features will be disabled.

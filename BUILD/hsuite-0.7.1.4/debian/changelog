@@ -1,9 +1,0 @@
-hsuite (0.7.1.4-1) bionic; urgency=medium
-
-  * Fixed a lots of bugs
-  * Added minutely option in HControl
-  * Stopped preserving PPAs
-  * Optimized cli output on restore
-  * Corrected translation
-
- -- Dániel Kolozsi <dani@kolozsi.net>  Wed, 24 Jun 2020 14:27:00 +0100

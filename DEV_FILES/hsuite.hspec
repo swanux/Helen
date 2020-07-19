@@ -27,7 +27,6 @@ depends = ${misc:Depends}
 	gtk2-engines-murrine
 	gtk2-engines-pixbuf
 	x11-utils
-	gnome-shell-extensions
 	gnome-menus
 	gir1.2-gmenu-3.0
 	appmenu-gtk2-module
