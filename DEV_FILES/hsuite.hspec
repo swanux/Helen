@@ -49,7 +49,7 @@ homepage = https://github.com/swanux/hsuite
 
 [description]
 short = HSuite Beta v0.7 | Sinara
-longue = HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
+longue = HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
 
 [misc]
 min_pyver = 3.2

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 
+<!-- Generated with glade 3.22.1 
 
 Copyright (C) HSuite 2019
 
@@ -47,6 +47,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/barrier.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkImage" id="bodhi_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/bodhi.png</property>
+    <property name="pixel_size">50</property>
+  </object>
   <object class="GtkImage" id="box_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -81,6 +87,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/discord.png</property>
+    <property name="pixel_size">50</property>
+  </object>
+  <object class="GtkImage" id="drauger_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/drauger.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="edge_img">
@@ -161,10 +173,22 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/gparted.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkImage" id="henv_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/henv.png</property>
+    <property name="pixel_size">50</property>
+  </object>
   <object class="GtkImage" id="hex_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/hex.png</property>
+    <property name="pixel_size">50</property>
+  </object>
+  <object class="GtkImage" id="hsuite_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/hsuite2.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="image1">
@@ -271,6 +295,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/opensuse.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkImage" id="pepper_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/pepper.png</property>
+    <property name="pixel_size">50</property>
+  </object>
   <object class="GtkImage" id="pol_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -281,6 +311,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/pops.png</property>
+    <property name="pixel_size">50</property>
+  </object>
+  <object class="GtkImage" id="puppy_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/puppy.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="signal_img">
@@ -301,10 +337,22 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/skype.png</property>
     <property name="pixel_size">50</property>
   </object>
+  <object class="GtkImage" id="slax_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/slax.png</property>
+    <property name="pixel_size">50</property>
+  </object>
   <object class="GtkImage" id="solus_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/solus.png</property>
+    <property name="pixel_size">50</property>
+  </object>
+  <object class="GtkImage" id="sparky_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/sparky.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="steam_img">
@@ -335,6 +383,12 @@ Author: Dániel Kolozsi (@swanux)
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/tims.png</property>
+    <property name="pixel_size">50</property>
+  </object>
+  <object class="GtkImage" id="tiny_img">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">icons/tiny.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="tux_img">
@@ -946,21 +1000,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="web_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkButton" id="firefox_but">
                                 <property name="label" translatable="yes">Scanning...</property>
                                 <property name="visible">True</property>
@@ -972,21 +1011,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
-                                <property name="top_attach">3</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="vivaldi_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
                                 <property name="top_attach">3</property>
                               </packing>
                             </child>
@@ -1003,6 +1027,104 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="web_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="webweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="vivaldi_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="vivweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
                                 <property name="top_attach">3</property>
                               </packing>
                             </child>
@@ -1060,21 +1182,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="loffice_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
                                 <property name="top_attach">1</property>
                               </packing>
                             </child>
@@ -1246,6 +1353,55 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="top_attach">2</property>
                               </packing>
                             </child>
+                            <child>
+                              <object class="GtkBox" id="webb2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="loffice_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="libreweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -1397,21 +1553,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="gedit_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkButton" id="gnu_but">
                                 <property name="label" translatable="yes">Scanning...</property>
                                 <property name="visible">True</property>
@@ -1424,36 +1565,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               <packing>
                                 <property name="left_attach">1</property>
                                 <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="vscode_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="atom_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">3</property>
                               </packing>
                             </child>
                             <child>
@@ -1472,14 +1583,195 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="geany_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb3">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="gedit_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="gedweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb4">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="vscode_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="vsweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb5">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="atom_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="atomweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb6">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="geany_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="geanweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1667,14 +1959,48 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="telegram_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb7">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="telegram_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="telweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1682,14 +2008,48 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="signal_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb8">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="signal_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="sigweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -1697,14 +2057,48 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="hex_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb9">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="hex_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="hexweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1712,14 +2106,48 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="franz_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb10">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="franz_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="franzweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1877,66 +2305,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="ad_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="tux_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="lutris_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="pol_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">3</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkButton" id="steam_but">
                                 <property name="label" translatable="yes">Scanning...</property>
                                 <property name="visible">True</property>
@@ -1985,14 +2353,244 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="skart_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb11">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="ad_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="adweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb12">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="tux_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="tuxweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb13">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="pol_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="polweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb14">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="lutris_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="lutweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb15">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="skart_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="kartweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -2216,141 +2814,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="pops_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="woe_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="wine_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="vbox_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">3</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="gparted_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">3</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="gest_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">3</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="auda_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">5</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="deja_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">5</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="tims_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">5</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkButton" id="tw">
                                 <property name="label">TeamViewer</property>
                                 <property name="visible">True</property>
@@ -2402,21 +2865,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="box_but">
-                                <property name="label" translatable="yes">Scanning...</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">7</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkButton" id="barr">
                                 <property name="label">Barrier by debauchee</property>
                                 <property name="visible">True</property>
@@ -2435,14 +2883,538 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="barr_but">
-                                <property name="label" translatable="yes">Scanning...</property>
+                              <object class="GtkBox" id="webb16">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="pops_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="popweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb17">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="woe_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="woeweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb18">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="wine_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="wineweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb19">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="vbox_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="vboxweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb20">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="gparted_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="partweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb21">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="gest_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="gestweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb22">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="auda_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="audaweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">5</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb23">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="deja_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="dejaweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">5</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb24">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="tims_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="timweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">5</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb25">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="box_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="boxweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">7</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb26">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="barr_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="barrweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2468,6 +3440,143 @@ If you click on the icon of the program, you'll see some extra informations abou
                   </object>
                   <packing>
                     <property name="position">6</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scroll_my">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport" id="view_my">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkGrid" id="my_grid">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
+                            <property name="row_spacing">4</property>
+                            <property name="column_spacing">5</property>
+                            <property name="column_homogeneous">True</property>
+                            <child>
+                              <object class="GtkButton" id="hsuite">
+                                <property name="label">HSuite</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="image">hsuite_img</property>
+                                <property name="image_position">top</property>
+                                <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="applay" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="henv">
+                                <property name="label">HEnv</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="image">henv_img</property>
+                                <property name="image_position">top</property>
+                                <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="applay" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="webb27">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">False</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton" id="henv_but">
+                                    <property name="label" translatable="yes">Scanning...</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="envweb">
+                                    <property name="label" translatable="yes">View Source</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="hexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="suiteweb">
+                                <property name="label" translatable="yes">View Source</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_top">5</property>
+                                <property name="margin_bottom">5</property>
+                                <property name="hexpand">True</property>
+                                <signal name="clicked" handler="general_src" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">7</property>
+                  </packing>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="my_pg">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">From Swanux</property>
+                  </object>
+                  <packing>
+                    <property name="position">7</property>
                     <property name="tab_fill">False</property>
                   </packing>
                 </child>
@@ -2544,7 +3653,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                     </child>
                     <child>
                       <object class="GtkButton" id="rew_link">
-                        <property name="label" translatable="yes">Demo/Review (YouTube)</property>
+                        <property name="label" translatable="yes">Try it now (online)</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2636,7 +3745,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkBox" id="info_box1">
+                          <object class="GtkBox" id="info_box1https://distrochooser.de/en/">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="orientation">vertical</property>
@@ -2666,6 +3775,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="margin_right">20</property>
                                 <property name="margin_top">30</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="hexpand">True</property>
+                                <property name="vexpand">True</property>
                                 <property name="label" translatable="yes">Welcome to the Distro Boutique! Here you can find the most popular Linux distros. The purpose of this page is to help newcommers in the Linux world to settle in and find the best distro for her/his needs. If you are one of those people who would like to decide which distro is the most suitable for you, then this is a perfect place for that!
 
 As you can see there are some categories. The first question is usually this: "Which's the best Linux distro?". However this question can't be answered, because there is no best one. The question should be: "Which's the most suitable distro for my needs?".  Thats why I collected distros into some main categories.
@@ -2681,6 +3792,23 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
                                 <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="chos_but">
+                                <property name="label" translatable="yes" comments="Indicate en/de/chin/esp only">Try to find the perfect distro for me</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_left">20</property>
+                                <property name="margin_right">20</property>
+                                <property name="margin_bottom">10</property>
+                                <signal name="clicked" handler="on_chos_but_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">2</property>
                               </packing>
                             </child>
                           </object>
@@ -2966,7 +4094,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkLabel">
+                                      <object class="GtkLabel" id="wonly_txt">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="hexpand">True</property>
@@ -3181,6 +4309,56 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
+                                    <property name="top_attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box3">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_drauger">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="drauger">
+                                    <property name="label">Drauger OS</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">drauger_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
                                     <property name="top_attach">0</property>
                                   </packing>
                                 </child>
@@ -3732,6 +4910,357 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                     <property name="tab_fill">False</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scroll_li">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport" id="view_li">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkBox" id="li_box">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">5</property>
+                            <property name="margin_bottom">5</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkLabel" id="info_txt9">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">20</property>
+                                <property name="margin_bottom">20</property>
+                                <property name="label" translatable="yes">Here are some lightweight distros that will run on most of the old computers smoothly.</property>
+                                <property name="justify">center</property>
+                                <property name="wrap">True</property>
+                                <attributes>
+                                  <attribute name="scale" value="1.1000000000000001"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkGrid" id="li_grid">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="row_spacing">4</property>
+                                <property name="column_spacing">5</property>
+                                <property name="column_homogeneous">True</property>
+                                <child>
+                                  <object class="GtkBox" id="buts_box7">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_slax">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box15">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_bodhi">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="slax">
+                                    <property name="label">Slax</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">slax_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="pepper">
+                                    <property name="label">Peppermint OS</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">pepper_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="bodhi">
+                                    <property name="label">Bodhi Linux</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">bodhi_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="top_attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="sparky">
+                                    <property name="label">SparkyLinux</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">sparky_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="puppy">
+                                    <property name="label">Puppy Linux</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">puppy_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="tiny">
+                                    <property name="label">Tiny Core</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="margin_top">5</property>
+                                    <property name="margin_bottom">5</property>
+                                    <property name="image">tiny_img</property>
+                                    <property name="image_position">top</property>
+                                    <property name="always_show_image">True</property>
+                                    <signal name="clicked" handler="dissplay" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="top_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box16">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_sparky">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box17">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_puppy">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="buts_box18">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="downl_tiny">
+                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="margin_right">5</property>
+                                        <property name="margin_top">5</property>
+                                        <property name="margin_bottom">5</property>
+                                        <property name="hexpand">True</property>
+                                        <signal name="clicked" handler="general_download" swapped="no"/>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="top_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="wonly_txt1">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="label" translatable="yes">Avilable from website only</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="li_pg">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="label" translatable="yes">Lightweight</property>
+                  </object>
+                  <packing>
+                    <property name="position">5</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -4197,7 +5726,7 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <property name="can_focus">True</property>
                                 <property name="hexpand">True</property>
                                 <property name="max_width_chars">35</property>
-                                <property name="placeholder_text" translatable="yes">For contacting you if needed (Optional)</property>
+                                <property name="placeholder_text" translatable="yes">For contacting you if needed (Optional, but recommended)</property>
                                 <property name="input_purpose">email</property>
                               </object>
                               <packing>
@@ -4334,6 +5863,9 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <items>
                                   <item id="0">HSuite</item>
                                   <item id="1">HSite</item>
+                                  <item id="2" translatable="yes">HEnv</item>
+                                  <item id="3" translatable="yes">T440p</item>
+                                  <item id="4" translatable="yes">HRepo</item>
                                 </items>
                               </object>
                               <packing>
@@ -5833,7 +7365,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
   </object>
   <object class="GtkWindow" id="themer_win">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Apply theme</property>
+    <property name="title" translatable="yes">HSuite</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="default_width">400</property>
@@ -5847,195 +7379,342 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
       <placeholder/>
     </child>
     <child>
-      <object class="GtkScrolledWindow" id="scroll_the">
+      <object class="GtkStack" id="main_stack">
         <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="shadow_type">in</property>
+        <property name="can_focus">False</property>
         <child>
-          <object class="GtkViewport" id="view_the">
+          <object class="GtkScrolledWindow" id="scroll_the">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
             <child>
-              <object class="GtkStack" id="them_stack">
+              <object class="GtkViewport" id="view_the">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkBox" id="the_box">
+                  <object class="GtkStack" id="them_stack">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkCheckButton" id="desk_them_chk">
-                        <property name="label" translatable="yes">Desktop theme</property>
+                      <object class="GtkBox" id="the_box">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="vexpand">True</property>
-                        <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkCheckButton" id="desk_them_chk">
+                            <property name="label" translatable="yes">Desktop theme</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="vexpand">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="lay_chk">
+                            <property name="label" translatable="yes">Layout</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="vexpand">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="ico_chk">
+                            <property name="label" translatable="yes">Icons</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="vexpand">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="cur_chk">
+                            <property name="label" translatable="yes">Cursor</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="vexpand">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="all_chk">
+                            <property name="label" translatable="yes">Everything</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="vexpand">True</property>
+                            <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="all_toggle" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">6</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="appl_but">
+                            <property name="label" translatable="yes">Apply</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="margin_bottom">10</property>
+                            <signal name="clicked" handler="appl_but_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">7</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
+                        <property name="name">page0</property>
+                        <property name="title" translatable="yes">page0</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton" id="lay_chk">
-                        <property name="label" translatable="yes">Layout</property>
+                      <object class="GtkBox" id="wait_box">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="vexpand">True</property>
-                        <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="them_conf_ch" swapped="no"/>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="wait_lab">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">20</property>
+                            <property name="margin_bottom">20</property>
+                            <property name="label" translatable="yes">Please wait while applying changes...</property>
+                            <attributes>
+                              <attribute name="weight" value="ultraheavy"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkSpinner" id="wait_spin">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="hexpand">True</property>
+                            <property name="vexpand">True</property>
+                            <property name="active">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
+                        <property name="name">page1</property>
+                        <property name="title" translatable="yes">page1</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton" id="ico_chk">
-                        <property name="label" translatable="yes">Icons</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="vexpand">True</property>
-                        <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkCheckButton" id="cur_chk">
-                        <property name="label" translatable="yes">Cursor</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="vexpand">True</property>
-                        <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="them_conf_ch" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkCheckButton" id="all_chk">
-                        <property name="label" translatable="yes">Everything</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="vexpand">True</property>
-                        <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="all_toggle" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">6</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="appl_but">
-                        <property name="label" translatable="yes">Apply</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="margin_left">50</property>
-                        <property name="margin_right">50</property>
-                        <property name="margin_bottom">10</property>
-                        <signal name="clicked" handler="appl_but_clicked" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">7</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="name">page0</property>
-                    <property name="title">page0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkBox" id="wait_box">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkLabel" id="wait_lab">
+                      <object class="GtkLabel" id="ready_txt">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="margin_left">20</property>
-                        <property name="margin_right">20</property>
-                        <property name="margin_top">20</property>
-                        <property name="margin_bottom">20</property>
-                        <property name="label" translatable="yes">Please wait while applying changes...</property>
+                        <property name="label" translatable="yes">Done!
+To make sure that every modification works, you may do the following:
+
+* Press ALT + F2, then write in r, and press enter
+* If you've still got problems log out/in or reboot</property>
+                        <property name="justify">center</property>
+                        <property name="wrap">True</property>
                         <attributes>
                           <attribute name="weight" value="ultraheavy"/>
                         </attributes>
                       </object>
                       <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkSpinner" id="wait_spin">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="vexpand">True</property>
-                        <property name="active">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
+                        <property name="name">page2</property>
+                        <property name="title" translatable="yes">page2</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="name">page1</property>
-                    <property name="title">page1</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="ready_txt">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Done!
-To make sure that every modification works, you may do the following:
-
-* Press ALT + F2, then write in r, and press enter
-* If you've still got problems log out/in or reboot</property>
-                    <property name="justify">center</property>
-                    <property name="wrap">True</property>
-                    <attributes>
-                      <attribute name="weight" value="ultraheavy"/>
-                    </attributes>
-                  </object>
-                  <packing>
-                    <property name="name">page2</property>
-                    <property name="title">page2</property>
-                    <property name="position">2</property>
-                  </packing>
                 </child>
               </object>
             </child>
           </object>
+          <packing>
+            <property name="name">page0</property>
+            <property name="title" translatable="yes">page0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scroll_us">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkViewport" id="view_us">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkStack" id="us_stack">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkBox" id="us_box">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="margin_left">10</property>
+                        <property name="margin_right">10</property>
+                        <property name="margin_top">10</property>
+                        <property name="margin_bottom">10</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="writ_lab1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">10</property>
+                            <property name="margin_bottom">10</property>
+                            <property name="label" translatable="yes">Select USB drive to format</property>
+                            <attributes>
+                              <attribute name="weight" value="ultraheavy"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="wr_but">
+                            <property name="label" translatable="yes">Select</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="margin_top">10</property>
+                            <property name="margin_bottom">10</property>
+                            <signal name="clicked" handler="write_but_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">page0</property>
+                        <property name="title" translatable="yes">page0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="write_box">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="writ_lab">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">20</property>
+                            <property name="margin_bottom">20</property>
+                            <property name="label" translatable="yes">Please wait while writing USB...
+Do not remove the USB drive while writing!</property>
+                            <attributes>
+                              <attribute name="weight" value="ultraheavy"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkProgressBar" id="write">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">10</property>
+                            <property name="margin_bottom">10</property>
+                            <property name="text" translatable="yes">Writing to USB</property>
+                            <property name="show_text">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">page1</property>
+                        <property name="title" translatable="yes">page1</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="written_txt">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Ready!
+
+Now you can remove your USB drive safely.</property>
+                        <property name="justify">center</property>
+                        <property name="wrap">True</property>
+                        <attributes>
+                          <attribute name="weight" value="ultraheavy"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="name">page2</property>
+                        <property name="title" translatable="yes">page2</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">page1</property>
+            <property name="title" translatable="yes">page1</property>
+            <property name="position">1</property>
+          </packing>
         </child>
       </object>
     </child>

@@ -35,9 +35,8 @@ def asroot(asr):            # The function to display prompt for root acces.
 def fusConfs():
     os.system('mkdir -p /home/$USER/.config/autostart && mkdir -p /home/$USER/.config/fusuma && cp /usr/share/hsuite/config.yml /home/$USER/.config/fusuma/ && cp /usr/share/hsuite/fusuma.desktop /home/$USER/.config/autostart/')
 
-def my_thread(status, distro, comm1, comm2, faur, extra, runDep, buildDep):
+def my_thread(status, distro, comm1, comm2, extra):
     print(status+' '+distro)
-    print('faur: %s' % faur)
     global alive
     global trans
     trans = ""

@@ -159,7 +159,7 @@ Here's the file hierarchy of the program with explanations:
 
 *Be SSU (Simple, Small, Useful)*
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.7). **NOTE:** Currently works on Debian/Ubuntu based distros.
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming. **ATTENTION!** This program is currently in Beta stage (v0.7). **NOTE:** Currently works on Debian/Ubuntu based distros.
 
 # Development process
 

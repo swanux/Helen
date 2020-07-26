@@ -387,13 +387,105 @@ lfs = _("""LFS
 Linux From Scratch (LFS) is a project that provides you with step-by-step instructions for building your own custom Linux system, entirely from source code.
 """)
 
+drauger = _("""Drauger OS
 
-descDict = {opera : _('App Spotlight'), chrome : _('App Spotlight'), web : _('App Spotlight'), firefox : _('App Spotlight'), vivaldi : _('App Spotlight'), edge : _('App Spotlight'), wps : _('App Spotlight'), libreoffice : _('App Spotlight'), freeoffice : _('App Spotlight'), onlyoffice : _('App Spotlight'), gedit : _('App Spotlight'), emacs : _('App Spotlight'), code : _('App Spotlight'), atom : _('App Spotlight'), stext : _('App Spotlight'), geany : _('App Spotlight'), skype : _('App Spotlight'), discord : _('App Spotlight'), telegram : _('App Spotlight'), signal : _('App Spotlight'), hexchat : _('App Spotlight'), franz : _('App Spotlight'), ad : _('App Spotlight'), tux : _('App Spotlight'), lutris : _('App Spotlight'), pol : _('App Spotlight'), steam : _('App Spotlight'), minecraft : _('App Spotlight'), tuxkart : _('App Spotlight'), popsicle : _('App Spotlight'), woeusb : _('App Spotlight'), wine : _('App Spotlight'), vbox : _('App Spotlight'), gparted : _('App Spotlight'), gestures : _('App Spotlight'), audacity : _('App Spotlight'), officeonline : _('App Spotlight'), gsuite : _('App Spotlight'), deja : _('App Spotlight'), timeshift : _('App Spotlight'), teamv : _('App Spotlight'), box : _('App Spotlight'), barrier : _('App Spotlight'), mint : _('Distro Boutique'), ubuntu : _('Distro Boutique'), solus : _('Distro Boutique'), deepin : _('Distro Boutique'), elementary : _('Distro Boutique'), steamos : _('Distro Boutique'), debian : _('Distro Boutique'),fedora : _('Distro Boutique'), opensuse : _('Distro Boutique'), arch : _('Distro Boutique'), gentoo : _('Distro Boutique'), lfs : _('Distro Boutique')}
+Drauger OS is a Linux desktop gaming operating system. It aims to provide a platform for gamers to use where they can get great performance without sacrificing their security. Furthermore, it aims to make it easy for anyone to game, whether they use a keyboard and mouse, or some sort of controller.
 
-descList = [opera, chrome, web, firefox, vivaldi, edge, wps, libreoffice, onlyoffice, officeonline, gsuite, freeoffice, gedit, emacs, code, atom, stext, geany, skype, discord, telegram, signal, hexchat, franz, ad, tux, lutris, pol, steam, minecraft, tuxkart, popsicle, woeusb, wine, vbox, gparted, gestures, audacity, deja, timeshift, teamv, box, barrier, mint, ubuntu, solus, deepin, elementary, steamos, debian, fedora, opensuse, arch, gentoo, lfs]
+Based off Ubuntu LTS releases, Drauger OS is stable, secure, and gets updates thanks to the Ubuntu repositories for 5 years (even if a given Drauger OS release is not supported for the full 5 years by Drauger OS Development itself.)
+""")
 
-webDict = {mint : _('https://www.linuxmint.com'), ubuntu : _('https://ubuntu.com'), solus : _('https://getsol.us/home/'), deepin : _('https://www.deepin.org/en/'), elementary : _('https://elementary.io'), steamos : _('https://store.steampowered.com/steamos/'), debian : _('https://www.debian.org'), fedora : _('https://getfedora.org'), opensuse : _('https://www.opensuse.org'), arch : _('https://www.archlinux.org'), gentoo : _('https://www.gentoo.org'), lfs : _('http://www.linuxfromscratch.org')}
+slax = _("""Slax
 
-vidDict = {mint : 'https://youtu.be/fm7d2mM0cqQ', ubuntu : 'https://youtu.be/lzFcjW70xZ4', solus : 'https://youtu.be/ZJE28tnPkRE', deepin : 'https://youtu.be/Uq_IbFNueTE', elementary : 'https://youtu.be/9qO_Ft_wRqs', steamos : 'https://youtu.be/1saebgKGLuY', debian : 'https://youtu.be/fUcvL4fbtPo', fedora : 'https://youtu.be/DO2acx2W2i8', opensuse : 'https://youtu.be/9oonm2GCCMo', arch : 'https://youtu.be/8RqFL92IEYs', gentoo : 'https://youtu.be/6D5X78XsLi8', lfs : 'https://youtu.be/qZJzbI6ZJ34'} # Own reviews here would be better..
+Slax is a really portable lightweight Linux distro based on Debian which you can use it on a USB drive without installing it.
+The ISO file size is just under 300 MB – which makes it a great option for older computers. The user interface is simple and usable with essential pre-built packages for an average user. You can even try to customize the OS and make permanent changes on the fly if you require it.
+
+Give it a try!
+
+Minimum system requirements for Slax:
+RAM: 128 MB (offline usage) / 512 MB (for web browser usage)
+CPU: i686 or newer
+""")
+
+pepper = _("""Peppermint OS
+
+Peppermint is a cloud-focused Linux distribution that doesn’t need high-end hardware. It is based on Ubuntu and uses LXDE desktop environment to give you a smoother experience.
+Originally created with the web-centric approach of netbooks in mind, Peppermint includes the ICE application for integrating any website or web app as a standalone desktop app.
+
+You’ll find the documentation helpful as well. A dedicated forum also exists to help troubleshooting issues and answering your questions.
+
+Minimum system requirements for Peppermint OS:
+RAM: 1 GB of RAM (recommended 2 GB)
+CPU: Processor based on Intel x86 architecture
+Disk space: At least 4 GB of available disk space
+""")
+
+bodhi = _("""Bodhi Linux
+
+Yet another light Linux distribution – Bodhi Linux, that gives life to older PCs & Laptops. Bodhi Linux is quite known for its minimal approach and the support for low-end hardware.
+
+It doesn’t feature a lot of things pre-installed – hence, you will notice that the ISO file size will be less than 1 GB.
+The presence of Moksh Desktop makes Bodhi Linux is a decent choice for older hardware configurations while providing a good user experience.
+
+Minimum hardware requirements for Bodhi Linux:
+RAM: 256 MB of RAM
+CPU: 1.0 GHz
+Disk space: 5 GB of drive space
+""")
+
+sparky = _("""SparkyLinux
+
+SparkyLinux is another lightweight distro but at the same time, it also targets modern computers.
+
+Depending on what you need – you will find two variants of SparkyLinux. One based on Debian’s stable release and the other based on Debian’s testing branch. So, you can opt for anyone you see fit.
+In addition to the variants, you will also find different editions of ISO to download. For instance, an LXQT desktop-based edition, a GameOver edition with pre-installed stuff, and so on.
+You can head down to their download page and click on “Stable” or “(Semi-)Rolling” releases to find all the editions listed.
+
+Minimum hardware requirements for SparkyLinux:
+RAM: 512 MB
+CPU: Pentium 4, or AMD Athlon
+Disk space: 2 GB (CLI Edition), 10 GB (Home Edition), 20 GB (GameOver Edition)
+""")
+
+puppy = _("""Puppy Linux
+
+Puppy Linux uses JWM and Openbox window managers by default which makes it very easy on system resources.
+Because Puppy Linux is built to be fast, it does not come along with bundles of applications. It does have some basic apps, though. In other words, it can get your work done if you want to utilize a really old computer.
+
+Minimum hardware requirements for Puppy Linux:
+RAM:  256 MB
+CPU: 600 Hz Processor
+""")
+
+tiny = _("""Tiny Core
+
+Probably, technically, the most lightweight distro there is. However, it isn’t a complete Linux distribution for an average desktop user.
+Tiny Core simply incorporates the fundamental core of an OS which includes the kernel and the root filesystem. In other words, it features the foundation of a desktop OS.
+
+If you simply want a system to boot up coupled with a wired Internet connection, you can get started using it. But, you should not expect proper hardware support out of the box.
+So, if you’re someone who knows how to set up or compile tools necessary with Tiny Core Linux to make it a complete desktop experience, you can give it a try.
+
+Minimum hardware requirements for Tiny Core Linux:
+RAM:  64 MB (128 MB recommended)
+CPU: i486DX
+""")
+
+hsuite = _("""HSuite
+
+Actually, I could copy-paste it from the About section, but I do not see the point of it. So why is this here at all? Because HSuite is kind of a platform, where I can also host my own work (including HSuite itself). So it is basically for simpler navigation and easier reach of source code.
+""")
+
+henv = _("""HEnv
+
+HEnv is a small tool that helps me in development. The name itself stands for H-Environment. Currently it does automatic debian packaging only, more functions are going to be added later.
+""")
+
+
+descDict = {opera : _('App Spotlight'), chrome : _('App Spotlight'), web : _('App Spotlight'), firefox : _('App Spotlight'), vivaldi : _('App Spotlight'), edge : _('App Spotlight'), wps : _('App Spotlight'), libreoffice : _('App Spotlight'), freeoffice : _('App Spotlight'), onlyoffice : _('App Spotlight'), gedit : _('App Spotlight'), emacs : _('App Spotlight'), code : _('App Spotlight'), atom : _('App Spotlight'), stext : _('App Spotlight'), geany : _('App Spotlight'), skype : _('App Spotlight'), discord : _('App Spotlight'), telegram : _('App Spotlight'), signal : _('App Spotlight'), hexchat : _('App Spotlight'), franz : _('App Spotlight'), ad : _('App Spotlight'), tux : _('App Spotlight'), lutris : _('App Spotlight'), pol : _('App Spotlight'), steam : _('App Spotlight'), minecraft : _('App Spotlight'), tuxkart : _('App Spotlight'), popsicle : _('App Spotlight'), woeusb : _('App Spotlight'), wine : _('App Spotlight'), vbox : _('App Spotlight'), gparted : _('App Spotlight'), gestures : _('App Spotlight'), audacity : _('App Spotlight'), officeonline : _('App Spotlight'), gsuite : _('App Spotlight'), deja : _('App Spotlight'), timeshift : _('App Spotlight'), teamv : _('App Spotlight'), box : _('App Spotlight'), barrier : _('App Spotlight'), mint : _('Distro Boutique'), ubuntu : _('Distro Boutique'), solus : _('Distro Boutique'), deepin : _('Distro Boutique'), elementary : _('Distro Boutique'), steamos : _('Distro Boutique'), debian : _('Distro Boutique'),fedora : _('Distro Boutique'), opensuse : _('Distro Boutique'), arch : _('Distro Boutique'), gentoo : _('Distro Boutique'), lfs : _('Distro Boutique'), drauger : _('Distro Boutique'), slax : _('Distro Boutique'), pepper : _('Distro Boutique'), bodhi : _('Distro Boutique'), sparky : _('Distro Boutique'), puppy : _('Distro Boutique'), tiny : _('Distro Boutique'), hsuite : _('App Spotlight'), henv : _('App Spotlight')}
+
+descList = [opera, chrome, web, firefox, vivaldi, edge, wps, libreoffice, onlyoffice, officeonline, gsuite, freeoffice, gedit, emacs, code, atom, stext, geany, skype, discord, telegram, signal, hexchat, franz, ad, tux, lutris, pol, steam, minecraft, tuxkart, popsicle, woeusb, wine, vbox, gparted, gestures, audacity, deja, timeshift, teamv, box, barrier, mint, ubuntu, solus, deepin, elementary, steamos, debian, fedora, opensuse, arch, gentoo, lfs, drauger, slax, pepper, bodhi, sparky, puppy, tiny, hsuite, henv]
+
+webDict = {mint : _('https://www.linuxmint.com'), ubuntu : _('https://ubuntu.com'), solus : _('https://getsol.us/home/'), deepin : _('https://www.deepin.org/en/'), elementary : _('https://elementary.io'), steamos : _('https://store.steampowered.com/steamos/'), debian : _('https://www.debian.org'), fedora : _('https://getfedora.org'), opensuse : _('https://www.opensuse.org'), arch : _('https://www.archlinux.org'), gentoo : _('https://www.gentoo.org'), lfs : _('http://www.linuxfromscratch.org'), drauger : _('https://draugeros.org/'), slax : _('https://www.slax.org'), pepper : _('https://peppermintos.com'), bodhi : _('https://www.bodhilinux.com'), sparky : _('https://sparkylinux.org'), puppy : _('http://puppylinux.com'), tiny : _('http://tinycorelinux.net')}
+
+vidDict = {mint : 'https://distrotest.net/Linux%20Mint', ubuntu : 'https://distrotest.net/Ubuntu', solus : 'https://distrotest.net/Solus', deepin : 'https://distrotest.net/deepin', elementary : 'https://distrotest.net/elementaryOS', steamos : 'https://youtu.be/1saebgKGLuY', debian : 'https://distrotest.net/Debian', fedora : 'https://distrotest.net/Fedora%20Workstation', opensuse : 'https://distrotest.net/openSUSE', arch : 'https://distrotest.net/Archlinux', gentoo : 'https://distrotest.net/Gentoo/20160704', lfs : 'https://youtu.be/qZJzbI6ZJ34', drauger : 'https://youtu.be/BSUbP2pUovU', slax : 'https://distrotest.net/Slax', pepper : 'https://distrotest.net/PeppermintOS', bodhi : 'https://distrotest.net/Bodhi', sparky : 'https://distrotest.net/SparkyLinux', puppy : 'https://distrotest.net/Puppy%20Linux', tiny : 'https://distrotest.net/Tiny%20Core'}
 
 descLen = len(descList)
