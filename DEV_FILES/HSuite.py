@@ -197,8 +197,7 @@ extDat = { # FIXME
     'Gnome' : [
         ['places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
         ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
-        ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu'],
-        ['user-theme@gnome-shell-extensions.gcampax.github.com']
+        ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu']
     ],
 }
 
@@ -206,10 +205,14 @@ themDat = { # FIXME
     _('Desktop theme') : 
     {
         'Gnome' : [
-            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
-            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Mojave-dark',
-            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Unity-8-2.0" && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
-            'gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" && gsettings set org.gnome.shell.extensions.user-theme name "Vanilla" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Windows-10-Dark-3.2-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Unity-8-2.0" && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
+        ],
+        'Cinnamon' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.cinnamon.theme name "Mojave-dark" && gsettings set org.cinnamon.desktop.interface gtk-theme "Mojave-dark" && gsettings set org.cinnamon.desktop.wm.preferences theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Windows-10-Dark-3.2-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.cinnamon.theme name "Windows-10-Dark-3.2-dark" && gsettings set org.cinnamon.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && gsettings set org.cinnamon.desktop.wm.preferences theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.cinnamon.theme name "Unity-8-2.0" && gsettings set org.cinnamon.desktop.interface gtk-theme "Unity-8-2.0" && gsettings set org.cinnamon.desktop.wm.preferences theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
         ],
     },
     _('Layout') : 
@@ -217,8 +220,7 @@ themDat = { # FIXME
         'Gnome' : [
             'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][0],
             'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat[desktop][1],
-            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][2],
-            'gsettings set org.gnome.shell enabled-extensions "%s"' % extDat[desktop][3]
+            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][2]
         ],
     },
     _('Icons') : 
@@ -227,7 +229,6 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
-            'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark'
         ],
     },
     _('Cursor') : 
@@ -236,7 +237,6 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
             'gsettings set org.gnome.desktop.interface cursor-theme DMZ-White',
-            'gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"'
         ],
     }
 }
@@ -1129,10 +1129,9 @@ class GUI:
                 os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
                 os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
         elif desktop == 'Cinnamon': # FIXME
-            if ext == '':
-                pass
-            else:
-                pass
+            EXTENSION_URL = self.SITE + '/files/applets/' + ext + '.zip'
+            os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
+            os.system("unzip -oq ~/tmp.zip -d %s/ && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, self.EXTENSION_PATH, ext))
 
     def sw(self):
         print('in sw')
@@ -1162,7 +1161,7 @@ class GUI:
         if desktop == 'Gnome':
             f = sw.submit(self.sw)
         elif desktop == 'Cinnamon': # FIXME
-            pass
+            f = sw.submit(self.sw)
         f.add_done_callback(self.sw2)
         st = self.builder.get_object('them_stack')
         bx = self.builder.get_object('wait_box')
