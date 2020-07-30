@@ -193,42 +193,52 @@ liLi = {
     }
 loLa = {'mint' : 43, 'ubuntu' : 44, 'solus' : 45, 'deepin' : 46, 'elementary' : 47, 'steamos' : 48, 'deb' : 49, 'fedora' : 50, 'opsu' : 51, 'arch' : 52, 'gentoo' : 53, 'lfs' : 54, 'drauger' : 55, 'slax' : 56, 'pepper' : 57, 'bodhi' : 58, 'sparky' : 59, 'puppy' : 60, 'tiny' : 61}
 
-extDat = [
-    ['places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
-    ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
-    ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu'],
-    ['user-theme@gnome-shell-extensions.gcampax.github.com']
-]
+extDat = { # FIXME
+    'Gnome' : [
+        ['places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
+        ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
+        ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu'],
+        ['user-theme@gnome-shell-extensions.gcampax.github.com']
+    ],
+}
 
-themDat = {
+themDat = { # FIXME
     _('Desktop theme') : 
-    [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Mojave-dark',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Unity-8-2.0" && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
-        'gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" && gsettings set org.gnome.shell.extensions.user-theme name "Vanilla" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
-    ],
+    {
+        'Gnome' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Mojave-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Vanilla ~/.themes/Mojave-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Unity-8-2.0" && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Vanilla ~/.themes/Windows-10-Dark-3.2-dark',
+            'gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" && gsettings set org.gnome.shell.extensions.user-theme name "Vanilla" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
+        ],
+    },
     _('Layout') : 
-    [
-        'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[0],
-        'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat[1],
-        'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[2],
-        'gsettings set org.gnome.shell enabled-extensions "%s"' % extDat[3]
-    ],
+    {
+        'Gnome' : [
+            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][0],
+            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat[desktop][1],
+            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][2],
+            'gsettings set org.gnome.shell enabled-extensions "%s"' % extDat[desktop][3]
+        ],
+    },
     _('Icons') : 
-    [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
-        'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark'
-    ],
+    {
+        'Gnome' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
+            'gsettings set org.gnome.desktop.interface icon-theme "Adwaita" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0 ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark'
+        ],
+    },
     _('Cursor') : 
-    [
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
-        'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
-        'gsettings set org.gnome.desktop.interface cursor-theme DMZ-White',
-        'gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"'
-    ],
+    {
+        'Gnome' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
+            'gsettings set org.gnome.desktop.interface cursor-theme DMZ-White',
+            'gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"'
+        ],
+    }
 }
 
 # Used generally
@@ -295,8 +305,8 @@ class myThread (Thread):
                     prew = re.findall(r'\d+', tmp)
                     woutput = int(prew[0])
                 if process.poll() is not None:
-                    woutput = 1
                     break
+            woutput = 1
             rc = process.poll()
         else:
             os.system("mkdir -p /home/%s/hswitcher/BUILD/restore-1.0/" % user)
@@ -338,13 +348,18 @@ class GUI:
         # Prepare to use builder
         self.builder = Gtk.Builder()
         self.builder.set_translation_domain(APP)
-        # if distro == 'Ubuntu' or distro == 'Debian':
         if desktop == 'Gnome':
             os.system("mkdir -p /home/%s/.local/share/gnome-shell/extensions" % user)
-            self.GNOME_SITE = "https://extensions.gnome.org"
-            self.GNOME_VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
+            self.SITE = "https://extensions.gnome.org"
+            self.VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
             self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
             self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
+        elif desktop == 'Cinnamon': # TODO
+            os.system("mkdir -p /home/%s/.local/share/cinnamon/applets" % user)
+            self.SITE = "https://cinnamon-spices.linuxmint.com"
+            self.VERSION = os.popen("DISPLAY=':0' cinnamon --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
+            self.EXTENSION_PATH = "/home/%s/.local/share/cinnamon/applets" % user
+            self.DIRS = os.popen("find /usr/share/cinnamon/applets $HOME/.local/share/cinnamon/applets -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         self.scanner = True
         self.them_conf = []
         self.hardCron = ""
@@ -1098,29 +1113,43 @@ class GUI:
 
 #######################################################################################
 
+    def patchControl(self, ext=''):
+        if desktop == 'Gnome':
+            if ext == '':
+                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+            elif ext == 'cleanup':
+                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+            else:
+                if 'remove-dropdown-arrows' in ext and float(self.VERSION) >= 3.36:
+                    JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.SITE, ext)
+                else:
+                    JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.SITE, ext, self.VERSION)
+                tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
+                EXTENSION_URL = self.SITE + tmp[-1].replace('"', '').replace('}', '')
+                os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
+                os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
+        elif desktop == 'Cinnamon': # FIXME
+            if ext == '':
+                pass
+            else:
+                pass
+
     def sw(self):
         print('in sw')
         os.system('mkdir -p ~/.themes && mkdir -p ~/.icons')
         for i in self.them_conf:
-            command = themDat[i][self.themNum]
+            command = themDat[i][desktop][self.themNum]
             if i == 'Layout':
-                os.system('gsettings set org.gnome.shell enabled-extensions []')
-                for ext in extDat[self.themNum]:
+                # os.system('gsettings set org.gnome.shell enabled-extensions []')
+                for ext in extDat[desktop][self.themNum]:
                     if ext in self.DIRS:
                         print('%s is already installed.' % ext)
                     else:
                         print('Installing %s...' % ext)
-                        if 'remove-dropdown-arrows' in ext and float(self.GNOME_VERSION) >= 3.36:
-                            JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.GNOME_SITE, ext)
-                        else:
-                            JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.GNOME_SITE, ext, self.GNOME_VERSION)
-                        tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
-                        EXTENSION_URL = self.GNOME_SITE + tmp[-1].replace('"', '').replace('}', '')
-                        os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
-                        os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
-            os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+                        self.patchControl(ext)
+            self.patchControl()
             os.system(command)
-        os.system('cd ~/ && rm -rf McMojave-circle.tar.xz capitaine-cursors-r3.tar.xz Mojave-dark-20200519113011.tar.xz Win-8.1-S.tar.xz Windows-10-1.0.tar.gz Windows-10-Dark-3.2-dark.tar.gz Suru.tar.xz Unity-8-2.0.tar.gz')
+        self.patchControl('cleanup')
 
     def sw2(self, sth):
         print('in sw2')
@@ -1129,13 +1158,15 @@ class GUI:
         GLib.idle_add(st.set_visible_child, bx)
 
     def appl_but_clicked(self, button):
+        sw = futures.ThreadPoolExecutor(max_workers=2)
         if desktop == 'Gnome':
-            sw = futures.ThreadPoolExecutor(max_workers=2)
             f = sw.submit(self.sw)
-            f.add_done_callback(self.sw2)
-            st = self.builder.get_object('them_stack')
-            bx = self.builder.get_object('wait_box')
-            st.set_visible_child(bx)
+        elif desktop == 'Cinnamon': # FIXME
+            pass
+        f.add_done_callback(self.sw2)
+        st = self.builder.get_object('them_stack')
+        bx = self.builder.get_object('wait_box')
+        st.set_visible_child(bx)
 
     def del_themer(self, twindow, e):
         if woutput == 1 or woutput == 0:
@@ -1143,7 +1174,7 @@ class GUI:
             self.builder.get_object('us_stack').set_visible_child(self.builder.get_object('us_box'))
             self.builder.get_object('us_box').remove(self.boxUS)
             twindow.hide()
-        return True
+            return True
 
     def all_toggle(self, widget):
         if widget.get_active():
@@ -1236,6 +1267,45 @@ class GUI:
                 return False
         self.source_id = GLib.timeout_add(200, counter, None)
 
+    def extTh(self, postinst):
+        postinst = postinst + 'tar -pxzf /usr/share/backups/shellTheme.tar.gz -C /usr/share/themes/\n'
+        postinst = postinst + 'tar -pxzf /usr/share/backups/deskTheme.tar.gz -C /usr/share/themes/\n'
+        postinst = postinst + 'tar -pxzf /usr/share/backups/cursorTheme.tar.gz -C /usr/share/themes/\n'
+        postinst = postinst + 'tar -pxzf /usr/share/backups/iconTheme.tar.gz -C /usr/share/icons/\n'
+        return postinst
+    
+    def exEx(self, cDE, postinst):
+        postinst = postinst + "extensions=$(echo '%s')\n" % self.DIRS
+        postinst = postinst + f"version=$(DISPLAY=':0' {cDE} --version | tr -cd '0-9.' | cut -d'.' -f1,2)\n"
+        postinst = postinst + "declare -a allExt=(`echo $extensions |sed 's/, / /g'`)\n"
+        if cDE == 'gnome-shell':
+            postinst = postinst + """for var in "${allExt[@]}"
+do
+    if [[ ${var} == "[" || ${var} == "]" || ${var} == "" ]]; then
+        echo pass
+    else
+        json="https://extensions.gnome.org/extension-info/?uuid=${var}&shell_version=${version}"
+        EXTENSION_URL=https://extensions.gnome.org$(curl -s "${json}" | sed -e 's/^.*download_url[\": ]*\([^\"]*\).*$/\\1/')
+        wget --header='Accept-Encoding:none' -O "/home/${user}/tmp.zip" "${EXTENSION_URL}"
+        mkdir -p /home/${user}/.local/share/gnome-shell/extensions/${var}
+        unzip -oq "/home/${user}/tmp.zip" -d "/home/${user}/.local/share/gnome-shell/extensions/${var}"
+        chmod +r /home/${user}/.local/share/gnome-shell/extensions/${var}/* && rm -f /home/${user}/tmp.zip
+    fi
+done\n"""
+        else:
+            postinst = postinst + """for var in "${allExt[@]}"
+do
+    if [[ ${var} == "[" || ${var} == "]" || ${var} == "" ]]; then
+        echo pass
+    else
+        EXTENSION_URL=https://cinnamon-spices.linuxmint.com/files/applets/${var}.zip
+        wget --header='Accept-Encoding:none' -O "/home/${user}/tmp.zip" "${EXTENSION_URL}"
+        unzip -oq "/home/${user}/tmp.zip" -d "/home/${user}/.local/share/cinnamon/applets/"
+        chmod +r /home/${user}/.local/share/cinnamon/applets/${var}/* && rm -f /home/${user}/tmp.zip
+    fi
+done\n"""
+        return postinst
+
     def crTask(self):
         self.builder.get_object('back_button1').set_sensitive(False)
         spinner = self.builder.get_object('create_spin')
@@ -1262,29 +1332,13 @@ class GUI:
         if self.b_theme:
             postinst = postinst + 'cp /usr/share/backups/background/* /usr/share/backgrounds/\n'
             if desktop == 'Gnome':
-                postinst = postinst + 'tar -pxzf /usr/share/backups/shellTheme.tar.gz -C /usr/share/themes/\n'
-                postinst = postinst + 'tar -pxzf /usr/share/backups/deskTheme.tar.gz -C /usr/share/themes/\n'
-                postinst = postinst + 'tar -pxzf /usr/share/backups/cursorTheme.tar.gz -C /usr/share/themes/\n'
-                postinst = postinst + 'tar -pxzf /usr/share/backups/iconTheme.tar.gz -C /usr/share/icons/\n'
-                postinst = postinst + "runuser -l ${user} -c 'dconf load / < /usr/share/backups/dcBkup'\n"
-                postinst = postinst + "extensions=$(echo '%s')\n" % self.DIRS
-                postinst = postinst + "version=$(DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2)\n"
-                postinst = postinst + "declare -a allExt=(`echo $extensions |sed 's/, / /g'`)\n"
-                postinst = postinst + """for var in "${allExt[@]}"
-do
-    if [[ ${var} == "[" || ${var} == "]" || ${var} == "" ]]; then
-        echo pass
-    else
-        json="https://extensions.gnome.org/extension-info/?uuid=${var}&shell_version=${version}"
-        EXTENSION_URL=https://extensions.gnome.org$(curl -s "${json}" | sed -e 's/^.*download_url[\": ]*\([^\"]*\).*$/\\1/')
-        wget --header='Accept-Encoding:none' -O "/home/${user}/tmp.zip" "${EXTENSION_URL}"
-        mkdir -p /home/${user}/.local/share/gnome-shell/extensions/${var}
-        unzip -oq "/home/${user}/tmp.zip" -d "/home/${user}/.local/share/gnome-shell/extensions/${var}"
-        chmod +r /home/${user}/.local/share/gnome-shell/extensions/${var}/* && rm -f /home/${user}/tmp.zip
-    fi
-done\n"""
+                postinst = self.extTh(postinst)
+                postinst = self.exEx('gnome-shell', postinst)
             elif desktop == 'Elementary':
                 postinst = postinst + "runuser -l ${user} -c 'dconf load / < /usr/share/backups/dcBkup'\n"
+            elif desktop == 'Cinnamon': # TODO
+                postinst = self.extTh(postinst)
+                postinst = self.exEx('cinnamon', postinst)
         if self.b_cron:
             postinst = postinst + 'crontab -u ${user} /usr/share/backups/crontab\n'
         postinst += 'chown -R ${user} /home/${user}/\n'
@@ -1306,6 +1360,40 @@ done\n"""
         else:
             self.crTask()
 
+    def getBg(self, lockparse, cDE):
+        background = locparse.get(f'org/{cDE}/desktop/background', 'picture-uri').replace('file://', '')
+        fname = background.split('/')[-1].replace("'", '')
+        os.system(f'cp {background} {self.hsdir}/background/{fname}')
+        print(fname)
+        locparse.set(f'org/{cDE}/desktop/background', 'picture-uri', f"'file:///usr/share/backgrounds/{fname}'")
+        return lockparse
+
+    def getTh(self, shellTheme, deskTheme, cursorTheme, iconTheme, wmTheme=""):
+        print('####################')
+        print(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
+        print('####################')
+        if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
+            os.system('cd /home/%s/.themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
+        else:
+            os.system('cd /usr/share/themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
+        if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme.replace("'", ""))):
+            os.system('cd /home/%s/.themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
+        else:
+            os.system('cd /usr/share/themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
+        if os.path.exists('/home/%s/.icons/%s' % (user, cursorTheme.replace("'", ""))):
+            os.system('cd /home/%s/.icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
+        else:
+            os.system('cd /usr/share/icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
+        if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme.replace("'", ""))):
+            os.system('cd /home/%s/.icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
+        else:
+            os.system('cd /usr/share/icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
+        if wmTheme != "":
+            if os.path.exists('/home/%s/.themes/%s' % (user, wmTheme.replace("'", ""))):
+                os.system('cd /home/%s/.themes/ && tar -pczf %s/wmTheme.tar.gz %s' % (user, self.hsdir, wmTheme))
+            else:
+                os.system('cd /usr/share/themes/ && tar -pczf %s/wmTheme.tar.gz %s' % (self.hsdir, wmTheme))
+
     def on_proc_but_clicked(self, button):
         if desktop == 'Unknown' and self.b_theme == True:
             self.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _('Your desktop is not supported currently, so we have disabled the desktop backup function for you. Please uncheck it, and use only the other options. Thank you for your understanding.'), _("Error"), 'general')
@@ -1318,37 +1406,25 @@ done\n"""
                 locparse = ConfigParser()
                 os.system('dconf dump / > %s/dcBkup' % self.hsdir)
                 locparse.read('%s/dcBkup' % self.hsdir)
-                background = locparse.get('org/gnome/desktop/background', 'picture-uri').replace('file://', '')
-                fname = background.split('/')[-1].replace("'", '')
-                os.system('cp %s %s/background/%s' % (background, self.hsdir, fname))
-                print(fname)
-                locparse.set('org/gnome/desktop/background', 'picture-uri', "'file:///usr/share/backgrounds/%s'" % fname)
                 if desktop == 'Gnome':
+                    lockparse = self.getBg(lockparse, 'gnome')
                     shellTheme = locparse.get('org/gnome/shell/extensions/user-theme', 'name')
-                    if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
-                        os.system('cd /home/%s/.themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
-                    else:
-                        os.system('cd /usr/share/themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
                     deskTheme = locparse.get('org/gnome/desktop/interface', 'gtk-theme')
                     iconTheme = locparse.get('org/gnome/desktop/interface', 'icon-theme')
                     cursorTheme = locparse.get('org/gnome/desktop/interface', 'cursor-theme')
-                    print('####################')
-                    print(shellTheme, deskTheme, iconTheme, cursorTheme)
-                    print('####################')
-                    if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme.replace("'", ""))):
-                        os.system('cd /home/%s/.themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
-                    else:
-                        os.system('cd /usr/share/themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
-                    if os.path.exists('/home/%s/.icons/%s' % (user, cursorTheme.replace("'", ""))):
-                        os.system('cd /home/%s/.icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
-                    else:
-                        os.system('cd /usr/share/icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
-                    if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme.replace("'", ""))):
-                        os.system('cd /home/%s/.icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
-                    else:
-                        os.system('cd /usr/share/icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
+                    self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
                 elif desktop == 'Elementary':
-                    print('pantheon')
+                    lockparse = self.getBg(lockparse, 'gnome')
+                elif desktop == 'Cinnamon': # TODO
+                    lockparse = self.getBg(lockparse, 'cinnamon')
+                    shellTheme = locparse.get('org/cinnamon/theme', 'name')
+                    deskTheme = locparse.get('org/cinnamon/desktop/interface', 'gtk-theme')
+                    iconTheme = locparse.get('org/cinnamon/desktop/interface', 'icon-theme')
+                    cursorTheme = locparse.get('org/cinnamon/desktop/interface', 'cursor-theme')
+                    wmTheme = lockparse.get('org/cinnamon/desktop/wm/preferences', 'theme')
+                    self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
+                elif desktop == 'XFCE':
+                    print('xfce')
                 tconf = open('%s/dcBkup' % self.hsdir, 'w+')
                 locparse.write(tconf)
                 tconf.close()
@@ -1913,10 +1989,10 @@ if __name__ == "__main__":
         desktop = 'Gnome'
     elif 'elementary' in DE:
         desktop = 'Elementary'
-    # elif 'kde' in DE or 'qt' in DE:
-    #     desktop = 'KDE'
-    # elif 'cinnamon' in DE:
-    #     desktop = 'Cinnamon'
+    elif 'xfce' in DE:
+        desktop = 'XFCE'
+    elif 'cinnamon' in DE: # TODO
+        desktop = 'Cinnamon'
     # elif 'mate' in DE:
     #     desktop = 'MATE'
     else:

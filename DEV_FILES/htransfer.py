@@ -8,6 +8,9 @@ import argparse
 import shutil
 import json
 
+# import cProfile
+# import pstats
+
 class Transser:
 
     def reset(self):
@@ -129,6 +132,7 @@ class Transser:
                                 relPath = dirpath.replace(''.join(newDirList), "")
                                 relPath = relPath.replace(' ', '\ ')
                                 relPath = relPath.replace("'", "\\'")
+                                relPath = relPath[relPath.find(justDir):]
                                 if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
                                     os.system('mkdir -p %s%s' % (dst, relPath))
                                 else:
@@ -141,7 +145,7 @@ class Transser:
                             relPath = relPath.replace("\\'", "'")
                             relPath = relPath.replace('\ ', ' ')
                             # print('#####################')
-                            # print(relPath, newDirList, dirList, justDir, filename, specList)
+                            # print(relPath, newDirList, justDir, dirList, filename, specList)
                             # print('#####################')
                             if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
                                 self.calcs(f, 10000, '%s%s/%s' % (dst, relPath, filename), allSize, currPer)
@@ -221,15 +225,12 @@ class Transser:
                 est = remaining * avg_time_per_byte
                 if __name__ == '__main__':
                     if jsonmode == True:
-                        pass
-                    else:
-                        sys.stdout.write(self.DEL + 'ETA: %s s\r' % est)
-                if __name__ == '__main__':
-                    if jsonmode == True:
+                        # print(time.time()-self.jtime)
                         if time.time()-self.jtime >= 0.15:
                             self.jtime = time.time()
                             print(json.dumps({"file" : self.jfi, "type" : "status", "eta" : est, "speed" : avg_mbyte_per_time, "progress" : jprog}))
                     else:
+                        sys.stdout.write(self.DEL + 'ETA: %s s\r' % est)
                         sys.stdout.flush()
                     notVir = True
                 # Read in the next chunk.
@@ -252,10 +253,13 @@ class Transser:
         self.start = time.time()
         self.jtime = self.start
         self.size = os.stat(current).st_size
-        self.chunk_size = self.size / divisor
-        while self.chunk_size == 0 and divisor > 10:
-            divisor /= 10
+        if self.size >= 1000000:
             self.chunk_size = self.size / divisor
+            while self.chunk_size == 0 and divisor > 10:
+                divisor /= 10
+                self.chunk_size = self.size / divisor
+        else:
+            self.chunk_size = 10000
         with open(current, 'rb') as self.ifp:
             if __name__ == '__main__':
                 if jsonmode == True:
@@ -281,6 +285,10 @@ class Transser:
                     self.yes_or_no('Destination file {} already exist! Would you like to continue and remove it?'.format(self.destt), 'specfile')
             try:
                 with open(dest, 'wb') as self.ofp:
+                    # profile = cProfile.Profile()
+                    # profile.runcall(self.oneFile, fullSize, lastPer)
+                    # ps = pstats.Stats(profile)
+                    # ps.print_stats()
                     self.oneFile(fullSize, lastPer)
             except Exception as probl:
                 if jsonmode == True:
@@ -352,6 +360,10 @@ if __name__ == '__main__':
                 allSize += os.stat(i).st_size
         else:
             allSize += os.stat(src).st_size
+        # profile = cProfile.Profile()
+        # profile.runcall(Transser().main, src, dst, start1)
+        # ps = pstats.Stats(profile)
+        # ps.print_stats()
         Transser().main(src, dst, start1)
     elif len(src) >= 2:
         listOfFiles = list()
