@@ -4,7 +4,7 @@
 #________________________________________________________________________________ BEGINNING OF INIT ____________________________________________________________#
 
 # Version of the program
-version = 'HSuite v0.7 | Sinara'
+version = 'HSuite v0.8 | Quake'
 v = ''
 
 ### Import modules ###
@@ -230,6 +230,11 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
         ],
+        'Cinnamon' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
+        ],
     },
     _('Cursor') : 
     {
@@ -237,6 +242,11 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
             'gsettings set org.gnome.desktop.interface cursor-theme DMZ-White',
+        ],
+        'Cinnamon' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.cinnamon.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.cinnamon.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
+            'gsettings set org.cinnamon.desktop.interface cursor-theme DMZ-White',
         ],
     }
 }
@@ -348,18 +358,6 @@ class GUI:
         # Prepare to use builder
         self.builder = Gtk.Builder()
         self.builder.set_translation_domain(APP)
-        if desktop == 'Gnome':
-            os.system("mkdir -p /home/%s/.local/share/gnome-shell/extensions" % user)
-            self.SITE = "https://extensions.gnome.org"
-            self.VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
-            self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
-            self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
-        elif desktop == 'Cinnamon': # TODO
-            os.system("mkdir -p /home/%s/.local/share/cinnamon/applets" % user)
-            self.SITE = "https://cinnamon-spices.linuxmint.com"
-            self.VERSION = os.popen("DISPLAY=':0' cinnamon --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
-            self.EXTENSION_PATH = "/home/%s/.local/share/cinnamon/applets" % user
-            self.DIRS = os.popen("find /usr/share/cinnamon/applets $HOME/.local/share/cinnamon/applets -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         self.scanner = True
         self.them_conf = []
         self.hardCron = ""
@@ -388,6 +386,19 @@ class GUI:
         self.builder.connect_signals(self)
         self.switch_stack = self.builder.get_object('switch_stack')
         self.builder.get_object('them_chk').set_label('{} desktop'.format(desktop))
+        if desktop == 'Gnome':
+            os.system("mkdir -p /home/%s/.local/share/gnome-shell/extensions" % user)
+            self.SITE = "https://extensions.gnome.org"
+            self.VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
+            self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
+            self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
+        elif desktop == 'Cinnamon': # TODO
+            self.builder.get_object('the_box').remove(self.builder.get_object('lay_chk'))
+            os.system("mkdir -p /home/%s/.local/share/cinnamon/applets" % user)
+            self.SITE = "https://cinnamon-spices.linuxmint.com"
+            self.VERSION = os.popen("DISPLAY=':0' cinnamon --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
+            self.EXTENSION_PATH = "/home/%s/.local/share/cinnamon/applets" % user
+            self.DIRS = os.popen("find /usr/share/cinnamon/applets $HOME/.local/share/cinnamon/applets -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         # Get the main stack object
         self.stack = self.builder.get_object('stack')
         self.window = self.builder.get_object(
@@ -1129,9 +1140,10 @@ class GUI:
                 os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
                 os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
         elif desktop == 'Cinnamon': # FIXME
-            EXTENSION_URL = self.SITE + '/files/applets/' + ext + '.zip'
-            os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
-            os.system("unzip -oq ~/tmp.zip -d %s/ && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, self.EXTENSION_PATH, ext))
+            if ext != '':
+                EXTENSION_URL = self.SITE + '/files/applets/' + ext + '.zip'
+                os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
+                os.system("unzip -oq ~/tmp.zip -d %s/ && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, self.EXTENSION_PATH, ext))
 
     def sw(self):
         print('in sw')

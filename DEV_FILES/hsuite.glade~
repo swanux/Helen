@@ -3472,6 +3472,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">hsuite_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -3489,6 +3490,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">henv_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -3511,7 +3513,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -3528,7 +3530,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
+                                    <signal name="clicked" handler="general_src" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -3551,18 +3553,12 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <property name="hexpand">True</property>
-                                <property name="vexpand">True</property>
+                                <signal name="clicked" handler="general_src" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
                                 <property name="top_attach">1</property>
                               </packing>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
                             </child>
                           </object>
                         </child>
