@@ -214,6 +214,11 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.cinnamon.theme name "Windows-10-Dark-3.2-dark" && gsettings set org.cinnamon.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && gsettings set org.cinnamon.desktop.wm.preferences theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.cinnamon.theme name "Unity-8-2.0" && gsettings set org.cinnamon.desktop.interface gtk-theme "Unity-8-2.0" && gsettings set org.cinnamon.desktop.wm.preferences theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
         ],
+        'XFCE' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && xfconf-query -c xsettings -p /Net/ThemeName -s "Mojave-dark" && xfconf-query -c xfwm4 -p /general/theme -s "Mojave-dark" && xfconf-query -c xfce4-notifyd -p /theme -s Mojave-dark && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Windows-10-Dark-3.2-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && xfconf-query -c xfwm4 -p /general/theme -s "Windows-10-Dark-3.2-dark" && xfconf-query -c xfce4-notifyd -p /theme -s "Windows-10-Dark-3.2-dark" && xfconf-query -c xsettings -p /Net/ThemeName -s "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && xfconf-query -c xsettings -p /Net/ThemeName -s "Unity-8-2.0" && xfconf-query -c xfwm4 -p /general/theme -s "Unity-8-2.0" && xfconf-query -c xfce4-notifyd -p /theme -s "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
+        ],
     },
     _('Layout') : 
     {
@@ -221,6 +226,11 @@ themDat = { # FIXME
             'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][0],
             'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat[desktop][1],
             'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat[desktop][2]
+        ],
+        'XFCE' : [
+            'xfconf-query -c xsettings -p /Gtk/DecorationLayout -s "close,minimize,maximize:"',
+            'xfconf-query -c xsettings -p /Gtk/DecorationLayout -s ":minimize,maximize,close"',
+            'xfconf-query -c xsettings -p /Gtk/DecorationLayout -s "close,minimize,maximize:"'
         ],
     },
     _('Icons') : 
@@ -235,6 +245,11 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
         ],
+        'XFCE' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && xfconf-query -c xsettings -p /Net/IconThemeName -s "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && xfconf-query -c xsettings -p /Net/IconThemeName -s "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && xfconf-query -c xsettings -p /Net/IconThemeName -s "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
+        ],
     },
     _('Cursor') : 
     {
@@ -247,6 +262,11 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.cinnamon.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.cinnamon.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
             'gsettings set org.cinnamon.desktop.interface cursor-theme DMZ-White',
+        ],
+        'XFCE' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && xfconf-query -c xsettings -p /Gtk/CursorThemeName -s capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && xfconf-query -c xsettings -p /Gtk/CursorThemeName -s Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
+            'xfconf-query -c xsettings -p /Gtk/CursorThemeName -s DMZ-White',
         ],
     }
 }
@@ -1169,15 +1189,13 @@ class GUI:
         GLib.idle_add(st.set_visible_child, bx)
 
     def appl_but_clicked(self, button):
-        sw = futures.ThreadPoolExecutor(max_workers=2)
-        if desktop == 'Gnome':
+        if desktop == 'Gnome' or desktop == 'Cinnamon' or desktop == 'XFCE': # FIXME
+            sw = futures.ThreadPoolExecutor(max_workers=2)
             f = sw.submit(self.sw)
-        elif desktop == 'Cinnamon': # FIXME
-            f = sw.submit(self.sw)
-        f.add_done_callback(self.sw2)
-        st = self.builder.get_object('them_stack')
-        bx = self.builder.get_object('wait_box')
-        st.set_visible_child(bx)
+            f.add_done_callback(self.sw2)
+            st = self.builder.get_object('them_stack')
+            bx = self.builder.get_object('wait_box')
+            st.set_visible_child(bx)
 
     def del_themer(self, twindow, e):
         if woutput == 1 or woutput == 0:
@@ -1345,11 +1363,16 @@ done\n"""
             if desktop == 'Gnome':
                 postinst = self.extTh(postinst)
                 postinst = self.exEx('gnome-shell', postinst)
+                postinst = postinst + "runuser -l ${user} -c 'dconf load / < /usr/share/backups/dcBkup'\n"
             elif desktop == 'Elementary':
                 postinst = postinst + "runuser -l ${user} -c 'dconf load / < /usr/share/backups/dcBkup'\n"
             elif desktop == 'Cinnamon': # TODO
                 postinst = self.extTh(postinst)
                 postinst = self.exEx('cinnamon', postinst)
+                postinst = postinst + "runuser -l ${user} -c 'dconf load / < /usr/share/backups/dcBkup'\n"
+            elif desktop == 'XFCE':
+                postinst = self.extTh(postinst)
+                postinst = postinst + 'cp -R /usr/share/backups/xfce4 /home/${user}/.config/\n'
         if self.b_cron:
             postinst = postinst + 'crontab -u ${user} /usr/share/backups/crontab\n'
         postinst += 'chown -R ${user} /home/${user}/\n'
@@ -1372,14 +1395,23 @@ done\n"""
             self.crTask()
 
     def getBg(self, lockparse, cDE):
-        background = locparse.get(f'org/{cDE}/desktop/background', 'picture-uri').replace('file://', '')
-        fname = background.split('/')[-1].replace("'", '')
-        os.system(f'cp {background} {self.hsdir}/background/{fname}')
-        print(fname)
-        locparse.set(f'org/{cDE}/desktop/background', 'picture-uri', f"'file:///usr/share/backgrounds/{fname}'")
-        return lockparse
+        if desktop == 'XFCE':
+            background = os.popen('xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image').read().strip()
+            fname = background.split('/')[-1].replace("'", '')
+            os.system(f'cp {background} {self.hsdir}/background/{fname}')
+            print(fname)
+            os.system(f'xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s "/usr/share/backgrounds/{fname}"')
+            os.system(f'cp -R /home/{user}/.config/xfce4 {self.hsdir}/')
+            os.system(f'xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s {background}')
+        else:
+            background = locparse.get(f'org/{cDE}/desktop/background', 'picture-uri').replace('file://', '')
+            fname = background.split('/')[-1].replace("'", '')
+            os.system(f'cp {background} {self.hsdir}/background/{fname}')
+            print(fname)
+            locparse.set(f'org/{cDE}/desktop/background', 'picture-uri', f"'file:///usr/share/backgrounds/{fname}'")
+            return lockparse
 
-    def getTh(self, shellTheme, deskTheme, cursorTheme, iconTheme, wmTheme=""):
+    def getTh(self, shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme=""):
         print('####################')
         print(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
         print('####################')
@@ -1415,9 +1447,9 @@ done\n"""
             if self.b_settings and self.b_theme:
                 os.system("mkdir -p %s/background" % self.hsdir)
                 locparse = ConfigParser()
-                os.system('dconf dump / > %s/dcBkup' % self.hsdir)
-                locparse.read('%s/dcBkup' % self.hsdir)
                 if desktop == 'Gnome':
+                    os.system('dconf dump / > %s/dcBkup' % self.hsdir)
+                    locparse.read('%s/dcBkup' % self.hsdir)
                     lockparse = self.getBg(lockparse, 'gnome')
                     shellTheme = locparse.get('org/gnome/shell/extensions/user-theme', 'name')
                     deskTheme = locparse.get('org/gnome/desktop/interface', 'gtk-theme')
@@ -1425,8 +1457,12 @@ done\n"""
                     cursorTheme = locparse.get('org/gnome/desktop/interface', 'cursor-theme')
                     self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
                 elif desktop == 'Elementary':
+                    os.system('dconf dump / > %s/dcBkup' % self.hsdir)
+                    locparse.read('%s/dcBkup' % self.hsdir)
                     lockparse = self.getBg(lockparse, 'gnome')
                 elif desktop == 'Cinnamon': # TODO
+                    os.system('dconf dump / > %s/dcBkup' % self.hsdir)
+                    locparse.read('%s/dcBkup' % self.hsdir)
                     lockparse = self.getBg(lockparse, 'cinnamon')
                     shellTheme = locparse.get('org/cinnamon/theme', 'name')
                     deskTheme = locparse.get('org/cinnamon/desktop/interface', 'gtk-theme')
@@ -1435,7 +1471,12 @@ done\n"""
                     wmTheme = lockparse.get('org/cinnamon/desktop/wm/preferences', 'theme')
                     self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
                 elif desktop == 'XFCE':
-                    print('xfce')
+                    self.getBg('', '')
+                    shellTheme = os.popen('xfconf-query -c xfwm4 -p /general/theme').read().strip()
+                    deskTheme = os.popen('xfconf-query -c xsettings -p /Net/ThemeName').read().strip()
+                    iconTheme = os.popen('xfconf-query -c xsettings -p /Net/IconThemeName').read().strip()
+                    cursorTheme = os.popen('xfconf-query -c xsettings -p /Gtk/CursorThemeName').read().strip()
+                    self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
                 tconf = open('%s/dcBkup' % self.hsdir, 'w+')
                 locparse.write(tconf)
                 tconf.close()

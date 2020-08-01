@@ -30,11 +30,9 @@ class Transser:
             print(json.dumps({"string": question, "type": 'question'}))
             reply = str(input())
         else:
-            reply = str(input(question+' (y/n): ')).lower().strip()
+            reply = str(input(question+' (y/n/r): ')).lower().strip()
         if reply[0] == 'y':
-            if typ == 'dir':
-                shutil.rmtree(dst, ignore_errors=True)
-            elif typ == 'spec':
+            if typ == 'spec':
                 os.remove('{0}{1}'.format(dst, self.filenam))
             elif typ == 'merge':
                 self.merge = True
@@ -42,6 +40,44 @@ class Transser:
                 os.remove(self.destt)
             else:
                 os.remove(dst)
+        elif reply[0] == 'r':
+            if typ == 'spec':
+                try:
+                    suffix = self.filenam.split('.')[-1]
+                except:
+                    suffix = ''
+                if suffix == None or suffix == '':
+                    self.filenam = reply.split(' ')[1]
+                else:
+                    self.filenam = reply.split(' ')[1]+'.'+suffix
+            elif typ == 'specfile':
+                splitt = self.destt.split('/')
+                try:
+                    suffix = splitt[-1].split('.')[-1]
+                except:
+                    suffix = ''
+                if suffix == None or suffix == '':
+                    splitt[-1] = reply.split(' ')[1]
+                else:
+                    splitt[-1] = reply.split(' ')[1]+'.'+suffix
+                self.destt = '/'.join(splitt)
+            else:
+                # try:
+                #     suffix = self.filenam.split('.')[-1]
+                # except:
+                #     suffix = ''
+                # if suffix == None or suffix == '':
+                #     self.filenam = reply.split(' ')[1]
+                # else:
+                #     self.filenam = reply.split(' ')[1]+'.'+suffix
+                self.repFil = True
+                splitt = dst.split('/')
+                splitt[-1] = reply.split(' ')[1]
+                self.nfile = '/'.join(splitt)
+                print('############## 2')
+                print(dst)
+                self.canpass = True
+                # raise SystemExit
         elif reply[0] == 'n':
             print('Skip')
             self.skip = True
@@ -51,6 +87,7 @@ class Transser:
 
     def main(self, src, dst, start1):
         global currPer
+        self.repFil = False
         self.merge = False
         self.canpass = False
         self.skip = False
@@ -72,13 +109,18 @@ class Transser:
         if os.path.exists(dst) is True:
             if os.path.isdir(dst):
                 if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
-                    pass
                     self.canpass = True
                     if os.path.isfile('{0}{1}'.format(dst, self.filenam)):
-                        self.yes_or_no('Destination directory already contains file with this name {0}{1}! Would you like to continue and remove it?'.format(dst, self.filenam), 'spec')
+                        self.yes_or_no('Destination directory already contains file with this name {0}{1}! Would you like to continue and replace it or use another name?'.format(dst, self.filenam), 'spec')
                 else:
                     if os.path.isdir(src):
-                        self.yes_or_no('Destination directory {} already exist. Would you like to merge them?'.format(dst), 'merge')
+                        splitt = src.split('/')
+                        for i in range(len(splitt)):
+                            if splitt[i] == "" and i != 0 or splitt[i] == None and i != 0:
+                                break
+                            else:
+                                justDir = splitt[i]
+                        self.yes_or_no('Destination directory {0}/{1} already exist. Would you like to merge them?'.format(dst, justDir), 'merge')
                         self.canpass = True
                     else:
                         if supportOverride == True:
@@ -93,7 +135,10 @@ class Transser:
                             self.skip = True
                             self.canpass = True
             else:
-                self.yes_or_no('Destination file {} already exist! Would you like to continue and remove it?'.format(dst), 'file')
+                if os.path.isdir(src):
+                    self.yes_or_no('Destination file {} already exist! Would you like to continue and replace it or use another name?'.format(dst), 'file')
+                else:
+                    self.canpass = True
         if os.path.exists(dst) is True and self.canpass != True:
             if jsonmode == True:
                 print(json.dumps({"string": 'ERROR: file exists, cannot overwrite it: "{}"'.format(dst), "type": 'error'}))
@@ -127,17 +172,20 @@ class Transser:
                                     newDirList.append('/%s' % dirList[i])
                         for filename in filenames:
                             f = os.path.join(dirpath, filename)
-                            specList = '/'.join(dirList).replace('{}/'.format(justDir), '')
+                            specList = '/'.join(dirList)
+                            specList = specList[specList.find(justDir):].replace('{}/'.format(justDir), '')
                             try:
                                 relPath = dirpath.replace(''.join(newDirList), "")
                                 relPath = relPath.replace(' ', '\ ')
                                 relPath = relPath.replace("'", "\\'")
                                 relPath = relPath[relPath.find(justDir):]
+                                if self.repFil == True:
+                                    dst = self.nfile
                                 if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
                                     os.system('mkdir -p %s%s' % (dst, relPath))
                                 else:
                                     if self.merge == True:
-                                        os.system('mkdir -p %s/%s' % (dst, specList))
+                                        os.system('mkdir -p %s/%s/%s' % (dst, justDir, specList))
                                     else:
                                         os.system('mkdir -p %s/%s' % (dst, relPath))
                             except:
@@ -147,12 +195,16 @@ class Transser:
                             # print('#####################')
                             # print(relPath, newDirList, justDir, dirList, filename, specList)
                             # print('#####################')
+                            if self.repFil == True:
+                                filename = self.nfile
+                                self.repFil = False
                             if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
-                                self.calcs(f, 10000, '%s%s/%s' % (dst, relPath, filename), allSize, currPer)
+                                tmpthing = '%s%s/%s' % (dst, relPath, filename)
+                                self.calcs(f, 10000, tmpthing.replace('//', '/'), allSize, currPer)
                             else:
                                 if self.merge == True:
                                     if newDirList != []:
-                                        self.calcs(f, 10000, '%s/%s/%s' % (dst, specList, filename), allSize, currPer)
+                                        self.calcs(f, 10000, '%s/%s/%s/%s' % (dst, justDir, specList, filename), allSize, currPer)
                                     else:
                                         self.calcs(f, 10000, '%s/%s' % (dst, filename), allSize, currPer)
                                 else:
@@ -160,12 +212,13 @@ class Transser:
                     if mv == True:
                         shutil.rmtree(src, ignore_errors=True)
                 else:
-                    splitt = src.split('/')
-                    for i in range(len(splitt)):
-                        if splitt[i] == "" and i != 0 or splitt[i] == None and i != 0:
-                            break
-                        else:
-                            justFil = splitt[i]
+                    # splitt = src.split('/')
+                    # for i in range(len(splitt)):
+                    #     if splitt[i] == "" and i != 0 or splitt[i] == None and i != 0:
+                    #         break
+                    #     else:
+                    #         justFil = splitt[i]
+                    justFil = self.filenam
                     if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
                         self.calcs(src, 10000, '%s%s' % (dst, justFil), allSize, currPer)
                     else:
@@ -282,9 +335,9 @@ class Transser:
                             print('ERROR: target directory exists, cannot overwrite it: "{}"'.format(dst))
                         self.skip = True
                 else:
-                    self.yes_or_no('Destination file {} already exist! Would you like to continue and remove it?'.format(self.destt), 'specfile')
+                    self.yes_or_no('Destination file {} already exist! Would you like to continue and replace it or use another name?'.format(self.destt), 'specfile')
             try:
-                with open(dest, 'wb') as self.ofp:
+                with open(self.destt, 'wb') as self.ofp:
                     # profile = cProfile.Profile()
                     # profile.runcall(self.oneFile, fullSize, lastPer)
                     # ps = pstats.Stats(profile)
