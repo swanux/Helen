@@ -181,6 +181,8 @@ class Transser:
                                 relPath = relPath[relPath.find(justDir):]
                                 if self.repFil == True:
                                     dst = self.nfile
+                                dst = dst.replace(' ', '\ ')
+                                # print(dst, justDir, relPath, specList)
                                 if dst.split('/')[-1] == None or dst.split('/')[-1] == "":
                                     os.system('mkdir -p %s%s' % (dst, relPath))
                                 else:
@@ -188,6 +190,7 @@ class Transser:
                                         os.system('mkdir -p %s/%s/%s' % (dst, justDir, specList))
                                     else:
                                         os.system('mkdir -p %s/%s' % (dst, relPath))
+                                dst = dst.replace('\ ', ' ')
                             except:
                                 pass
                             relPath = relPath.replace("\\'", "'")
@@ -250,12 +253,12 @@ class Transser:
                 # Calculate the speed.
                 elapsed = time.time() - self.start  # elapsed so far
                 avg_byte_per_time = float(self.copied) / elapsed
-                avg_mbyte_per_time = avg_byte_per_time / (1024*1024)
+                # avg_mbyte_per_time = avg_byte_per_time / (1024*1024)
                 if __name__ == '__main__':
                     if jsonmode == True:
                         pass
                     else:
-                        sys.stdout.write(self.UP + self.UP + self.DEL + 'Speed: %s MB/s\n\n' % avg_mbyte_per_time)
+                        sys.stdout.write(self.UP + self.UP + self.DEL + 'Speed: %s B/s\n\n' % avg_byte_per_time)
                 # Write out the status.
                 if __name__ == '__main__':
                     if fullSize != 0:
@@ -281,7 +284,7 @@ class Transser:
                         # print(time.time()-self.jtime)
                         if time.time()-self.jtime >= 0.15:
                             self.jtime = time.time()
-                            print(json.dumps({"file" : self.jfi, "type" : "status", "eta" : est, "speed" : avg_mbyte_per_time, "progress" : jprog}))
+                            print(json.dumps({"file" : self.jfi, "type" : "status", "eta" : est, "speed" : avg_byte_per_time, "progress" : jprog}))
                     else:
                         sys.stdout.write(self.DEL + 'ETA: %s s\r' % est)
                         sys.stdout.flush()
