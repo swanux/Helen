@@ -193,13 +193,11 @@ liLi = {
     }
 loLa = {'mint' : 43, 'ubuntu' : 44, 'solus' : 45, 'deepin' : 46, 'elementary' : 47, 'steamos' : 48, 'deb' : 49, 'fedora' : 50, 'opsu' : 51, 'arch' : 52, 'gentoo' : 53, 'lfs' : 54, 'drauger' : 55, 'slax' : 56, 'pepper' : 57, 'bodhi' : 58, 'sparky' : 59, 'puppy' : 60, 'tiny' : 61}
 
-extDat = { # FIXME
-    'Gnome' : [
-        ['places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com'],
-        ['appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net'],
-        ['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu']
-    ],
-}
+extDat = [ # FIXME
+    'places-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com','dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'Move_Clock@rmy.pobox.com', 'user-theme@gnome-shell-extensions.gcampax.github.com',
+    'appindicatorsupport@rgcjonas.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'arc-menu@linxgem33.com', 'remove-dropdown-arrows@mpdeimos.com', 'TopIcons@phocean.net',
+    'dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Move_Clock@rmy.pobox.com', 'appindicatorsupport@rgcjonas.gmail.com', 'unite@hardpixel.eu'
+]
 
 themDat = { # FIXME
     _('Desktop theme') : 
@@ -223,9 +221,14 @@ themDat = { # FIXME
     _('Layout') : 
     {
         'Gnome' : [
-            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat['Gnome'][0],
-            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"' % extDat['Gnome'][1],
-            'gsettings set org.gnome.shell enabled-extensions "%s" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"' % extDat['Gnome'][2]
+            f'gsettings set org.gnome.shell enabled-extensions "{extDat[0]}" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"',
+            f'gsettings set org.gnome.shell enabled-extensions "{extDat[1]}" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"',
+            f'gsettings set org.gnome.shell enabled-extensions "{extDat[2]}" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"'
+        ],
+        'Cinnamon' : [
+            'gsettings set org.cinnamon.desktop.interface gtk-decoration-layout "close,minimize,maximize:"',
+            'gsettings set org.cinnamon.desktop.interface gtk-decoration-layout ":minimize,maximize,close"',
+            'gsettings set org.cinnamon.desktop.interface gtk-decoration-layout "close,minimize,maximize:"'
         ],
         'XFCE' : [
             'xfconf-query -c xsettings -p /Gtk/DecorationLayout -s "close,minimize,maximize:"',
@@ -270,6 +273,7 @@ themDat = { # FIXME
         ],
     }
 }
+woutput = 0
 
 # Used generally
 # The glade file
@@ -314,12 +318,12 @@ class myThread (Thread):
             t = 0
             for i in self.extra:
                 if t == 0:
-                    lists = lists + '/home/%s/%s' % (user, i)
+                    lists = lists + f'/home/{user}/{i}'
                 else:
-                    lists = lists + ', /home/%s/%s' % (user, i)
+                    lists = lists + f', /home/{user}/{i}'
                 t = t+1
             print('Lets do this')
-            c.modPre(lists, '/home/%s/hswitcher/BUILD/restore-1.0/backups/' % user)
+            c.modPre(lists, f'/home/{user}/hswitcher/BUILD/restore-1.0/backups/')
         elif self.name == "Write":
             global woutput
             woutput = 0
@@ -337,35 +341,35 @@ class myThread (Thread):
                 if process.poll() is not None:
                     break
             woutput = 1
-            rc = process.poll()
+            process.poll()
         else:
-            os.system("mkdir -p /home/%s/hswitcher/BUILD/restore-1.0/" % user)
-            os.system("cd /home/%s/hswitcher/BUILD/restore-1.0/ && dh_make -s -n -y && cd debian/ && rm -fr *.ex *.EX docs source RE* *.docs copyright" % user)
-            changelog = "restore (1.0-1) unstable; urgency=medium\n\n  * Initial Release\n\n -- %s <%s@%s>  %s" % (user, user, platform.uname().node, time.strftime("%a, %d %b %Y %H:%M:%S +0200"))
-            change_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/changelog" % user, "w")
+            os.system(f"mkdir -p /home/{user}/hswitcher/BUILD/restore-1.0/")
+            os.system(f"cd /home/{user}/hswitcher/BUILD/restore-1.0/ && dh_make -s -n -y && cd debian/ && rm -fr *.ex *.EX docs source RE* *.docs copyright")
+            changelog = f'restore (1.0-1) unstable; urgency=medium\n\n  * Initial Release\n\n -- {user} <{user}@{platform.uname().node}>  {time.strftime("%a, %d %b %Y %H:%M:%S +0200")}'
+            change_file = open(f"/home/{user}/hswitcher/BUILD/restore-1.0/debian/changelog", "w")
             change_file.write(changelog)
             change_file.close()
-            compat_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/compat" % user, "w")
+            compat_file = open(f"/home/{user}/hswitcher/BUILD/restore-1.0/debian/compat", "w")
             compat_file.write("11")
             compat_file.close()
             bds = "debhelper (>= 11)"
             print('DS_HERE')
-            control = "Source: restore\nSection: metapackages\nPriority: optional\nMaintainer: %s <%s@%s>\nBuild-Depends: %s\nStandards-Version: 1.0-1\n\nPackage: restore\nArchitecture: amd64\nDepends: tar, zenity, %s\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove." % (user, user, platform.uname().node, bds, self.ds)
+            control = f"Source: restore\nSection: metapackages\nPriority: optional\nMaintainer: {user} <{user}@{platform.uname().node}>\nBuild-Depends: {bds}\nStandards-Version: 1.0-1\n\nPackage: restore\nArchitecture: amd64\nDepends: tar, zenity, {self.ds}\nDescription: Backup by HSwitcher\n Backup by HSwitcher. Just install it to use, then remove."
             print('Mem control')
-            control_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/control" % user, "w")
+            control_file = open(f"/home/{user}/hswitcher/BUILD/restore-1.0/debian/control", "w")
             control_file.write(control)
             control_file.close()
             install = "backups /usr/share/\n"
-            install_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/install" % user, "w")
+            install_file = open(f"/home/{user}/hswitcher/BUILD/restore-1.0/debian/install", "w")
             install_file.write(install)
             install_file.close()
             print('MAN')
             print("SUP")
-            postins_file = open("/home/%s/hswitcher/BUILD/restore-1.0/debian/postinst" % user, "w")
+            postins_file = open(f"/home/{user}/hswitcher/BUILD/restore-1.0/debian/postinst", "w")
             postins_file.write("#!/bin/bash +e\n\n"+self.post+"\n\n#DEBHELPER#")
             postins_file.close()
-            os.system("chmod +x /home/%s/hswitcher/BUILD/restore-1.0/debian/postinst" % user)
-            os.system("cd /home/%s/hswitcher/BUILD/restore-1.0/ && debuild -i -us -uc -b && cd .. && cd .. && cd ..&& cp hswitcher/BUILD/*.deb restore.deb && rm -rf hswitcher/" % user)
+            os.system(f"chmod +x /home/{user}/hswitcher/BUILD/restore-1.0/debian/postinst")
+            os.system(f"cd /home/{user}/hswitcher/BUILD/restore-1.0/ && debuild -i -us -uc -b && cd .. && cd .. && cd ..&& cp hswitcher/BUILD/*.deb restore.deb && rm -rf hswitcher/")
         print("Exiting " + self.name)
 
     def stop(self):
@@ -399,7 +403,7 @@ class GUI:
         self.b_ms = False
         self.b_pic = False
         self.b_vid = False
-        self.hsdir = '/home/%s/hswitcher/BUILD/restore-1.0/backups' % user
+        self.hsdir = f'/home/{user}/hswitcher/BUILD/restore-1.0/backups'
         # Import the glade file
         self.builder.add_from_file(UI_FILE)
         # Connect all signals
@@ -407,17 +411,16 @@ class GUI:
         self.switch_stack = self.builder.get_object('switch_stack')
         self.builder.get_object('them_chk').set_label('{} desktop'.format(desktop))
         if desktop == 'Gnome':
-            os.system("mkdir -p /home/%s/.local/share/gnome-shell/extensions" % user)
+            os.system(f"mkdir -p /home/{user}/.local/share/gnome-shell/extensions")
             self.SITE = "https://extensions.gnome.org"
             self.VERSION = os.popen("DISPLAY=':0' gnome-shell --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
-            self.EXTENSION_PATH = "/home/%s/.local/share/gnome-shell/extensions" % user
+            self.EXTENSION_PATH = f"/home/{user}/.local/share/gnome-shell/extensions"
             self.DIRS = os.popen("find /usr/share/gnome-shell/extensions $HOME/.local/share/gnome-shell/extensions -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         elif desktop == 'Cinnamon': # TODO
-            self.builder.get_object('the_box').remove(self.builder.get_object('lay_chk'))
-            os.system("mkdir -p /home/%s/.local/share/cinnamon/applets" % user)
+            os.system(f"mkdir -p /home/{user}/.local/share/cinnamon/applets")
             self.SITE = "https://cinnamon-spices.linuxmint.com"
             self.VERSION = os.popen("DISPLAY=':0' cinnamon --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
-            self.EXTENSION_PATH = "/home/%s/.local/share/cinnamon/applets" % user
+            self.EXTENSION_PATH = f"/home/{user}/.local/share/cinnamon/applets"
             self.DIRS = os.popen("find /usr/share/cinnamon/applets $HOME/.local/share/cinnamon/applets -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
         # Get the main stack object
         self.stack = self.builder.get_object('stack')
@@ -533,7 +536,7 @@ class GUI:
             else:
                 print('ERROR IN NAME')
             # importing the button
-            gbut = self.builder.get_object("%s_but" % butDict[appList[i]])
+            gbut = self.builder.get_object(f"{butDict[appList[i]]}_but")
             # Call function for setting label and color
             status = self.colorer(gbut, name, insList)
             # value refers to the state: Install/Remove
@@ -554,7 +557,7 @@ class GUI:
                 status = _('Install')
         elif 'TeamViewer' in name:
             vane = os.path.exists("/opt/teamviewer")
-            print('tw check = %s' % vane)
+            print(f'tw check = {vane}')
             if vane:
                 status = _('Remove')
             else:
@@ -563,10 +566,10 @@ class GUI:
             if distro == 'Debian' or distro == 'Ubuntu':
                 try:
                     if insList[name].is_installed:
-                        print('Found %s' % name)
+                        print(f'Found {name}')
                         status = _('Remove')
                     else:
-                        print('Not found %s' % name)
+                        print(f'Not found {name}')
                         status = _('Install')
                 except:
                     print('Auto error handling --> Falling back to default (Not found)')
@@ -609,9 +612,9 @@ class GUI:
                         self.noMean = True
                         code = 'force'
                         if osLayer.alive:
-                            code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove %s manually.") % self.cPkg, _("Attention!"), 'abort', 'install')
+                            code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _(f"Do you really would like to abort now? It could end up with a broken program. If you decide to abort, then you may need to remove {self.cPkg} manually."), _("Attention!"), 'abort', 'install')
                         if self.quit == False:
-                            code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now? Download is currently in progress for %s.") % namDict[self.Tdownl], _("Attention!"), 'abort', 'download')
+                            code = self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _(f"Do you really would like to abort now? Download is currently in progress for {namDict[self.Tdownl]}."), _("Attention!"), 'abort', 'download')
                         if code == 'force':
                             self.stop = True
                             try:
@@ -701,8 +704,8 @@ class GUI:
     def on_fin(self, transaction, exit_state):
         GLib.idle_add(self.dia.hide)
         osLayer.alive = False
-        print('Trans : %s' % transaction)
-        print('Code : %s' % exit_state)
+        print(f'Trans : {transaction}')
+        print(f'Code : {exit_state}')
         print("FIN")
     
     def on_done(self, sth):
@@ -726,10 +729,10 @@ class GUI:
         wt = False
         print(self, wt)
         for i in range(appListLen):
-            print("Toggle %s" % i)
+            print(f"Toggle {i}")
             if appList[i] != tempInd:
                 print(appList[i], butDict[appList[i]], tempInd)
-                cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
+                cBut = self.builder.get_object(f'{butDict[appList[i]]}_but')
                 GLib.idle_add(cBut.set_sensitive, wt)
         # function for counting time
         def counter(timer, m):
@@ -753,13 +756,13 @@ class GUI:
                 wt = True
                 print(self, wt)
                 for i in range(appListLen):
-                    cBut = self.builder.get_object('%s_but' % butDict[appList[i]])
+                    cBut = self.builder.get_object(f'{butDict[appList[i]]}_but')
                     GLib.idle_add(cBut.set_sensitive, wt)
                 self.scanner = True
                 self.button_clicked(button)
                 if not self.window.is_active():
                     notify2.init('HSuite')
-                    n = notify2.Notification('HSuite', _('Finished processing %s!') % self.cPkg)
+                    n = notify2.Notification('HSuite', _(f'Finished processing {self.cPkg}!'))
                     n.show()
                 self.cPkg = ''
                 return False                                                      # end
@@ -767,12 +770,12 @@ class GUI:
 
     def lilFunc(self, name, comm1, extra):
         if osLayer.alive:
-            print('Operation already running, which is %s' % self.cPkg)
+            print(f'Operation already running, which is {self.cPkg}')
         if name == self.cPkg:
             self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.YES_NO, _("Do you really would like to abort now?"), _("Attention!"), 'abort', 'install')
         else:
             comm2 = ''
-            cInB = self.builder.get_object("%s_but" % butDict[comm1])
+            cInB = self.builder.get_object(f"{butDict[comm1]}_but")
             tempInd = comm1
             if _('Install') in statDict[name]:
                 if name == 'fusuma':
@@ -798,7 +801,7 @@ class GUI:
                     print('Skipping as its already there')
                 else:
                     GLib.idle_add(cBut.set_sensitive, self.state)
-                    shDict[dlist[i]] = "%s" % self.state
+                    shDict[dlist[i]] = str(self.state)
         if self.state:
             self.scanningUrl = False
 
@@ -826,7 +829,7 @@ class GUI:
         self.runE = False
         # Set back the button label to the original
         GLib.idle_add(downl.set_label, self.orig)
-        print('quit: %s' % self.quit)
+        print(f'quit: {self.quit}')
         print(self.orig)
         print("Label restore")
         # If the download is aborted by the user, remove the already downloaded file
@@ -843,7 +846,7 @@ class GUI:
             print("done with it")
             if not self.window.is_active():
                 notify2.init('HSuite')
-                n = notify2.Notification('HSuite', _('Finished downloading %s!') % namDict[self.Tdownl])
+                n = notify2.Notification('HSuite', _(f'Finished downloading {namDict[self.Tdownl]}!'))
                 n.show()
         self.quit = True
 
@@ -870,7 +873,7 @@ class GUI:
             self.orig = downl.get_label()
         file_name = url.split('/')[-1]
         f = open(_('/home/{0}/Downloads/{1}').format(user, file_name), 'wb')  # set download location
-        print('Downloading %s' % file_name)
+        print(f'Downloading {file_name}')
         print("FalsTogle")
         # disable buttons
         self.state = False
@@ -907,8 +910,7 @@ class GUI:
                 file_size = int(u.getheader('Content-Length'))
                 # convert to MB
                 file_size = Decimal(int(file_size) / 1024 / 1024)
-                GLib.idle_add(cBut.set_label, "Download (%s MB)" %
-                            round(file_size, 1))  # set download label
+                GLib.idle_add(cBut.set_label, f"Download ({round(file_size, 1)} MB)")  # set download label
                 # store value in cache
                 self.cache[di] = round(file_size, 1)
                 GLib.idle_add(cBut.set_sensitive, True)
@@ -923,48 +925,48 @@ class GUI:
         if 'mint' in distrol:
             print('mint now')
             if 'lmde' in forDl:
-                vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/debian/", r'-+[\d]+-', r'[\d]')
-                url = 'http://mirrors.evowise.com/linuxmint/debian/lmde-%s-cinnamon-64bit.iso' % vers[0]
+                vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/debian/", r'-+[\d]+-', r'[\d]') # pylint: disable=unused-variable
+                url = f'http://mirrors.evowise.com/linuxmint/debian/lmde-{vers[0]}-cinnamon-64bit.iso'
             else:
                 vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
-                url = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-%s-64bit.iso' % (vers[0], vers[1], vers[2], vers[0], vers[1], vers[2], forDl)
+                url = f'http://mirrors.evowise.com/linuxmint/stable/{vers[0]}{vers[1]}.{vers[2]}/linuxmint-{vers[0]}{vers[1]}.{vers[2]}-{forDl}-64bit.iso'
             self.uriDict['downl_mint'] = url
             self.generalSizer('downl_mint', url)
         elif 'ubuntu' in distrol:
             print('ubuntu now')
-            vers, misc = self.findNew("http://cdimage.ubuntu.com/%s/releases/" % forDl, r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
+            vers, misc = self.findNew(f"http://cdimage.ubuntu.com/{forDl}/releases/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
             if 'studio' in forDl:
                 print('Studio time!')
-                url = 'http://cdimage.ubuntu.com/%s/releases/%s%s.%s%s/release/%s-%s%s.%s%s-dvd-amd64.iso' % (forDl, vers[0], vers[1], vers[2], vers[3], forDl, vers[0], vers[1], vers[2], vers[3])
+                url = f'http://cdimage.ubuntu.com/{forDl}/releases/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/release/{forDl}-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-dvd-amd64.iso'
             elif forDl == 'ubuntu':
                 print('Basic one')
-                url = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
+                url = f'http://releases.ubuntu.com/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/ubuntu-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
             else:
-                url = 'http://cdimage.ubuntu.com/%s/releases/%s%s.%s%s/release/%s-%s%s.%s%s-desktop-amd64.iso' % (forDl, vers[0], vers[1], vers[2], vers[3], forDl, vers[0], vers[1], vers[2], vers[3])
+                url = f'http://cdimage.ubuntu.com/{forDl}/releases/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/release/{forDl}-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
             self.uriDict['downl_ubuntu'] = url
             self.generalSizer('downl_ubuntu', url)
         elif 'solus' in distrol:
             print('solus now')
             vers, misc = self.findNew("https://solus.veatnet.de/iso/images", r'"+[\d]+.[\d]+/', r'[\d]+[\d]')
-            url = 'https://solus.veatnet.de/iso/images/%s.%s/Solus-%s.%s-%s.iso' % (vers[0], vers[1], vers[0], vers[1], forDl)
+            url = f'https://solus.veatnet.de/iso/images/{vers[0]}.{vers[1]}/Solus-{vers[0]}.{vers[1]}-{forDl}.iso'
             self.uriDict['downl_solus'] = url
             self.generalSizer('downl_solus', url)
         elif 'deb' in distrol:
             print('debian now')
             vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/", r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
-            url = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-%s+nonfree.iso' % (vers[0], vers[1], vers[2], vers[3], forDl)
+            url = f'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-{vers[0]}{vers[1]}.{vers[2]}.{vers[3]}-amd64-{forDl}+nonfree.iso'
             self.uriDict['downl_deb'] = url
             self.generalSizer('downl_deb', url)
         elif 'fedora' in distrol:
             print('fedora now')
             if 'default' in forDl:
                 vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
-                versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
-                url = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-%s.%s.iso' % (vers[0], vers[1], vers[0], vers[1], versf[0], versf[2])
+                versf, misc = self.findNew(f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Workstation/x86_64/iso', r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
+                url = f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-{vers[0]}{vers[1]}-{versf[0]}.{versf[2]}.iso'
             else:
                 vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
-                versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Spins/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
-                url = 'http://fedora.inode.at/releases/%s%s/Spins/x86_64/iso/Fedora-%s-Live-x86_64-%s%s-%s.%s.iso' % (vers[0], vers[1],forDl , vers[0], vers[1], versf[0], versf[2])
+                versf, misc = self.findNew(f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Spins/x86_64/iso', r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
+                url = f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Spins/x86_64/iso/Fedora-{forDl}-Live-x86_64-{vers[0]}{vers[1]}-{versf[0]}.{versf[2]}.iso'
             self.uriDict['downl_fedora'] = url
             self.generalSizer('downl_fedora', url)
         elif 'suse' in distrol:
@@ -977,7 +979,7 @@ class GUI:
                 text = dat.decode('utf-8')
                 pattern = re.findall(r'openSUSE-Leap-+[\d]+[\d]+.+[\d]+-DVD-x86_64.iso"><', text)
                 vers = pattern[0].replace('"', '').replace('><', '')
-                url = "https://download.opensuse.org/distribution/openSUSE-stable/iso/%s" % vers
+                url = f"https://download.opensuse.org/distribution/openSUSE-stable/iso/{vers}"
             self.uriDict['downl_suse'] = url
             self.generalSizer('downl_suse', url)
             
@@ -1118,7 +1120,7 @@ class GUI:
         elif text == '' or title == '':
             self.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _('You need to fill out all the fields!'), _("Attention!"), 'general')
             return
-        text = text+"\n\n---------------------------------\n\nEmail: %s\nUsername: %s\nComputer name: %s\nOS: %s\nCPU: %s\nProviding feedback for: %s" % (email, user, platform.uname().node, platform.platform(), platform.processor(), program)
+        text = text+f"\n\n---------------------------------\n\nEmail: {email}\nUsername: {user}\nComputer name: {platform.uname().node}\nOS: {platform.platform()}\nCPU: {platform.processor()}\nProviding feedback for: {program}"
         repo = g.get_repo('swanux/hsuite_feedbacks')
         if category == _('Enhancement'):
             lab = ['enhancement']
@@ -1147,38 +1149,41 @@ class GUI:
     def patchControl(self, ext=''):
         if desktop == 'Gnome':
             if ext == '':
-                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/') # pylint: disable=anomalous-backslash-in-string
             elif ext == 'cleanup':
-                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/')
+                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/') # pylint: disable=anomalous-backslash-in-string
             else:
                 if 'remove-dropdown-arrows' in ext and float(self.VERSION) >= 3.36:
-                    JSON = "%s/extension-info/?uuid=%s&shell_version=3.34" % (self.SITE, ext)
+                    JSON = f"{self.SITE}/extension-info/?uuid={ext}&shell_version=3.34"
                 else:
-                    JSON = "%s/extension-info/?uuid=%s&shell_version=%s" % (self.SITE, ext, self.VERSION)
-                tmp = os.popen("curl -s '%s'" % JSON).read().split(' ')
+                    JSON = f"{self.SITE}/extension-info/?uuid={ext}&shell_version={self.VERSION}"
+                tmp = os.popen(f"curl -s '{JSON}'").read().split(' ')
                 EXTENSION_URL = self.SITE + tmp[-1].replace('"', '').replace('}', '')
-                os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
-                os.system("mkdir -p %s/%s && unzip -oq ~/tmp.zip -d %s/%s && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext, self.EXTENSION_PATH, ext))
+                os.system(f"wget --header='Accept-Encoding:none' -O '/home/{user}/tmp.zip' '{EXTENSION_URL}'")
+                os.system(f"mkdir -p {self.EXTENSION_PATH}/{ext} && unzip -oq ~/tmp.zip -d {self.EXTENSION_PATH}/{ext} && chmod +r {self.EXTENSION_PATH}/{ext}/* && rm -f ~/tmp.zip")
         elif desktop == 'Cinnamon': # FIXME
             if ext != '':
                 EXTENSION_URL = self.SITE + '/files/applets/' + ext + '.zip'
-                os.system("wget --header='Accept-Encoding:none' -O '/home/%s/tmp.zip' '%s'" % (user, EXTENSION_URL))
-                os.system("unzip -oq ~/tmp.zip -d %s/ && chmod +r %s/%s/* && rm -f ~/tmp.zip" % (self.EXTENSION_PATH, self.EXTENSION_PATH, ext))
+                os.system(f"wget --header='Accept-Encoding:none' -O '/home/{user}/tmp.zip' '{EXTENSION_URL}'")
+                os.system(f"unzip -oq ~/tmp.zip -d {self.EXTENSION_PATH}/ && chmod +r {self.EXTENSION_PATH}/{ext}/* && rm -f ~/tmp.zip")
+        else:
+            pass
 
     def sw(self):
         print('in sw')
         os.system('mkdir -p ~/.themes && mkdir -p ~/.icons')
         for i in self.them_conf:
             command = themDat[i][desktop][self.themNum]
-            if i == 'Layout':
+            if i == 'Layout' and desktop == 'Gnome':
                 # os.system('gsettings set org.gnome.shell enabled-extensions []')
-                for ext in extDat[desktop][self.themNum]:
+                for ext in extDat[self.themNum]:
                     if ext in self.DIRS:
-                        print('%s is already installed.' % ext)
+                        print(f'{ext} is already installed.')
                     else:
-                        print('Installing %s...' % ext)
+                        print(f'Installing {ext}...')
                         self.patchControl(ext)
             self.patchControl()
+            print(command)
             os.system(command)
         self.patchControl('cleanup')
 
@@ -1201,7 +1206,10 @@ class GUI:
         if woutput == 1 or woutput == 0:
             self.builder.get_object('them_stack').set_visible_child(self.builder.get_object('the_box'))
             self.builder.get_object('us_stack').set_visible_child(self.builder.get_object('us_box'))
-            self.builder.get_object('us_box').remove(self.boxUS)
+            try:
+                self.builder.get_object('us_box').remove(self.boxUS)
+            except:
+                print('no usb for now')
             twindow.hide()
             return True
 
@@ -1304,7 +1312,7 @@ class GUI:
         return postinst
     
     def exEx(self, cDE, postinst):
-        postinst = postinst + "extensions=$(echo '%s')\n" % self.DIRS
+        postinst = postinst + f"extensions=$(echo '{self.DIRS}')\n"
         postinst = postinst + f"version=$(DISPLAY=':0' {cDE} --version | tr -cd '0-9.' | cut -d'.' -f1,2)\n"
         postinst = postinst + "declare -a allExt=(`echo $extensions |sed 's/, / /g'`)\n"
         if cDE == 'gnome-shell':
@@ -1345,19 +1353,19 @@ done\n"""
         postinst += 'zenity --info --text="Welcome ${user}!\nNow we will begin to restore everything for you.\nPlease be patient, it may take a while...\n\nIf you understand press OK to begin." --no-wrap\n'
         if self.b_data:
             for i in self.datToSave:
-                postinst = postinst + "cp -R /usr/share/backups/%s/* /home/${user}/%s/\n" % (i, i)
+                postinst = postinst + "cp -R /usr/share/backups/{%s}/* /home/${user}/%s/\n" % (i, i)
         ds = ""
         if self.b_progs:
             postinst = postinst + 'apt-key add /usr/share/backups/sources/Repo.keys\n'
             l = 0
             for i in self.appsToSave:
                 if l == 0:
-                    ds = ds+"%s" % i
+                    ds = ds+str(i)
                 else:
-                    ds = ds+", %s" % i
+                    ds = ds+f", {i}"
                 l = l+1
             for i in self.appsToSave:
-                postinst = postinst + "apt-mark manual %s\n" % i
+                postinst = postinst + f"apt-mark manual {i}\n"
         if self.b_theme:
             postinst = postinst + 'cp /usr/share/backups/background/* /usr/share/backgrounds/\n'
             if desktop == 'Gnome':
@@ -1394,7 +1402,7 @@ done\n"""
         else:
             self.crTask()
 
-    def getBg(self, lockparse, cDE):
+    def getBg(self, locparse, cDE):
         if desktop == 'XFCE':
             background = os.popen('xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image').read().strip()
             fname = background.split('/')[-1].replace("'", '')
@@ -1409,66 +1417,66 @@ done\n"""
             os.system(f'cp {background} {self.hsdir}/background/{fname}')
             print(fname)
             locparse.set(f'org/{cDE}/desktop/background', 'picture-uri', f"'file:///usr/share/backgrounds/{fname}'")
-            return lockparse
+            return locparse
 
     def getTh(self, shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme=""):
         print('####################')
         print(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
         print('####################')
-        if os.path.exists('/home/%s/.themes/%s' % (user, shellTheme.replace("'", ""))):
-            os.system('cd /home/%s/.themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (user, self.hsdir, shellTheme))
+        if os.path.exists('/home/{0}/.themes/{1}'.format(user, shellTheme.replace("'", ""))):
+            os.system(f'cd /home/{user}/.themes/ && tar -pczf {self.hsdir}/shellTheme.tar.gz {shellTheme}')
         else:
-            os.system('cd /usr/share/themes/ && tar -pczf %s/shellTheme.tar.gz %s' % (self.hsdir, shellTheme))
-        if os.path.exists('/home/%s/.themes/%s' % (user, deskTheme.replace("'", ""))):
-            os.system('cd /home/%s/.themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (user, self.hsdir, deskTheme))
+            os.system(f'cd /usr/share/themes/ && tar -pczf {self.hsdir}/shellTheme.tar.gz {shellTheme}')
+        if os.path.exists('/home/{0}/.themes/{1}'.format(user, deskTheme.replace("'", ""))):
+            os.system(f'cd /home/{user}/.themes/ && tar -pczf {self.hsdir}/deskTheme.tar.gz {deskTheme}')
         else:
-            os.system('cd /usr/share/themes/ && tar -pczf %s/deskTheme.tar.gz %s' % (self.hsdir, deskTheme))
-        if os.path.exists('/home/%s/.icons/%s' % (user, cursorTheme.replace("'", ""))):
-            os.system('cd /home/%s/.icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (user, self.hsdir, cursorTheme))
+            os.system(f'cd /usr/share/themes/ && tar -pczf {self.hsdir}/deskTheme.tar.gz {deskTheme}')
+        if os.path.exists('/home/{0}/.themes/{1}'.format(user, cursorTheme.replace("'", ""))):
+            os.system(f'cd /home/{user}/.icons/ && tar -pczf {self.hsdir}/cursorTheme.tar.gz {cursorTheme}')
         else:
-            os.system('cd /usr/share/icons/ && tar -pczf %s/cursorTheme.tar.gz %s' % (self.hsdir, cursorTheme))
-        if os.path.exists('/home/%s/.icons/%s' % (user, iconTheme.replace("'", ""))):
-            os.system('cd /home/%s/.icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (user, self.hsdir, iconTheme))
+            os.system(f'cd /usr/share/icons/ && tar -pczf {self.hsdir}/cursorTheme.tar.gz {cursorTheme}')
+        if os.path.exists('/home/{0}/.themes/{1}'.format(user, iconTheme.replace("'", ""))):
+            os.system(f'cd /home/{user}/.icons/ && tar -pczf {self.hsdir}/iconTheme.tar.gz {iconTheme}')
         else:
-            os.system('cd /usr/share/icons/ && tar -pczf %s/iconTheme.tar.gz %s' % (self.hsdir, iconTheme))
+            os.system(f'cd /usr/share/icons/ && tar -pczf {self.hsdir}/iconTheme.tar.gz {iconTheme}')
         if wmTheme != "":
-            if os.path.exists('/home/%s/.themes/%s' % (user, wmTheme.replace("'", ""))):
-                os.system('cd /home/%s/.themes/ && tar -pczf %s/wmTheme.tar.gz %s' % (user, self.hsdir, wmTheme))
+            if os.path.exists('/home/{0}/.themes/{1}'.format(user, wmTheme.replace("'", ""))):
+                os.system(f'cd /home/{user}/.themes/ && tar -pczf {self.hsdir}/wmTheme.tar.gz {wmTheme}')
             else:
-                os.system('cd /usr/share/themes/ && tar -pczf %s/wmTheme.tar.gz %s' % (self.hsdir, wmTheme))
+                os.system(f'cd /usr/share/themes/ && tar -pczf {self.hsdir}/wmTheme.tar.gz {wmTheme}')
 
     def on_proc_but_clicked(self, button):
         if desktop == 'Unknown' and self.b_theme == True:
             self.construct_dialog(Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, _('Your desktop is not supported currently, so we have disabled the desktop backup function for you. Please uncheck it, and use only the other options. Thank you for your understanding.'), _("Error"), 'general')
         else:
-            os.system("mkdir -p %s/" % self.hsdir)
+            os.system(f"mkdir -p {self.hsdir}/")
             self.appsToSave = []
             self.datToSave = []
             if self.b_settings and self.b_theme:
-                os.system("mkdir -p %s/background" % self.hsdir)
+                os.system(f"mkdir -p {self.hsdir}/background")
                 locparse = ConfigParser()
                 if desktop == 'Gnome':
-                    os.system('dconf dump / > %s/dcBkup' % self.hsdir)
-                    locparse.read('%s/dcBkup' % self.hsdir)
-                    lockparse = self.getBg(lockparse, 'gnome')
+                    os.system(f'dconf dump / > {self.hsdir}/dcBkup')
+                    locparse.read(f'{self.hsdir}/dcBkup')
+                    locparse = self.getBg(locparse, 'gnome')
                     shellTheme = locparse.get('org/gnome/shell/extensions/user-theme', 'name')
                     deskTheme = locparse.get('org/gnome/desktop/interface', 'gtk-theme')
                     iconTheme = locparse.get('org/gnome/desktop/interface', 'icon-theme')
                     cursorTheme = locparse.get('org/gnome/desktop/interface', 'cursor-theme')
                     self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
                 elif desktop == 'Elementary':
-                    os.system('dconf dump / > %s/dcBkup' % self.hsdir)
-                    locparse.read('%s/dcBkup' % self.hsdir)
-                    lockparse = self.getBg(lockparse, 'gnome')
+                    os.system(f'dconf dump / > {self.hsdir}/dcBkup')
+                    locparse.read(f'{self.hsdir}/dcBkup')
+                    locparse = self.getBg(locparse, 'gnome')
                 elif desktop == 'Cinnamon': # TODO
-                    os.system('dconf dump / > %s/dcBkup' % self.hsdir)
-                    locparse.read('%s/dcBkup' % self.hsdir)
-                    lockparse = self.getBg(lockparse, 'cinnamon')
+                    os.system(f'dconf dump / > {self.hsdir}/dcBkup')
+                    locparse.read(f'{self.hsdir}/dcBkup')
+                    locparse = self.getBg(locparse, 'cinnamon')
                     shellTheme = locparse.get('org/cinnamon/theme', 'name')
                     deskTheme = locparse.get('org/cinnamon/desktop/interface', 'gtk-theme')
                     iconTheme = locparse.get('org/cinnamon/desktop/interface', 'icon-theme')
                     cursorTheme = locparse.get('org/cinnamon/desktop/interface', 'cursor-theme')
-                    wmTheme = lockparse.get('org/cinnamon/desktop/wm/preferences', 'theme')
+                    wmTheme = locparse.get('org/cinnamon/desktop/wm/preferences', 'theme')
                     self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
                 elif desktop == 'XFCE':
                     self.getBg('', '')
@@ -1477,14 +1485,14 @@ done\n"""
                     iconTheme = os.popen('xfconf-query -c xsettings -p /Net/IconThemeName').read().strip()
                     cursorTheme = os.popen('xfconf-query -c xsettings -p /Gtk/CursorThemeName').read().strip()
                     self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
-                tconf = open('%s/dcBkup' % self.hsdir, 'w+')
+                tconf = open(f'{self.hsdir}/dcBkup', 'w+')
                 locparse.write(tconf)
                 tconf.close()
 
             if self.b_progs:
                 b_simple = self.construct_dialog(Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, _('Would you like to view a simplified list of applications? (some less common programs may miss from the list)'), _("Ask"), 'switcher')
                 print('Programs true')
-                extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash')
+                extendedApps = subprocess.check_output('apt-mark showmanual', shell=True, executable='/bin/bash') # pylint: disable=unexpected-keyword-arg
                 extendedApps = extendedApps.decode()
                 extendedApps = extendedApps.split('\n')
                 if b_simple == 'True':
@@ -1515,11 +1523,11 @@ done\n"""
                         chker = Gtk.CheckButton.new_with_label(program)
                         chker.connect("toggled", self.on_prog_tog, program)
                         self.box.pack_start(chker, True, True, 0)
-                os.system('mkdir -p %s/sources/ && apt-key exportall > %s/sources/Repo.keys' % (self.hsdir, self.hsdir))
+                os.system(f'mkdir -p {self.hsdir}/sources/ && apt-key exportall > {self.hsdir}/sources/Repo.keys')
                 self.box.show_all()
             if self.b_cron:
                 print('Cron true')
-                os.system('crontab -l > %s/crontab' % self.hsdir)
+                os.system('crontab -l > {self.hsdir}/crontab')
             if self.b_progs:
                 if self.b_data == False:
                     self.builder.get_object('prog_proc_but').set_label('Start backup')
@@ -1547,7 +1555,7 @@ done\n"""
         if event.button == 3:
             try:
                 pthinfo = self.tree.get_path_at_pos(event.x, event.y)
-                path,col,cellx,celly = pthinfo
+                path,col,cellx,celly = pthinfo # pylint: disable=unused-variable
                 self.tree.grab_focus()
                 self.tree.set_cursor(path,col,0)
                 menu = Gtk.Menu()
@@ -1603,7 +1611,7 @@ done\n"""
         self.hardCron = self.builder.get_object('exec_choose').get_active_text()
 
     def on_cron_book_change_current_page(self, widget, box, page):
-        print('Changed mode %s' % page)
+        print('Changed mode {page}')
         self.page = page
         self.noMean = True
         self.hardCron, self.minu, self.hour, self.daym, self.cmonth, self.dayw = "", "", "", "", "", ""
@@ -1637,7 +1645,7 @@ done\n"""
         print('Getting meaning')
         while self.noMean == False:
             try:
-                if self.cronCommand != "" and self.cronJob != "":
+                if self.cronCommand != "" and self.cronJob != "": # pylint: disable=access-member-before-definition
                     self.builder.get_object('done_but').set_sensitive(True)
                 else:
                     self.builder.get_object('done_but').set_sensitive(False)
@@ -1689,7 +1697,7 @@ done\n"""
         cron  = CronTab(user=True)
         box = self.builder.get_object('au_box')
         try:
-            box.remove(self.scrollable_treelist)
+            box.remove(self.scrollable_treelist) # pylint: disable=access-member-before-definition
         except:
             pass
         storeCron = Gtk.ListStore(str, int)
@@ -1762,26 +1770,22 @@ done\n"""
         pattern = re.findall(r'archlinux-+[\d]+[\d]+[\d]+[\d]+.+[\d]+[\d]+.+[\d]+[\d]+-x86_64.iso">', text)
         print(pattern)
         vers = pattern[0].replace('"', '').replace('>', '')
-        archLink = 'http://mirrors.evowise.com/archlinux/iso/latest/%s' % vers
-
-
-
-
+        archLink = f'http://mirrors.evowise.com/archlinux/iso/latest/{vers}'
         
         vers, misc = self.findNew("http://ftp.sh.cvut.cz/slax/", r'Slax-+[\d]+.x', r'[\d]')
         print('slax')
-        tmp = "http://ftp.sh.cvut.cz/slax/Slax-%s.x/" % vers[0]
+        tmp = f"http://ftp.sh.cvut.cz/slax/Slax-{vers[0]}.x/"
         vers, misc = self.findNew(tmp, r'slax-64bit-+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
-        slaxLink = "%sslax-64bit-%s.%s%s.%s.iso" % (tmp, vers[0], vers[1], vers[2], vers[3])
+        slaxLink = f"{tmp}slax-64bit-{vers[0]}.{vers[1]}{vers[2]}.{vers[3]}.iso"
 
         vers, misc = self.findNew("https://sourceforge.net/projects/bodhilinux/files/", r'/[\d].[\d].[\d]/', r'[\d]+[\d]')
         print('bodhi')
         print(vers)
-        bodhiLink = 'https://jztkft.dl.sourceforge.net/project/bodhilinux/%s.%s.%s/bodhi-%s.%s.%s-64.iso' % (vers[0], vers[1], vers[2], vers[0], vers[1], vers[2])
+        bodhiLink = f'https://jztkft.dl.sourceforge.net/project/bodhilinux/{vers[0]}.{vers[1]}.{vers[2]}/bodhi-{vers[0]}.{vers[1]}.{vers[2]}-64.iso'
 
         vers, misc = self.findNew("https://dotsrc.dl.osdn.net/osdn/sparkylinux/68112/", r'sparkylinux-+[\d]+.[\d]+-x86_64', r'[\d]+[\d]')
         print('sparky')
-        sparkyLink = 'https://dotsrc.dl.osdn.net/osdn/sparkylinux/68112/sparkylinux-%s%s%s%s.%s%s-x86_64-lxqt.iso' % (vers[0], vers[1], vers[2], vers[3], vers[4], vers[5])
+        sparkyLink = f'https://dotsrc.dl.osdn.net/osdn/sparkylinux/68112/sparkylinux-{vers[0]}{vers[1]}{vers[2]}{vers[3]}.{vers[4]}{vers[5]}-x86_64-lxqt.iso'
 
         print('puppy')
         puppyLink = "http://ftp.nluug.nl/ftp/pub/os/Linux/distr/puppylinux/puppy-bionic/bionicpup64/bionicpup64-8.0-uefi.iso"
@@ -1789,45 +1793,35 @@ done\n"""
         print('tiny')
         tinyLink = "http://tinycorelinux.net/11.x/x86/release/CorePlus-current.iso"
 
-
-
         vers, misc = self.findNew("http://releases.ubuntu.com", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
         # global ubuntuLink
         print('ubuntu')
-        ubuntuLink = 'http://releases.ubuntu.com/%s%s.%s%s/ubuntu-%s%s.%s%s-desktop-amd64.iso' % (
-            vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
+        ubuntuLink = f'http://releases.ubuntu.com/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/ubuntu-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
 
-        vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/",
-                r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
+        vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global mintLink
         print('mint')
-        mintLink = 'http://mirrors.evowise.com/linuxmint/stable/%s%s.%s/linuxmint-%s%s.%s-cinnamon-64bit.iso' % (
-            vers[0], vers[1], vers[2], vers[0], vers[1], vers[2])
+        mintLink = f'http://mirrors.evowise.com/linuxmint/stable/{vers[0]}{vers[1]}.{vers[2]}/linuxmint-{vers[0]}{vers[1]}.{vers[2]}-cinnamon-64bit.iso'
 
-        vers, misc = self.findNew("http://mirror.inode.at/data/deepin-cd/",
-                r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
+        vers, misc = self.findNew("http://mirror.inode.at/data/deepin-cd/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global deepinLink
         print('deepin')
-        deepinLink = 'http://mirror.inode.at/data/deepin-cd/%s%s.%s%s/deepin-%s%s.%s%s-amd64.iso' % (
-            vers[0], vers[1], vers[2], vers[3], vers[0], vers[1], vers[2], vers[3])
+        deepinLink = f'http://mirror.inode.at/data/deepin-cd/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/deepin-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-amd64.iso'
 
-        vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/",
-                r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
+        vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/", r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
         # global debianLink
         print('deb')
-        debianLink = 'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-%s%s.%s.%s-amd64-cinnamon+nonfree.iso' % (
-            vers[0], vers[1], vers[2], vers[3])
+        debianLink = f'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-{vers[0]}{vers[1]}.{vers[2]}.{vers[3]}-amd64-cinnamon+nonfree.iso'
 
         # global steamosLink
         print('steam')
         steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
 
         vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
-        versf, misc = self.findNew('http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso' % (vers[0], vers[1]), r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
+        versf, misc = self.findNew(f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Workstation/x86_64/iso', r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
         # global fedoraLink
         print('fedora')
-        fedoraLink = 'http://fedora.inode.at/releases/%s%s/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-%s%s-%s.%s.iso' % (
-            vers[0], vers[1], vers[0], vers[1], versf[0], versf[2])
+        fedoraLink = f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-{vers[0]}{vers[1]}-{versf[0]}.{versf[2]}.iso'
 
         # global opensuseLink
         print('suse')
@@ -1835,25 +1829,22 @@ done\n"""
 
         vers, misc = self.findNew("https://sourceforge.net/projects/drauger-os/files/", r'Drauger_OS-+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
         print('drauger')
-        draugerLink = 'https://netix.dl.sourceforge.net/project/drauger-os/Drauger_OS-%s.%s.%s-amd64.iso' % (vers[0], vers[1], vers[2])
+        draugerLink = f'https://netix.dl.sourceforge.net/project/drauger-os/Drauger_OS-{vers[0]}.{vers[1]}.{vers[2]}-amd64.iso'
 
         vers, misc = self.findNew("https://solus.veatnet.de/iso/images", r'"+[\d]+.[\d]+/', r'[\d]+[\d]')
         # global solusLink
         print('solus')
-        solusLink = 'https://solus.veatnet.de/iso/images/%s.%s/Solus-%s.%s-Budgie.iso' % (vers[0], vers[1], vers[0], vers[1])
+        solusLink = f'https://solus.veatnet.de/iso/images/{vers[0]}.{vers[1]}/Solus-{vers[0]}.{vers[1]}-Budgie.iso'
 
-        vers, misc = self.findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/",
-                r'[\d]+[\d]+[\w]+[\d][\w]', r'[\d]+[\d]')
+        vers, misc = self.findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/", r'[\d]+[\d]+[\w]+[\d][\w]', r'[\d]+[\d]')
         # global gentooLink
         print('gentoo')
-        gentooLink = 'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-%s.iso' % misc
+        gentooLink = f'http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-{misc}.iso'
 
-        vers, misc = self.findNew("http://www.linuxfromscratch.org/lfs/downloads/",
-                r'[\d]+.[\d]+-systemd/', r'[\d]+[\d]')
+        vers, misc = self.findNew("http://www.linuxfromscratch.org/lfs/downloads/", r'[\d]+.[\d]+-systemd/', r'[\d]+[\d]')
         # global lfsLink
         print('lfs')
-        lfsLink = 'http://www.linuxfromscratch.org/lfs/downloads/%s.%s-systemd/LFS-BOOK-%s.%s-systemd.pdf' % (
-            vers[0], vers[1], vers[0], vers[1])
+        lfsLink = f'http://www.linuxfromscratch.org/lfs/downloads/{vers[0]}.{vers[1]}-systemd/LFS-BOOK-{vers[0]}.{vers[1]}-systemd.pdf'
 
         self.uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
                 'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink, 'downl_drauger' : draugerLink, 'downl_slax' : slaxLink, 'downl_bodhi' : bodhiLink, 'downl_sparky' : sparkyLink, 'downl_puppy' : puppyLink, 'downl_tiny' : tinyLink}
@@ -1876,7 +1867,7 @@ done\n"""
                 if os.path.exists(_("/home/{0}/Downloads/{1}").format(user, file_name)):
                     if "lfs" not in file_name.lower():
                         GLib.idle_add(cBut.set_label, _("Write out to USB"))
-                        self.cache[di] = "R"
+                        self.cache[dlist[i]] = "R"
                     else:
                         GLib.idle_add(cBut.set_label, _("Ready in ~/Downloads/"))
                         GLib.idle_add(cBut.set_sensitive, False)
@@ -1884,8 +1875,7 @@ done\n"""
                     file_size = int(u.getheader('Content-Length'))
                     # convert to MB
                     file_size = Decimal(int(file_size) / 1024 / 1024)
-                    GLib.idle_add(cBut.set_label, "Download (%s MB)" %
-                                round(file_size, 1))  # set download label
+                    GLib.idle_add(cBut.set_label, f"Download ({round(file_size, 1)} MB)")  # set download label
                     # store value in cache
                     self.cache[dlist[i]] = round(file_size, 1)
             except:
@@ -1985,7 +1975,7 @@ done\n"""
     
     def applay(self, button):
         fLili = Gtk.Buildable.get_name(button)
-        self.displayDesc(liLi['%s_but' % fLili][3], button)
+        self.displayDesc(liLi[f'{fLili}_but'][3], button)
 
     def on_msoffice_clicked(self, button):
         self.displayDesc(9, button)
@@ -2046,13 +2036,13 @@ if __name__ == "__main__":
         desktop = 'XFCE'
     elif 'cinnamon' in DE: # TODO
         desktop = 'Cinnamon'
-    # elif 'mate' in DE:
-    #     desktop = 'MATE'
+    elif 'mate' in DE:
+        desktop = 'MATE'
     else:
         desktop = 'Unknown'
     ## Config section ##
     parser = ConfigParser()
-    confP = '/home/%s/.config/hsuite.conf' % user
+    confP = f'/home/{user}/.config/hsuite.conf'
     if os.path.exists(confP):
         print('Configured already')
         parser.read(confP)
@@ -2091,7 +2081,7 @@ if __name__ == "__main__":
         parser.write(file)
         file.close()
     if desktop == 'Unknown':
-        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("Your desktop is detected as %s. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu") % DE.upper(), _("Attention!"), 'general')
+        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _(f"Your desktop is detected as {DE.upper()}. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu"), _("Attention!"), 'general')
     # Own module for root prompt and background installation
     import osLayer
     osLayer.init(distro)
@@ -2102,22 +2092,22 @@ if __name__ == "__main__":
     provider.load_from_file(colors)
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
     if v != version and v != '':
-        app.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _("HSuite has been updated to %s. For changelog click the button below." % version), _("Information"), 'custom')
+        app.construct_dialog(Gtk.MessageType.INFO, Gtk.ButtonsType.OK, _(f"HSuite has been updated to {version}. For changelog click the button below."), _("Information"), 'custom')
         parser.set('hsuite', 'v', version)
         file = open(confP, "w+")
         parser.write(file)
         file.close()
         v = parser.get('hsuite', 'v')
     # Print info to debug
-    print("Current date: %s" % today)
-    print("Current day: %s" % day)
-    print("Current month: %s" % month)
-    print("Current year: %s" % year)
-    print("Name of non-root user: %s" % user)
+    print(f"Current date: {today}")
+    print(f"Current day: {day}")
+    print(f"Current month: {month}")
+    print(f"Current year: {year}")
+    print(f"Name of non-root user: {user}")
     print('---BEGIN---')
-    print("Content of working directory: %s" % str(wer))
+    print(f"Content of working directory: {str(wer)}")
     print("---END---")
-    print("Output of $uname -a$ : %s" % dist)
-    print("Detected distro: %s" % distro)
-    print('Updated? : %s' % v)
+    print(f"Output of $uname -a$ : {dist}")
+    print(f"Detected distro: {distro}")
+    print(f'Updated? : {v}')
     Gtk.main()  # execute main GTK window

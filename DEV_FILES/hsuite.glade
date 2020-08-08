@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 
+<!-- Generated with glade 3.22.2 
 
 Copyright (C) HSuite 2019
 
@@ -5358,7 +5358,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                 <property name="margin_right">20</property>
                                 <property name="label" translatable="yes">v0.8 | Quake
 
-HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for the Linux operating system. Features include powerful built-in custom tools,
+HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit for the Linux operating system. Features include powerful built-in custom tools,
 easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
 To view recent changes visit the link below.</property>
                                 <property name="justify">center</property>
@@ -5863,9 +5863,9 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <items>
                                   <item id="0">HSuite</item>
                                   <item id="1">HSite</item>
-                                  <item id="2" translatable="yes">HEnv</item>
-                                  <item id="3" translatable="yes">T440p</item>
-                                  <item id="4" translatable="yes">HRepo</item>
+                                  <item id="2" translatable="no">HEnv</item>
+                                  <item id="3" translatable="no">T440p</item>
+                                  <item id="4" translatable="no">HRepo</item>
                                 </items>
                               </object>
                               <packing>
@@ -7365,7 +7365,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
   </object>
   <object class="GtkWindow" id="themer_win">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">HSuite</property>
+    <property name="title" translatable="no">HSuite</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="default_width">400</property>
@@ -7498,7 +7498,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                       </object>
                       <packing>
                         <property name="name">page0</property>
-                        <property name="title" translatable="yes">page0</property>
+                        <property name="title" translatable="no">page0</property>
                       </packing>
                     </child>
                     <child>
@@ -7540,7 +7540,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                       </object>
                       <packing>
                         <property name="name">page1</property>
-                        <property name="title" translatable="yes">page1</property>
+                        <property name="title" translatable="no">page1</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -7561,7 +7561,7 @@ To make sure that every modification works, you may do the following:
                       </object>
                       <packing>
                         <property name="name">page2</property>
-                        <property name="title" translatable="yes">page2</property>
+                        <property name="title" translatable="no">page2</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
@@ -7572,7 +7572,7 @@ To make sure that every modification works, you may do the following:
           </object>
           <packing>
             <property name="name">page0</property>
-            <property name="title" translatable="yes">page0</property>
+            <property name="title" translatable="no">page0</property>
           </packing>
         </child>
         <child>
@@ -7636,7 +7636,7 @@ To make sure that every modification works, you may do the following:
                       </object>
                       <packing>
                         <property name="name">page0</property>
-                        <property name="title" translatable="yes">page0</property>
+                        <property name="title" translatable="no">page0</property>
                       </packing>
                     </child>
                     <child>
@@ -7682,7 +7682,7 @@ Do not remove the USB drive while writing!</property>
                       </object>
                       <packing>
                         <property name="name">page1</property>
-                        <property name="title" translatable="yes">page1</property>
+                        <property name="title" translatable="no">page1</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -7701,7 +7701,7 @@ Now you can remove your USB drive safely.</property>
                       </object>
                       <packing>
                         <property name="name">page2</property>
-                        <property name="title" translatable="yes">page2</property>
+                        <property name="title" translatable="no">page2</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
@@ -7712,7 +7712,7 @@ Now you can remove your USB drive safely.</property>
           </object>
           <packing>
             <property name="name">page1</property>
-            <property name="title" translatable="yes">page1</property>
+            <property name="title" translatable="no">page1</property>
             <property name="position">1</property>
           </packing>
         </child>

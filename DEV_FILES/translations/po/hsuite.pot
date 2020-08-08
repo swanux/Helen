@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-19 11:00+0200\n"
+"POT-Creation-Date: 2020-08-05 19:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:767
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:875
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:902
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1867
 #, python-brace-format
 msgid "/home/{0}/Downloads/{1}"
 msgstr ""
@@ -41,33 +43,29 @@ msgid ""
 "can do that also.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:628
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3891
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:682
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5420
 msgid "About"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5571
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7103
 msgid "Advanced"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1422
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1665
 msgid "After reboot."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1677
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:588
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:740
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2505
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:483
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1931
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:642
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:794
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3614
 msgid "App Spotlight"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5949
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7485
 msgid "Apply"
-msgstr ""
-
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5836
-msgid "Apply theme"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:375
@@ -87,18 +85,18 @@ msgid ""
 "install, remove and update software packages.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3928
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5457
 msgid "Artwork by :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3530
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4708
 msgid ""
 "As a poweruser, you probably would like to get new features as fast as "
 "possible and understand what's going under the hood as good as possible. "
 "These distros will probably fit your needs."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1250
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1493
 msgid "Ask"
 msgstr ""
 
@@ -116,15 +114,15 @@ msgid ""
 "CoffeeScript and Less.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:527
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:529
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:669
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:931
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:969
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:972
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1806
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1811
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1823
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:615
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:617
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:775
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1080
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1118
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1121
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2067
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2072
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2084
 msgid "Attention!"
 msgstr ""
 
@@ -147,19 +145,20 @@ msgid ""
 "Public License (GPL).\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5810
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7342
 msgid "Automation"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2973
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4101
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5228
 msgid "Avilable from website only"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4835
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6367
 msgid "Backing up user data..."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4932
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6464
 msgid ""
 "Backup ready. You can restore it on your target system by installing it "
 "(usually just double-clicking on it), as it's packed into the distribution's "
@@ -186,84 +185,109 @@ msgid ""
 "from machine A to control machine B (or more). It's that simple.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1024
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:422
+msgid ""
+"Bodhi Linux\n"
+"\n"
+"Yet another light Linux distribution – Bodhi Linux, that gives life to older "
+"PCs & Laptops. Bodhi Linux is quite known for its minimal approach and the "
+"support for low-end hardware.\n"
+"\n"
+"It doesn’t feature a lot of things pre-installed – hence, you will notice "
+"that the ISO file size will be less than 1 GB.\n"
+"The presence of Moksh Desktop makes Bodhi Linux is a decent choice for older "
+"hardware configurations while providing a good user experience.\n"
+"\n"
+"Minimum hardware requirements for Bodhi Linux:\n"
+"RAM: 256 MB of RAM\n"
+"CPU: 1.0 GHz\n"
+"Disk space: 5 GB of drive space\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1146
 msgid "Browsers"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:94
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3037
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:96
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4165
 msgid "Budgie (Default)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:980
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4278
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1129
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5807
 msgid "Bug"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2794
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2844
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2938
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3014
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3141
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3266
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3319
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3431
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3556
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3588
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3620
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3922
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3972
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4066
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4142
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4269
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4321
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4444
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4497
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4609
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4734
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4766
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4798
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4961
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4993
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5133
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5165
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5197
 msgid "Calculating size..."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1811
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2072
 msgid ""
 "Can not detect your distro. Currently compatible with distros: Ubuntu "
 "(bionic, focal), Debian (buster) and everything based on them. Aborting now."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:715
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5732
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:823
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7264
 msgid "Cancel"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:90
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2819
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:92
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3947
 msgid "Cinnamon (Default)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:995
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1019
 msgid "Coming Soon"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5671
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7203
 msgid "Command :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1744
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2172
 msgid "Communication"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4629
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6161
 msgid "Continue"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4893
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6425
 msgid "Creating backup. Please wait..."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4052
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5581
 msgid "Credits"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4524
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6056
 msgid "Cron jobs"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:203
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5917
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:257
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7453
 msgid "Cursor"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5462
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6994
 msgid "Days :"
 msgstr ""
 
@@ -280,8 +304,8 @@ msgid ""
 "distributions.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:90
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2822
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:92
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3950
 msgid "Debian Edition"
 msgstr ""
 
@@ -299,20 +323,20 @@ msgid ""
 "and Linux, then this is the perfect choice for you.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2547
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1969
 msgid "Demo/Review (YouTube)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4678
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6210
 msgid "Desktop"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:182
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5869
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:203
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7405
 msgid "Desktop theme"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3911
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5440
 msgid "Developed by :"
 msgstr ""
 
@@ -328,42 +352,42 @@ msgid ""
 "software.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:391
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1668
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1679
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1709
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:514
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2649
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:483
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1922
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1933
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1967
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:568
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3758
 msgid "Distro Boutique"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:669
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:775
 msgid "Do you really would like to abort now?"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:529
-#, python-format
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:617
 msgid ""
 "Do you really would like to abort now? Download is currently in progress for "
-"%s."
+"{namDict[self.Tdownl]}."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:527
-#, python-format
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:615
+#, python-brace-format
 msgid ""
 "Do you really would like to abort now? It could end up with a broken "
-"program. If you decide to abort, then you may need to remove %s manually."
+"program. If you decide to abort, then you may need to remove {self.cPkg} "
+"manually."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:420
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:510
 msgid "Do you really would like to exit now?"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4746
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6278
 msgid "Documents"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6019
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7551
 msgid ""
 "Done!\n"
 "To make sure that every modification works, you may do the following:\n"
@@ -372,13 +396,24 @@ msgid ""
 "* If you've still got problems log out/in or reboot"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1643
-#, python-format
-msgid "Download (%s MB)"
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:330
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6244
+msgid "Downloads"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4712
-msgid "Downloads"
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:390
+msgid ""
+"Drauger OS\n"
+"\n"
+"Drauger OS is a Linux desktop gaming operating system. It aims to provide a "
+"platform for gamers to use where they can get great performance without "
+"sacrificing their security. Furthermore, it aims to make it easy for anyone "
+"to game, whether they use a keyboard and mouse, or some sort of controller.\n"
+"\n"
+"Based off Ubuntu LTS releases, Drauger OS is stable, secure, and gets "
+"updates thanks to the Ubuntu repositories for 5 years (even if a given "
+"Drauger OS release is not supported for the full 5 years by Drauger OS "
+"Development itself.)\n"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:298
@@ -396,7 +431,7 @@ msgid ""
 "in Ubuntu. You can backup to your GDrive storage also.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1504
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1796
 msgid "Editors"
 msgstr ""
 
@@ -413,36 +448,36 @@ msgid ""
 "will just love it.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4226
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5755
 msgid "Email address :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:976
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4280
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1125
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5809
 msgid "Enhancement"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1201
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1450
 msgid "Error"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1424
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1667
 msgid "Every minute."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5933
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7469
 msgid "Everything"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5322
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6854
 msgid "Execution time :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2467
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3439
 msgid "Extras"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3962
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5491
 msgid "Features by :"
 msgstr ""
 
@@ -458,58 +493,57 @@ msgid ""
 "Enterprise Linux distribution.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:554
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4176
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:608
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5705
 msgid "Feedback"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4251
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5780
 msgid "Feedback Description :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:987
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1136
 msgid "Feedback submitted succesfully!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4238
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5767
 msgid "Feedback titile :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4263
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5792
 msgid "Feedback type :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:741
-#, python-format
-msgid "Finished downloading %s!"
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:849
+msgid "Finished downloading {namDict[self.Tdownl]}!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:650
-#, python-format
-msgid "Finished processing %s!"
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:765
+#, python-brace-format
+msgid "Finished processing {self.cPkg}!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3084
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4212
 msgid "For Beginners"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3499
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4677
 msgid "For Developers"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3209
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4387
 msgid "For Gamers"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3728
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4906
 msgid "For Powerusers"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4200
-msgid "For contacting you if needed (Optional)"
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5729
+msgid "For contacting you if needed (Optional, but recommended)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3240
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4418
 msgid ""
 "For developers, the main goal is stability and reliability. Based on these, "
 "here are the best ones in this category. (Of course, you can use Solus, or "
@@ -551,6 +585,10 @@ msgid ""
 "Facebook Messenger accounts all at once.\n"
 msgstr ""
 
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3576
+msgid "From Swanux"
+msgstr ""
+
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:123
 msgid ""
 "GNU Emacs\n"
@@ -589,7 +627,7 @@ msgid ""
 "check, label, copy, and paste.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2029
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2627
 msgid "Games"
 msgstr ""
 
@@ -639,10 +677,10 @@ msgid ""
 "some larger packages or those with no available source code.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:92
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:98
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2869
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3344
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:94
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:100
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3997
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4522
 msgid "Gnome (Default)"
 msgstr ""
 
@@ -674,7 +712,7 @@ msgid ""
 "of the box.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4504
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6036
 msgid "Gnome desktop"
 msgstr ""
 
@@ -701,27 +739,53 @@ msgid ""
 "addresses, Docs, Sheets, Slides, Calendar, Drive, Sites, and so much more.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:608
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5022
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6554
 msgid "HControl"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1834
-#, python-format
-msgid "HSuite has been updated to %s. For changelog click the button below."
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:477
+msgid ""
+"HEnv\n"
+"\n"
+"HEnv is a small tool that helps me in development. The name itself stands "
+"for H-Environment. Currently it does automatic debian packaging only, more "
+"functions are going to be added later.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:534
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:472
+msgid ""
+"HSuite\n"
+"\n"
+"Actually, I could copy-paste it from the About section, but I do not see the "
+"point of it. So why is this here at all? Because HSuite is kind of a "
+"platform, where I can also host my own work (including HSuite itself). So it "
+"is basically for simpler navigation and easier reach of source code.\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2095
+#, python-brace-format
+msgid ""
+"HSuite has been updated to {version}. For changelog click the button below."
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:588
 msgid "HSwitcher"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5097
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4935
+msgid ""
+"Here are some lightweight distros that will run on most of the old computers "
+"smoothly."
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6629
 msgid ""
 "Here are the desktop themes which you can choose from.\n"
 "NOTE: It'll overwrite your current settings"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5227
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6759
 msgid ""
 "Here you can manage automatic jobs running periodically based on time, "
 "reboots, etc"
@@ -737,55 +801,55 @@ msgid ""
 "graphical versions were available.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:684
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2603
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3765
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4128
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4407
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4976
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:738
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3712
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5294
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5657
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5939
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6508
 msgid "Home"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5416
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6948
 msgid "Hours :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:196
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5901
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:239
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7437
 msgid "Icons"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:987
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1834
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:784
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2698
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5069
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1136
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2095
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:838
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3826
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6601
 msgid "Information"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:467
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:474
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:483
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:486
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:674
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:557
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:564
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:573
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:576
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:780
 msgid "Install"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4464
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5996
 msgid "Installed programs"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:969
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1118
 msgid "Invalid email address!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1430
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1434
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1673
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1677
 msgid "Invalid syntax!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1474
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1478
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1717
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1721
 msgid "Job"
 msgstr ""
 
@@ -798,13 +862,13 @@ msgid ""
 "code.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:189
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5885
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:221
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7421
 msgid "Layout"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:100
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3455
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:102
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4633
 msgid "Leap (Standard)"
 msgstr ""
 
@@ -824,8 +888,12 @@ msgid ""
 "freedoms because we believe that everyone deserves them.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4088
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5617
 msgid "License"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5257
+msgid "Lightweight"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:338
@@ -855,11 +923,11 @@ msgid ""
 "sources running on any Linux powered gaming machine.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5122
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6654
 msgid "MacOS mode"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5643
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7175
 msgid "Manual"
 msgstr ""
 
@@ -913,11 +981,11 @@ msgid ""
 "completed two months later.'\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5370
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6902
 msgid "Minutes :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5508
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7040
 msgid "Months :"
 msgstr ""
 
@@ -939,23 +1007,23 @@ msgid ""
 "the internet healthier.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4729
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6261
 msgid "Music"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5242
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6774
 msgid "New"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:939
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1088
 msgid "No internet"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:676
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:782
 msgid "Note!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1264
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1420
 msgid "Office"
 msgstr ""
 
@@ -980,8 +1048,8 @@ msgid ""
 "the team in real time.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1098
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1113
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1205
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1220
 msgid "Open in browser"
 msgstr ""
 
@@ -1021,7 +1089,27 @@ msgid ""
 "titles it Oracle VM VirtualBox.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4763
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:409
+msgid ""
+"Peppermint OS\n"
+"\n"
+"Peppermint is a cloud-focused Linux distribution that doesn’t need high-end "
+"hardware. It is based on Ubuntu and uses LXDE desktop environment to give "
+"you a smoother experience.\n"
+"Originally created with the web-centric approach of netbooks in mind, "
+"Peppermint includes the ICE application for integrating any website or web "
+"app as a standalone desktop app.\n"
+"\n"
+"You’ll find the documentation helpful as well. A dedicated forum also exists "
+"to help troubleshooting issues and answering your questions.\n"
+"\n"
+"Minimum system requirements for Peppermint OS:\n"
+"RAM: 1 GB of RAM (recommended 2 GB)\n"
+"CPU: Processor based on Intel x86 architecture\n"
+"Disk space: At least 4 GB of available disk space\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6295
 msgid "Pictures"
 msgstr ""
 
@@ -1038,8 +1126,14 @@ msgid ""
 "free, accessible and efficient solution to this problem.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5983
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7515
 msgid "Please wait while applying changes..."
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7653
+msgid ""
+"Please wait while writing USB...\n"
+"Do not remove the USB drive while writing!"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:248
@@ -1051,110 +1145,144 @@ msgid ""
 "Laptops and the heavy customized Ubuntu based distro, Pop!_OS.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4544
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6076
 msgid "Proceed"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:628
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:743
 msgid "Processing "
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:420
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:510
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1000
 msgid "Prompt"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4320
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5849
 msgid "Providing feedback for :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:978
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4279
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:449
+msgid ""
+"Puppy Linux\n"
+"\n"
+"Puppy Linux uses JWM and Openbox window managers by default which makes it "
+"very easy on system resources.\n"
+"Because Puppy Linux is built to be fast, it does not come along with bundles "
+"of applications. It does have some basic apps, though. In other words, it "
+"can get your work done if you want to utilize a really old computer.\n"
+"\n"
+"Minimum hardware requirements for Puppy Linux:\n"
+"RAM:  256 MB\n"
+"CPU: 600 Hz Processor\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1127
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5808
 msgid "Question"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:733
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:800
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:844
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:907
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1872
 msgid "Ready in ~/Downloads/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:433
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:465
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:472
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:480
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:679
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7693
+msgid ""
+"Ready!\n"
+"\n"
+"Now you can remove your USB drive safely."
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:523
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:555
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:562
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:570
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:785
 msgid "Remove"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1426
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1669
 msgid "Repeat "
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:565
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:680
 msgid "Safety first!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5754
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7286
 msgid "Save"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:920
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:935
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:950
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:965
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:980
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1053
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1068
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1083
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1128
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1401
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1416
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1431
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1446
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1461
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1476
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1641
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1656
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1671
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1686
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1701
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1716
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1881
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1896
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1911
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1926
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1941
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1956
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1989
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2220
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2235
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2250
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2265
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2280
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2295
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2310
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2325
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2340
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2373
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2406
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2439
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:974
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:989
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1004
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1042
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1091
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1175
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1190
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1235
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1365
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1557
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1572
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1594
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1643
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1692
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1741
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1933
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1948
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1970
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2019
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2068
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2117
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2309
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2324
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2364
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2413
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2462
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2511
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2560
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2836
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2894
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2943
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2992
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3041
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3090
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3139
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3188
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3237
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3286
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3335
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3384
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3509
 msgid "Scanning..."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4444
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7622
+msgid "Select"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7609
+msgid "Select USB drive to format"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5976
 msgid "Select what to backup."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4353
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5885
 msgid "Send"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:692
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:802
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1618
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1640
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:798
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:919
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1883
 msgid "Server error"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4214
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5743
 msgid "Short, meaningful title (Max 35 character)"
 msgstr ""
 
@@ -1179,7 +1307,7 @@ msgid ""
 "an initial funding of $50 million.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5336
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6868
 msgid "Simple"
 msgstr ""
 
@@ -1206,6 +1334,24 @@ msgid ""
 "Try Skype out today and start adding your friends, family and colleagues. "
 "They won’t be hard to find; hundreds of millions of people are already using "
 "Skype to do all sorts of things together.\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:397
+msgid ""
+"Slax\n"
+"\n"
+"Slax is a really portable lightweight Linux distro based on Debian which you "
+"can use it on a USB drive without installing it.\n"
+"The ISO file size is just under 300 MB – which makes it a great option for "
+"older computers. The user interface is simple and usable with essential pre-"
+"built packages for an average user. You can even try to customize the OS and "
+"make permanent changes on the fly if you require it.\n"
+"\n"
+"Give it a try!\n"
+"\n"
+"Minimum system requirements for Slax:\n"
+"RAM: 128 MB (offline usage) / 512 MB (for web browser usage)\n"
+"CPU: i686 or newer\n"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:107
@@ -1239,7 +1385,30 @@ msgid ""
 "to make everything work.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4797
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:435
+msgid ""
+"SparkyLinux\n"
+"\n"
+"SparkyLinux is another lightweight distro but at the same time, it also "
+"targets modern computers.\n"
+"\n"
+"Depending on what you need – you will find two variants of SparkyLinux. One "
+"based on Debian’s stable release and the other based on Debian’s testing "
+"branch. So, you can opt for anyone you see fit.\n"
+"In addition to the variants, you will also find different editions of ISO to "
+"download. For instance, an LXQT desktop-based edition, a GameOver edition "
+"with pre-installed stuff, and so on.\n"
+"You can head down to their download page and click on “Stable” or "
+"“(Semi-)Rolling” releases to find all the editions listed.\n"
+"\n"
+"Minimum hardware requirements for SparkyLinux:\n"
+"RAM: 512 MB\n"
+"CPU: Pentium 4, or AMD Athlon\n"
+"Disk space: 2 GB (CLI Edition), 10 GB (Home Edition), 20 GB (GameOver "
+"Edition)\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6329
 msgid "Start backup"
 msgstr ""
 
@@ -1267,8 +1436,8 @@ msgid ""
 "2013.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:92
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2875
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:94
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4003
 msgid "Studio"
 msgstr ""
 
@@ -1313,7 +1482,7 @@ msgid ""
 msgstr ""
 
 #. The name of translator (you)
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4013
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5542
 msgid "Swanux"
 msgstr ""
 
@@ -1349,7 +1518,7 @@ msgid ""
 "million monthly active users.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4780
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6312
 msgid "Templates"
 msgstr ""
 
@@ -1357,15 +1526,15 @@ msgstr ""
 msgid "Temporarly here"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2531
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3640
 msgid "Text Here"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5190
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6722
 msgid "Themes"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2728
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3856
 msgid ""
 "These distros are the easiest to set up and use in my opinion. They are also "
 "pretty stable and good/familiar looking."
@@ -1398,7 +1567,29 @@ msgid ""
 "your system to an earlier date.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4867
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:459
+msgid ""
+"Tiny Core\n"
+"\n"
+"Probably, technically, the most lightweight distro there is. However, it "
+"isn’t a complete Linux distribution for an average desktop user.\n"
+"Tiny Core simply incorporates the fundamental core of an OS which includes "
+"the kernel and the root filesystem. In other words, it features the "
+"foundation of a desktop OS.\n"
+"\n"
+"If you simply want a system to boot up coupled with a wired Internet "
+"connection, you can get started using it. But, you should not expect proper "
+"hardware support out of the box.\n"
+"So, if you’re someone who knows how to set up or compile tools necessary "
+"with Tiny Core Linux to make it a complete desktop experience, you can give "
+"it a try.\n"
+"\n"
+"Minimum hardware requirements for Tiny Core Linux:\n"
+"RAM:  64 MB (128 MB recommended)\n"
+"CPU: i486DX\n"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6399
 msgid "Total progress:"
 msgstr ""
 
@@ -1412,12 +1603,22 @@ msgid ""
 "OS), but Fusuma does make using a trackpad on Linux exponentially better.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3945
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5474
 msgid "Translation by :"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:100
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3454
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1971
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3656
+msgid "Try it now (online)"
+msgstr ""
+
+#. Indicate en/de/chin/esp only
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3799
+msgid "Try to find the perfect distro for me"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:102
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4632
 msgid "Tumbeweed (Rolling)"
 msgstr ""
 
@@ -1435,16 +1636,48 @@ msgid ""
 "and straightforward.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5148
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6680
 msgid "Unity mode"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4484
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6016
 msgid "User data"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4695
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6227
 msgid "Videos"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1060
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1109
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1383
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1612
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1661
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1710
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1759
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:1988
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2037
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2086
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2135
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2382
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2431
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2480
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2529
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2578
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2912
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2961
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3010
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3059
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3108
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3157
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3206
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3255
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3304
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3353
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3402
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3526
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3549
+msgid "View Source"
 msgstr ""
 
 #: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:129
@@ -1504,11 +1737,17 @@ msgid ""
 "It's the best free MS Office alternative for Linux in my opinion.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2567
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1000
+msgid ""
+"Warning! All of your DATA will be EREASED on the selected USB drive. Are you "
+"sure you would like to continue?"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3676
 msgid "Website"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:757
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:811
 msgid ""
 "Welcome to App Spotlight! Here are lots of high qualitiy programs sorted by "
 "category. You can easly switch between browsers, find the best office suite "
@@ -1519,7 +1758,7 @@ msgid ""
 "that by just clicking on the button below the icon."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5042
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6574
 msgid ""
 "Welcome to HControl!\n"
 "\n"
@@ -1528,11 +1767,11 @@ msgid ""
 "predefined desktop layouts / themes."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:438
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:492
 msgid "Welcome to HSuite!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:2669
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3780
 msgid ""
 "Welcome to the Distro Boutique! Here you can find the most popular Linux "
 "distros. The purpose of this page is to help newcommers in the Linux world "
@@ -1550,14 +1789,14 @@ msgid ""
 "get extra information."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3115
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4243
 msgid ""
 "When it comes to gaming in Linux, I can only think about one specific OS for "
 "this purpose. However, you can use any distro with some tweaks for gaming. "
 "But yet still Windows is the best for this usecase."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5135
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6667
 msgid "Windows 10 mode"
 msgstr ""
 
@@ -1593,25 +1832,35 @@ msgid ""
 "based on WxWidgets.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1250
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1493
 msgid ""
 "Would you like to view a simplified list of applications? (some less common "
 "programs may miss from the list)"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:565
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:842
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:904
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1869
+msgid "Write out to USB"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7673
+msgid "Writing to USB"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:680
 msgid "You can't cancel installation, as it's in a critical state."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:931
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1080
 msgid "You have no internet connection!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:972
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1121
 msgid "You need to fill out all the fields!"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5610
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7142
 msgid ""
 "You need to provide five number separated with space: minute, hour, day-of-"
 "month, month and day-of-week.\n"
@@ -1630,7 +1879,7 @@ msgid ""
 "e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:224
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:290
 msgid ""
 "You need to reboot after the install has been completed\n"
 "to apply all changes. However note that support for Wayland\n"
@@ -1638,108 +1887,135 @@ msgid ""
 "through the ~/.config/fusuma/config.yml file."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:219
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:285
 msgid ""
 "You need to reboot after the install has been completed\n"
 "to apply all changes. You can configure the tool\n"
 "through the ~/.config/fusuma/config.yml file."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1823
-#, python-format
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2084
 msgid ""
-"Your desktop is detected as %s. This desktop is not supported yet, you may "
-"encounter some problems with DE specific parts of the program. Currently "
-"supported: Gnome/Ubuntu"
+"Your desktop is detected as {DE.upper()}. This desktop is not supported yet, "
+"you may encounter some problems with DE specific parts of the program. "
+"Currently supported: Gnome/Ubuntu"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1201
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1450
 msgid ""
 "Your desktop is not supported currently, so we have disabled the desktop "
 "backup function for you. Please uncheck it, and use only the other options. "
 "Thank you for your understanding."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1806
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:2067
 msgid ""
 "Your distro is detected as Deepin. This distro is not fully tested, you may "
 "encounter some problems with the program. Currently tested on distros: "
 "Ubuntu (bionic, focal), Debian (buster)."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:4852
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6384
 msgid "current"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1419
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5301
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6833
 msgid "daily"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5689
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:7221
 msgid "e.g.: bash /path/to/myscript.sh"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1419
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5300
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6832
 msgid "hourly"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "http://puppylinux.com"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "http://tinycorelinux.net"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "http://www.linuxfromscratch.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "https://draugeros.org/"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://elementary.io"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://getfedora.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://getsol.us/home/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "https://peppermintos.com"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "https://sparkylinux.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://store.steampowered.com/steamos/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://ubuntu.com"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://www.archlinux.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "https://www.bodhilinux.com"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://www.debian.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://www.deepin.org/en/"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://www.gentoo.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://www.linuxmint.com"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:395
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
 msgid "https://www.opensuse.org"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1423
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5305
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/details.py:487
+msgid "https://www.slax.org"
+msgstr ""
+
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1666
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6837
 msgid "minutely"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1419
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5303
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6835
 msgid "monthly"
 msgstr ""
 
@@ -1754,35 +2030,34 @@ msgid ""
 "providing a user-friendly desktop and feature-rich server environment.\n"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1419
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1421
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5299
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1664
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6831
 msgid "reboot"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:730
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:838
 #, python-brace-format
 msgid "rm /home/{0}/Downloads/{1}"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:3830
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5359
 msgid ""
-"v0.7 | Sinara\n"
+"v0.8 | Quake\n"
 "\n"
-"HSuite (previously Helen) is the SSU (Simple, Small, Useful) Swiss army for "
-"the Linux operating system. Features include powerful built-in custom "
-"tools,\n"
+"HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit for the "
+"Linux operating system. Features include powerful built-in custom tools,\n"
 "easy installation of the best quality programs, choosing Linux distribution, "
 "helping in everyday tasks and more features are coming.\n"
 "To view recent changes visit the link below."
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1419
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5302
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6834
 msgid "weekly"
 msgstr ""
 
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1419
-#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:5304
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/HSuite.py:1662
+#: /home/daniel/GitRepos/hsuite/DEV_FILES/hsuite.glade:6836
 msgid "yearly"
 msgstr ""
