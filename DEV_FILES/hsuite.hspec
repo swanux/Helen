@@ -19,6 +19,7 @@ depends = ${misc:Depends}
 	util-linux (>= 2.25.2-6)
 	bash (>= 4.4-5)
 	wget
+	popsicle
 	curl
 	unzip
 	coreutils (>= 8.26-3)
@@ -55,6 +56,9 @@ longue = HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit fo
 min_pyver = 3.2
 rules = 0
 postinst = dpkg --add-architecture i386
+	cp /usr/share/hsuite/io.swanux.pkexec.husb.policy /usr/share/polkit-1/actions/
+	x=$(apt list --installed | grep mate-panel/)
+	if [[ $x == *'mate-panel'* ]]; then cp /usr/share/hsuite/layouts/* /usr/share/mate-panel/layouts/; fi
 	ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite || echo "No need for it"
 postrm = rm /usr/bin/hsuite || echo "No need for it2"
 
@@ -70,7 +74,9 @@ program = hsuite.glade
 	osLayer.py
 	details.py
 	colors.css
+	io.swanux.pkexec.husb.policy
 	icons/
+	layouts/
 	translations/
 	config.yml
 	fusuma.desktop

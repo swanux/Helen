@@ -10,7 +10,7 @@ v = ''
 ### Import modules ###
 
 # Set program root location
-import os, subprocess, gettext, apt, shlex, locale, gi, re, webbrowser, time, notify2, platform, sys
+import os, subprocess, gettext, apt, shlex, locale, gi, re, webbrowser, time, notify2, platform, sys, dbus
 if os.path.exists('/home/daniel/GitRepos/hsuite'):
     fdir = "/home/daniel/GitRepos/hsuite/DEV_FILES/"
     print(fdir)
@@ -207,6 +207,16 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Windows-10-Dark-3.2-dark" && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.shell.extensions.user-theme name "Unity-8-2.0" && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
         ],
+        'MATE' : [
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && dconf write /org/mate/desktop/interface/gtk-theme "'Mojave-dark'" && dconf write /org/mate/marco/general/theme "'Mojave-dark'" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Windows-10-Dark-3.2-dark""",
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && dconf write /org/mate/desktop/interface/gtk-theme "'Windows-10-Dark-3.2-dark'" && dconf write /org/mate/marco/general/theme "'Windows-10-Dark-3.2-dark'" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark""",
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && dconf write /org/mate/desktop/interface/gtk-theme "'Unity-8-2.0'" && "'Unity-8-2.0'" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark"""
+        ],
+        'Budgie' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.gnome.desktop.interface gtk-theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Windows-10-Dark-3.2-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.gnome.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Unity-8-2.0.tar.gz && tar -xf Unity-8-2.0.tar.gz && rm -rf ~/.themes/Unity-8-2.0 && mv Unity-8-2.0 ~/.themes/ && gsettings set org.gnome.desktop.interface gtk-theme "Unity-8-2.0" && rm -rf ~/.themes/Mojave-dark ~/.themes/Windows-10-Dark-3.2-dark'
+        ],
         'Cinnamon' : [
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Mojave-dark-20200519113011.tar.xz && tar -xf Mojave-dark-20200519113011.tar.xz && rm -rf ~/.themes/Mojave-dark && mv Mojave-dark ~/.themes/ && gsettings set org.cinnamon.theme name "Mojave-dark" && gsettings set org.cinnamon.desktop.interface gtk-theme "Mojave-dark" && gsettings set org.cinnamon.desktop.wm.preferences theme "Mojave-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Windows-10-Dark-3.2-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-Dark-3.2-dark.tar.gz && tar -xf Windows-10-Dark-3.2-dark.tar.gz && rm -rf ~/.themes/Windows-10-Dark-3.2-dark && mv Windows-10-Dark-3.2-dark ~/.themes/ && gsettings set org.cinnamon.theme name "Windows-10-Dark-3.2-dark" && gsettings set org.cinnamon.desktop.interface gtk-theme "Windows-10-Dark-3.2-dark" && gsettings set org.cinnamon.desktop.wm.preferences theme "Windows-10-Dark-3.2-dark" && rm -rf ~/.themes/Unity-8-2.0 ~/.themes/Mojave-dark',
@@ -224,6 +234,11 @@ themDat = { # FIXME
             f'gsettings set org.gnome.shell enabled-extensions "{extDat[0]}" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "true" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide true && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "false" && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.4" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "false" && gsettings set org.gnome.shell.extensions.dash-to-dock click-action "minimize" && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running "true" && gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme "false" && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"',
             f'gsettings set org.gnome.shell enabled-extensions "{extDat[1]}" && gsettings set org.gnome.shell.extensions.topicons tray-pos "Center" && gsettings set org.gnome.shell.extensions.topicons tray-order "2" && gsettings set org.gnome.shell.extensions.dash-to-panel panel-position "BOTTOM" && gsettings set org.gnome.shell.extensions.dash-to-panel location-clock "STATUSRIGHT" && gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-icon "Custom_Icon" && gsettings set org.gnome.shell.extensions.arc-menu menu-button-active-color "rgb(45,138,217)" && gsettings set org.gnome.shell.extensions.arc-menu menu-hotkey "Super_L" && gsettings set org.gnome.shell.extensions.arc-menu menu-layout "Windows" && gsettings set org.gnome.shell.extensions.arc-menu multi-monitor "true" && gsettings set org.gnome.shell.extensions.dash-to-panel show-show-apps-button "false"',
             f'gsettings set org.gnome.shell enabled-extensions "{extDat[2]}" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "LEFT" && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide "false" && gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity "0.7" && gsettings set org.gnome.shell.extensions.dash-to-dock background-color "#2C001E" && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed "true" && gsettings set org.gnome.shell.extensions.dash-to-dock extend-height "true" && gsettings set org.gnome.shell.extensions.dash-to-dock show-running true && gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true && gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"'
+        ],
+        'MATE' : [
+            'mate-tweak --layout eleven'
+            'mate-tweak --layout redmond'
+            'mate-tweak --layout mutiny'
         ],
         'Cinnamon' : [
             'gsettings set org.cinnamon.desktop.interface gtk-decoration-layout "close,minimize,maximize:"',
@@ -243,6 +258,16 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
         ],
+        'Budgie' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && gsettings set org.gnome.desktop.interface icon-theme "Suru" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0',
+        ],
+        'MATE' : [
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && dconf write /org/mate/desktop/interface/icon-theme "'McMojave-circle-dark'" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0""",
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && dconf write /org/mate/desktop/interface/icon-theme "'Windows-10-1.0'" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark""",
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Suru.tar.xz && tar -xf Suru.tar.xz && rm -rf ~/.icons/Suru && mv Suru ~/.icons/ && dconf write /org/mate/desktop/interface/icon-theme "'Suru'" && rm -rf ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark ~/.icons/Windows-10-1.0""",
+        ],
         'Cinnamon' : [
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/McMojave-circle.tar.xz && tar -xf McMojave-circle.tar.xz && rm -rf ~/.icons/McMojave-circle && rm -rf ~/.icons/McMojave-circle-dark && mv McMojave-circle ~/.icons/ && mv McMojave-circle-dark ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "McMojave-circle-dark" && rm -rf ~/.icons/Suru ~/.icons/Windows-10-1.0',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Windows-10-1.0.tar.gz && tar -xf Windows-10-1.0.tar.gz && rm -rf ~/.icons/Windows-10-1.0 && mv Windows-10-1.0 ~/.icons/ && gsettings set org.cinnamon.desktop.interface icon-theme "Windows-10-1.0" && rm -rf ~/.icons/Suru ~/.icons/McMojave-circle ~/.icons/McMojave-circle-dark',
@@ -260,6 +285,16 @@ themDat = { # FIXME
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
             'gsettings set org.gnome.desktop.interface cursor-theme DMZ-White',
+        ],
+        'Budgie' : [
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
+            'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && gsettings set org.gnome.desktop.interface cursor-theme Win-8.1-S && rm -rf ~/.icons/capitaine-cursors',
+            'gsettings set org.gnome.desktop.interface cursor-theme DMZ-White',
+        ],
+        'MATE' : [
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && dconf write /org/mate/desktop/interface/cursor-theme "'capitaine-cursors'" && rm -rf ~/.icons/Win-8.1-S""",
+            """cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/Win-8.1-S.tar.xz && tar -xf Win-8.1-S.tar.xz && rm -rf ~/.icons/Win-8.1-S && mv Win-8.1-S ~/.icons/ && dconf write /org/mate/desktop/interface/cursor-theme "'Win-8.1-S'" && rm -rf ~/.icons/capitaine-cursors""",
+            """dconf write /org/mate/desktop/interface/cursor-theme "'DMZ-White'" && cd""",
         ],
         'Cinnamon' : [
             'cd ~/ && wget https://github.com/swanux/hsuite/raw/master/DEV_FILES/themes_src/capitaine-cursors-r3.tar.xz && tar -xf capitaine-cursors-r3.tar.xz && rm -rf ~/.icons/capitaine-cursors && mv capitaine-cursors ~/.icons/ && gsettings set org.cinnamon.desktop.interface cursor-theme capitaine-cursors && rm -rf ~/.icons/Win-8.1-S',
@@ -422,6 +457,10 @@ class GUI:
             self.VERSION = os.popen("DISPLAY=':0' cinnamon --version | tr -cd '0-9.' | cut -d'.' -f1,2").read().rstrip()
             self.EXTENSION_PATH = f"/home/{user}/.local/share/cinnamon/applets"
             self.DIRS = os.popen("find /usr/share/cinnamon/applets $HOME/.local/share/cinnamon/applets -maxdepth 1 -type d -printf '%P\n'").read().replace('\n\n', '\n').split('\n')
+        elif desktop == 'Budgie':
+            self.lady = {0 : 'cupertino', 1 : 'redmond', 2 : 'theone'}
+        if desktop != 'Gnome' and != 'Cinnamon':
+            self.builder.get_object('ready_txt').set_label(_("Done!\n\nTo make sure that every modification works, you may log out/in or reboot."))
         # Get the main stack object
         self.stack = self.builder.get_object('stack')
         self.window = self.builder.get_object(
@@ -795,10 +834,12 @@ class GUI:
             if dlist[i] != self.Tdownl:
                 cBut = self.builder.get_object(dlist[i])
                 t = cBut.get_label()
-                if t == _("Server error"):
-                    print('Skipping due to server error')
-                elif t == _("Ready in ~/Downloads/"):
-                    print('Skipping as its already there')
+                if self.state == True:
+                    if t == _("Server error") or t == _("No edition chosen") or t == _("Ready in ~/Downloads/"):
+                        pass
+                    else:
+                        GLib.idle_add(cBut.set_sensitive, self.state)
+                        shDict[dlist[i]] = str(self.state)
                 else:
                     GLib.idle_add(cBut.set_sensitive, self.state)
                     shDict[dlist[i]] = str(self.state)
@@ -915,8 +956,11 @@ class GUI:
                 self.cache[di] = round(file_size, 1)
                 GLib.idle_add(cBut.set_sensitive, True)
         except:
-            print('URL ERROR!')
-            GLib.idle_add(cBut.set_label, _("Server error"))
+            if url == 'res':
+                GLib.idle_add(cBut.set_label, _("No edition chosen"))
+            else:
+                print('URL ERROR!')
+                GLib.idle_add(cBut.set_label, _("Server error"))
             GLib.idle_add(cBut.set_sensitive, False)
             self.cache[di] = "E"
 
@@ -935,14 +979,26 @@ class GUI:
         elif 'ubuntu' in distrol:
             print('ubuntu now')
             vers, misc = self.findNew(f"http://cdimage.ubuntu.com/{forDl}/releases/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
-            if 'studio' in forDl:
-                print('Studio time!')
-                url = f'http://cdimage.ubuntu.com/{forDl}/releases/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/release/{forDl}-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-dvd-amd64.iso'
-            elif forDl == 'ubuntu':
-                print('Basic one')
-                url = f'http://releases.ubuntu.com/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/ubuntu-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
+            versX, misc = self.findNew(f"http://cdimage.ubuntu.com/{forDl}/releases/", r'[\d]+.[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
+            if vers[1] == versX[1] and vers[2] == versX[2]:
+                print('using VERSX method')
+                if 'studio' in forDl:
+                    print('Studio time!')
+                    url = f'http://cdimage.ubuntu.com/{forDl}/releases/{versX[0]}{versX[1]}.{versX[2]}{versX[3]}.{versX[4]}/release/{forDl}-{versX[0]}{versX[1]}.{versX[2]}{versX[3]}.{versX[4]}-dvd-amd64.iso'
+                elif forDl == 'ubuntu':
+                    print('Basic one')
+                    url = f'http://releases.ubuntu.com/{versX[0]}{versX[1]}.{versX[2]}{versX[3]}.{versX[4]}/ubuntu-{versX[0]}{versX[1]}.{versX[2]}{versX[3]}.{versX[4]}-desktop-amd64.iso'
+                else:
+                    url = f'http://cdimage.ubuntu.com/{forDl}/releases/{versX[0]}{versX[1]}.{versX[2]}{versX[3]}.{versX[4]}/release/{forDl}-{versX[0]}{versX[1]}.{versX[2]}{versX[3]}.{versX[4]}-desktop-amd64.iso'
             else:
-                url = f'http://cdimage.ubuntu.com/{forDl}/releases/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/release/{forDl}-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
+                if 'studio' in forDl:
+                    print('Studio time!')
+                    url = f'http://cdimage.ubuntu.com/{forDl}/releases/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/release/{forDl}-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-dvd-amd64.iso'
+                elif forDl == 'ubuntu':
+                    print('Basic one')
+                    url = f'http://releases.ubuntu.com/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/ubuntu-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
+                else:
+                    url = f'http://cdimage.ubuntu.com/{forDl}/releases/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/release/{forDl}-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
             self.uriDict['downl_ubuntu'] = url
             self.generalSizer('downl_ubuntu', url)
         elif 'solus' in distrol:
@@ -987,9 +1043,23 @@ class GUI:
     def on_choose(self, widget):
         distrol = Gtk.Buildable.get_name(widget)
         flav = widget.get_active_text()
-        linkForIso = toChoseDir[distrol][flav]
-        self.tS = futures.ThreadPoolExecutor(max_workers=2)
-        self.tS.submit(self.getSizeOnce, forDl=linkForIso, distrol=distrol, flav=flav)
+        if flav == _("Choose version"):
+            if 'mint' in distrol:
+                self.generalSizer('downl_mint', 'res')
+            elif 'ubuntu' in distrol:
+                self.generalSizer('downl_ubuntu', 'res')
+            elif 'solus' in distrol:
+                self.generalSizer('downl_solus', 'res')
+            elif 'deb' in distrol:
+                self.generalSizer('downl_deb', 'res')
+            elif 'fedora' in distrol:
+                self.generalSizer('downl_fedora', 'res')
+            elif 'suse' in distrol:
+                self.generalSizer('downl_suse', 'res')
+        else:
+            linkForIso = toChoseDir[distrol][flav]
+            self.tS = futures.ThreadPoolExecutor(max_workers=2)
+            self.tS.submit(self.getSizeOnce, forDl=linkForIso, distrol=distrol, flav=flav)
 
     def on_us_tog(self, widget, name):
         if widget.get_active():
@@ -1173,18 +1243,24 @@ class GUI:
         print('in sw')
         os.system('mkdir -p ~/.themes && mkdir -p ~/.icons')
         for i in self.them_conf:
-            command = themDat[i][desktop][self.themNum]
-            if i == 'Layout' and desktop == 'Gnome':
-                # os.system('gsettings set org.gnome.shell enabled-extensions []')
-                for ext in extDat[self.themNum]:
-                    if ext in self.DIRS:
-                        print(f'{ext} is already installed.')
-                    else:
-                        print(f'Installing {ext}...')
-                        self.patchControl(ext)
-            self.patchControl()
-            print(command)
-            os.system(command)
+            if i == 'Layout' and desktop == 'Budgie':
+                bus = dbus.SessionBus()
+                proxy = bus.get_object('org.UbuntuBudgie.ExtrasDaemon', '/org/ubuntubudgie/extrasdaemon')
+                iface = dbus.Interface(proxy, 'org.UbuntuBudgie.ExtrasDaemon')
+                iface.ResetLayout(self.lady[self.themNum])
+            else:
+                command = themDat[i][desktop][self.themNum]
+                if i == 'Layout' and desktop == 'Gnome':
+                    # os.system('gsettings set org.gnome.shell enabled-extensions []')
+                    for ext in extDat[self.themNum]:
+                        if ext in self.DIRS:
+                            print(f'{ext} is already installed.')
+                        else:
+                            print(f'Installing {ext}...')
+                            self.patchControl(ext)
+                self.patchControl()
+                print(command)
+                os.system(command)
         self.patchControl('cleanup')
 
     def sw2(self, sth):
@@ -1194,13 +1270,12 @@ class GUI:
         GLib.idle_add(st.set_visible_child, bx)
 
     def appl_but_clicked(self, button):
-        if desktop == 'Gnome' or desktop == 'Cinnamon' or desktop == 'XFCE': # FIXME
-            sw = futures.ThreadPoolExecutor(max_workers=2)
-            f = sw.submit(self.sw)
-            f.add_done_callback(self.sw2)
-            st = self.builder.get_object('them_stack')
-            bx = self.builder.get_object('wait_box')
-            st.set_visible_child(bx)
+        sw = futures.ThreadPoolExecutor(max_workers=2)
+        f = sw.submit(self.sw)
+        f.add_done_callback(self.sw2)
+        st = self.builder.get_object('them_stack')
+        bx = self.builder.get_object('wait_box')
+        st.set_visible_child(bx)
 
     def del_themer(self, twindow, e):
         if woutput == 1 or woutput == 0:
@@ -1381,6 +1456,9 @@ done\n"""
             elif desktop == 'XFCE':
                 postinst = self.extTh(postinst)
                 postinst = postinst + 'cp -R /usr/share/backups/xfce4 /home/${user}/.config/\n'
+            elif desktop == 'Budgie' or desktop == 'MATE':
+                postinst = self.extTh(postinst)
+                postinst = postinst + "runuser -l ${user} -c 'dconf load / < /usr/share/backups/dcBkup'\n"
         if self.b_cron:
             postinst = postinst + 'crontab -u ${user} /usr/share/backups/crontab\n'
         postinst += 'chown -R ${user} /home/${user}/\n'
@@ -1412,7 +1490,10 @@ done\n"""
             os.system(f'cp -R /home/{user}/.config/xfce4 {self.hsdir}/')
             os.system(f'xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s {background}')
         else:
-            background = locparse.get(f'org/{cDE}/desktop/background', 'picture-uri').replace('file://', '')
+            if cDE == 'mate':
+                background = locparse.get(f'org/{cDE}/desktop/background', 'picture-filename')
+            else:
+                background = locparse.get(f'org/{cDE}/desktop/background', 'picture-uri').replace('file://', '')
             fname = background.split('/')[-1].replace("'", '')
             os.system(f'cp {background} {self.hsdir}/background/{fname}')
             print(fname)
@@ -1423,10 +1504,11 @@ done\n"""
         print('####################')
         print(shellTheme, deskTheme, iconTheme, cursorTheme, wmTheme)
         print('####################')
-        if os.path.exists('/home/{0}/.themes/{1}'.format(user, shellTheme.replace("'", ""))):
-            os.system(f'cd /home/{user}/.themes/ && tar -pczf {self.hsdir}/shellTheme.tar.gz {shellTheme}')
-        else:
-            os.system(f'cd /usr/share/themes/ && tar -pczf {self.hsdir}/shellTheme.tar.gz {shellTheme}')
+        if shellTheme != '':
+            if os.path.exists('/home/{0}/.themes/{1}'.format(user, shellTheme.replace("'", ""))):
+                os.system(f'cd /home/{user}/.themes/ && tar -pczf {self.hsdir}/shellTheme.tar.gz {shellTheme}')
+            else:
+                os.system(f'cd /usr/share/themes/ && tar -pczf {self.hsdir}/shellTheme.tar.gz {shellTheme}')
         if os.path.exists('/home/{0}/.themes/{1}'.format(user, deskTheme.replace("'", ""))):
             os.system(f'cd /home/{user}/.themes/ && tar -pczf {self.hsdir}/deskTheme.tar.gz {deskTheme}')
         else:
@@ -1455,11 +1537,14 @@ done\n"""
             if self.b_settings and self.b_theme:
                 os.system(f"mkdir -p {self.hsdir}/background")
                 locparse = ConfigParser()
-                if desktop == 'Gnome':
+                if desktop == 'Gnome' or desktop == 'Budgie':
                     os.system(f'dconf dump / > {self.hsdir}/dcBkup')
                     locparse.read(f'{self.hsdir}/dcBkup')
                     locparse = self.getBg(locparse, 'gnome')
-                    shellTheme = locparse.get('org/gnome/shell/extensions/user-theme', 'name')
+                    try:
+                        shellTheme = locparse.get('org/gnome/shell/extensions/user-theme', 'name')
+                    except:
+                        shellTheme = ''
                     deskTheme = locparse.get('org/gnome/desktop/interface', 'gtk-theme')
                     iconTheme = locparse.get('org/gnome/desktop/interface', 'icon-theme')
                     cursorTheme = locparse.get('org/gnome/desktop/interface', 'cursor-theme')
@@ -1484,6 +1569,15 @@ done\n"""
                     deskTheme = os.popen('xfconf-query -c xsettings -p /Net/ThemeName').read().strip()
                     iconTheme = os.popen('xfconf-query -c xsettings -p /Net/IconThemeName').read().strip()
                     cursorTheme = os.popen('xfconf-query -c xsettings -p /Gtk/CursorThemeName').read().strip()
+                    self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
+                elif desktop == 'MATE':
+                    os.system(f'dconf dump / > {self.hsdir}/dcBkup')
+                    locparse.read(f'{self.hsdir}/dcBkup')
+                    locparse = self.getBg(locparse, 'mate')
+                    shellTheme = ''
+                    deskTheme = locparse.get('org/mate/desktop/interface', 'gtk-theme')
+                    iconTheme = locparse.get('org/mate/desktop/interface', 'icon-theme')
+                    cursorTheme = locparse.get('org/mate/desktop/interface', 'cursor-theme')
                     self.getTh(shellTheme, deskTheme, iconTheme, cursorTheme)
                 tconf = open(f'{self.hsdir}/dcBkup', 'w+')
                 locparse.write(tconf)
@@ -1780,7 +1874,6 @@ done\n"""
 
         vers, misc = self.findNew("https://sourceforge.net/projects/bodhilinux/files/", r'/[\d].[\d].[\d]/', r'[\d]+[\d]')
         print('bodhi')
-        print(vers)
         bodhiLink = f'https://jztkft.dl.sourceforge.net/project/bodhilinux/{vers[0]}.{vers[1]}.{vers[2]}/bodhi-{vers[0]}.{vers[1]}.{vers[2]}-64.iso'
 
         vers, misc = self.findNew("https://dotsrc.dl.osdn.net/osdn/sparkylinux/68112/", r'sparkylinux-+[\d]+.[\d]+-x86_64', r'[\d]+[\d]')
@@ -1793,48 +1886,18 @@ done\n"""
         print('tiny')
         tinyLink = "http://tinycorelinux.net/11.x/x86/release/CorePlus-current.iso"
 
-        vers, misc = self.findNew("http://releases.ubuntu.com", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]+[\d]')
-        # global ubuntuLink
-        print('ubuntu')
-        ubuntuLink = f'http://releases.ubuntu.com/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/ubuntu-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-desktop-amd64.iso'
-
-        vers, misc = self.findNew("http://mirrors.evowise.com/linuxmint/stable/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
-        # global mintLink
-        print('mint')
-        mintLink = f'http://mirrors.evowise.com/linuxmint/stable/{vers[0]}{vers[1]}.{vers[2]}/linuxmint-{vers[0]}{vers[1]}.{vers[2]}-cinnamon-64bit.iso'
-
         vers, misc = self.findNew("http://mirror.inode.at/data/deepin-cd/", r'"+[\d]+.[\d]+/', r'[\d]+[\d]+[\d]')
         # global deepinLink
         print('deepin')
         deepinLink = f'http://mirror.inode.at/data/deepin-cd/{vers[0]}{vers[1]}.{vers[2]}{vers[3]}/deepin-{vers[0]}{vers[1]}.{vers[2]}{vers[3]}-amd64.iso'
 
-        vers, misc = self.findNew("https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/", r'debian-live-+[\d]+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
-        # global debianLink
-        print('deb')
-        debianLink = f'https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-{vers[0]}{vers[1]}.{vers[2]}.{vers[3]}-amd64-cinnamon+nonfree.iso'
-
         # global steamosLink
         print('steam')
         steamosLink = 'http://repo.steampowered.com/download/SteamOSDVD.iso'
 
-        vers, misc = self.findNew("http://fedora.inode.at/releases/", r'"+[\d]+/', r'[\d]+[\d]')
-        versf, misc = self.findNew(f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Workstation/x86_64/iso', r'-+[\d]+.+[\d]+.', r'-+[\d]+[\d]+-x')
-        # global fedoraLink
-        print('fedora')
-        fedoraLink = f'http://fedora.inode.at/releases/{vers[0]}{vers[1]}/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-{vers[0]}{vers[1]}-{versf[0]}.{versf[2]}.iso'
-
-        # global opensuseLink
-        print('suse')
-        opensuseLink = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso'
-
         vers, misc = self.findNew("https://sourceforge.net/projects/drauger-os/files/", r'Drauger_OS-+[\d]+.[\d]+.[\d]', r'[\d]+[\d]+[\d]')
         print('drauger')
         draugerLink = f'https://netix.dl.sourceforge.net/project/drauger-os/Drauger_OS-{vers[0]}.{vers[1]}.{vers[2]}-amd64.iso'
-
-        vers, misc = self.findNew("https://solus.veatnet.de/iso/images", r'"+[\d]+.[\d]+/', r'[\d]+[\d]')
-        # global solusLink
-        print('solus')
-        solusLink = f'https://solus.veatnet.de/iso/images/{vers[0]}.{vers[1]}/Solus-{vers[0]}.{vers[1]}-Budgie.iso'
 
         vers, misc = self.findNew("http://distfiles.gentoo.org/releases/amd64/autobuilds/current-install-amd64-minimal/", r'[\d]+[\d]+[\w]+[\d][\w]', r'[\d]+[\d]')
         # global gentooLink
@@ -1846,8 +1909,7 @@ done\n"""
         print('lfs')
         lfsLink = f'http://www.linuxfromscratch.org/lfs/downloads/{vers[0]}.{vers[1]}-systemd/LFS-BOOK-{vers[0]}.{vers[1]}-systemd.pdf'
 
-        self.uriDict = {'downl_mint': mintLink, 'downl_ubuntu': ubuntuLink, 'downl_solus': solusLink, 'downl_deepin': deepinLink, 'downl_steamos': steamosLink,
-                'downl_deb': debianLink, 'downl_fedora': fedoraLink, 'downl_suse': opensuseLink, 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink, 'downl_drauger' : draugerLink, 'downl_slax' : slaxLink, 'downl_bodhi' : bodhiLink, 'downl_sparky' : sparkyLink, 'downl_puppy' : puppyLink, 'downl_tiny' : tinyLink}
+        self.uriDict = {'downl_mint': '', 'downl_ubuntu': '', 'downl_solus': '', 'downl_deepin': deepinLink, 'downl_steamos': steamosLink, 'downl_deb': '', 'downl_fedora': '', 'downl_suse': '', 'downl_gentoo': gentooLink, 'downl_arch': archLink, 'downl_lfs': lfsLink, 'downl_drauger' : draugerLink, 'downl_slax' : slaxLink, 'downl_bodhi' : bodhiLink, 'downl_sparky' : sparkyLink, 'downl_puppy' : puppyLink, 'downl_tiny' : tinyLink}
         print('Updated linklist!!')
         print("Getting size...")
         # dlistlen is the length of dlist
@@ -1879,8 +1941,11 @@ done\n"""
                     # store value in cache
                     self.cache[dlist[i]] = round(file_size, 1)
             except:
-                print('URL ERROR!')
-                GLib.idle_add(cBut.set_label, _("Server error"))
+                if url == '':
+                    GLib.idle_add(cBut.set_label, _("No edition chosen"))
+                else:
+                    print('URL ERROR!')
+                    GLib.idle_add(cBut.set_label, _("Server error"))
                 self.cache[dlist[i]] = "E"
 
     def on_db_but_clicked(self, button):
@@ -2003,7 +2068,7 @@ if __name__ == "__main__":
                                     "blackbox", "openbox", "icewm", "jwm", "afterstep","trinity", "kde", "ubuntu"]:
                 DE = desktop_session
             ## Special cases ##
-            elif "xfce" in desktop_session or "xubuntu" in desktop_session:
+            elif "xubuntu" in desktop_session:
                 DE = "xfce4"
             elif desktop_session.startswith("ubuntu"):
                 DE = "unity"       
@@ -2014,7 +2079,9 @@ if __name__ == "__main__":
             elif desktop_session.startswith("pantheon"):
                 DE = "elementary"
             elif desktop_session.startswith("kubuntu"): 
-                DE = "kde" 
+                DE = "kde"
+            elif desktop_session.startswith("budgie"): 
+                DE = "budgie"
             elif desktop_session.startswith("razor"): # e.g. razorkwin
                 DE = "razor-qt"
             elif desktop_session.startswith("wmaker"): # e.g. wmaker-common
@@ -2036,6 +2103,8 @@ if __name__ == "__main__":
         desktop = 'XFCE'
     elif 'cinnamon' in DE: # TODO
         desktop = 'Cinnamon'
+    elif 'budgie' in DE:
+        desktop = 'Budgie'
     elif 'mate' in DE:
         desktop = 'MATE'
     else:
@@ -2082,6 +2151,10 @@ if __name__ == "__main__":
         file.close()
     if desktop == 'Unknown':
         app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _(f"Your desktop is detected as {DE.upper()}. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu"), _("Attention!"), 'general')
+    elif desktop == 'Budgie' and os.popen('apt list --installed | grep budgie-extras-daemon').read() == '':
+        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("To be able to use Budgie theming options, please run the following command:\n\n\tsudo apt install budgie-extras-daemon -y"), _("Attention!"), 'general')
+    elif desktop == 'MATE' and os.popen('apt list --installed | grep mate-tweaks').read() == ''::
+        app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("To be able to use MATE theming options, please run the following command:\n\n\tsudo apt install mate-tweaks -y"), _("Attention!"), 'general')
     # Own module for root prompt and background installation
     import osLayer
     osLayer.init(distro)

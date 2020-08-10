@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 
+<!-- Generated with glade 3.22.1 
 
 Copyright (C) HSuite 2019
 
@@ -201,25 +201,271 @@ Author: Dániel Kolozsi (@swanux)
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
   </object>
+  <object class="GtkImage" id="image11">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image12">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image13">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image14">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image15">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image16">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image17">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image18">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image19">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image20">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image21">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image22">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image23">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image24">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image25">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image26">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image27">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image28">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image29">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
   </object>
+  <object class="GtkImage" id="image30">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image31">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image32">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image33">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image34">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image35">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image36">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image37">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image38">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image39">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-apply</property>
   </object>
+  <object class="GtkImage" id="image40">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image41">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image42">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image43">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image44">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image45">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image46">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image47">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image48">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image49">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
   <object class="GtkImage" id="image5">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image50">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image51">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image6">
     <property name="visible">True</property>
@@ -977,6 +1223,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image11</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -992,6 +1240,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image12</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1007,6 +1257,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image14</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1047,6 +1299,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image13</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1096,6 +1350,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image15</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1178,6 +1434,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image16</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1193,6 +1451,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image18</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1238,6 +1498,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image19</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1370,6 +1632,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image17</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1560,6 +1824,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image21</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1575,6 +1841,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image24</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1599,6 +1867,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image20</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1648,6 +1918,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image22</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1697,6 +1969,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image23</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1746,6 +2020,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image25</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -1936,6 +2212,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image26</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1951,6 +2229,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image27</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -1975,6 +2255,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image28</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2024,6 +2306,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image29</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2073,6 +2357,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image30</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2122,6 +2408,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image31</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2312,6 +2600,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image36</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -2327,6 +2617,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image37</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -2369,6 +2661,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image32</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2418,6 +2712,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image33</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2467,6 +2763,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image35</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2516,6 +2814,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image34</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2565,6 +2865,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image38</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2839,6 +3141,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image48</property>
+                                <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
                               <packing>
@@ -2899,6 +3203,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image39</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2948,6 +3254,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image40</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -2997,6 +3305,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image41</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3046,6 +3356,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image42</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3095,6 +3407,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image43</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3144,6 +3458,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image44</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3193,6 +3509,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image45</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3242,6 +3560,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image46</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3291,6 +3611,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image47</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3340,6 +3662,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image49</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3389,6 +3713,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image50</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3513,6 +3839,8 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
+                                    <property name="image">image51</property>
+                                    <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
                                   <packing>
@@ -3919,7 +4247,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkButton" id="downl_mint">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="label" translatable="yes">No edition chosen</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -3942,12 +4270,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="can_focus">False</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="active">0</property>
+                                        <property name="active">4</property>
                                         <items>
                                           <item id="0" translatable="yes">Cinnamon (Default)</item>
                                           <item id="1">MATE</item>
                                           <item id="2">XFCE</item>
                                           <item id="3" translatable="yes">Debian Edition</item>
+                                          <item id="4" translatable="yes">Choose version</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -3969,7 +4298,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkButton" id="downl_ubuntu">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="label" translatable="yes">No edition chosen</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -3992,7 +4321,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="can_focus">False</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="active">0</property>
+                                        <property name="active">8</property>
                                         <items>
                                           <item id="0" translatable="yes">Gnome (Default)</item>
                                           <item id="1">Kubuntu (KDE)</item>
@@ -4002,6 +4331,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                           <item id="5">MATE</item>
                                           <item id="6" translatable="yes">Studio</item>
                                           <item id="7">Xubuntu (XFCE)</item>
+                                          <item id="8" translatable="yes">Choose version</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -4139,7 +4469,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkButton" id="downl_solus">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="label" translatable="yes">No edition chosen</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -4160,12 +4490,13 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="can_focus">False</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="active">0</property>
+                                        <property name="active">4</property>
                                         <items>
                                           <item id="0" translatable="yes">Budgie (Default)</item>
                                           <item id="1">Gnome</item>
                                           <item id="2">MATE</item>
                                           <item id="3">KDE</item>
+                                          <item id="4" translatable="yes">Choose version</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -4441,7 +4772,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkButton" id="downl_deb">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="label" translatable="yes">No edition chosen</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -4464,7 +4795,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="can_focus">False</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="active">0</property>
+                                        <property name="active">7</property>
                                         <items>
                                           <item id="0">Cinnamon</item>
                                           <item id="1">Gnome</item>
@@ -4473,6 +4804,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                           <item id="4">LXQt</item>
                                           <item id="5">MATE</item>
                                           <item id="6">XFCE</item>
+                                          <item id="7" translatable="yes">Choose version</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -4494,7 +4826,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkButton" id="downl_fedora">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="label" translatable="yes">No edition chosen</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -4517,7 +4849,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="can_focus">False</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="active">0</property>
+                                        <property name="active">8</property>
                                         <items>
                                           <item id="0" translatable="yes">Gnome (Default)</item>
                                           <item id="1">KDE</item>
@@ -4527,6 +4859,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                           <item id="5">Cinnamon</item>
                                           <item id="6">LXDE</item>
                                           <item id="7">SOAS</item>
+                                          <item id="8" translatable="yes">Choose version</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -4606,7 +4939,7 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkButton" id="downl_suse">
-                                        <property name="label" translatable="yes">Calculating size...</property>
+                                        <property name="label" translatable="yes">No edition chosen</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -4627,10 +4960,11 @@ Click on the buttons to download the chosen distro or click on the logo to get e
                                         <property name="can_focus">False</property>
                                         <property name="margin_top">5</property>
                                         <property name="margin_bottom">5</property>
-                                        <property name="active">0</property>
+                                        <property name="active">2</property>
                                         <items>
                                           <item id="0" translatable="yes">Tumbeweed (Rolling)</item>
                                           <item id="1" translatable="yes">Leap (Standard)</item>
+                                          <item id="2" translatable="yes">Choose version</item>
                                         </items>
                                         <signal name="changed" handler="on_choose" swapped="no"/>
                                       </object>
@@ -5863,9 +6197,9 @@ Suite 330, Boston, MA  02111-1307  USA</property>
                                 <items>
                                   <item id="0">HSuite</item>
                                   <item id="1">HSite</item>
-                                  <item id="2" translatable="no">HEnv</item>
-                                  <item id="3" translatable="no">T440p</item>
-                                  <item id="4" translatable="no">HRepo</item>
+                                  <item id="2">HEnv</item>
+                                  <item id="3">T440p</item>
+                                  <item id="4">HRepo</item>
                                 </items>
                               </object>
                               <packing>
@@ -7365,7 +7699,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
   </object>
   <object class="GtkWindow" id="themer_win">
     <property name="can_focus">False</property>
-    <property name="title" translatable="no">HSuite</property>
+    <property name="title">HSuite</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="default_width">400</property>
@@ -7498,7 +7832,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                       </object>
                       <packing>
                         <property name="name">page0</property>
-                        <property name="title" translatable="no">page0</property>
+                        <property name="title">page0</property>
                       </packing>
                     </child>
                     <child>
@@ -7540,7 +7874,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                       </object>
                       <packing>
                         <property name="name">page1</property>
-                        <property name="title" translatable="no">page1</property>
+                        <property name="title">page1</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -7549,6 +7883,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Done!
+
 To make sure that every modification works, you may do the following:
 
 * Press ALT + F2, then write in r, and press enter
@@ -7561,7 +7896,7 @@ To make sure that every modification works, you may do the following:
                       </object>
                       <packing>
                         <property name="name">page2</property>
-                        <property name="title" translatable="no">page2</property>
+                        <property name="title">page2</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
@@ -7572,7 +7907,7 @@ To make sure that every modification works, you may do the following:
           </object>
           <packing>
             <property name="name">page0</property>
-            <property name="title" translatable="no">page0</property>
+            <property name="title">page0</property>
           </packing>
         </child>
         <child>
@@ -7636,7 +7971,7 @@ To make sure that every modification works, you may do the following:
                       </object>
                       <packing>
                         <property name="name">page0</property>
-                        <property name="title" translatable="no">page0</property>
+                        <property name="title">page0</property>
                       </packing>
                     </child>
                     <child>
@@ -7682,7 +8017,7 @@ Do not remove the USB drive while writing!</property>
                       </object>
                       <packing>
                         <property name="name">page1</property>
-                        <property name="title" translatable="no">page1</property>
+                        <property name="title">page1</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -7701,7 +8036,7 @@ Now you can remove your USB drive safely.</property>
                       </object>
                       <packing>
                         <property name="name">page2</property>
-                        <property name="title" translatable="no">page2</property>
+                        <property name="title">page2</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
@@ -7712,7 +8047,7 @@ Now you can remove your USB drive safely.</property>
           </object>
           <packing>
             <property name="name">page1</property>
-            <property name="title" translatable="no">page1</property>
+            <property name="title">page1</property>
             <property name="position">1</property>
           </packing>
         </child>
