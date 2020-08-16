@@ -3,39 +3,37 @@ Here is the changelog of every update. For further details you can always check 
 
 **Website:** https://swanux.github.io/hsuite.html
 
-**v0.7 | Sinara**
-*Note: First "complete" release without useless buttons and severe bugs*
+**v0.8 | Quake**
+*Note: Hopefully a long term release*
 
-    * New: You can now choose flavour for Mint, Ubuntu, Debian, Solus, fedora and opensuse
-    * Fix: Distrou Boutique newest version script
-    * Fix: Global variable hell in python code
-    * New: Email adress is now optional in feedback
-    * New: General dialog constructor, got rid of zenity
-    * Optimized codebase (~500 lines spared)
-    * New: HControl with Cron UI and Theme switcher
-    * New: Finally a proper website for my projects
-    * New: Feedback is now for all of my future projects
-    * Fix: HSwitcher simplified app list
-    * New: HSwitcher now backups gpg keys and restore optimization
-    * New: HSwitcher also pulls proper gnome extensions from official site
-    * Fix: translation compatibility
-    * New: Python dependencies now from self built packages
-    * Fix: Now completely relying on system theme (only patch for inactive buttons)
     * Fixed a lots of bugs
-    * Fixed UI design
+	* Fixed GUI problems
+	* Optimized HSwitcher
+	* Dependency fixes
+	* Depracted Ubuntu 19.10
+	* New unified feedback platform
+	* Added partial support for Pantheon (hswitcher)
+	* Added partial support for Cinnamon (hswitcher + hcontrol)
+	* Added partial support for XFCE (hswitcher + hcontrol)
+	* Added partial support for Budgie (hswitcher + hcontrol)
+	* Added partial support for MATE (hswitcher + hcontrol)
+	* Added USB creation option to Distro Boutique
+	* Extended Distro Boutique
+	* Optimized and modernized code
+	* Extended App Spotlight
+	* Added secure feedback daemon
 
 # Compatibility
 
-**Note:** Currently supported distributions (and everything dpkg/apt based):
+#### Distros
 
-    Debian : 10 (buster)
-    Ubuntu : 18.04 (bionic) and 20.04 (focal)
-    Linux Mint : 19 and 20
-    PoP_OS : 18.04 and 20.04
+Every distro is supported which is based on **Ubuntu bionic/focal** (18/20) or **Debian 10**.
 
-**Note:** Currently supported desktop environments:
+#### Desktops
 
-    Gnome (ubuntu and PoP_OS versions included)
+- The mainline DE is **Gnome** (including custom versions, eg. from Ubuntu/PoP_OS).
+- Partial compatibility with **MATE, XFCE, Budgie, Pantheon, Cinnamon**.
+- If you use an unsupported DE, you can still use the non-DE specific parts of the program
 
 **Note:** These are just the recommended values. You can always extend compatibility on your own.
 **Tipp:** You can use this program on ANY desktop environment, only some desktop agonistic features will be disabled.
@@ -82,8 +80,8 @@ Here's the file hierarchy of the program with explanations:
 
     hsuite/                     # The root directory
     ├── BUILD                   # Folder for installer pkg build
-    │   └── hsuite-0.6          # the build folder for the program
-    │       ├── debian          # debian folder with config files
+    │   └── hsuite-0.8.0.5       # the build folder for the program
+    │       ├── debian             # debian folder with config files
     │       │   ├── changelog
     │       │   ├── compat
     │       │   ├── control
@@ -100,23 +98,15 @@ Here's the file hierarchy of the program with explanations:
     │               ├── applications
     │               │   └── hsuite.desktop
     │               └── hsuite
-    │                   ├── colors.css      # CSS design
-    │                   ├── config.yml      # for fusuma
-    │                   ├── details.py      # extra module
-    │                   ├── fusuma.desktop
-    │                   ├── hsuite.hspec    # build file for own automated build system
-    │                   ├── hsuite.glade    # the UI file
-    │                   ├── HSuite.py       # the main file
-    │                   ├── hsuite.sh       # the file to run hsuite from terminal
-    │                   ├── icons           # all the icons
-    │                   │   └── ...
-    │                   ├── osLayer.py      # extra module
-    │                   └── htransfer.py     # own file transfer backend
+    │                   └── ...     # program files
     ├── DEV_FILES       # development folder
     │   ├── colors.css
     │   ├── config.yml
     │   ├── details.py
     │   ├── fusuma.desktop
+    │   ├── htransfer.py    # Self written file transfer backend
+    │   ├── husb.py         # USB helper
+    │   ├── sfdaemon        # Secure feedback daemon binary
     │   ├── hsuite.desktop
     │   ├── hsuite.glade
     │   ├── hsuite.glade~   # autosaved version
@@ -144,8 +134,7 @@ Here's the file hierarchy of the program with explanations:
     ├── hsuite.hspec                        # config file for henv (my own pkg builder)
     ├── LICENSE                             # GPL-3 license
     ├── PKGS                                # build pkgs
-    │   ├── hsuite_0.6-1_amd64.deb          # debian/ubuntu/linux mint
-    │   └── hsuite-0.6-1-x86_64.pkg.tar.xz  # arch/manjaro
+    │   └── hsuite_0.8.0.5-1_amd64.deb          # debian/ubuntu/linux mint
     └── README.md                              # this readme file
 
 

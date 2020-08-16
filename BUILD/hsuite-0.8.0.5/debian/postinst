@@ -1,0 +1,8 @@
+#!/bin/bash +e
+
+dpkg --add-architecture i386
+cp /usr/share/hsuite/io.swanux.pkexec.husb.policy /usr/share/polkit-1/actions/
+x=$(apt list --installed | grep mate-panel/)
+if [[ $x == *'mate-panel'* ]]; then cp /usr/share/hsuite/layouts/* /usr/share/mate-panel/layouts/; fi
+ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite || echo "No need for it"
+#DEBHELPER#
