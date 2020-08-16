@@ -1,0 +1,20 @@
+hsuite (0.8.0.5-1) bionic; urgency=medium
+
+  * * Fixed a lots of bugs
+  * * Fixed GUI problems
+  * * Optimized HSwitcher
+  * * Dependency fixes
+  * * Depracted Ubuntu 19.10
+  * * New unified feedback platform
+  * * Added partial support for Pantheon (hswitcher)
+  * * Added partial support for Cinnamon (hswitcher + hcontrol)
+  * * Added partial support for XFCE (hswitcher + hcontrol)
+  * * Added partial support for Budgie (hswitcher + hcontrol)
+  * * Added partial support for MATE (hswitcher + hcontrol)
+  * * Added USB creation option to Distro Boutique
+  * * Extended Distro Boutique
+  * * Optimized and modernized code
+  * * Extended App Spotlight
+  * * Added secure feedback daemon
+
+ -- Dániel Kolozsi <dani@kolozsi.net>  Sun, 16 Aug 2020 20:25:48 +0100

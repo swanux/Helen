@@ -1,0 +1,13 @@
+Package: hsuite-dbgsym
+Package-Type: ddeb
+Source: hsuite
+Version: 0.8.0.5-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Dániel Kolozsi <dani@kolozsi.net>
+Installed-Size: 710
+Depends: hsuite (= 0.8.0.5-1)
+Section: debug
+Priority: optional
+Description: debug symbols for hsuite
+Build-Ids: cc6e56a5067b0964b33e1632a09c7fe52c6ebccc
