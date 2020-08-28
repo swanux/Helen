@@ -768,8 +768,7 @@ class GUI:
             s = timer.count+1
             # counter is equal to s
             timer.count = s
-            sTxt.set_label(_('Processing ')+name+' '+str(m) +
-                           ':'+str(s))
+            sTxt.set_label(str(m) + ':' + str(s))
             if s == 59:                                                             # add one to min and reset sec
                 timer.count = -1
                 m = m+1
