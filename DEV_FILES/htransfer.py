@@ -178,7 +178,7 @@ class Transser:
                                 relPath = dirpath.replace(''.join(newDirList), "")
                                 relPath = relPath.replace(' ', '\ ')
                                 relPath = relPath.replace("'", "\\'")
-                                relPath = relPath[relPath.find(justDir):]
+                                relPath = relPath[relPath.replace("\ ", "-").find(justDir.replace(" ", "-")):]
                                 if self.repFil == True:
                                     dst = self.nfile
                                 dst = dst.replace(' ', '\ ')
