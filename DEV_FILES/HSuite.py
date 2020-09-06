@@ -1208,7 +1208,7 @@ class GUI:
             if ext == '':
                 os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/') # pylint: disable=anomalous-backslash-in-string
             elif ext == 'cleanup':
-                os.system('mkdir -p ~/.local/share/glib-2.0/schemas/ && export XDG_DATA_DIRS=~/.local/share:/usr/share && find ~/.local/share/gnome-shell/extensions/ -name *gschema.xml -exec ln {} -sfn ~/.local/share/glib-2.0/schemas/ \; && glib-compile-schemas ~/.local/share/glib-2.0/schemas/') # pylint: disable=anomalous-backslash-in-string
+                os.system(f'rm -rf /home/{user}/Mojave-dark-20200519113011.tar.xz /home/{user}/Windows-10-Dark-3.2-dark.tar.gz /home/{user}/Unity-8-2.0.tar.gz')
             else:
                 if 'remove-dropdown-arrows' in ext and float(self.VERSION) >= 3.36:
                     JSON = f"{self.SITE}/extension-info/?uuid={ext}&shell_version=3.34"

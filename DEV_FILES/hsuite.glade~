@@ -7883,6 +7883,7 @@ e.g.: * * * * * = At every minute. OR * * * * 1 = At every minute on Monday.</pr
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Done!
+
 To make sure that every modification works, you may do the following:
 
 * Press ALT + F2, then write in r, and press enter
