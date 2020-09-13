@@ -74,6 +74,9 @@ To debug the program, open the terminal and type:
 
 You will see the logs in the terminal then.
 
+# Feedbacks
+Did you find any bugs? Do you have some feature requests/new ideas? Or just some questions? Feel free to provide your feedback using [hsuite](https://github.com/swanux/hsuite) or my [website](https://swanux.github.io/feedbacks.html).
+
 # For developers
 
 Here's the file hierarchy of the program with explanations:
