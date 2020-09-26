@@ -10,7 +10,7 @@ email = dani@kolozsi.net
 pkgname = hsuite
 pretty_name = HSuite
 licensev = 0
-version = 0.8.0.5
+version = 0.8.0.6
 section = 0
 priority = 0
 depends = ${misc:Depends}
@@ -52,7 +52,7 @@ short = HSuite Beta v0.8 | Quake
 longue = HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit for the Linux operating system. Features include powerful built-in custom tools, easy installation of the best quality programs, choosing Linux distribution, helping in everyday tasks and more features are coming.
 
 [misc]
-min_pyver = 3.2
+min_pyver = 3.4
 rules = 0
 postinst = dpkg --add-architecture i386
 	cp /usr/share/hsuite/io.swanux.pkexec.husb.policy /usr/share/polkit-1/actions/
@@ -64,22 +64,8 @@ postrm = rm /usr/bin/hsuite || echo "No need for it2"
 [changelog]
 target = bionic
 urgency = 1
-changes = * Fixed a lots of bugs
-	* Fixed GUI problems
-	* Optimized HSwitcher
-	* Dependency fixes
-	* Depracted Ubuntu 19.10
-	* New unified feedback platform
-	* Added partial support for Pantheon (hswitcher)
-	* Added partial support for Cinnamon (hswitcher + hcontrol)
-	* Added partial support for XFCE (hswitcher + hcontrol)
-	* Added partial support for Budgie (hswitcher + hcontrol)
-	* Added partial support for MATE (hswitcher + hcontrol)
-	* Added USB creation option to Distro Boutique
-	* Extended Distro Boutique
-	* Optimized and modernized code
-	* Extended App Spotlight
-	* Added secure feedback daemon
+changes = * Bug fixes
+	* Backend improvements
 
 [data]
 root = /home/daniel/GitRepos/hsuite/DEV_FILES

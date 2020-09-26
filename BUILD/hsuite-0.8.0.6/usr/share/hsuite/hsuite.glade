@@ -191,12 +191,6 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/hsuite2.png</property>
     <property name="pixel_size">50</property>
   </object>
-  <object class="GtkImage" id="htidal_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/htidal.png</property>
-    <property name="pixel_size">50</property>
-  </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -207,20 +201,271 @@ Author: Dániel Kolozsi (@swanux)
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
   </object>
+  <object class="GtkImage" id="image11">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image12">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image13">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image14">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image15">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image16">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image17">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image18">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image19">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image20">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image21">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image22">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image23">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image24">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image25">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image26">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image27">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image28">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image29">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
   <object class="GtkImage" id="image3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image30">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image31">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image32">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image33">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image34">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image35">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image36">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image37">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image38">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image39">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-apply</property>
   </object>
+  <object class="GtkImage" id="image40">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image41">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image42">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image43">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image44">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image45">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image46">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image47">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image48">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image49">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
   <object class="GtkImage" id="image5">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image50">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image51">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">emblem-downloads</property>
+    <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image6">
     <property name="visible">True</property>
@@ -264,12 +509,6 @@ Author: Dániel Kolozsi (@swanux)
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/mc.png</property>
-    <property name="pixel_size">50</property>
-  </object>
-  <object class="GtkImage" id="meld_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/meld.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="mint_img">
@@ -318,12 +557,6 @@ Author: Dániel Kolozsi (@swanux)
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/pops.png</property>
-    <property name="pixel_size">50</property>
-  </object>
-  <object class="GtkImage" id="publii_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/publii.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="puppy_img">
@@ -404,12 +637,6 @@ Author: Dániel Kolozsi (@swanux)
     <property name="pixbuf">icons/tiny.png</property>
     <property name="pixel_size">50</property>
   </object>
-  <object class="GtkImage" id="transm_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/transmission.png</property>
-    <property name="pixel_size">50</property>
-  </object>
   <object class="GtkImage" id="tux_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -438,12 +665,6 @@ Author: Dániel Kolozsi (@swanux)
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">icons/vivaldi.png</property>
-    <property name="pixel_size">50</property>
-  </object>
-  <object class="GtkImage" id="vlc_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">icons/vlc.png</property>
     <property name="pixel_size">50</property>
   </object>
   <object class="GtkImage" id="vscode_img">
@@ -1002,6 +1223,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image11</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1018,6 +1240,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image12</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1034,6 +1257,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image14</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1075,6 +1299,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image13</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1125,6 +1350,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image15</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1208,6 +1434,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image16</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1224,6 +1451,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image18</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1270,6 +1498,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image19</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1403,6 +1632,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image17</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1594,6 +1824,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image21</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1610,6 +1841,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image24</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -1635,6 +1867,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image20</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1685,6 +1918,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image22</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1735,6 +1969,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image23</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1785,6 +2020,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image25</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -1818,86 +2054,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="top_attach">3</property>
                               </packing>
                             </child>
-                            <child>
-                              <object class="GtkButton" id="publii">
-                                <property name="label">Publii</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <property name="image">publii_img</property>
-                                <property name="image_position">top</property>
-                                <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="applay" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">4</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="webb28">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="vexpand">False</property>
-                                <property name="spacing">5</property>
-                                <child>
-                                  <object class="GtkButton" id="publii_but">
-                                    <property name="label" translatable="yes">Scanning...</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="publiiweb">
-                                    <property name="label" translatable="yes">View Source</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <signal name="clicked" handler="general_src" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">5</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
                           </object>
                         </child>
                       </object>
@@ -1913,7 +2069,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
-                    <property name="label" translatable="yes">Development</property>
+                    <property name="label" translatable="yes">Editors</property>
                   </object>
                   <packing>
                     <property name="position">3</property>
@@ -2056,6 +2212,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image26</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -2072,6 +2229,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image27</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -2097,6 +2255,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image28</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2147,6 +2306,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image29</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2197,6 +2357,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image30</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2247,6 +2408,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image31</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2438,6 +2600,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image36</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -2454,6 +2617,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image37</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -2497,6 +2661,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image32</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2547,6 +2712,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image33</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2597,6 +2763,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image35</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2647,6 +2814,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image34</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2697,6 +2865,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image38</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -2972,6 +3141,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="receives_default">True</property>
                                 <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
+                                <property name="image">image48</property>
                                 <property name="always_show_image">True</property>
                                 <signal name="clicked" handler="general_clicks" swapped="no"/>
                               </object>
@@ -3033,6 +3203,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image39</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3083,6 +3254,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image40</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3133,6 +3305,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image41</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3183,6 +3356,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image42</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3233,6 +3407,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image43</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3283,6 +3458,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image44</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3333,6 +3509,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image45</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3383,6 +3560,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image46</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3433,6 +3611,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image47</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3483,6 +3662,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image49</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3533,6 +3713,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
+                                    <property name="image">image50</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3566,207 +3747,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="top_attach">7</property>
                               </packing>
                             </child>
-                            <child>
-                              <object class="GtkButton" id="vlc">
-                                <property name="label">VLC Media Player</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <property name="image">vlc_img</property>
-                                <property name="image_position">top</property>
-                                <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="applay" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">8</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="meld">
-                                <property name="label">Meld</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <property name="image">meld_img</property>
-                                <property name="image_position">top</property>
-                                <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="applay" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">8</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="transm">
-                                <property name="label">Transmission</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <property name="image">transm_img</property>
-                                <property name="image_position">top</property>
-                                <property name="always_show_image">True</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">8</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="webb30">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="vexpand">False</property>
-                                <property name="spacing">5</property>
-                                <child>
-                                  <object class="GtkButton" id="vlc_but">
-                                    <property name="label" translatable="yes">Scanning...</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="vlcweb">
-                                    <property name="label" translatable="yes">View Source</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <signal name="clicked" handler="general_src" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">9</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="webb31">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="vexpand">False</property>
-                                <property name="spacing">5</property>
-                                <child>
-                                  <object class="GtkButton" id="meld_but">
-                                    <property name="label" translatable="yes">Scanning...</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="meldweb">
-                                    <property name="label" translatable="yes">View Source</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <signal name="clicked" handler="general_src" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">9</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="webb32">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="vexpand">False</property>
-                                <property name="spacing">5</property>
-                                <child>
-                                  <object class="GtkButton" id="transm_but">
-                                    <property name="label" translatable="yes">Scanning...</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                    <property name="always_show_image">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="transmweb">
-                                    <property name="label" translatable="yes">View Source</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="vexpand">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">9</property>
-                              </packing>
-                            </child>
                           </object>
                         </child>
                       </object>
@@ -3782,7 +3762,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
-                    <property name="label" translatable="yes">Others</property>
+                    <property name="label" translatable="yes">Extras</property>
                   </object>
                   <packing>
                     <property name="position">6</property>
@@ -3859,6 +3839,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                     <property name="margin_top">5</property>
                                     <property name="margin_bottom">5</property>
                                     <property name="hexpand">True</property>
+                                    <property name="image">image51</property>
                                     <property name="always_show_image">True</property>
                                     <signal name="clicked" handler="general_clicks" swapped="no"/>
                                   </object>
@@ -3904,72 +3885,6 @@ If you click on the icon of the program, you'll see some extra informations abou
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
-                                <property name="top_attach">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="htidal">
-                                <property name="label">HEnv</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="margin_top">5</property>
-                                <property name="margin_bottom">5</property>
-                                <property name="image">htidal_img</property>
-                                <property name="image_position">top</property>
-                                <property name="always_show_image">True</property>
-                                <signal name="clicked" handler="applay" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkBox" id="webb29">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="vexpand">False</property>
-                                <property name="spacing">5</property>
-                                <child>
-                                  <object class="GtkButton" id="htidal_but">
-                                    <property name="label" translatable="yes">Scanning...</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="always_show_image">True</property>
-                                    <signal name="clicked" handler="general_clicks" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="htidalweb">
-                                    <property name="label" translatable="yes">View Source</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="margin_top">5</property>
-                                    <property name="margin_bottom">5</property>
-                                    <property name="hexpand">True</property>
-                                    <signal name="clicked" handler="general_src" swapped="no"/>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
                                 <property name="top_attach">1</property>
                               </packing>
                             </child>
@@ -4032,6 +3947,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                         <property name="margin_right">20</property>
                         <property name="margin_top">10</property>
                         <property name="margin_bottom">10</property>
+                        <property name="image">image2</property>
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="on_back_button_clicked" swapped="no"/>
                       </object>

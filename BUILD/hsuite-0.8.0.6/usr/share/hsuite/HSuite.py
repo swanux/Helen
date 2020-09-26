@@ -4,7 +4,7 @@
 #________________________________________________________________________________ BEGINNING OF INIT ____________________________________________________________#
 
 # Version of the program
-version = 'HSuite v0.8.1 | Quake'
+version = 'HSuite v0.8 | Quake'
 v = ''
 
 ### Import modules ###
@@ -139,12 +139,7 @@ srcDict = {
     'vivweb' : 'https://github.com/ric2b/Vivaldi-browser',
     'webweb' : 'https://gitlab.gnome.org/GNOME/epiphany',
     'suiteweb' : 'https://github.com/swanux/hsuite',
-    'envweb' : 'https://github.com/swanux/henv',
-    'htidalweb' : 'https://github.com/swanux/htidal',
-    'transmweb' : 'https://github.com/transmission/transmission',
-    'meldweb' : 'https://gitlab.gnome.org/GNOME/meld',
-    'vlcweb' : 'https://www.videolan.org/vlc/download-sources.html',
-    'publiiweb' : 'https://github.com/GetPublii/Publii'
+    'envweb' : 'https://github.com/swanux/henv'
 }
 
 liLi = {
@@ -190,12 +185,7 @@ liLi = {
     'deja_but' : ['Déja-Dup', 'deja-dup', '', 38],
     'tims_but' : ['Timeshift', 'timeshift', '', 39],
     'tw_but' : ['TeamViewer', 'teamviewer', '', 40],
-    'box_but' : ['Gnome Boxes', 'gnome-boxes', '', 41],
-    'publii_but' : ['Publii', 'publii', '', 64],
-    'htidal_but' : ['HTidal', 'htidal', '', 65],
-    'transm_but' : ['Transmission', 'transmission-gtk', '', 66],
-    'vlc_but' : ['VLC Media Player', 'vlc', '', 67],
-    'meld_but' : ['Meld', 'meld', '', 68]
+    'box_but' : ['Gnome Boxes', 'gnome-boxes', '', 41]
     }
 loLa = {'mint' : 43, 'ubuntu' : 44, 'solus' : 45, 'deepin' : 46, 'elementary' : 47, 'steamos' : 48, 'deb' : 49, 'fedora' : 50, 'opsu' : 51, 'arch' : 52, 'gentoo' : 53, 'lfs' : 54, 'drauger' : 55, 'slax' : 56, 'pepper' : 57, 'bodhi' : 58, 'sparky' : 59, 'puppy' : 60, 'tiny' : 61}
 
