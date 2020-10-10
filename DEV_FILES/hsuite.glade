@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 
+<!-- Generated with glade 3.22.2 
 
 Copyright (C) HSuite 2019
 
@@ -3613,6 +3613,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                                 <property name="image">transm_img</property>
                                 <property name="image_position">top</property>
                                 <property name="always_show_image">True</property>
+                                <signal name="clicked" handler="applay" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3909,7 +3910,7 @@ If you click on the icon of the program, you'll see some extra informations abou
                             </child>
                             <child>
                               <object class="GtkButton" id="htidal">
-                                <property name="label">HEnv</property>
+                                <property name="label">HTidal</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>

@@ -480,9 +480,44 @@ HEnv is a small tool that helps me in development. The name itself stands for H-
 """)
 
 
-descDict = {opera : _('App Spotlight'), chrome : _('App Spotlight'), web : _('App Spotlight'), firefox : _('App Spotlight'), vivaldi : _('App Spotlight'), edge : _('App Spotlight'), wps : _('App Spotlight'), libreoffice : _('App Spotlight'), freeoffice : _('App Spotlight'), onlyoffice : _('App Spotlight'), gedit : _('App Spotlight'), emacs : _('App Spotlight'), code : _('App Spotlight'), atom : _('App Spotlight'), stext : _('App Spotlight'), geany : _('App Spotlight'), skype : _('App Spotlight'), discord : _('App Spotlight'), telegram : _('App Spotlight'), signal : _('App Spotlight'), hexchat : _('App Spotlight'), franz : _('App Spotlight'), ad : _('App Spotlight'), tux : _('App Spotlight'), lutris : _('App Spotlight'), pol : _('App Spotlight'), steam : _('App Spotlight'), minecraft : _('App Spotlight'), tuxkart : _('App Spotlight'), popsicle : _('App Spotlight'), woeusb : _('App Spotlight'), wine : _('App Spotlight'), vbox : _('App Spotlight'), gparted : _('App Spotlight'), gestures : _('App Spotlight'), audacity : _('App Spotlight'), officeonline : _('App Spotlight'), gsuite : _('App Spotlight'), deja : _('App Spotlight'), timeshift : _('App Spotlight'), teamv : _('App Spotlight'), box : _('App Spotlight'), barrier : _('App Spotlight'), mint : _('Distro Boutique'), ubuntu : _('Distro Boutique'), solus : _('Distro Boutique'), deepin : _('Distro Boutique'), elementary : _('Distro Boutique'), steamos : _('Distro Boutique'), debian : _('Distro Boutique'),fedora : _('Distro Boutique'), opensuse : _('Distro Boutique'), arch : _('Distro Boutique'), gentoo : _('Distro Boutique'), lfs : _('Distro Boutique'), drauger : _('Distro Boutique'), slax : _('Distro Boutique'), pepper : _('Distro Boutique'), bodhi : _('Distro Boutique'), sparky : _('Distro Boutique'), puppy : _('Distro Boutique'), tiny : _('Distro Boutique'), hsuite : _('App Spotlight'), henv : _('App Spotlight')}
+publii = _("""Publii
 
-descList = [opera, chrome, web, firefox, vivaldi, edge, wps, libreoffice, onlyoffice, officeonline, gsuite, freeoffice, gedit, emacs, code, atom, stext, geany, skype, discord, telegram, signal, hexchat, franz, ad, tux, lutris, pol, steam, minecraft, tuxkart, popsicle, woeusb, wine, vbox, gparted, gestures, audacity, deja, timeshift, teamv, box, barrier, mint, ubuntu, solus, deepin, elementary, steamos, debian, fedora, opensuse, arch, gentoo, lfs, drauger, slax, pepper, bodhi, sparky, puppy, tiny, hsuite, henv]
+Unlike static-site generators that are often unwieldy and difficult to use, Publii provides an easy-to-understand UI much like server-based CMSs such as WordPress or Joomla!, where users can create posts and other site content, and style their site using a variety of built-in themes and options. Users can enjoy the benefits of a super-fast and secure static website, with all the convenience that a CMS provides. Publii supports multiple upload options, including standard HTTP/HTTPS servers, Netlify, Amazon S3, GitHub Pages and Google Cloud or SFTP.
+""")
+
+htidal = _("""HTidal
+
+HTidal is an unofficial Tidal client for Linux which is completely opensource. It's really close to the official Tidal application, but with a few differences:
+- It's not modern looking (It makes it more efficient but also less pleasant)
+- It supports Linux (The web app is a bit picky with the browser support and it doesn't support offline mode and it's also less convenient, so I don't count it)
+- It's opensource (which also means that it can have extra functions based on the developer's / modifier's needs)
+- It perfectly fits into your Linux desktop (it uses GTK, Python and your local keyring)
+""")
+
+transmission = _("""Transmission
+
+Transmission is designed for easy, powerful use. We've set the defaults to Just Work and it only takes a few clicks to configure advanced features like watch directories, bad peer blocklists, and the web interface. When Ubuntu chose Transmission as its default BitTorrent client, one of the most-cited reasons was its easy learning curve.
+
+In separate benchmarks, Linux Format and Lacrocivious both found Transmission to use less CPU than any other GUI client. It even used less CPU than some non-GUI clients.
+Transmission also has the lowest memory footprint of any major BitTorrent client.
+""")
+
+vlc = _("""VLC
+
+Everyone knows The Videoplayer (VLC), which is the best on every platform, with every format.
+VLC media player (previously the VideoLAN Client and commonly known as simply VLC) is a free and open-source, portable, cross-platform media player software and streaming media server developed by the VideoLAN project.
+VLC supports many audio and video compression methods and file formats, including DVD-Video, video CD and streaming protocols. It is able to stream media over computer networks and to transcode multimedia files.
+""")
+
+meld = _("""Meld
+
+Meld is a visual diff and merge tool targeted at developers. Meld helps you compare files, directories, and version controlled projects. It provides two- and three-way comparison of both files and directories, and has support for many popular version control systems.
+Meld helps you review code changes and understand patches. It might even help you to figure out what is going on in that merge you keep avoiding.
+""")
+
+descDict = {opera : _('App Spotlight'), chrome : _('App Spotlight'), web : _('App Spotlight'), firefox : _('App Spotlight'), vivaldi : _('App Spotlight'), edge : _('App Spotlight'), wps : _('App Spotlight'), libreoffice : _('App Spotlight'), freeoffice : _('App Spotlight'), onlyoffice : _('App Spotlight'), gedit : _('App Spotlight'), emacs : _('App Spotlight'), code : _('App Spotlight'), atom : _('App Spotlight'), stext : _('App Spotlight'), geany : _('App Spotlight'), skype : _('App Spotlight'), discord : _('App Spotlight'), telegram : _('App Spotlight'), signal : _('App Spotlight'), hexchat : _('App Spotlight'), franz : _('App Spotlight'), ad : _('App Spotlight'), tux : _('App Spotlight'), lutris : _('App Spotlight'), pol : _('App Spotlight'), steam : _('App Spotlight'), minecraft : _('App Spotlight'), tuxkart : _('App Spotlight'), popsicle : _('App Spotlight'), woeusb : _('App Spotlight'), wine : _('App Spotlight'), vbox : _('App Spotlight'), gparted : _('App Spotlight'), gestures : _('App Spotlight'), audacity : _('App Spotlight'), officeonline : _('App Spotlight'), gsuite : _('App Spotlight'), deja : _('App Spotlight'), timeshift : _('App Spotlight'), teamv : _('App Spotlight'), box : _('App Spotlight'), barrier : _('App Spotlight'), mint : _('Distro Boutique'), ubuntu : _('Distro Boutique'), solus : _('Distro Boutique'), deepin : _('Distro Boutique'), elementary : _('Distro Boutique'), steamos : _('Distro Boutique'), debian : _('Distro Boutique'),fedora : _('Distro Boutique'), opensuse : _('Distro Boutique'), arch : _('Distro Boutique'), gentoo : _('Distro Boutique'), lfs : _('Distro Boutique'), drauger : _('Distro Boutique'), slax : _('Distro Boutique'), pepper : _('Distro Boutique'), bodhi : _('Distro Boutique'), sparky : _('Distro Boutique'), puppy : _('Distro Boutique'), tiny : _('Distro Boutique'), hsuite : _('App Spotlight'), henv : _('App Spotlight'), publii : _('App Spotlight'), htidal : _('App Spotlight'), transmission : _('App Spotlight'), vlc : _('App Spotlight'), meld : _('App Spotlight')}
+
+descList = [opera, chrome, web, firefox, vivaldi, edge, wps, libreoffice, onlyoffice, officeonline, gsuite, freeoffice, gedit, emacs, code, atom, stext, geany, skype, discord, telegram, signal, hexchat, franz, ad, tux, lutris, pol, steam, minecraft, tuxkart, popsicle, woeusb, wine, vbox, gparted, gestures, audacity, deja, timeshift, teamv, box, barrier, mint, ubuntu, solus, deepin, elementary, steamos, debian, fedora, opensuse, arch, gentoo, lfs, drauger, slax, pepper, bodhi, sparky, puppy, tiny, hsuite, henv, publii, htidal, transmission, vlc, meld]
 
 webDict = {mint : _('https://www.linuxmint.com'), ubuntu : _('https://ubuntu.com'), solus : _('https://getsol.us/home/'), deepin : _('https://www.deepin.org/en/'), elementary : _('https://elementary.io'), steamos : _('https://store.steampowered.com/steamos/'), debian : _('https://www.debian.org'), fedora : _('https://getfedora.org'), opensuse : _('https://www.opensuse.org'), arch : _('https://www.archlinux.org'), gentoo : _('https://www.gentoo.org'), lfs : _('http://www.linuxfromscratch.org'), drauger : _('https://draugeros.org/'), slax : _('https://www.slax.org'), pepper : _('https://peppermintos.com'), bodhi : _('https://www.bodhilinux.com'), sparky : _('https://sparkylinux.org'), puppy : _('http://puppylinux.com'), tiny : _('http://tinycorelinux.net')}
 

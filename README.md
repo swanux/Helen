@@ -155,6 +155,6 @@ HSuite (previously Helen) is the SSU (Simple, Small, Useful) toolkit for the Lin
 
 # Development process
 
-Here are some small demos of the beta versions. Lots of work in progress...
+Here are some small demos of the beta versions. Work in progress...
 
 https://www.youtube.com/playlist?list=PL1e4zYtM_xvf_R4ggIu64BUf33XSHkTzz
