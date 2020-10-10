@@ -148,7 +148,7 @@ srcDict = {
 }
 
 liLi = {
-    'opera_but' : ['Opera', 'opera-stable', 'opera-ffmpeg-codecs', 0],
+    'opera_but' : ['Opera', 'opera-stable', 'opera-codecs', 0],
     'chrome_but' : ['Chrome', 'google-chrome-stable', '', 1],
     'web_but' : ['Web', 'epiphany-browser', '', 2],
     'firefox_but' : ['Firefox', 'firefox', '', 3],
