@@ -1,0 +1,10 @@
+hsuite (0.8.1-1) bionic; urgency=medium
+
+  * * Bug fixes
+  * * Added new Feedback option (HTidal)
+  * * Improved development tools
+  * * Added Publii, HTidal, VLC, Transmission and Meld
+  * * Fixed theme releated problems
+  * * Added own opera-codecs
+
+ -- Dániel Kolozsi <dani@kolozsi.net>  Thu, 22 Oct 2020 17:35:43 +0100

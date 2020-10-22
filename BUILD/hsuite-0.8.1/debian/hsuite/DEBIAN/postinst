@@ -1,0 +1,17 @@
+#!/bin/bash +e
+
+dpkg --add-architecture i386
+cp /usr/share/hsuite/io.swanux.pkexec.husb.policy /usr/share/polkit-1/actions/
+x=$(apt list --installed | grep mate-panel/)
+if [[ $x == *'mate-panel'* ]]; then cp /usr/share/hsuite/layouts/* /usr/share/mate-panel/layouts/; fi
+ln -s /usr/share/hsuite/hsuite.sh /usr/bin/hsuite || echo "No need for it"
+
+# Automatically added by dh_python3:
+if which py3compile >/dev/null 2>&1; then
+	py3compile -p hsuite /usr/share/hsuite -V 3.4-
+fi
+if which pypy3compile >/dev/null 2>&1; then
+	pypy3compile -p hsuite /usr/share/hsuite -V 3.4- || true
+fi
+
+# End automatically added section

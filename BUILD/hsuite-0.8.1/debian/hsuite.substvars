@@ -1,0 +1,4 @@
+python3:Depends=python3:any, python3:any (>= 3.4~)
+shlibs:Depends=libc6 (>= 2.18), libgcc-s1 (>= 4.2)
+misc:Depends=
+misc:Pre-Depends=
