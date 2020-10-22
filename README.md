@@ -3,25 +3,14 @@ Here is the changelog of every update. For further details you can always check 
 
 **Website:** https://swanux.github.io/hsuite.html
 
-**v0.8 | Quake**
-*Note: Hopefully a long term release*
+**v0.8.1 | Quake**
+*Note: Maintenance release for LTS 0.8*
 
-    * Fixed a lots of bugs
-	* Fixed GUI problems
-	* Optimized HSwitcher
-	* Dependency fixes
-	* Depracted Ubuntu 19.10
-	* New unified feedback platform
-	* Added partial support for Pantheon (hswitcher)
-	* Added partial support for Cinnamon (hswitcher + hcontrol)
-	* Added partial support for XFCE (hswitcher + hcontrol)
-	* Added partial support for Budgie (hswitcher + hcontrol)
-	* Added partial support for MATE (hswitcher + hcontrol)
-	* Added USB creation option to Distro Boutique
-	* Extended Distro Boutique
-	* Optimized and modernized code
-	* Extended App Spotlight
-	* Added secure feedback daemon
+	* Added new Feedback option (HTidal)
+	* Improved development tools
+	* Added Publii, HTidal, VLC, Transmission and Meld
+	* Fixed theme releated problems
+	* Added own opera-codecs
 
 # Compatibility
 
