@@ -30,7 +30,7 @@ class Transser:
             print(json.dumps({"string": question, "type": 'question'}))
             reply = str(input())
         else:
-            reply = str(input(question+' (y/n/r): ')).lower().strip()
+            reply = str(input(question+' (y/n/r/R): ')).strip()
         if reply[0] == 'y':
             if typ == 'spec':
                 os.remove('{0}{1}'.format(dst, self.filenam))
@@ -40,6 +40,21 @@ class Transser:
                 os.remove(self.destt)
             else:
                 os.remove(dst)
+        elif reply[0] == 'R':
+            if typ == 'spec':
+                self.filenam = reply.split('/')[1]
+            elif typ == 'specfile':
+                splitt = self.destt.split('/')
+                splitt[-1] = reply.split('/')[1]
+                self.destt = '/'.join(splitt)
+            else:
+                self.repFil = True
+                splitt = dst.split('/')
+                splitt[-1] = reply.split('/')[1]
+                self.nfile = '/'.join(splitt)
+                print('############## 2')
+                print(dst)
+                self.canpass = True
         elif reply[0] == 'r':
             if typ == 'spec':
                 try:
@@ -47,9 +62,9 @@ class Transser:
                 except:
                     suffix = ''
                 if suffix == None or suffix == '':
-                    self.filenam = reply.split(' ')[1]
+                    self.filenam = reply.split('/')[1]
                 else:
-                    self.filenam = reply.split(' ')[1]+'.'+suffix
+                    self.filenam = reply.split('/')[1]+'.'+suffix
             elif typ == 'specfile':
                 splitt = self.destt.split('/')
                 try:
@@ -57,9 +72,9 @@ class Transser:
                 except:
                     suffix = ''
                 if suffix == None or suffix == '':
-                    splitt[-1] = reply.split(' ')[1]
+                    splitt[-1] = reply.split('/')[1]
                 else:
-                    splitt[-1] = reply.split(' ')[1]+'.'+suffix
+                    splitt[-1] = reply.split('/')[1]+'.'+suffix
                 self.destt = '/'.join(splitt)
             else:
                 # try:
@@ -72,7 +87,7 @@ class Transser:
                 #     self.filenam = reply.split(' ')[1]+'.'+suffix
                 self.repFil = True
                 splitt = dst.split('/')
-                splitt[-1] = reply.split(' ')[1]
+                splitt[-1] = reply.split('/')[1]
                 self.nfile = '/'.join(splitt)
                 print('############## 2')
                 print(dst)
