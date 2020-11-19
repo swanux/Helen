@@ -2153,6 +2153,7 @@ if __name__ == "__main__":
         file = open(confP, "w+")
         parser.write(file)
         file.close()
+        os.system("./sfbknd hsuite")
     if desktop == 'Unknown':
         app.construct_dialog(Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _(f"Your desktop is detected as {DE.upper()}. This desktop is not supported yet, you may encounter some problems with DE specific parts of the program. Currently supported: Gnome/Ubuntu"), _("Attention!"), 'general')
     elif desktop == 'Budgie' and os.popen('apt list --installed | grep budgie-extras-daemon').read() == '':

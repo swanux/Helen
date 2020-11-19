@@ -88,5 +88,6 @@ program = hsuite.glade
 	htransfer.py
 	husb.py
 	sfdaemon
+	sfbknd
 entry = hsuite.desktop
 
